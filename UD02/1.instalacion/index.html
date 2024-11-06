@@ -700,8 +700,8 @@
 Como solo tenemos un nodo, el mismo nodo será el maestro y el esclavo (no pasará nunca en producción ya que siempre tendremos un maestro y varios esclavos).</p>
 </div>
 <h2 id="creacion-configuracion-del-cluster">Creación / configuración del cluster</h2>
-<p>Como usuario <code>hadoop</code></p>
-<p>Accedemos por ssh a la máquina virtual en la que habíamos descomprimido hadoop.</p>
+<p>Como usuario <code>hadoop</code><br />
+Accedemos por ssh a la máquina virtual en la que habíamos descomprimido hadoop.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>/opt/hadoop/etc/hadoop/
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>$<span class="w"> </span>ls
@@ -714,104 +714,106 @@ Como solo tenemos un nodo, el mismo nodo será el maestro y el esclavo (no pasar
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>hadoop-metrics2.properties<span class="w">  </span>kms-acls.xml<span class="w">                      </span>**mapred-site.xml**<span class="w">             </span>yarnservice-log4j.properties
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>hadoop-policy.xml<span class="w">           </span>kms-env.sh<span class="w">                        </span>shellprofile.d<span class="w">              </span>**yarn-site.xml**
 </span></code></pre></div>
-<p>Ficheros más importantes.</p>
-<p>core-site.xml → configuración general del cluster.</p>
-<p>hdfs-site.xml → configuración sistema de ficheros hdfs.</p>
-<p>mapred-site.xml → configuración de mapreduce.</p>
-<p>yarn-site.xml → configuración del modo de trabajo del proceso yarn.</p>
+<p>Ficheros más importantes.<br />
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>core-site.xml → configuración general del cluster.
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>hdfs-site.xml → configuración sistema de ficheros hdfs.
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>mapred-site.xml → configuración de mapreduce.
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>yarn-site.xml → configuración del modo de trabajo del proceso yarn.
+</span></code></pre></div></p>
 <h3 id="core-sitexml">core-site.xml</h3>
 <p>Inicialmente está vacío.</p>
-<p>Lo modificamos para indicarle:</p>
-<p>name → Qué sistema de fichero vamos a utilizar en hadoop (por defecto hdfs, hay otros).</p>
-<p>value → Dónde se encuentra el servidor maestro que va a contener los datos (Namenode)</p>
-<p>estará en nodo1 (la máquina donde me encuentro, puerto 9000)</p>
-<div class="language-xml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">&lt;configuration&gt;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nt">&lt;property&gt;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="nt">&lt;name&gt;</span>fs.defaultFS<span class="nt">&lt;/name&gt;</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="nt">&lt;value&gt;</span>hdfs://HOSTNAME:9000<span class="nt">&lt;/value&gt;</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">&lt;/property&gt;</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nt">&lt;/configuration&gt;</span>
-</span></code></pre></div>
-<h3 id="hdfs-sitexml">hdfs-site.xml</h3>
-<p>dfs.replication → Por defecto cada bloque se replica 3 veces, como tenemos 1 nodo, indicamos que solo hay 1 nodo que no replique.</p>
-<p>dfs.namenode.name.dir → Dónde se encuentra la información del maestro (los metadatos que guarda el maestro).</p>
-<p>Solo se indica en los clusters “maestro”, pero como estamos haciendo un cluster pseudodistribuido lo indicamos.</p>
-<p>dfs.datanode.data.dir → En cada esclavo dónde se guardan los datos.</p>
-<p>Solo se indica en los clusters “esclavos”, pero como estamos haciendo un cluster pseudodistribuido lo indicamos.</p>
+<p>Lo modificamos para indicarle:<br />
+name → Qué sistema de fichero vamos a utilizar en hadoop (por defecto hdfs, hay otros).<br />
+value → Dónde se encuentra el servidor maestro que va a contener los datos (Namenode) estará en nodo1 (la máquina donde me encuentro, puerto 9000)</p>
 <div class="language-xml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">&lt;configuration&gt;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&lt;property&gt;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="nt">&lt;name&gt;</span>dfs.replication<span class="nt">&lt;/name&gt;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="nt">&lt;value&gt;</span>1<span class="nt">&lt;/value&gt;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="nt">&lt;name&gt;</span>fs.defaultFS<span class="nt">&lt;/name&gt;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="nt">&lt;value&gt;</span>hdfs://HOSTNAME:9000<span class="nt">&lt;/value&gt;</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">&lt;/property&gt;</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">&lt;property&gt;</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="nt">&lt;name&gt;</span>dfs.namenode.name.dir<span class="nt">&lt;/name&gt;</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="nt">&lt;value&gt;</span>/datos/namenode<span class="nt">&lt;/value&gt;</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="nt">&lt;/property&gt;</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="nt">&lt;property&gt;</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="nt">&lt;name&gt;</span>dfs.datanode.data.dir<span class="nt">&lt;/name&gt;</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="nt">&lt;value&gt;</span>/datos/datanode<span class="nt">&lt;/value&gt;</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="nt">&lt;/property&gt;</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="nt">&lt;/configuration&gt;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nt">&lt;/configuration&gt;</span>
+</span></code></pre></div>
+<h3 id="hdfs-sitexml">hdfs-site.xml</h3>
+<p><code>dfs.replication</code> → Por defecto cada bloque se replica 3 veces, como tenemos 1 nodo, indicamos que solo hay 1 nodo que no replique.</p>
+<p><code>dfs.namenode.name.dir</code>→ Dónde se encuentra la información del maestro (los metadatos que guarda el maestro).<br />
+Solo se indica en los clusters “maestro”, pero como estamos haciendo un cluster pseudodistribuido lo indicamos.</p>
+<p><code>dfs.datanode.data.dir</code>→ En cada esclavo dónde se guardan los datos.<br />
+Solo se indica en los clusters “esclavos”, pero como estamos haciendo un cluster pseudodistribuido lo indicamos.</p>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">&lt;configuration&gt;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nt">&lt;property&gt;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="nt">&lt;name&gt;</span>dfs.replication<span class="nt">&lt;/name&gt;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="nt">&lt;value&gt;</span>1<span class="nt">&lt;/value&gt;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">&lt;property&gt;</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="nt">&lt;name&gt;</span>dfs.namenode.name.dir<span class="nt">&lt;/name&gt;</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="nt">&lt;value&gt;</span>/datos/namenode<span class="nt">&lt;/value&gt;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="nt">&lt;property&gt;</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="nt">&lt;name&gt;</span>dfs.datanode.data.dir<span class="nt">&lt;/name&gt;</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="nt">&lt;value&gt;</span>/datos/datanode<span class="nt">&lt;/value&gt;</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="nt">&lt;/configuration&gt;</span>
 </span></code></pre></div>
 <h3 id="hadoop-envsh">hadoop-env.sh</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/lib/jvm/java-11-openjdk-amd64
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/lib/jvm/java-11-openjdk-amd64
 </span></code></pre></div>
 <h2 id="directorios-y-sistema-de-ficheros">Directorios y sistema de ficheros</h2>
 <ol>
-<li>Creamos los directorios configurados en el punto anterior</li>
+<li>
+<p>Creamos los directorios configurados en el punto anterior<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>/datos/namenode
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>/datos/datanode
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Cambiamos el propietario y grupo de /datos a <code>hadoop</code>.<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/datos
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>total<span class="w"> </span><span class="m">16</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>drwxr-xr-x<span class="w">  </span><span class="m">4</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w"> </span><span class="m">4096</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">08</span>:28<span class="w"> </span>.
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>drwxr-xr-x<span class="w"> </span><span class="m">19</span><span class="w"> </span>root<span class="w">   </span>root<span class="w">   </span><span class="m">4096</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">08</span>:28<span class="w"> </span>..
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w"> </span><span class="m">4096</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">08</span>:28<span class="w"> </span>datanode
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w"> </span><span class="m">4096</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">08</span>:28<span class="w"> </span>namenode
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Creamos el sistema de ficheros del namenode (lo creará donde le hemos indicado en el xml).<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Formateamos el namenode</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>$<span class="w"> </span>hdfs<span class="w"> </span>namenode<span class="w"> </span>-format
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Podemos de ver lo que ha creado...</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>$<span class="w"> </span>ls<span class="w"> </span>/datos/namenode/*
+</span></code></pre></div></p>
+</li>
 </ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/datos/namenode
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>/datos/datanode
-</span></code></pre></div>
-<ol>
-<li>Cambiamos el propietario y grupo de /datos a <code>hadoop</code>.</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/datos
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>total<span class="w"> </span><span class="m">16</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>drwxr-xr-x<span class="w">  </span><span class="m">4</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w"> </span><span class="m">4096</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">08</span>:28<span class="w"> </span>.
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>drwxr-xr-x<span class="w"> </span><span class="m">19</span><span class="w"> </span>root<span class="w">   </span>root<span class="w">   </span><span class="m">4096</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">08</span>:28<span class="w"> </span>..
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w"> </span><span class="m">4096</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">08</span>:28<span class="w"> </span>datanode
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w"> </span><span class="m">4096</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">08</span>:28<span class="w"> </span>namenode
-</span></code></pre></div>
-<ol>
-<li>Creamos el sistema de ficheros del namenode (lo creará donde le hemos indicado en el xml).</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Formateamos el namenode</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>$<span class="w"> </span>hdfs<span class="w"> </span>namenode<span class="w"> </span>-format
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Podemos de ver lo que ha creado...</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>$<span class="w"> </span>ls<span class="w"> </span>/datos/namenode/*
-</span></code></pre></div>
 <h2 id="arrancamos-hdfs">Arrancamos HDFS</h2>
 <div class="admonition info">
 <p class="admonition-title">Hadoop</p>
 <p>Hadoop tiene dos partes: DATOS y PROCESOS, actualmente estamos trabajando en la parte de DATOS.</p>
 </div>
 <p>Arrancamos los procesos de HDFS. Debe arrancar el NAMENODE, el SECONDARY NAMENODE y el DATANODE.</p>
-<p>Vamos a la carpeta <code>sbin</code> dentro de hadoop.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/opt/hadoop/sbin/
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>$<span class="w"> </span>start-dfs.sh
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># 1. Arranca namenode</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># 2. Arranca datanode</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># 3. Arranca secondarynamenode</span>
-</span></code></pre></div>
+<p>Vamos a la carpeta <code>sbin</code> dentro de hadoop.<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/opt/hadoop/sbin/
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>$<span class="w"> </span>start-dfs.sh
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1"># 1. Arranca namenode</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># 2. Arranca datanode</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># 3. Arranca secondarynamenode</span>
+</span></code></pre></div></p>
 <p>Dentro de las JDK de java, tenemos un comando para ver los procesos java en ejecución:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>jps
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="m">3218</span><span class="w"> </span>DataNode
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="m">3143</span><span class="w"> </span>NameNode
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="m">3592</span><span class="w"> </span>Jps
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="m">3485</span><span class="w"> </span>SecondaryNameNode
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># También podemos utilizar</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>$<span class="w"> </span>ps<span class="w"> </span>-fe<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>java
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$<span class="w"> </span>jps
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="m">3218</span><span class="w"> </span>DataNode
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="m">3143</span><span class="w"> </span>NameNode
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="m">3592</span><span class="w"> </span>Jps
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="m">3485</span><span class="w"> </span>SecondaryNameNode
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># También podemos utilizar</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>$<span class="w"> </span>ps<span class="w"> </span>-fe<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>java
 </span></code></pre></div>
 <p>Comprobamos las carpetas de datos</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$<span class="w"> </span>ls<span class="w"> </span>/datos/namenode/
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>current<span class="w">  </span>in_use.lock
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Ahora esta carpeta ya tiene datos</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>$<span class="w"> </span>ls<span class="w"> </span>-a<span class="w"> </span>/datos/datanode/
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>.<span class="w">  </span>..<span class="w">  </span>current<span class="w">  </span>in_use.lock
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$<span class="w"> </span>ls<span class="w"> </span>/datos/namenode/
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>current<span class="w">  </span>in_use.lock
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># Ahora esta carpeta ya tiene datos</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>$<span class="w"> </span>ls<span class="w"> </span>-a<span class="w"> </span>/datos/datanode/
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>.<span class="w">  </span>..<span class="w">  </span>current<span class="w">  </span>in_use.lock
 </span></code></pre></div>
 <p>También podemos acceder a la web de Administración para ver el resultado.</p>
 <p>Hadoop 2 → Puerto 50070</p>
@@ -823,26 +825,26 @@ Como solo tenemos un nodo, el mismo nodo será el maestro y el esclavo (no pasar
 <p><img alt="" src="../images/instalacion1.png" /><br />
 <img alt="" src="../images/instalacion2.png" /></p>
 <h1 id="3-trabajar-con-hfs">3. Trabajar con HFS</h1>
-<p>En <code>/datos/namenode/current</code> hay 3 tipos de ficheros:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">      </span><span class="m">42</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">09</span>:09<span class="w"> </span>edits_0000000000000000001-0000000000000000002
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">      </span><span class="m">42</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">10</span>:09<span class="w"> </span>edits_0000000000000000003-0000000000000000004
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">      </span><span class="m">42</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">12</span>:34<span class="w"> </span>edits_0000000000000000005-0000000000000000006
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w"> </span><span class="m">1048576</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">12</span>:34<span class="w"> </span>edits_inprogress_0000000000000000007
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">     </span><span class="m">401</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">10</span>:09<span class="w"> </span>fsimage_0000000000000000004
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">      </span><span class="m">62</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">10</span>:09<span class="w"> </span>fsimage_0000000000000000004.md5
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">     </span><span class="m">401</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">12</span>:34<span class="w"> </span>fsimage_0000000000000000006
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">      </span><span class="m">62</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">12</span>:34<span class="w"> </span>fsimage_0000000000000000006.md5
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">       </span><span class="m">2</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">12</span>:34<span class="w"> </span>seen_txid
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">     </span><span class="m">214</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">08</span>:35<span class="w"> </span>VERSION
-</span></code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$<span class="w"> </span>cat<span class="w"> </span>VERSION
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1">#Thu Oct 26 08:35:28 CEST 2023</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nv">namespaceID</span><span class="o">=</span><span class="m">623528578</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="nv">blockpoolID</span><span class="o">=</span>BP-1493409649-127.0.1.1-1698302128453
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="nv">storageType</span><span class="o">=</span>NAME_NODE
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="nv">cTime</span><span class="o">=</span><span class="m">1698302128453</span>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="nv">clusterID</span><span class="o">=</span>CID-ca9bde81-b05d-4fcc-8c4c-b54887eada3b
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="nv">layoutVersion</span><span class="o">=</span>-66
+<p>En <code>/datos/namenode/current</code> hay 3 tipos de ficheros:<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">      </span><span class="m">42</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">09</span>:09<span class="w"> </span>edits_0000000000000000001-0000000000000000002
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">      </span><span class="m">42</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">10</span>:09<span class="w"> </span>edits_0000000000000000003-0000000000000000004
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">      </span><span class="m">42</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">12</span>:34<span class="w"> </span>edits_0000000000000000005-0000000000000000006
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w"> </span><span class="m">1048576</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">12</span>:34<span class="w"> </span>edits_inprogress_0000000000000000007
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">     </span><span class="m">401</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">10</span>:09<span class="w"> </span>fsimage_0000000000000000004
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">      </span><span class="m">62</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">10</span>:09<span class="w"> </span>fsimage_0000000000000000004.md5
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">     </span><span class="m">401</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">12</span>:34<span class="w"> </span>fsimage_0000000000000000006
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">      </span><span class="m">62</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">12</span>:34<span class="w"> </span>fsimage_0000000000000000006.md5
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">       </span><span class="m">2</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">12</span>:34<span class="w"> </span>seen_txid
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w">     </span><span class="m">214</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">08</span>:35<span class="w"> </span>VERSION
+</span></code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$<span class="w"> </span>cat<span class="w"> </span>VERSION
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="c1">#Thu Oct 26 08:35:28 CEST 2023</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nv">namespaceID</span><span class="o">=</span><span class="m">623528578</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="nv">blockpoolID</span><span class="o">=</span>BP-1493409649-127.0.1.1-1698302128453
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="nv">storageType</span><span class="o">=</span>NAME_NODE
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="nv">cTime</span><span class="o">=</span><span class="m">1698302128453</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="nv">clusterID</span><span class="o">=</span>CID-ca9bde81-b05d-4fcc-8c4c-b54887eada3b
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="nv">layoutVersion</span><span class="o">=</span>-66
 </span></code></pre></div>
 <p>Si paramos el cluster con <code>stop-dfs.sh</code> y lo volvemos a arrancar los números en los nombres de ficheros incrementan.</p>
 <ul>
@@ -870,27 +872,27 @@ Como solo tenemos un nodo, el mismo nodo será el maestro y el esclavo (no pasar
 <p><a href="https://gist.github.com/wavezhang/ba8425f24a968ec9b2a8619d7c2d86a6">https://gist.github.com/wavezhang/ba8425f24a968ec9b2a8619d7c2d86a6</a></p>
 <p>Posible causa, no hay datanodes corriendo.</p>
 <p>There are 0 datanode(s) running and 0 node(s) are excluded in this operation.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$<span class="w"> </span>jps
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="m">1040</span><span class="w"> </span>SecondaryNameNode
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="m">797</span><span class="w"> </span>NameNode
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="m">1277</span><span class="w"> </span>Jps
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$<span class="w"> </span>jps
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="m">1040</span><span class="w"> </span>SecondaryNameNode
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="m">797</span><span class="w"> </span>NameNode
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="m">1277</span><span class="w"> </span>Jps
 </span></code></pre></div>
 <p>En el log de datanode: <code>$ tail -f logs/hadoop-hadoop-datanode-debianh.log</code></p>
 <p>2023-10-26 18:24:38,407 ERROR org.apache.hadoop.hdfs.server.datanode.DataNode: Initialization failed for Block pool (Datanode Uuid 6dfbb007-34b1-4a07-a045-274aad0e2936) service to debianh/127.0.1.1:9000. Exiting.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$<span class="w"> </span>hdfs<span class="w"> </span>fsck<span class="w"> </span>/<span class="w"> </span>-includeSnapshots
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># Borramos la carpeta current del namenode</span>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/datos/datanode/current
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1"># Iniciamos datenode unicamente</span>
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>$<span class="w"> </span>hdfs<span class="w"> </span>--daemon<span class="w"> </span>start<span class="w"> </span>datanode
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>$<span class="w"> </span>jps
-</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="m">2688</span><span class="w"> </span>NameNode
-</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="m">3486</span><span class="w"> </span>DataNode
-</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="m">3582</span><span class="w"> </span>Jps
-</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
-</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="c1"># Cuando ya no caiga DataNode</span>
-</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>$<span class="w"> </span>start-all.sh
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$<span class="w"> </span>hdfs<span class="w"> </span>fsck<span class="w"> </span>/<span class="w"> </span>-includeSnapshots
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="c1"># Borramos la carpeta current del namenode</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/datos/datanode/current
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="c1"># Iniciamos datenode unicamente</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>$<span class="w"> </span>hdfs<span class="w"> </span>--daemon<span class="w"> </span>start<span class="w"> </span>datanode
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>$<span class="w"> </span>jps
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="m">2688</span><span class="w"> </span>NameNode
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="m">3486</span><span class="w"> </span>DataNode
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="m">3582</span><span class="w"> </span>Jps
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="c1"># Cuando ya no caiga DataNode</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>$<span class="w"> </span>start-all.sh
 </span></code></pre></div>
 <p>Si analizamos la petición desde el inspector de html, vemos que:</p>
 <p><img alt="" src="../images/instalacion4.png" /></p>
@@ -898,8 +900,8 @@ Como solo tenemos un nodo, el mismo nodo será el maestro y el esclavo (no pasar
 <p><img alt="" src="../images/instalacion5.png" /></p>
 <p>No encuentra librerías nativas, no importa, es un warning (podría ir más lento debido a este error)</p>
 <p>Para eliminar el warning hay que añadir en .bashrc</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HADOOP_HOME_WARN_SUPRESS</span><span class="o">=</span><span class="m">1</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HADOOP_ROOT_LOGGER</span><span class="o">=</span><span class="s2">&quot;WARN,DRFA&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HADOOP_HOME_WARN_SUPRESS</span><span class="o">=</span><span class="m">1</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HADOOP_ROOT_LOGGER</span><span class="o">=</span><span class="s2">&quot;WARN,DRFA&quot;</span>
 </span></code></pre></div>
 <p>O recompilar hadoop…</p>
 
