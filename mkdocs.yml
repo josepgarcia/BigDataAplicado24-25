@@ -9,7 +9,9 @@ nav:
     - Conceptos Generales: UD00/1.ConceptosGenerales.md
     - $_bash: UD00/2.bash.md
     - ssh scp: UD00/3.ssh.md
+    - bash script: UD00/4.BashScripting.md
     - Entornos Virtuales: UD00/8.EntornosVirtualesPython.md
+    - Editar apuntes: UD00/9.ModificarApuntes.md
   - UD 02 Cluster Pseudo. HDFS:
     - Instalación: UD02/1.instalacion.md
     - Docker: UD02/8.clusterdocker.md
