@@ -1,0 +1,1732 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD00/4.BashScripting/">
+      
+      
+        <link rel="prev" href="../3.ssh/">
+      
+      
+        <link rel="next" href="../8.EntornosVirtualesPython/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>bash script - Big Data Aplicado 2024-25</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#creacion-de-scripts-en-bash" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Big Data Aplicado 2024-25" class="md-header__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Big Data Aplicado 2024-25
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              bash script
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/josepgarcia/bigDataAplicado24-25/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Big Data Aplicado 2024-25" class="md-nav__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Big Data Aplicado 2024-25
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/josepgarcia/bigDataAplicado24-25/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    INICIO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 00 Conceptos Generales
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            UD 00 Conceptos Generales
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.ConceptosGenerales/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conceptos Generales
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.bash/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    $_bash
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.ssh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ssh scp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    bash script
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    bash script
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introducción
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introducción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binbash" class="md-nav__link">
+    <span class="md-ellipsis">
+      #!/bin/bash
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteres-especiales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Carácteres especiales
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-variables-y-argumentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Variables y argumentos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Variables y argumentos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables-predefinidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables predefinidas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables predefinidas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✏️ Ejercicio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametros-argumentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parámetros - argumentos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parámetros - argumentos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✏️ Ejercicio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-condicionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Condicionales
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Condicionales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operadores-condicionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operadores condicionales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadores-logicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operadores lógicos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#condicional-multiple-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Condicional múltiple case
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Condicional múltiple case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✏️ Ejercicios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-bucles" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Bucles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Bucles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#while-until" class="md-nav__link">
+    <span class="md-ellipsis">
+      While - until
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipo-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipo for
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipo for">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicios_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✏️ Ejercicios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utilidades-de-los-bucles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utilidades de los bucles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Utilidades de los bucles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicios_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✏️ Ejercicios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-funciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Funciones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-otros" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Otros
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Otros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#obtener-valores-pipeline-desde-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obtener valores pipeline desde script
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-comandos-avanzados" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Comandos avanzados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Comandos avanzados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grep" class="md-nav__link">
+    <span class="md-ellipsis">
+      grep
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find" class="md-nav__link">
+    <span class="md-ellipsis">
+      find
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicios_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✏️ Ejercicios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.EntornosVirtualesPython/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Entornos Virtuales
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.ModificarApuntes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Editar apuntes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 02 Cluster Pseudo. HDFS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            UD 02 Cluster Pseudo. HDFS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD02/1.instalacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD02/8.clusterdocker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introducción
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introducción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binbash" class="md-nav__link">
+    <span class="md-ellipsis">
+      #!/bin/bash
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteres-especiales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Carácteres especiales
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-variables-y-argumentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Variables y argumentos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Variables y argumentos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables-predefinidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables predefinidas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables predefinidas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✏️ Ejercicio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametros-argumentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parámetros - argumentos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parámetros - argumentos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✏️ Ejercicio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-condicionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Condicionales
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Condicionales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operadores-condicionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operadores condicionales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadores-logicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operadores lógicos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#condicional-multiple-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Condicional múltiple case
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Condicional múltiple case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✏️ Ejercicios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-bucles" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Bucles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Bucles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#while-until" class="md-nav__link">
+    <span class="md-ellipsis">
+      While - until
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipo-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipo for
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipo for">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicios_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✏️ Ejercicios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utilidades-de-los-bucles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utilidades de los bucles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Utilidades de los bucles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicios_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✏️ Ejercicios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-funciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Funciones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-otros" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Otros
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Otros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#obtener-valores-pipeline-desde-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obtener valores pipeline desde script
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-comandos-avanzados" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Comandos avanzados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Comandos avanzados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grep" class="md-nav__link">
+    <span class="md-ellipsis">
+      grep
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find" class="md-nav__link">
+    <span class="md-ellipsis">
+      find
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicios_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✏️ Ejercicios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD00/4.BashScripting.md" title="Editar esta página" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="creacion-de-scripts-en-bash">Creación de scripts en bash</h1>
+<h2 id="1-introduccion">1. Introducción</h2>
+<p>Un script es un archivo de texto que contiene una serie de comandos y/o instrucciones que se pueden ejecutar de manera secuencial para realizar una tarea específica o automatizar una serie de tareas. Estos scripts generalmente están escritos en lenguajes de scripting como Bash, Python, Perl o incluso lenguajes de programación como C o C++.</p>
+<p><code>copia_seguridad.sh</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Definir directorio de origen y destino</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nv">directorios_origen</span><span class="o">=</span><span class="s2">&quot;/ruta/del/directorio/a/copiar&quot;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nv">directorio_destino</span><span class="o">=</span><span class="s2">&quot;/ruta/del/directorio/de/destino&quot;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Crear un nombre de archivo con marca de tiempo</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nv">fecha</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+<span class="s2">&quot;%Y%m%d%H%M%S&quot;</span><span class="k">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nv">nombre_archivo_backup</span><span class="o">=</span><span class="s2">&quot;backup_</span><span class="nv">$fecha</span><span class="s2">.tar.gz&quot;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># Crear una copia de seguridad comprimida con tar</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>tar<span class="w"> </span>-czvf<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$directorio_destino</span><span class="s2">/</span><span class="nv">$nombre_archivo_backup</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$directorios_origen</span><span class="s2">&quot;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1"># Verificar si la operación de copia de seguridad fue exitosa</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Copia de seguridad completada con éxito en </span><span class="nv">$nombre_archivo_backup</span><span class="s2">&quot;</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="k">else</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error al realizar la copia de seguridad&quot;</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="k">fi</span>
+</span></code></pre></div>
+<p>Para ejecutar un script, hemos de darle permisos de ejecución:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>copia_seguridad.sh<span class="w"> </span><span class="c1"># le damos permisos de ejecución</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>./copia_seguridad.sh<span class="w"> </span><span class="c1"># lo ejecutamos</span>
+</span></code></pre></div>
+<h3 id="binbash"><strong>#!/bin/bash</strong></h3>
+<p><strong>Al iniciar un script ponemos en la primera línea #!/bin/bash, ¿Por qué?</strong></p>
+<p>La línea #!/bin/bash al principio de un script en Bash es conocida como "<strong>shebang</strong>" o "<strong>hashbang</strong>". </p>
+<p>Si ejecutas un script como <code>./nombre-del-scrip.extension</code>, el sistema buscará en la línea superior del archivo para determinar el intérprete,  (generalmente <strong><code>/bin/bash</code></strong>) y utiliza ese programa para interpretar y ejecutar el script. Esto es especialmente útil cuando tienes varios intérpretes de comandos disponibles en tu sistema (por ejemplo, Bash, sh, zsh, etc.), y deseas asegurarte de que el script sea ejecutado con un intérprete específico.</p>
+<p>Al ejecutar el script como <code>bash nombre_del_script.sh</code>, la primera línea se ignorará.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>**Ejecución<span class="w"> </span>de<span class="w"> </span>un<span class="w"> </span>script**
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>$<span class="w"> </span>bash<span class="w"> </span>script.sh<span class="w">  </span><span class="c1"># Ejecución modo 1</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>$<span class="w"> </span>./script.sh<span class="w"> </span><span class="c1"># Ejecución modo 2 falla no tiene permisos</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>zsh:<span class="w"> </span>permission<span class="w"> </span>denied:<span class="w"> </span>./script.sh
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>$<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>script.sh
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>$<span class="w"> </span>./script.sh<span class="w"> </span><span class="c1"># OK</span>
+</span></code></pre></div>
+<h3 id="caracteres-especiales">Carácteres especiales</h3>
+<p><strong># Comentarios</strong></p>
+<p>Las líneas que comienzan con # (con excepción del primer #!) son comentarios y no serán interpretadas</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># echo &quot;Esta linea no se imprime por pantalla&quot;</span>
+</span></code></pre></div>
+<p><strong>; Separador de comandos</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hola&quot;</span><span class="p">;</span><span class="w"> </span>ls
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;HOLA&quot;</span><span class="p">;</span><span class="w"> </span><span class="s2">&quot;ADIOS&quot;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span>file.txt<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;SI&quot;</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="k">fi</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Comparación finalizada&quot;</span>
+</span></code></pre></div>
+<p><strong>$ Mostrar el contenido de una variable</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nv">var1</span><span class="o">=</span><span class="m">5</span><span class="w"> </span><span class="c1"># sin espacios</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$var1</span><span class="w"> </span><span class="c1">#5</span>
+</span></code></pre></div>
+<p><strong>| pipe</strong></p>
+<p>Redirige la salida de un comando a la entrada del siguiente, encadena órdenes y comandos.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ls<span class="w"> </span>-la<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+</span></code></pre></div>
+<p><strong>Otros</strong><br />
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>${ } → sustitución de parámetros
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>$? → Hace referencia al último comando ejecutado, si contiene un 0 la ejecución ha sido correcta, si es distinto de 0 hubo algún error en la ejecución del comando anterior.
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>$! → Contiene el ID del proceso del último proceso subordinado. Resulta útil cuando un shellscript necesita eliminar un proceso subordinado que ha iniciado previamente.
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>$_ → Devuelve el argumento final del comando previo ejecutado
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>$$ → Contiene el PID del proceso
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>\ → (escape) Hace que el shell interprete el carácter de forma literal
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>\n → Nueva línea
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>\t → Tabulador
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>&gt; &amp;&gt; &gt;&amp; &gt;&gt; &lt; → Redirección
+</span></code></pre></div></p>
+<h2 id="2-variables-y-argumentos">2.  Variables y argumentos</h2>
+<h3 id="variables">Variables</h3>
+<p>Se crean mediante una asignación sin espacios.</p>
+<p>El shell es “case sensitive”, sensible a mayúsculas y minúsculas (a y A son distintas)</p>
+<p>Se accede a su valor anteponiendo $</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span><span class="nv">a</span><span class="o">=</span><span class="s2">&quot;hola&quot;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>$<span class="w"> </span><span class="nv">b</span><span class="o">=</span><span class="m">20</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$A</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$a</span><span class="w"> </span><span class="nv">$b</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$a</span><span class="w"> </span><span class="se">\$</span>b
+</span></code></pre></div>
+<p><strong>Variables y comillas</strong></p>
+<p>Comillas <strong>simples</strong>, los carácteres especiales no se interpretan.<br />
+Comillas <strong>dobles</strong>, permiten la interpretación de carácteres especiales como “$” (permiten mostrar el valor de una variable”<br />
+Comillas <strong>inversas</strong>: permiten asignar el resultado de una ejecución de una orden (subshell), igual que con $( )</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$<span class="w"> </span><span class="nv">a</span><span class="o">=</span><span class="m">20</span><span class="p">;</span><span class="w"> </span><span class="nv">b</span><span class="o">=</span><span class="s1">&#39;Variable: $a&#39;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$b</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>---
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>$<span class="w"> </span><span class="nv">a</span><span class="o">=</span><span class="m">30</span><span class="p">;</span><span class="w"> </span><span class="nv">b</span><span class="o">=</span><span class="s2">&quot;Variable: </span><span class="nv">$a</span><span class="s2">&quot;</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$b</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>---
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="nv">d</span><span class="o">=</span><span class="sb">`</span>date<span class="sb">`</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$d</span>
+</span></code></pre></div>
+<h3 id="variables-predefinidas">Variables predefinidas</h3>
+<p>Crea y ejecuta el siguiente script (variables_predefinidas.sh)<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$HOME</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$PATH</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$PWD</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$RANDOM</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$LOGNAME</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$UID</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$HOSTNAME</span>
+</span></code></pre></div></p>
+<h4 id="ejercicio">✏️ <strong>Ejercicio</strong></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Busca un comando que muestre todas las variables predefinidas
+</span></code></pre></div>
+<h3 id="parametros-argumentos">Parámetros - argumentos</h3>
+<p>Al ejecutar un script podemos acceder a cada uno de los argumentos de la llamada del mismo</p>
+<p><img alt="bashscriptargumentos" src="../images/bashscriptargumentos.png" /></p>
+<h4 id="ejercicio_1">✏️ <strong>Ejercicio</strong></h4>
+<p>Copia y ejecuta el siguiente script <code>argumentos.sh</code> <br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;$_&#39;</span><span class="w"> </span><span class="nv">$_</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;$0&#39;</span><span class="w"> </span><span class="nv">$0</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;$1&#39;</span><span class="w"> </span><span class="nv">$1</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;$2&#39;</span><span class="w"> </span><span class="nv">$2</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;$3&#39;</span><span class="w"> </span><span class="nv">$3</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;$*&#39;</span><span class="w"> </span><span class="nv">$*</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;$@&#39;</span><span class="w"> </span><span class="nv">$@</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;$#&#39;</span><span class="w"> </span><span class="nv">$#</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;$_&#39;</span><span class="w"> </span><span class="nv">$_</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;$$&#39;</span><span class="w"> </span><span class="nv">$$</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;$?&#39;</span><span class="w"> </span><span class="nv">$?</span>
+</span></code></pre></div></p>
+<p>Ejecuta el script utilizando diferentes argumentos:<br />
+<code>./argumentos.sh hola</code><br />
+<code>./argumentos.sh hola adios</code><br />
+<code>./argumentos.sh hola 123 asdf</code></p>
+<h2 id="3-condicionales">3. Condicionales</h2>
+<p>Permiten decidir entre una o varias opciones según una condición lógica.<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="c1"># Se suele poner el ; así el then no queda en la línea de abajo</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Son iguales&quot;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">fi</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1">##########################################</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Son iguales&quot;</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="k">else</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Son distintos&quot;</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="k">fi</span>
+</span></code></pre></div></p>
+<p>Hay varias formas de especificar la condición lógica</p>
+<p>Instrucción de test <strong>básica</strong> <code>[]</code> → Instrucciones simples</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="nv">$#</span><span class="w"> </span>-lt<span class="w"> </span><span class="m">3</span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[</span>-a<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span></code></pre></div>
+<p>Instrucción de test <strong>extendida</strong> <code>[[]]</code> → Permite combinar varias expresiones, previene la separación de palabras y la expansión de comodines</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$#</span><span class="w"> </span>-lt<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>-a<span class="w"> </span><span class="nv">$2</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span>...
+</span></code></pre></div>
+<h3 id="operadores-condicionales">Operadores condicionales</h3>
+<p><strong>Enteros</strong></p>
+<p><img alt="Untitled" src="../images/bashscriptcondicionalesenteros.png" /></p>
+<p><strong>Ficheros</strong></p>
+<p><img alt="Untitled" src="../images/bashscriptcondicionalesficheros.png" /></p>
+<p><strong>Cadenas</strong></p>
+<p><img alt="Untitled" src="../images/bashscriptcondicionalescadenas.png" /></p>
+<p>Podemos utilizar &lt; y &gt; dentro del constructor [[./4.BashScripting]]</p>
+<h3 id="operadores-logicos">Operadores lógicos</h3>
+<p><img alt="Untitled" src="../images/bashscriptoperadoreslogicos.png" /></p>
+<p>Dentro del constructor <code>[[]]</code> se pueden utilizar &amp;&amp; y ||</p>
+<h3 id="condicional-multiple-case">Condicional múltiple case</h3>
+<p>Copia y ejecuta el siguiente script:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Estás seguro (s/n)? [n]&quot;</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">read</span><span class="w"> </span>resp
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="k">case</span><span class="w"> </span><span class="si">${</span><span class="nv">resp</span><span class="si">}</span><span class="w"> </span><span class="k">in</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="o">[</span>sS<span class="o">])</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;En fin, tú lo has querido...&quot;</span><span class="w"> </span><span class="p">;;</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span>n<span class="p">|</span>N<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Estupendo, menos trabajo!&quot;</span><span class="p">;;</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span>*<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Voy a considerar eso como un no!&quot;</span><span class="p">;;</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="k">esac</span>
+</span></code></pre></div>
+<h4 id="ejercicios">✏️ <strong>Ejercicios</strong></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>1. Crea un script al que se le pasen 2 argumentos (números, no validar) y nos diga cuál es el mayor.
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>2. Modifica el script para en vez de pasar 2 argumentos nos los pida. (comando read)
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>3. Crea un script al que se le pase un argumento que sea un nombre de fichero y compruebe  si existe.
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>4. Crea un script al que se le pase un argumento que sea un nombre de directorio y  compruebe si existe.
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>5. Crea un script al que se le pasen 2 argumentos, un fichero y un directorio y compruebe si existen (utilizando operadores lógicos). Respuestas: Los 2 existen, Los 2 no existen.
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>6. Modifica el script que hemos utilizado en el punto 3.3 para que también acepte como respuesta “si” “SI” “no” “NO” y otras variaciones
+</span></code></pre></div>
+<h2 id="4-bucles">4. Bucles</h2>
+<p>Iteran mientras o hasta que se cumple una condición.<br />
+La instrucción de test o expresión lógica se expresa de la misma manera que con las condiciones, por lo que podemos hacer test de "si existe un archivo y es ejecutable" o "si el archivo existe y es un enlace simbólico" por ejemplo.</p>
+<h3 id="while-until">While - until</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">while</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>expresión<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Comandos a ejecutar&quot;</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="k">done</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="k">until</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>expresión<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Comandos a ejecutar&quot;</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="k">done</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nv">var0</span><span class="o">=</span><span class="m">0</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="nv">LIMIT</span><span class="o">=</span><span class="m">10</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="k">while</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$var0</span><span class="w"> </span>-lt<span class="w"> </span><span class="nv">$LIMIT</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="nv">$var0</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">  </span><span class="nb">let</span><span class="w"> </span>var0++
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="k">done</span>
+</span></code></pre></div>
+<h3 id="tipo-for">Tipo for</h3>
+<p>Opción 1, iterar sobre una lista</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">for</span><span class="w"> </span>item<span class="w"> </span><span class="k">in</span><span class="w"> </span>&lt;lista&gt;<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Comandos a ejecutar&quot;</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="k">done</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">7</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$i</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="k">done</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="k">for</span><span class="w"> </span>d<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>ls<span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$d</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="k">done</span>
+</span></code></pre></div>
+<h4 id="ejercicios_1">✏️ <strong>Ejercicios</strong></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>1. Crea un script que nos pida 10 números y los sume.
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>2. Crea un script que imprima y sume 50 números aleatorios.
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>3. Crea un script que nos muestre los números pares del 1 al 100.
+</span></code></pre></div>
+<h3 id="utilidades-de-los-bucles">Utilidades de los bucles</h3>
+<p>Gracias a que los bucles pueden recorrer listas, podemos ejecutarlos para recorrer la salida de otros comandos:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1">## Recorrer los ficheros y directorios de la carpeta actual</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>ls<span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$i</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="k">done</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>----------------------
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="c1">## Recorrer los parámetros que se le pasan.</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span>./<span class="nv">$i</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">       </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Directorio \&quot;</span><span class="nv">$i</span><span class="s2">\&quot; no existe en este lugar&quot;</span>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="w">       </span><span class="nb">exit</span><span class="w"> </span><span class="m">2</span>
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="w">   </span><span class="k">fi</span>
+</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="k">done</span>
+</span></code></pre></div>
+<h4 id="ejercicios_2">✏️ <strong>Ejercicios</strong></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>1. Crea un script que verifique si hay **directorios** en la carpeta actual desde donde se ejecuta el script (no hay que considerar a punto y punto punto como directorio).
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>2. Crea un script que muestre el nombre de usuario de todos los usuarios del sistema que tengan una shell válida. (hay que comprobar que la shell existe)
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>Si un usuario tiene como shel (/bin/xxxx) no lo mostrará.
+</span></code></pre></div>
+<h2 id="5-funciones">5. Funciones</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="c1"># funcion-error arg1 arg2 (imprime el mayor entre 2 valores)</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="k">function</span><span class="w"> </span>error<span class="w"> </span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">    </span><span class="nv">msg</span><span class="o">=</span><span class="nv">$1</span><span class="w"> </span><span class="c1"># Pase de parámetros (posicional) echo $msg</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="o">}</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span><span class="nv">$2</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="w">    </span>error<span class="w"> </span><span class="s2">&quot;Error! Uso correcto: mayor arg1 arg2&quot;</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="k">fi</span>
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$1</span><span class="w"> </span>-gt<span class="w"> </span><span class="nv">$2</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$1</span><span class="p">;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$2</span><span class="w"> </span>
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="k">fi</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="c1"># funcion-mayor arg1 arg2 (imprime el mayor entre 2 valores)</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="k">function</span><span class="w"> </span>mayor<span class="w"> </span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">    </span><span class="nv">x</span><span class="o">=</span><span class="nv">$1</span><span class="p">;</span><span class="w"> </span><span class="nv">y</span><span class="o">=</span><span class="nv">$2</span><span class="w"> </span><span class="c1"># Pase de parámetros (posicional) </span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span>-gt<span class="w"> </span><span class="nv">$y</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="w">    </span><span class="k">else</span>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$y</span><span class="w"> </span>
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="w">    </span><span class="k">fi</span>
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="c1"># Retorno de la orden, no valor de salida </span>
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="o">}</span>
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>
+</span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a><span class="nv">resultado</span><span class="o">=</span><span class="k">$(</span>mayor<span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="nv">$2</span><span class="k">)</span><span class="w"> </span><span class="c1"># Se invoca como una orden para recuperar el valor de retorno</span>
+</span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$resultado</span>
+</span></code></pre></div>
+<h2 id="6-otros">6. Otros</h2>
+<h3 id="obtener-valores-pipeline-desde-script">Obtener valores pipeline desde script</h3>
+<p><a href="https://stackoverflow.com/questions/19408649/pipe-input-into-a-script/46726373#46726373">https://stackoverflow.com/questions/19408649/pipe-input-into-a-script/46726373#46726373</a><br />
+Podemos recoger lo que nos llega de una tubería (PIPE) en un script bash:<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;stuff\nmore stuff\n&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>test.txt
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>cat<span class="w"> </span>test.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>./testPipe.sh
+</span></code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="c1"># Check to see if a pipe exists on stdin.</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="c1"># Filename testPipe.sh</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-p<span class="w"> </span>/dev/stdin<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Data was piped to this script!&quot;</span>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="w">        </span><span class="c1"># If we want to read the input line by line</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="nv">IFS</span><span class="o">=</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>line<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="w">                </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Line: </span><span class="si">${</span><span class="nv">line</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="w">        </span><span class="k">done</span>
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="w">        </span><span class="c1"># Or if we want to simply grab all the data, we can simply use cat instead</span>
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="w">        </span><span class="c1"># cat</span>
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a><span class="k">else</span>
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;No input was found on stdin, skipping!&quot;</span>
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a><span class="w">        </span><span class="c1"># Checking to ensure a filename was specified and that it exists</span>
+</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a><span class="w">                </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Filename specified: </span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-28-17"><a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a><span class="w">                </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Doing things now..&quot;</span>
+</span><span id="__span-28-18"><a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a><span class="w">        </span><span class="k">else</span>
+</span><span id="__span-28-19"><a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a><span class="w">                </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;No input given!&quot;</span>
+</span><span id="__span-28-20"><a id="__codelineno-28-20" name="__codelineno-28-20" href="#__codelineno-28-20"></a><span class="w">        </span><span class="k">fi</span>
+</span><span id="__span-28-21"><a id="__codelineno-28-21" name="__codelineno-28-21" href="#__codelineno-28-21"></a><span class="k">fi</span>
+</span></code></pre></div>
+<h2 id="7-comandos-avanzados">7. Comandos avanzados</h2>
+<h3 id="grep">grep</h3>
+<p><strong>Ya no se utiliza egrep</strong><br />
+Busca palabras o patrones en el contenido de uno o varios ficheros y vuelca por su salida las líneas que contienen dichas palabras o patrones.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>grep<span class="w"> </span><span class="o">[</span>-inHv<span class="o">]</span><span class="w"> </span>patrón<span class="w"> </span><span class="o">[</span>ficheros<span class="o">(</span>s<span class="o">)]</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>-i<span class="w"> </span>ignora<span class="w"> </span>la<span class="w"> </span>diferencia<span class="w"> </span>entre<span class="w"> </span>mayúsculas<span class="w"> </span>y<span class="w"> </span>minúsculas<span class="w"> </span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>-n<span class="w"> </span>imprime<span class="w"> </span>la<span class="w"> </span>línea<span class="w"> </span>del<span class="w"> </span>fichero
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>-H<span class="w"> </span>imprime<span class="w"> </span>el<span class="w"> </span>nombre<span class="w"> </span>del<span class="w"> </span>fichero
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>-v<span class="w"> </span>búsqueda<span class="w"> </span>inversa<span class="w"> </span><span class="o">(</span>líneas<span class="w"> </span>que<span class="w"> </span>no<span class="w"> </span>contienen<span class="w"> </span>el<span class="w"> </span>patrón<span class="o">)</span>
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>
+</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>**tldr**
+</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>-<span class="w"> </span>Search<span class="w"> </span><span class="k">for</span><span class="w"> </span>a<span class="w"> </span>pattern<span class="w"> </span>within<span class="w"> </span>a<span class="w"> </span>file:
+</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a><span class="w">    </span>grep<span class="w"> </span><span class="s2">&quot;search_pattern&quot;</span><span class="w"> </span>path/to/file
+</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a>
+</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>-<span class="w"> </span>Search<span class="w"> </span><span class="k">for</span><span class="w"> </span>an<span class="w"> </span>exact<span class="w"> </span>string<span class="w"> </span><span class="o">(</span>disables<span class="w"> </span>regular<span class="w"> </span>expressions<span class="o">)</span>:
+</span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a><span class="w">    </span>grep<span class="w"> </span>--fixed-strings<span class="w"> </span><span class="s2">&quot;exact_string&quot;</span><span class="w"> </span>path/to/file
+</span><span id="__span-29-14"><a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a>
+</span><span id="__span-29-15"><a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a>-<span class="w"> </span>Search<span class="w"> </span><span class="k">for</span><span class="w"> </span>a<span class="w"> </span>pattern<span class="w"> </span><span class="k">in</span><span class="w"> </span>all<span class="w"> </span>files<span class="w"> </span>recursively<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>directory,<span class="w"> </span>showing<span class="w"> </span>line<span class="w"> </span>numbers<span class="w"> </span>of<span class="w"> </span>matches,<span class="w"> </span>ignoring<span class="w"> </span>binary<span class="w"> </span>files:
+</span><span id="__span-29-16"><a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a><span class="w">    </span>grep<span class="w"> </span>--recursive<span class="w"> </span>--line-number<span class="w"> </span>--binary-files<span class="o">=</span>without-match<span class="w"> </span><span class="s2">&quot;search_pattern&quot;</span><span class="w"> </span>path/to/directory
+</span><span id="__span-29-17"><a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a>
+</span><span id="__span-29-18"><a id="__codelineno-29-18" name="__codelineno-29-18" href="#__codelineno-29-18"></a>-<span class="w"> </span>Use<span class="w"> </span>extended<span class="w"> </span>regular<span class="w"> </span>expressions<span class="w"> </span><span class="o">(</span>supports<span class="w"> </span><span class="sb">`</span>?<span class="sb">`</span>,<span class="w"> </span><span class="sb">`</span>+<span class="sb">`</span>,<span class="w"> </span><span class="sb">`</span><span class="o">{}</span><span class="sb">`</span>,<span class="w"> </span><span class="sb">`</span><span class="o">()</span><span class="sb">`</span><span class="w"> </span>and<span class="w"> </span><span class="sb">`</span><span class="p">|</span><span class="sb">`</span><span class="o">)</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">case</span>-insensitive<span class="w"> </span>mode:
+</span><span id="__span-29-19"><a id="__codelineno-29-19" name="__codelineno-29-19" href="#__codelineno-29-19"></a><span class="w">    </span>grep<span class="w"> </span>--extended-regexp<span class="w"> </span>--ignore-case<span class="w"> </span><span class="s2">&quot;search_pattern&quot;</span><span class="w"> </span>path/to/file
+</span><span id="__span-29-20"><a id="__codelineno-29-20" name="__codelineno-29-20" href="#__codelineno-29-20"></a>
+</span><span id="__span-29-21"><a id="__codelineno-29-21" name="__codelineno-29-21" href="#__codelineno-29-21"></a>-<span class="w"> </span>Print<span class="w"> </span><span class="m">3</span><span class="w"> </span>lines<span class="w"> </span>of<span class="w"> </span>context<span class="w"> </span>around,<span class="w"> </span>before,<span class="w"> </span>or<span class="w"> </span>after<span class="w"> </span>each<span class="w"> </span>match:
+</span><span id="__span-29-22"><a id="__codelineno-29-22" name="__codelineno-29-22" href="#__codelineno-29-22"></a><span class="w">    </span>grep<span class="w"> </span>--context<span class="p">|</span>before-context<span class="p">|</span>after-context<span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="s2">&quot;search_pattern&quot;</span><span class="w"> </span>path/to/file
+</span><span id="__span-29-23"><a id="__codelineno-29-23" name="__codelineno-29-23" href="#__codelineno-29-23"></a>
+</span><span id="__span-29-24"><a id="__codelineno-29-24" name="__codelineno-29-24" href="#__codelineno-29-24"></a>-<span class="w"> </span>Print<span class="w"> </span>file<span class="w"> </span>name<span class="w"> </span>and<span class="w"> </span>line<span class="w"> </span>number<span class="w"> </span><span class="k">for</span><span class="w"> </span>each<span class="w"> </span>match<span class="w"> </span>with<span class="w"> </span>color<span class="w"> </span>output:
+</span><span id="__span-29-25"><a id="__codelineno-29-25" name="__codelineno-29-25" href="#__codelineno-29-25"></a><span class="w">    </span>grep<span class="w"> </span>--with-filename<span class="w"> </span>--line-number<span class="w"> </span>--color<span class="o">=</span>always<span class="w"> </span><span class="s2">&quot;search_pattern&quot;</span><span class="w"> </span>path/to/file
+</span><span id="__span-29-26"><a id="__codelineno-29-26" name="__codelineno-29-26" href="#__codelineno-29-26"></a>
+</span><span id="__span-29-27"><a id="__codelineno-29-27" name="__codelineno-29-27" href="#__codelineno-29-27"></a>-<span class="w"> </span>Search<span class="w"> </span><span class="k">for</span><span class="w"> </span>lines<span class="w"> </span>matching<span class="w"> </span>a<span class="w"> </span>pattern,<span class="w"> </span>printing<span class="w"> </span>only<span class="w"> </span>the<span class="w"> </span>matched<span class="w"> </span>text:
+</span><span id="__span-29-28"><a id="__codelineno-29-28" name="__codelineno-29-28" href="#__codelineno-29-28"></a><span class="w">    </span>grep<span class="w"> </span>--only-matching<span class="w"> </span><span class="s2">&quot;search_pattern&quot;</span><span class="w"> </span>path/to/file
+</span><span id="__span-29-29"><a id="__codelineno-29-29" name="__codelineno-29-29" href="#__codelineno-29-29"></a>
+</span><span id="__span-29-30"><a id="__codelineno-29-30" name="__codelineno-29-30" href="#__codelineno-29-30"></a>-<span class="w"> </span>Search<span class="w"> </span><span class="sb">`</span>stdin<span class="sb">`</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>lines<span class="w"> </span>that<span class="w"> </span><span class="k">do</span><span class="w"> </span>not<span class="w"> </span>match<span class="w"> </span>a<span class="w"> </span>pattern:
+</span><span id="__span-29-31"><a id="__codelineno-29-31" name="__codelineno-29-31" href="#__codelineno-29-31"></a><span class="w">    </span>cat<span class="w"> </span>path/to/file<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>--invert-match<span class="w"> </span><span class="s2">&quot;search_pattern&quot;</span>
+</span></code></pre></div>
+<p><strong>Ejemplos:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>-<span class="w"> </span>Busca<span class="w"> </span>la<span class="w"> </span>palabra<span class="w"> </span>“nombre”<span class="w"> </span>en<span class="w"> </span>los<span class="w"> </span>ficheros<span class="w"> </span>con<span class="w"> </span>extensión<span class="w"> </span>txt:<span class="w"> </span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>$<span class="w"> </span>grep<span class="w"> </span>-Hn<span class="w"> </span>nombre<span class="w"> </span>*.txt
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>-<span class="w"> </span>Busca<span class="w"> </span>las<span class="w"> </span>líneas<span class="w"> </span>que<span class="w"> </span>comienzan<span class="w"> </span>por<span class="w"> </span>“a”<span class="w"> </span>o<span class="w"> </span>“c”<span class="w"> </span>mayúsculas<span class="w"> </span>o<span class="w"> </span>minúsculas:<span class="w"> </span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>$<span class="w"> </span>grep<span class="w"> </span>-iHn<span class="w"> </span>^<span class="o">[</span>ac<span class="o">]</span><span class="w"> </span>*.txt
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>-<span class="w"> </span>Busca<span class="w"> </span>líneas<span class="w"> </span>que<span class="w"> </span>terminan<span class="w"> </span>por<span class="w"> </span>una<span class="w"> </span>coma:<span class="w"> </span>
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>$<span class="w"> </span>grep<span class="w"> </span>-Hn<span class="w"> </span>,$<span class="w"> </span>*.txt
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a>
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a>-<span class="w"> </span>Busca<span class="w"> </span>líneas<span class="w"> </span>que<span class="w"> </span>no<span class="w"> </span>contienen<span class="w"> </span>un<span class="w"> </span>punto:<span class="w"> </span>
+</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a>$<span class="w"> </span>grep<span class="w"> </span>-Hnv<span class="w"> </span><span class="s1">&#39;\.&#39;</span><span class="w"> </span>*.txt
+</span></code></pre></div>
+<p>El carácter “.” tiene un significado especial para el shell y para grep. Las comillas simples evitan la interpretación por el shell, y la “\” por grep.</p>
+<h3 id="find">find</h3>
+<p>Permite explorar el sistema de archivos<br />
+- Habitualmente se utiliza para localizar aquellos ficheros o directorios que cumplen con una condición.<br />
+- Adicionalmente, pueden ejecutar acciones sobre ellos.</p>
+<p>Es útil en combinación con bucles for o while.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>**tldr**
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>-<span class="w"> </span>Find<span class="w"> </span>files<span class="w"> </span>by<span class="w"> </span>extension:
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">    </span>find<span class="w"> </span>root_path<span class="w"> </span>-name<span class="w"> </span><span class="s1">&#39;*.txt&#39;</span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>-<span class="w"> </span>Find<span class="w"> </span>files<span class="w"> </span>matching<span class="w"> </span>multiple<span class="w"> </span>path/name<span class="w"> </span>patterns:
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="w">    </span>find<span class="w"> </span>root_path<span class="w"> </span>-path<span class="w"> </span><span class="s1">&#39;**/path/**/*.ext&#39;</span><span class="w"> </span>-or<span class="w"> </span>-name<span class="w"> </span><span class="s1">&#39;*pattern*&#39;</span>
+</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>
+</span><span id="__span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a>-<span class="w"> </span>Find<span class="w"> </span>directories<span class="w"> </span>matching<span class="w"> </span>a<span class="w"> </span>given<span class="w"> </span>name,<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">case</span>-insensitive<span class="w"> </span>mode:
+</span><span id="__span-31-10"><a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a><span class="w">    </span>find<span class="w"> </span>root_path<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-iname<span class="w"> </span><span class="s1">&#39;*lib*&#39;</span>
+</span><span id="__span-31-11"><a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a>
+</span><span id="__span-31-12"><a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a>-<span class="w"> </span>Find<span class="w"> </span>files<span class="w"> </span>matching<span class="w"> </span>a<span class="w"> </span>given<span class="w"> </span>pattern,<span class="w"> </span>excluding<span class="w"> </span>specific<span class="w"> </span>paths:
+</span><span id="__span-31-13"><a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a><span class="w">    </span>find<span class="w"> </span>root_path<span class="w"> </span>-name<span class="w"> </span><span class="s1">&#39;*.py&#39;</span><span class="w"> </span>-not<span class="w"> </span>-path<span class="w"> </span><span class="s1">&#39;*/site-packages/*&#39;</span>
+</span><span id="__span-31-14"><a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a>
+</span><span id="__span-31-15"><a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a>-<span class="w"> </span>Find<span class="w"> </span>files<span class="w"> </span>matching<span class="w"> </span>a<span class="w"> </span>given<span class="w"> </span>size<span class="w"> </span>range,<span class="w"> </span>limiting<span class="w"> </span>the<span class="w"> </span>recursive<span class="w"> </span>depth<span class="w"> </span>to<span class="w"> </span><span class="s2">&quot;1&quot;</span>:
+</span><span id="__span-31-16"><a id="__codelineno-31-16" name="__codelineno-31-16" href="#__codelineno-31-16"></a><span class="w">    </span>find<span class="w"> </span>root_path<span class="w"> </span>-maxdepth<span class="w"> </span><span class="m">1</span><span class="w"> </span>-size<span class="w"> </span>+500k<span class="w"> </span>-size<span class="w"> </span>-10M
+</span><span id="__span-31-17"><a id="__codelineno-31-17" name="__codelineno-31-17" href="#__codelineno-31-17"></a>
+</span><span id="__span-31-18"><a id="__codelineno-31-18" name="__codelineno-31-18" href="#__codelineno-31-18"></a>-<span class="w"> </span>Run<span class="w"> </span>a<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>each<span class="w"> </span>file<span class="w"> </span><span class="o">(</span>use<span class="w"> </span><span class="sb">`</span><span class="o">{}</span><span class="sb">`</span><span class="w"> </span>within<span class="w"> </span>the<span class="w"> </span><span class="nb">command</span><span class="w"> </span>to<span class="w"> </span>access<span class="w"> </span>the<span class="w"> </span>filename<span class="o">)</span>:
+</span><span id="__span-31-19"><a id="__codelineno-31-19" name="__codelineno-31-19" href="#__codelineno-31-19"></a><span class="w">    </span>find<span class="w"> </span>root_path<span class="w"> </span>-name<span class="w"> </span><span class="s1">&#39;*.txt&#39;</span><span class="w"> </span>-exec<span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
+</span><span id="__span-31-20"><a id="__codelineno-31-20" name="__codelineno-31-20" href="#__codelineno-31-20"></a>
+</span><span id="__span-31-21"><a id="__codelineno-31-21" name="__codelineno-31-21" href="#__codelineno-31-21"></a>-<span class="w"> </span>Find<span class="w"> </span>files<span class="w"> </span>modified<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>last<span class="w"> </span><span class="m">7</span><span class="w"> </span>days:
+</span><span id="__span-31-22"><a id="__codelineno-31-22" name="__codelineno-31-22" href="#__codelineno-31-22"></a><span class="w">    </span>find<span class="w"> </span>root_path<span class="w"> </span>-daystart<span class="w"> </span>-mtime<span class="w"> </span>-7
+</span><span id="__span-31-23"><a id="__codelineno-31-23" name="__codelineno-31-23" href="#__codelineno-31-23"></a>
+</span><span id="__span-31-24"><a id="__codelineno-31-24" name="__codelineno-31-24" href="#__codelineno-31-24"></a>-<span class="w"> </span>Find<span class="w"> </span>empty<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="w"> </span>byte<span class="o">)</span><span class="w"> </span>files<span class="w"> </span>and<span class="w"> </span>delete<span class="w"> </span>them:
+</span><span id="__span-31-25"><a id="__codelineno-31-25" name="__codelineno-31-25" href="#__codelineno-31-25"></a><span class="w">    </span>find<span class="w"> </span>root_path<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-empty<span class="w"> </span>-delete
+</span></code></pre></div>
+<p><strong>Ejemplos:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-print
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="se">\*</span>.txt<span class="w"> </span>-exec<span class="w"> </span>basename<span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>-------<span class="w"> </span>OTROS<span class="w"> </span>-------
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>find<span class="w"> </span>.<span class="w"> </span>-empty<span class="w"> </span>-type<span class="w"> </span>d
+</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a>find<span class="w"> </span>.<span class="w"> </span>-empty<span class="w"> </span>-type<span class="w"> </span>f
+</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a>find<span class="w"> </span>.<span class="w"> </span>-size<span class="w"> </span>+10M
+</span><span id="__span-32-10"><a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a><span class="w">  </span>*<span class="w"> </span>c:<span class="w"> </span>bytes,<span class="w"> </span>k:Kb,<span class="w"> </span>M:Mb,<span class="w"> </span>G:Gb
+</span><span id="__span-32-11"><a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a>find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-mmin<span class="w"> </span>-5
+</span><span id="__span-32-12"><a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a>find<span class="w"> </span>.<span class="w"> </span>-perm<span class="w"> </span><span class="m">777</span>
+</span><span id="__span-32-13"><a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a>find<span class="w"> </span>.<span class="w"> </span>-maxdepth<span class="w"> </span><span class="m">1</span><span class="w"> </span>-type<span class="w"> </span>f
+</span><span id="__span-32-14"><a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a>
+</span><span id="__span-32-15"><a id="__codelineno-32-15" name="__codelineno-32-15" href="#__codelineno-32-15"></a>https://ciberninjas.com/15-ejemplos-del-comando-find-en-linux/
+</span></code></pre></div>
+<p>Ejecuta el siguente script <code>find-bucles.sh</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="c1"># find-bucles.sh, 3 versiones alternativas</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="nv">dir</span><span class="o">=</span><span class="nv">$HOME</span>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Versión 1 ----------------------------&quot;</span>
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>find<span class="w"> </span><span class="nv">$dir</span><span class="w"> </span>-name<span class="w"> </span><span class="se">\*</span>.txt<span class="w"> </span>-exec<span class="w"> </span>grep<span class="w"> </span>-inH<span class="w"> </span>nombre<span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>
+</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Versión 2 ----------------------------&quot;</span><span class="w"> </span>
+</span><span id="__span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>find<span class="w"> </span><span class="nv">$dir</span><span class="w"> </span>-name<span class="w"> </span><span class="se">\*</span>.txt<span class="w">  </span>-print<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>f<span class="w"> </span><span class="k">do</span>
+</span><span id="__span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a><span class="w">       </span>grep<span class="w"> </span>-inH<span class="w"> </span>nombre<span class="w"> </span><span class="nv">$f</span>
+</span><span id="__span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a><span class="k">done</span>
+</span><span id="__span-33-12"><a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>
+</span><span id="__span-33-13"><a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Versión 3 ----------------------------&quot;</span><span class="w"> </span>
+</span><span id="__span-33-14"><a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a><span class="nv">oldifs</span><span class="o">=</span><span class="nv">$IFS</span>
+</span><span id="__span-33-15"><a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a><span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;\n&#39;</span>
+</span><span id="__span-33-16"><a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a><span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>find<span class="w"> </span><span class="nv">$dir</span><span class="w"> </span>-name<span class="w"> </span><span class="se">\*</span>.txt<span class="w">  </span>-maxdepth<span class="w"> </span><span class="m">1</span><span class="w"> </span>-print<span class="k">)</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-33-17"><a id="__codelineno-33-17" name="__codelineno-33-17" href="#__codelineno-33-17"></a><span class="w">       </span>grep<span class="w"> </span>-inH<span class="w"> </span>nombre<span class="w"> </span><span class="nv">$f</span>
+</span><span id="__span-33-18"><a id="__codelineno-33-18" name="__codelineno-33-18" href="#__codelineno-33-18"></a><span class="k">done</span>
+</span><span id="__span-33-19"><a id="__codelineno-33-19" name="__codelineno-33-19" href="#__codelineno-33-19"></a><span class="nv">IFS</span><span class="o">=</span><span class="nv">$oldifs</span>
+</span></code></pre></div>
+<p>Contesta a las siguientes preguntas:<br />
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>1. ¿Qué diferencia hay en cada una?
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>2. ¿Para qué se ha utilizado “IFS”?
+</span></code></pre></div></p>
+<h3 id="ejercicios_3">✏️ <strong>Ejercicios</strong></h3>
+<p>Creación de ficheros y directorios para hacer las prácticas, ejecuta cada uno de los siguientes comandos para preparar el entorno para los ejercicios:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>mkdir<span class="w"> </span>~/find_grep
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="nb">cd</span><span class="w"> </span>~/find_grep
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>wget<span class="w"> </span>https://gist.githubusercontent.com/jsdario/6d6c69398cb0c73111e49f1218960f79/raw/8d4fc4548d437e2a7203a5aeeace5477f598827d/el_quijote.txt
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>mv<span class="w"> </span>el_quijote.txt<span class="w"> </span>..
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>mkdir<span class="w"> </span>dir<span class="o">{</span>uno,2,tres,4,5<span class="o">}</span>
+</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>ls
+</span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>
+</span><span id="__span-35-10"><a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>split<span class="w"> </span>-n<span class="w"> </span><span class="m">50</span><span class="w"> </span>-d<span class="w"> </span>../el_quijote.txt<span class="w"> </span>quijote
+</span><span id="__span-35-11"><a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a><span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span>./quijote??<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>mv<span class="w"> </span><span class="nv">$f</span><span class="w"> </span>diruno/<span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">.txt&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+</span><span id="__span-35-12"><a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a>
+</span><span id="__span-35-13"><a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a>split<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span><span class="w"> </span>-d<span class="w"> </span>../el_quijote.txt<span class="w"> </span>el_qui
+</span><span id="__span-35-14"><a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a><span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span>./el_qui??<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>mv<span class="w"> </span><span class="nv">$f</span><span class="w"> </span>dir2/<span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">.doc&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+</span><span id="__span-35-15"><a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a>
+</span><span id="__span-35-16"><a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a>wget<span class="w"> </span>https://gutenberg.org/cache/epub/84/pg84.txt<span class="w"> </span>-O<span class="w"> </span>../Frankenstein.txt
+</span><span id="__span-35-17"><a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a>
+</span><span id="__span-35-18"><a id="__codelineno-35-18" name="__codelineno-35-18" href="#__codelineno-35-18"></a>split<span class="w"> </span>-n<span class="w"> </span><span class="m">60</span><span class="w"> </span>-d<span class="w"> </span>../Frankenstein.txt<span class="w"> </span>Frankenstein.libro.completo.
+</span><span id="__span-35-19"><a id="__codelineno-35-19" name="__codelineno-35-19" href="#__codelineno-35-19"></a><span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span>Frankenstein.libro.completo.??<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>mv<span class="w"> </span><span class="nv">$f</span><span class="w"> </span>dirtres/<span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">.txt.avi&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+</span><span id="__span-35-20"><a id="__codelineno-35-20" name="__codelineno-35-20" href="#__codelineno-35-20"></a>
+</span><span id="__span-35-21"><a id="__codelineno-35-21" name="__codelineno-35-21" href="#__codelineno-35-21"></a><span class="c1">## Dir 4</span>
+</span><span id="__span-35-22"><a id="__codelineno-35-22" name="__codelineno-35-22" href="#__codelineno-35-22"></a>Corta<span class="w"> </span>el<span class="w"> </span>libro<span class="w"> </span>de<span class="w"> </span>Frankenstein<span class="w"> </span>en<span class="w"> </span>fragmentos<span class="w"> </span>de<span class="w"> </span><span class="m">1000</span><span class="w"> </span>líneas,<span class="w"> </span>muévelos<span class="w"> </span>a<span class="w"> </span>la<span class="w"> </span>carpeta<span class="w"> </span>
+</span><span id="__span-35-23"><a id="__codelineno-35-23" name="__codelineno-35-23" href="#__codelineno-35-23"></a>dir4,
+</span><span id="__span-35-24"><a id="__codelineno-35-24" name="__codelineno-35-24" href="#__codelineno-35-24"></a>el<span class="w"> </span>nombre<span class="w"> </span>de<span class="w"> </span>archivo<span class="w"> </span>será:<span class="w"> </span><span class="s2">&quot;The_modern_Prometheus&quot;</span><span class="w"> </span>seguido<span class="w"> </span>de<span class="w"> </span>la<span class="w"> </span>numeración<span class="w"> </span>
+</span><span id="__span-35-25"><a id="__codelineno-35-25" name="__codelineno-35-25" href="#__codelineno-35-25"></a>que<span class="w"> </span>pone<span class="w"> </span>split
+</span><span id="__span-35-26"><a id="__codelineno-35-26" name="__codelineno-35-26" href="#__codelineno-35-26"></a>Cambia<span class="w"> </span>o<span class="w"> </span>pon<span class="w"> </span>la<span class="w"> </span>extensión<span class="w"> </span>.docx
+</span><span id="__span-35-27"><a id="__codelineno-35-27" name="__codelineno-35-27" href="#__codelineno-35-27"></a>
+</span><span id="__span-35-28"><a id="__codelineno-35-28" name="__codelineno-35-28" href="#__codelineno-35-28"></a>touch<span class="w"> </span>sin_contenido.txt
+</span><span id="__span-35-29"><a id="__codelineno-35-29" name="__codelineno-35-29" href="#__codelineno-35-29"></a>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/urandom<span class="w"> </span><span class="nv">of</span><span class="o">=</span>fich20mb<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">count</span><span class="o">=</span><span class="m">20</span>
+</span></code></pre></div>
+<p>✏️ <strong>EJERCICIOS find - grep</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>#### FIND
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>1. Busca el archivo Frankenstein.libro.completo.31.txt.avi
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>2. Buscar el archivo QUIJOTE14.txt sin importar si está escrito en mayúsculas o minúsculas
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>3. Busca todos los archivos que terminen en .doc o en .txt
+</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>4. Busca directorios vacíos
+</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>5. Busca si existe algún fichero vacío
+</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>6. Busca si existe algún fichero de más de 10 Mb
+</span><span id="__span-36-8"><a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a>7. Ejecuta el comando `touch archivo.txt`
+</span><span id="__span-36-9"><a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a>     Busca los archivos que se han modificado en los últimos 5 minutos
+</span><span id="__span-36-10"><a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a>8. Ejecuta el comando `chmod 777 dirtres/Frankenstein.libro.completo.18.txt.avi`
+</span><span id="__span-36-11"><a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a>     Busca algún archivo con permisos 777
+</span><span id="__span-36-12"><a id="__codelineno-36-12" name="__codelineno-36-12" href="#__codelineno-36-12"></a>9. Busca los archivos del directorio actual
+</span><span id="__span-36-13"><a id="__codelineno-36-13" name="__codelineno-36-13" href="#__codelineno-36-13"></a>10. Ejecuta:
+</span><span id="__span-36-14"><a id="__codelineno-36-14" name="__codelineno-36-14" href="#__codelineno-36-14"></a>        mkdir dir6
+</span><span id="__span-36-15"><a id="__codelineno-36-15" name="__codelineno-36-15" href="#__codelineno-36-15"></a>      cd dir6
+</span><span id="__span-36-16"><a id="__codelineno-36-16" name="__codelineno-36-16" href="#__codelineno-36-16"></a>    touch archivo{0..100}
+</span><span id="__span-36-17"><a id="__codelineno-36-17" name="__codelineno-36-17" href="#__codelineno-36-17"></a>    ls
+</span><span id="__span-36-18"><a id="__codelineno-36-18" name="__codelineno-36-18" href="#__codelineno-36-18"></a>    Añade la extensión .txt a todos estos archivos
+</span><span id="__span-36-19"><a id="__codelineno-36-19" name="__codelineno-36-19" href="#__codelineno-36-19"></a>
+</span><span id="__span-36-20"><a id="__codelineno-36-20" name="__codelineno-36-20" href="#__codelineno-36-20"></a>#### GREP
+</span><span id="__span-36-21"><a id="__codelineno-36-21" name="__codelineno-36-21" href="#__codelineno-36-21"></a>
+</span><span id="__span-36-22"><a id="__codelineno-36-22" name="__codelineno-36-22" href="#__codelineno-36-22"></a>#### FIND + GREP
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Josep Garcia Garcia | <a href="https://github.com/josepgarcia/BigDataAplicado24-25" target="_blank">https://github.com/josepgarcia/BigDataAplicado24-25</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
