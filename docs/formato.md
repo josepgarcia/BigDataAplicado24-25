@@ -9,6 +9,10 @@
 > Contents
 
 
+> [!danger] Title -> PENDIENTE
+> Contents
+
+
 > [!example] Title -> Para ejemplos
 > Contents
 
@@ -50,10 +54,6 @@
 > [!warning] Title
 > Contents
 
-
-
-> [!danger] Title
-> Contents
 
 
 > [!bug] Title
