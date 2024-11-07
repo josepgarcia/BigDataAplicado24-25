@@ -8,13 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD00/3.ssh/">
+        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD00/5.BashEjercicios/">
       
       
-        <link rel="prev" href="../2.bash/">
-      
-      
-        <link rel="next" href="../4.BashScripting/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +18,7 @@
     
     
       
-        <title>ssh scp - Big Data Aplicado 2024-25</title>
+        <title>Ejercicios Bash - Big Data Aplicado 2024-25</title>
       
     
     
@@ -64,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#varios-ssh-scp-screen-sshfs" class="md-skip">
+        <a href="#ejercicios-bash" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -100,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ssh scp
+              Ejercicios Bash
             
           </span>
         </div>
@@ -234,19 +230,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -260,7 +254,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             UD 00 Conceptos Generales
@@ -313,30 +307,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    ssh scp
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../3.ssh/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -345,86 +319,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-ssh" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. ssh
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-scp" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. scp
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-screen" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. screen
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. screen">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ejercicio" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ejercicio
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-sshfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. sshfs
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-open-vpn" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Open VPN
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -611,60 +505,90 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-ssh" class="md-nav__link">
+  <a href="#ejercicio-1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. ssh
+      Ejercicio 1
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-scp" class="md-nav__link">
+  <a href="#ejercicio-2" class="md-nav__link">
     <span class="md-ellipsis">
-      2. scp
+      Ejercicio 2
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-screen" class="md-nav__link">
+  <a href="#ejercicio-3" class="md-nav__link">
     <span class="md-ellipsis">
-      3. screen
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. screen">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ejercicio" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ejercicio
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-sshfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. sshfs
+      Ejercicio 3
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-open-vpn" class="md-nav__link">
+  <a href="#ejercicio-4" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Open VPN
+      Ejercicio 4
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 5
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 6
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 7
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 8
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 9
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 10
     </span>
   </a>
   
@@ -685,7 +609,7 @@
                   
 
   
-    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD00/3.ssh.md" title="Editar esta página" class="md-content__button md-icon">
+    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD00/5.BashEjercicios.md" title="Editar esta página" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -693,123 +617,149 @@
   
 
 
-<h1 id="varios-ssh-scp-screen-sshfs">Varios: ssh - scp - screen - sshfs</h1>
-<h2 id="1-ssh">1. ssh</h2>
-<p><img alt="" src="../images/ssh.png" /></p>
-<p>A la máquina virtual podemos acceder de dos formas:</p>
+<h1 id="ejercicios-bash">Ejercicios Bash</h1>
+<h2 id="ejercicio-1">Ejercicio 1</h2>
+<p><strong>Crear un programa al que se le pasen 2 ficheros de texto y diga cuál es el que tiene más líneas.</strong></p>
+<ul>
+<li>Debe asegurarse que se le pasan 2 argumentos, que son ficheros de texto y que existen.</li>
+<li>PISTA: comando <code>wc</code></li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">#### Lo ejecutaremos de la siguiente manera:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>./cuenta_lineas.sh<span class="w"> </span>fichero1<span class="w"> </span>fichero2
+</span></code></pre></div>
+<p>1b. Modifica el programa para que, si no le pasamos ningún parámetro nos pida el nombre de los 2 ficheros.</p>
+<hr />
+<h2 id="ejercicio-2">Ejercicio 2</h2>
+<p>Realiza un script que lea un valor entero que representa una nota hasta que se escriba la palabra SALIR.</p>
+<ul>
+<li>compruebe si está en el rango adecuado (0 a 10)</li>
+<li>Si lo está, debe imprimirlo en modo texto (suspendido, suficiente, notable, sobresaliente...)</li>
+<li>Si no lo está, debe mostrar un mensaje de error.</li>
+<li>Si no se introduce ningún número, el script debe asumir un valor por defecto de 0.</li>
+</ul>
+<hr />
+<h2 id="ejercicio-3">Ejercicio 3</h2>
+<p>Crea un script que pregunte por un nombre de usuario y que devuelva por pantalla si existe o no en el sistema.</p>
+<hr />
+<h2 id="ejercicio-4">Ejercicio 4</h2>
+<p>Crear una tarea periódica para que cada 1 minutos, cree un archivo en /tmp/informe<br />
+El nombre del archivo será, anyo-mes-dia_hora:minutos:segundos.txt<br />
+En el archivo habrá información del sistema en ese momento:<br />
+ - total procesos en ejecución, memoria disponible, almacenamiento, total de usuarios logueados, etc...<br />
+También contendrá información sobre si hay determinados procesos en marcha en ese momento:<br />
+ - sshd<br />
+ - systemd<br />
+ - top</p>
+<hr />
+<h2 id="ejercicio-5">Ejercicio 5</h2>
+<p>Lee una secuencia de líneas de su entrada enviadas desde una tubería mediante <code>cat fichero</code><br />
+- Divide las líneas en palabras<br />
+- Elimina los posibles signos de puntuación (comas, puntos, exclamaciones)<br />
+- Muestra cada una de las palabras</p>
+<hr />
+<h2 id="ejercicio-6">Ejercicio 6</h2>
+<p>Realiza una copia de seguridad de los archivos de $HOME</p>
+<ul>
+<li>La copia debe hacerse en /tmp/$HOME/</li>
+<li>Si es la primera vez que se hace el backup, deben copiarse todos los directorios y archivos</li>
+<li>Pero si ya hay una copia previa, sólo deben copiarse los directorios y archivos que sean nuevos (o modificados) desde la última copia. Para ello, utiliza un fichero oculto en /tmp/$HOME, que actúe de marca temporal.</li>
+</ul>
+<p><em>Sugerencia: Se sugiere crear primero los directorios (mkdir) y luego copiar los archivos (cp). En ambos casos, estudia la utilización de la opción -p</em></p>
+<hr />
+<h2 id="ejercicio-7">Ejercicio 7</h2>
+<p>Implementa un script que imprima un listado de los usuarios que tienen procesos en ejecución, indicando para cada uno:</p>
+<ul>
+<li>La cantidad de procesos que está ejecutando</li>
+<li>La suma de sus consumos actuales de CPU (en %)</li>
+<li>La suma de sus consumos actuales de memoria (en %)</li>
+</ul>
+<p><em>Sugerencia: Se sugiere utilizar la orden ps para averiguar la información de base.</em></p>
+<hr />
+<h2 id="ejercicio-8">Ejercicio 8</h2>
+<p>Implementa un script que se ejecute cada 5 minutos y compruebe que siguen ejecutándose los procesos necesarios para hadoop y yarn. <br />
+Si al ejecutarse no encuentra alguno de los procesos necesarios ha de dejar un registro (log)<br />
+Si al ejecutarse encuentra todos los procesos necesarios también ha de indicarlo en el log.</p>
+<ul>
+<li>
+<p>Pistas:</p>
+<ul>
+<li>Ejecutar un script cada X minutos o segundos… utilizaremos “cron”<ul>
+<li><a href="https://nksistemas.com/crear-un-script-simple-y-ejecutarlo-con-cron-crontab-en-tu-linux/">https://nksistemas.com/crear-un-script-simple-y-ejecutarlo-con-cron-crontab-en-tu-linux/</a></li>
+<li>Para ayudarnos a generar el cron correctamente: <a href="https://crontab.guru/">https://crontab.guru/</a></li>
+</ul>
+</li>
+<li>Procesos activos en el sistema <code>ps -aux</code> , o para hadoop <code>jps</code></li>
+</ul>
+<p>Ejemplo de log creado:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>lun 11 dic 2023 18:10:00 CET     Ejecución correcta [OK]
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>lun 11 dic 2023 18:15:00 CET     Error NodeManager  [ERROR]
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>lun 11 dic 2023 18:15:00 CET     Error SecondaryNameNode  [ERROR]
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>lun 11 dic 2023 18:15:00 CET     Error ResourceManager  [ERROR]
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>lun 11 dic 2023 18:20:00 CET     Ejecución correcta [OK]
+</span></code></pre></div>
+</li>
+</ul>
+<hr />
+<h2 id="ejercicio-9">Ejercicio 9</h2>
+<p>Mandar los logs del script anterior por telegram.<br />
+1. Crear bot con BotFather<br />
+Obtener token HTTP API<br />
+6482272093:AAEWWA3hfaZ0O6t4tC4TCpP5ewPVSjpQNL0jj</p>
 <ol>
-<li>Desde la misma máquina virtual.</li>
-<li>A través de ssh (debe estar el servicio activo).</li>
+<li>Entrar en el bot Start bot</li>
+<li>Obtener chatID a través de una URL<br />
+    https://api.telegram.org/bot<strong>${token}</strong>/getUpdates</li>
+<li>Obtener chatID<br />
+<a href="https://ungineer.github.io/chatid.html">https://ungineer.github.io/chatid.html</a><br />
+<strong>25156175583</strong></li>
+<li>Mandar mensaje a través de bash:</li>
 </ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Para comprobar que está activo el servicio, desde la máquina virtual ejecutamos</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$<span class="w"> </span>ssh<span class="w"> </span>localhost
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>$<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>ssh<span class="w"> </span><span class="c1"># otra manera de comprobarlo</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Si el servicio no está activo lo activamos con (como root)</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>/sbin/service<span class="w"> </span>ssh<span class="w"> </span>start
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># Para que se inicie siempre que reiniciemos</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>ssh
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># ssh nombre_de_usuario@ip_maquina</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>$<span class="w"> </span>ssh<span class="w"> </span>user@192.168.64.14
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1"># para salir de la conexión ssh (ctrl + d) o el comando</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>$<span class="w"> </span><span class="nb">exit</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># Intenta acceder a la máquina virtual como root</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>$<span class="w"> </span>ssh<span class="w"> </span>root@192.168.64.14
-</span></code></pre></div>
-<p>✏️ <strong>Ejercicios</strong></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1. Modifica la configuración del servidor SSH para que se pueda acceder como root.
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>2. Modifica el puerto del servicio SSH para que escuche por el 2222.
-</span></code></pre></div>
-<h2 id="2-scp">2. scp</h2>
-<p>Se utiliza para copiar archivos y directorios de forma segura entre sistemas remotos a través de SSH (Secure Shell). Es especialmente útil para transferir archivos de un sistema local a uno remoto o viceversa de manera segura y eficiente.</p>
-<p><strong>Principales opciones:</strong></p>
-<ul>
-<li><strong><code>r</code></strong>: Copia directorios y sus contenidos de manera recursiva.</li>
-<li><strong><code>P</code></strong>: Especifica el puerto SSH a utilizar.</li>
-<li><strong><code>i</code></strong>: Permite especificar un archivo de clave privada en lugar de la clave por defecto.</li>
-<li><strong><code>v</code></strong>: Ejecuta <strong><code>scp</code></strong> en modo verbose para obtener información detallada sobre la transferencia.</li>
-</ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Copiar un archivo local a un servidor remoto</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>scp<span class="w"> </span>archivo.txt<span class="w"> </span>usuario@servidor.com:/ruta/destino/
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">API_TOKEN</span><span class="o">=</span><span class="s2">&quot;&lt;your_api_token&gt;&quot;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nv">CHAT_ID</span><span class="o">=</span><span class="s2">&quot;&lt;your_chat_id&gt;&quot;</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Copiar un archivo remoto a la máquina local</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>scp<span class="w"> </span>usuario@servidor.com:/ruta/archivo-remoto.txt<span class="w"> </span>/ruta/local/
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Set the message text</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nv">MESSAGE</span><span class="o">=</span><span class="s2">&quot;This is a test message&quot;</span>
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Copiar un directorio y su contenido de manera recursiva</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>scp<span class="w"> </span>-r<span class="w"> </span>directorio_local/<span class="w"> </span>usuario@servidor.com:/ruta/destino/
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Use the curl command to send the message</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>curl<span class="w"> </span>-s<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.telegram.org/bot<span class="nv">$API_TOKEN</span>/sendMessage<span class="w"> </span>-d<span class="w"> </span><span class="nv">chat_id</span><span class="o">=</span><span class="nv">$CHAT_ID</span><span class="w"> </span>-d<span class="w"> </span><span class="nv">text</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$MESSAGE</span><span class="s2">&quot;</span>
 </span></code></pre></div>
-<h2 id="3-screen">3. screen</h2>
-<p>Permite crear sesiones de terminal multiplexadas en sistemas Unix y Linux. Esto significa que puedes iniciar múltiples sesiones de terminal dentro de una sola ventana y alternar entre ellas. Además, las sesiones de <code>screen</code> pueden ejecutarse en segundo plano, lo que permite desacoplarlas de la sesión de terminal actual.</p>
-<p>La principal ventaja de <code>screen</code> es que podemos:</p>
+<hr />
+<h2 id="ejercicio-10">Ejercicio 10</h2>
+<p>Un sistema informático almacena en varios ficheros “log” los usuarios y la fecha de conexión (usuario:mes:dia).</p>
+<p>Hay que hacer un script al que se le puedan pasan 2 parámetros, el primero un nombre de usuario y el segundo un fichero log y comprobará (mostrando por pantalla) cuántos accesos ha realizado el usuario el mes actual.</p>
+<p>Control de errores:</p>
 <ul>
-<li>Conectarnos a un servidor ssh.</li>
-<li>Ejecutar un proceso largo.</li>
-<li>Salir del servidor ssh (el proceso continua ejecutándose).</li>
-<li>Volver a conectar al servidor ssh y recuperar la ejecución anterior.</li>
+<li>2 parámetros requeridos</li>
+<li>El fichero de logs no existe</li>
 </ul>
-<div class="admonition question">
-<p class="admonition-title">Hold a session open on a remote server. Manage multiple windows with a single SSH connection.</p>
-<p>Start a new screen session:<br />
-<code>screen</code></p>
-<p>Start a new named screen session:<br />
-<code>screen -S session_name</code></p>
-<p>Start a new daemon and log the output to <code>screenlog.x</code>: <br />
-<code>screen -dmLS session_name command</code></p>
-<p>Show open screen sessions:<br />
-<code>screen -ls</code></p>
-<p>Reattach to an open screen:<br />
-<code>screen -r session_name</code></p>
-<p>Detach from inside a screen:<br />
-<code>Ctrl + A, D</code></p>
-<p>Kill the current screen session:<br />
-<code>Ctrl + A, K</code></p>
-<p>Kill a detached screen:<br />
-<code>screen -X -S session_name quit</code></p>
-</div>
-<p>Más info:<br />
-<a href="https://www.youtube.com/watch?v=_ZJiEX4rmN4">https://www.youtube.com/watch?v=_ZJiEX4rmN4</a></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>screen
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$<span class="w"> </span>screen<span class="w"> </span>–version
+<p><strong>Ejemplo datos.log</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pedro:ENE:21
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ana:JUN:13
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>juan:ABR:16
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>roberto:JUN:01
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>juan:MAR:13
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>pedro:FEB:01
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>lucas:ENE:07
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>pedro:JUN:15
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>roberto:JUN:02
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>ana:JUN:13
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>lucas:ENE:07
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>juan:JUN:16
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>pedro:MAY:01
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>juan:MAR:13
 </span></code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Iniciamos</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>$<span class="w"> </span>screen
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Alternativa: También podemos iniciar una sesión y darle un nombre</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># usando la variable -S. Por ejemplo</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>$<span class="w"> </span>screen<span class="w"> </span>-S<span class="w"> </span>session1
+<p><strong>Ejemplos de ejecución</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">## Teniendo en cuenta que el mes actual es ENERO</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>./conexiones.sh<span class="w"> </span>ana<span class="w"> </span>datos.log
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>El<span class="w"> </span>usuario<span class="w"> </span>ana<span class="w"> </span>se<span class="w"> </span>ha<span class="w"> </span>conectado<span class="w"> </span>este<span class="w"> </span>mes<span class="w"> </span><span class="m">0</span><span class="w"> </span>veces.
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>./conexiones.sh<span class="w"> </span>pedro<span class="w"> </span>datos.log
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>El<span class="w"> </span>usuario<span class="w"> </span>pedro<span class="w"> </span>se<span class="w"> </span>ha<span class="w"> </span>conectado<span class="w"> </span>este<span class="w"> </span>mes<span class="w"> </span><span class="m">1</span><span class="w"> </span>vez.
 </span></code></pre></div>
-<p>Comandos para realizar la multiplexación de la terminal.<br />
-<img alt="" src="../images/screen.png" /></p>
-<h3 id="ejercicio">Ejercicio</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>- Realiza las modificaciones necesarias para que al conectarte al ssh de tu máquina virtual no te pida contraseña.
-</span></code></pre></div>
-<h2 id="4-sshfs">4. sshfs</h2>
-<p><code>sshfs</code> nos permite montar carpetas de máquinas remotas a través de ssh.</p>
-<p><a href="https://www.digitalocean.com/community/tutorials/how-to-use-sshfs-to-mount-remote-file-systems-over-ssh">https://www.digitalocean.com/community/tutorials/how-to-use-sshfs-to-mount-remote-file-systems-over-ssh</a></p>
-<p>Instalación en máquina remota</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>apt<span class="w"> </span>update
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>apt<span class="w"> </span>install<span class="w"> </span>sshfs
-</span></code></pre></div>
-<p>Montar en local</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>mkdir<span class="w"> </span>/mnt/remoto
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>sudo<span class="w"> </span>sshfs<span class="w"> </span>-o<span class="w"> </span>allow_other,default_permissions<span class="w"> </span>sammy@your_other_server:~/<span class="w"> </span>/mnt/droplet
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>sudo<span class="w"> </span>umount<span class="w"> </span>/mnt/droplet
-</span></code></pre></div>
-<ul>
-<li><code>o</code> precedes miscellaneous mount options (this is the same as when running the <code>mount</code> command normally for non-SSH disk mounts). In this case, you are using <code>allow_other</code> to allow other users to have access to this mount (so that it behaves like a normal disk mount, as <code>sshfs</code> prevents this by default), and <code>default_permissions</code> (so that it otherwise uses regular filesystem permissions).</li>
-<li><code>sammy@your_other_server:~/</code> provides the full path to the remote directory, including the remote username, <code>sammy</code>, the remote server, <code>your_other_server</code>, and the path, in this case <code>~/</code> for the remote user’s home directory. This uses the same syntax as SSH or SCP.</li>
-<li><code>/mnt/droplet</code> is the path to the local directory being used as a mount point.</li>
-</ul>
-<h2 id="5-open-vpn">5. Open VPN</h2>
-<p>Script que nos facilita la instalación de una VPN</p>
-<p><a href="https://github.com/Nyr/openvpn-install">https://github.com/Nyr/openvpn-install</a></p>
 
 
 
