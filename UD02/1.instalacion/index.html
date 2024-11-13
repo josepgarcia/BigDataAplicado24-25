@@ -720,12 +720,13 @@ Como solo tenemos un nodo, el mismo nodo será el maestro y el esclavo (no pasar
 <h2 id="requisitos">Requisitos</h2>
 <ul>
 <li>Hadoop descargado y descomprimido en /opt (lo hicimos anteriormente).</li>
-<li>~~El usuario hadoop ha de poder conectarse como root por ssh sin password.~~<ul>
-<li>~~Al ejecutar como hadoop <code>$ ssh root@localhost</code>no ha de pedir contraseña, la primera vez tendremos que aceptar la key pero a partir de ese momento se logueará automáticamente al ejecutar el comando.~~</li>
-</ul>
-</li>
 <li>El usuario hadoop ha de poder conectarse como usuario hadoop sin password<ul>
 <li>El usuario <code>hadoop</code>ha de poder realizar un <code>ssh hadoop@localhost</code> y ha de loguearse automáticamente, sin que se le pida password.</li>
+</ul>
+</li>
+<li><strong>PROBAR SIN ESTE PUNTO</strong><br />
+<em>El usuario hadoop ha de poder conectarse como root por ssh sin password.</em><ul>
+<li><em>Al ejecutar como hadoop <code>$ ssh root@localhost</code>no ha de pedir contraseña, la primera vez tendremos que aceptar la key pero a partir de ese momento se logueará automáticamente al ejecutar el comando.</em></li>
 </ul>
 </li>
 </ul>
@@ -747,8 +748,9 @@ Accedemos por ssh a la máquina virtual en la que habíamos descomprimido hadoop
 <p>Ficheros más importantes.<br />
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>core-site.xml → configuración general del cluster.
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>hdfs-site.xml → configuración sistema de ficheros hdfs.
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>mapred-site.xml → configuración de mapreduce.
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>yarn-site.xml → configuración del modo de trabajo del proceso yarn.
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>mapred-site.xml → configuración de mapreduce. # de moment no
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>hadoop-env.sh -&gt; entorno del servidor
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>yarn-site.xml → configuración del modo de trabajo del proceso yarn. # de moment no
 </span></code></pre></div></p>
 <h3 id="core-sitexml">core-site.xml</h3>
 <p>Inicialmente está vacío.</p>
@@ -874,13 +876,14 @@ La variable JAVA_HOME la habíamos definido ya en .bashrc, también se ha de def
 </span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>$<span class="w"> </span>ls<span class="w"> </span>-a<span class="w"> </span>/datos/datanode/
 </span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>.<span class="w">  </span>..<span class="w">  </span>current<span class="w">  </span>in_use.lock
 </span></code></pre></div>
-<p>También podemos acceder a la web de Administración para ver el resultado.</p>
-<p>~~Hadoop 2 → Puerto 50070~~ -&gt; Estamos con hadoop 3</p>
-<p>Hadoop 3 → Puerto 9870</p>
-<p>Podemos acceder a la web de administración a través de:</p>
-<p>http://HOSTNAME_O_IP:PUERTO</p>
-<p><a href="http://192.168.64.14:9870/">http://192.168.64.14:9870/</a></p>
-<p><a href="http://debianh:9864/">http://debianh:9864/</a> → Menos opciones</p>
+<p>Para acceder a la administración HDFS via web se utilizan 2 puertos:<br />
+* 50070 -&gt; Hadoop 2 (versiones anteriores de hadoop)<br />
+* 9870 -&gt; Hadoop 3, versión actual.</p>
+<p>Por lo que podemos acceder a la web de administración desde:<br />
+http://HOSTNAME_O_IP:PUERTO<br />
+<a href="http://192.168.64.14:9870/">http://192.168.64.14:9870/</a></p>
+<p>Una vez en la web de administración, pestaña DATANODES podemos acceder a un determinado nodo, en nuestro caso al ser un cluster pseudodistribuido solamente tenemos un nodo.<br />
+<a href="http://debianh:9864/">http://debianh:9864/</a> → Menos opciones ya que accedemos a un nodo determinado</p>
 <p><img alt="" src="../images/instalacion1.png" /><br />
 <img alt="" src="../images/instalacion2.png" /></p>
 <h1 id="3-trabajar-con-hfs">3. Trabajar con HFS</h1>
@@ -907,66 +910,61 @@ La variable JAVA_HOME la habíamos definido ya en .bashrc, también se ha de def
 </span></code></pre></div>
 <p>Si paramos el cluster con <code>stop-dfs.sh</code> y lo volvemos a arrancar los números en los nombres de ficheros incrementan.</p>
 <ul>
-<li>edits_*: cambios dentro de la base de datos de HDFS.</li>
-<li>edits_inprogress_*: lo que se está escribiendo en este momento.</li>
-<li>fsimage_*: copia “foto”, de un momento en el tiempo del sistema de ficheros.</li>
-<li><strong>Fichero VERSION</strong><ol>
-<li><strong><code>namespaceID</code></strong>: identificador único para el sistema de archivos HDFS en un clúster. Este identificador se utiliza para distinguir entre diferentes instancias del sistema de archivos HDFS en clústeres distintos. Cada clúster de Hadoop debe tener un <strong><code>namespaceID</code></strong> único para evitar conflictos. Si clonas o replica un clúster Hadoop, es importante que el <strong><code>namespaceID</code></strong> sea diferente en cada clúster para que no haya confusiones.</li>
-<li><strong><code>blockpoolID</code></strong>: identificador único para el "block pool" en HDFS. El "block pool" es una colección de bloques de datos que se utilizan para almacenar los datos de los archivos en HDFS. Cada "block pool" tiene su propio <strong><code>blockpoolID</code></strong>, que se utiliza para diferenciar entre múltiples "block pools" en el mismo clúster. Esto es importante para la escalabilidad y la administración de bloques en el sistema de archivos.</li>
-<li><strong><code>clusterID</code></strong>: identificador único para el clúster Hadoop. Este valor se utiliza para identificar un clúster específico y es importante para asegurarse de que los nodos del clúster se estén conectando al clúster correcto. El <strong><code>clusterID</code></strong> es necesario para garantizar que no haya problemas de conexión entre nodos cuando hay varios clústeres en la misma red o en escenarios de recuperación de desastres.</li>
-</ol>
+<li><strong>edits_</strong>: cambios dentro de la base de datos de HDFS.</li>
+<li><strong>edits_inprogress_</strong>: lo que se está escribiendo en este momento.</li>
+<li><strong>fsimage_</strong>: copia “foto”, de un momento en el tiempo del sistema de ficheros.</li>
+<li>
+<p><strong>Fichero VERSION</strong></p>
+<ul>
+<li>
+<p><strong><code>namespaceID</code></strong>: identificador único para el sistema de archivos HDFS en un clúster. Este identificador se utiliza para distinguir entre diferentes instancias del sistema de archivos HDFS en clústeres distintos. Cada clúster de Hadoop debe tener un <strong><code>namespaceID</code></strong> único para evitar conflictos. Si clonas o replica un clúster Hadoop, es importante que el <strong><code>namespaceID</code></strong> sea diferente en cada clúster para que no haya confusiones.</p>
+</li>
+<li>
+<p><strong><code>blockpoolID</code></strong>: identificador único para el "block pool" en HDFS. El "block pool" es una colección de bloques de datos que se utilizan para almacenar los datos de los archivos en HDFS. Cada "block pool" tiene su propio <strong><code>blockpoolID</code></strong>, que se utiliza para diferenciar entre múltiples "block pools" en el mismo clúster. Esto es importante para la escalabilidad y la administración de bloques en el sistema de archivos.</p>
+</li>
+<li>
+<p><strong><code>clusterID</code></strong>: identificador único para el clúster Hadoop. Este valor se utiliza para identificar un clúster específico y es importante para asegurarse de que los nodos del clúster se estén conectando al clúster correcto. El <strong><code>clusterID</code></strong> es necesario para garantizar que no haya problemas de conexión entre nodos cuando hay varios clústeres en la misma red o en escenarios de recuperación de desastres.</p>
 </li>
 </ul>
-<div class="admonition info">
-<p class="admonition-title">REVISANDO</p>
-<p>A partir de aquí está pendiente de revisión </p>
-</div>
-<h1 id="09-errores">09. Errores</h1>
+</li>
+</ul>
+<h2 id="otros-errores">Otros errores</h2>
+<ol>
+<li>
 <p><strong>Permission denied: user=dr.who, access=WRITE, inode="/":hadoop:supergroup:drwxr-xr-x</strong><br />
 <img alt="" src="../images/instalacion3.png" /></p>
-<p><strong>Failed to retrieve data from /webhdfs/v1/?op=LISTSTATUS: Server Error</strong></p>
-<p>PROBLEMA con la versión de JAVA, java 17.</p>
-<ul>
-<li>Eliminar versión de JAVA.</li>
-<li>Instalar versión 11.</li>
-</ul>
-<p>Se puede descargar desde:</p>
-<p><a href="https://cfdownload.adobe.com/pub/adobe/coldfusion/java/java11/java11020/jdk-11.0.20_linux-x64_bin.deb">https://cfdownload.adobe.com/pub/adobe/coldfusion/java/java11/java11020/jdk-11.0.20_linux-x64_bin.deb</a></p>
-<p><a href="https://gist.github.com/wavezhang/ba8425f24a968ec9b2a8619d7c2d86a6">https://gist.github.com/wavezhang/ba8425f24a968ec9b2a8619d7c2d86a6</a></p>
-<p>Posible causa, no hay datanodes corriendo.</p>
-<p>There are 0 datanode(s) running and 0 node(s) are excluded in this operation.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$<span class="w"> </span>jps
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="m">1040</span><span class="w"> </span>SecondaryNameNode
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="m">797</span><span class="w"> </span>NameNode
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="m">1277</span><span class="w"> </span>Jps
-</span></code></pre></div>
+</li>
+<li>
+<p><strong>Error en el sistema de ficheros HDFS, podemos utilizar fsck</strong></p>
+</li>
+</ol>
 <p>En el log de datanode: <code>$ tail -f logs/hadoop-hadoop-datanode-debianh.log</code></p>
 <p>2023-10-26 18:24:38,407 ERROR org.apache.hadoop.hdfs.server.datanode.DataNode: Initialization failed for Block pool (Datanode Uuid 6dfbb007-34b1-4a07-a045-274aad0e2936) service to debianh/127.0.1.1:9000. Exiting.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$<span class="w"> </span>hdfs<span class="w"> </span>fsck<span class="w"> </span>/<span class="w"> </span>-includeSnapshots
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="c1"># Borramos la carpeta current del namenode</span>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/datos/datanode/current
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="c1"># Iniciamos datenode unicamente</span>
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>$<span class="w"> </span>hdfs<span class="w"> </span>--daemon<span class="w"> </span>start<span class="w"> </span>datanode
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>$<span class="w"> </span>jps
-</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="m">2688</span><span class="w"> </span>NameNode
-</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="m">3486</span><span class="w"> </span>DataNode
-</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="m">3582</span><span class="w"> </span>Jps
-</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>
-</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="c1"># Cuando ya no caiga DataNode</span>
-</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>$<span class="w"> </span>start-all.sh
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$<span class="w"> </span>hdfs<span class="w"> </span>fsck<span class="w"> </span>/<span class="w"> </span>-includeSnapshots
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># Borramos la carpeta current del namenode</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/datos/datanode/current
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1"># Iniciamos datenode unicamente</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>$<span class="w"> </span>hdfs<span class="w"> </span>--daemon<span class="w"> </span>start<span class="w"> </span>datanode
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>$<span class="w"> </span>jps
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="m">2688</span><span class="w"> </span>NameNode
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="m">3486</span><span class="w"> </span>DataNode
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="m">3582</span><span class="w"> </span>Jps
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="c1"># Cuando ya no caiga DataNode</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>$<span class="w"> </span>start-all.sh
 </span></code></pre></div>
-<p>Si analizamos la petición desde el inspector de html, vemos que:</p>
+<ol>
+<li><strong>Eliminar los warnings</strong><br />
+<strong>Error: WARN util.NativeCodeLoader</strong></li>
+</ol>
 <p><img alt="" src="../images/instalacion4.png" /></p>
-<p><strong>Error: WARN util.NativeCodeLoader</strong></p>
-<p><img alt="" src="../images/instalacion5.png" /></p>
 <p>No encuentra librerías nativas, no importa, es un warning (podría ir más lento debido a este error)</p>
 <p>Para eliminar el warning hay que añadir en .bashrc</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HADOOP_HOME_WARN_SUPRESS</span><span class="o">=</span><span class="m">1</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HADOOP_ROOT_LOGGER</span><span class="o">=</span><span class="s2">&quot;WARN,DRFA&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HADOOP_HOME_WARN_SUPRESS</span><span class="o">=</span><span class="m">1</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HADOOP_ROOT_LOGGER</span><span class="o">=</span><span class="s2">&quot;WARN,DRFA&quot;</span>
 </span></code></pre></div>
-<p>O recompilar hadoop…</p>
 
 
 
