@@ -15,6 +15,7 @@ nav:
   - UD 02 Cluster Pseudo. HDFS:
     - Instalación: UD02/1.instalacion.md
     - Docker: UD02/8.clusterdocker.md
+    - Comandos HDFS: UD02/2.comandosHDFS.md
 
 theme: 
   language: es
