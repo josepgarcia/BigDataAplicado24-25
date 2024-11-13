@@ -488,6 +488,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requisitos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#creacion-configuracion-del-cluster" class="md-nav__link">
     <span class="md-ellipsis">
       Creación / configuración del cluster
@@ -611,6 +620,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requisitos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#creacion-configuracion-del-cluster" class="md-nav__link">
     <span class="md-ellipsis">
       Creación / configuración del cluster
@@ -699,6 +717,18 @@
 <p>También conocido como Cluster de un solo nodo.<br />
 Como solo tenemos un nodo, el mismo nodo será el maestro y el esclavo (no pasará nunca en producción ya que siempre tendremos un maestro y varios esclavos).</p>
 </div>
+<h2 id="requisitos">Requisitos</h2>
+<ul>
+<li>Hadoop descargado y descomprimido en /opt (lo hicimos anteriormente).</li>
+<li>~~El usuario hadoop ha de poder conectarse como root por ssh sin password.~~<ul>
+<li>~~Al ejecutar como hadoop <code>$ ssh root@localhost</code>no ha de pedir contraseña, la primera vez tendremos que aceptar la key pero a partir de ese momento se logueará automáticamente al ejecutar el comando.~~</li>
+</ul>
+</li>
+<li>El usuario hadoop ha de poder conectarse como usuario hadoop sin password<ul>
+<li>El usuario <code>hadoop</code>ha de poder realizar un <code>ssh hadoop@localhost</code> y ha de loguearse automáticamente, sin que se le pida password.</li>
+</ul>
+</li>
+</ul>
 <h2 id="creacion-configuracion-del-cluster">Creación / configuración del cluster</h2>
 <p>Como usuario <code>hadoop</code><br />
 Accedemos por ssh a la máquina virtual en la que habíamos descomprimido hadoop.</p>
@@ -757,32 +787,30 @@ Solo se indica en los clusters “esclavos”, pero como estamos haciendo un clu
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/lib/jvm/java-11-openjdk-amd64
 </span></code></pre></div>
 <h2 id="directorios-y-sistema-de-ficheros">Directorios y sistema de ficheros</h2>
-<ol>
-<li>
-<p>Creamos los directorios configurados en el punto anterior<br />
+<p>Como usuario <code>root</code><br />
+1. Creamos los directorios configurados en el punto anterior<br />
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>/datos/namenode
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>/datos/datanode
 </span></code></pre></div></p>
-</li>
-<li>
-<p>Cambiamos el propietario y grupo de /datos a <code>hadoop</code>.<br />
+<ol>
+<li>Cambiamos el propietario y grupo de /datos a <code>hadoop</code>.<br />
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/datos
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>total<span class="w"> </span><span class="m">16</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>drwxr-xr-x<span class="w">  </span><span class="m">4</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w"> </span><span class="m">4096</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">08</span>:28<span class="w"> </span>.
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>drwxr-xr-x<span class="w"> </span><span class="m">19</span><span class="w"> </span>root<span class="w">   </span>root<span class="w">   </span><span class="m">4096</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">08</span>:28<span class="w"> </span>..
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w"> </span><span class="m">4096</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">08</span>:28<span class="w"> </span>datanode
 </span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>hadoop<span class="w"> </span>hadoop<span class="w"> </span><span class="m">4096</span><span class="w"> </span>oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">08</span>:28<span class="w"> </span>namenode
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Creamos el sistema de ficheros del namenode (lo creará donde le hemos indicado en el xml).<br />
+</span></code></pre></div></li>
+</ol>
+<p>Como usuario <code>hadoop</code></p>
+<ol>
+<li>Creamos el sistema de ficheros del namenode (lo creará donde le hemos indicado en el xml).<br />
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Formateamos el namenode</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>$<span class="w"> </span>hdfs<span class="w"> </span>namenode<span class="w"> </span>-format
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Podemos de ver lo que ha creado...</span>
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>$<span class="w"> </span>ls<span class="w"> </span>/datos/namenode/*
-</span></code></pre></div></p>
-</li>
+</span></code></pre></div></li>
 </ol>
 <h2 id="arrancamos-hdfs">Arrancamos HDFS</h2>
 <div class="admonition info">
@@ -797,6 +825,37 @@ Solo se indica en los clusters “esclavos”, pero como estamos haciendo un clu
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># 2. Arranca datanode</span>
 </span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># 3. Arranca secondarynamenode</span>
 </span></code></pre></div></p>
+<div class="admonition danger">
+<p class="admonition-title">ERROR 1</p>
+<p>$ start-dfs.sh<br />
+Starting namenodes on [localhost]<br />
+localhost: hadoop@localhost: Permission denied (publickey,password).<br />
+Starting datanodes<br />
+localhost: hadoop@localhost: Permission denied (publickey,password).<br />
+Starting secondary namenodes [hadoopcasa]<br />
+hadoopcasa: hadoop@hadoopcasa: Permission denied (publickey,password).</p>
+<p><strong>SOLUCIÓN:</strong><br />
+El problema es que el usuario hadoop no puede loguearse sin password:<br />
+Como usuario <code>hadoop</code> :<br />
+cd<br />
+ssh-keygen -t rsa<br />
+cd .ssh<br />
+cat id_rsa.pub &gt;&gt; authorized_keys</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">ERROR 2</p>
+<p>$ start-dfs.sh<br />
+Starting namenodes on [localhost]<br />
+localhost: ERROR: JAVA_HOME is not set and could not be found.<br />
+Starting datanodes<br />
+localhost: ERROR: JAVA_HOME is not set and could not be found.<br />
+Starting secondary namenodes [hadoopcasa]<br />
+hadoopcasa: ERROR: JAVA_HOME is not set and could not be found.</p>
+<p><strong>SOLUCIÓN:</strong><br />
+No has modificado el archivo hadoop-env.sh tal y como se indicaba anteriormente.<br />
+La variable JAVA_HOME la habíamos definido ya en .bashrc, también se ha de definir en hadoop-env.sh</p>
+</div>
+<p>Una vez arrancado hadoop correctamente, vamos a ver los procesos que ha creado.</p>
 <p>Dentro de las JDK de java, tenemos un comando para ver los procesos java en ejecución:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$<span class="w"> </span>jps
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="m">3218</span><span class="w"> </span>DataNode
@@ -816,7 +875,7 @@ Solo se indica en los clusters “esclavos”, pero como estamos haciendo un clu
 </span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>.<span class="w">  </span>..<span class="w">  </span>current<span class="w">  </span>in_use.lock
 </span></code></pre></div>
 <p>También podemos acceder a la web de Administración para ver el resultado.</p>
-<p>Hadoop 2 → Puerto 50070</p>
+<p>~~Hadoop 2 → Puerto 50070~~ -&gt; Estamos con hadoop 3</p>
 <p>Hadoop 3 → Puerto 9870</p>
 <p>Podemos acceder a la web de administración a través de:</p>
 <p>http://HOSTNAME_O_IP:PUERTO</p>
@@ -858,6 +917,10 @@ Solo se indica en los clusters “esclavos”, pero como estamos haciendo un clu
 </ol>
 </li>
 </ul>
+<div class="admonition info">
+<p class="admonition-title">REVISANDO</p>
+<p>A partir de aquí está pendiente de revisión </p>
+</div>
 <h1 id="09-errores">09. Errores</h1>
 <p><strong>Permission denied: user=dr.who, access=WRITE, inode="/":hadoop:supergroup:drwxr-xr-x</strong><br />
 <img alt="" src="../images/instalacion3.png" /></p>

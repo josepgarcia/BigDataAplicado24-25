@@ -2,122 +2,130 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/formato/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/1.ConceptosGenerales/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/2.bash/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/3.ssh-soluciones/</loc>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/3.ssh/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/4.BashScripting/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/5.BashEjercicios-soluciones/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/5.BashEjercicios/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/6.BashChuleta/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/7.docker/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/8.EntornosVirtualesPython/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/9.ModificarApuntes/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/_TODO/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD01/_TODO/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD01/_PENDENT/UD01%20-%20Big%20Data%20Hadoop%20118e913de6c4806493b8e271ad30161a/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD01/_PENDENT/UD01%20-%20Big%20Data%20Hadoop%20118e913de6c4806493b8e271ad30161a/UD01%201%20Instalacio%CC%81n%20Ubuntu%20server%20Configuracio%CC%81n%20e%20118e913de6c48108a732f4e1dad8e84d/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD01/_PENDENT/UD01%20-%20Big%20Data%20Hadoop%20118e913de6c4806493b8e271ad30161a/UD01%202%20Descarga%20y%20configuracio%CC%81n%20Hadoop%20118e913de6c48021ba84c3a24ca46539/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD01/_PENDENT/UD01%20-%20Big%20Data%20Hadoop%20118e913de6c4806493b8e271ad30161a/UD01%203%20Hadoop%2C%20ejercicios%2011ce913de6c4801d9a1fecb53c37ad66/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD01/_PENDENT/UD01%20-%20Big%20Data%20Hadoop%20118e913de6c4806493b8e271ad30161a/UD01%203b%20Hadoop%2C%20ejercicios%20%28soluciones%29%2011ce913de6c480a58efef799646e5fb7/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/1.instalacion/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/2.webdfs/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/8.clusterdocker/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/9.ejercicio1_wordcount/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/Sin%20t%C3%ADtulo/</loc>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/_TODO/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/_PENDENT/UD02%203%20Checkpoint%2C%20fsimage%20y%20edits%20128e913de6c48145920bef840eb92c25/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/_PENDENT/UD02%204%20Comandos%20HDFS%20-%20Ejercicios%20128e913de6c481bea255c9faaaf5a970/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/_PENDENT/UD02%204%20Comandos%20HDFS%20128e913de6c481a9bb88fd23de336bb6/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/_PENDENT/UD02%205%20Administracio%CC%81n%20128e913de6c481c99f20e685acd85afb/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/_PENDENT/UD02%206%20Snapshots%20128e913de6c481c980fae8fd7bdbd980/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/_PENDENT/UD02%207%20Resumen%20instalacio%CC%81n%20hadoop%20128e913de6c481239ebfd71a231c804e/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-13</lastmod>
     </url>
 </urlset>
