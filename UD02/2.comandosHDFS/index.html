@@ -659,9 +659,12 @@
 <p class="admonition-title">ATENCIÓN</p>
 <p>Hay que asegurarse que está arrancado HDFS</p>
 </div>
-<p>Mostramos todas las opciones posibles del comando hdfs dfs</p>
-<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>hdfs<span class="w"> </span>dfs<span class="w"> </span><span class="c1">#Muestra todos los comandos posibles (**emula comandos linux**)</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># El comando hdfs se encuentra dentro de /opt/hadoop/bin</span>
+<p>El comando hdfs se encuentra de la carpeta <code>/opt/hadoop/bin</code>y el sistema busca en esta carpeta porque la habíamos incluido en nuestro <code>$PATH</code>.</p>
+<p>Mostramos todas las opciones posibles del comando <code>hdfs dfs</code>.<br />
+El comando hdfs "emula" comandos Linux como verás posteriormente.</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$PATH</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>$<span class="w"> </span>hdfs<span class="w"> </span>dfs<span class="w"> </span><span class="c1">#Muestra todos los comandos posibles</span>
 </span></code></pre></div><br />
 <img alt="" src="../images/comando_hdfs_dfs.png" /></p>
 <p>Para visualizar el contenido actual del sistema de ficheros HDFS.</p>
