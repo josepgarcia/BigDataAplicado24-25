@@ -1,5 +1,12 @@
 # PENDENT
 
+Contenedors
+Màquina virtual per a executar bash i fer tots ahí
++ nano 
++ vim
++ bash (pràctica per a instalar ssh)
+
+
 Hardware
 - Grupos de discos LVM (ubuntu)
 

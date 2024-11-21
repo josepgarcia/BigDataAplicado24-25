@@ -1,0 +1,178 @@
+# UD03 1. Configurar cluster YARN.
+
+<aside>
+ℹ️ No vamos a tocar la versión 1 de MapReduce, vamos a montar la versión 2 (YARN).
+
+</aside>
+
+# 1. Configurar cluster
+
+Pasos a seguir:
+
+Paramos el cluster (user hadoop)
+
+```bash
+$ stop-dfs.sh
+```
+
+Vamos a la carpeta donde se encuentran los ficheros de configuración
+
+```bash
+$ cd /opt/hadoop/etc/hadoop/
+```
+
+Editamos para indicar que el motor que gestiona mapreduce será yarn:
+
+```bash
+$ vi mapred-site.xml
+
+<configuration>
+	<property>
+   		<name>yarn.app.mapreduce.am.env</name>
+   		<value>HADOOP_MAPRED_HOME=/opt/hadoop</value>
+	</property>
+	<property>
+		<name>mapreduce.framework.name</name>
+		<value>yarn</value>
+	</property>
+</configuration>
+```
+
+Añadimos 3 propiedades a yarn-site.xml
+
+1. Indicamos donde se encuentra el yarn. Indicamos quién es el maestro que va a gestionar los procesos YARN.
+2. Servicios auxiliares que deben iniciar en el NodeManager (si por ejemplo creamos un servicio que se llame “myservice” lo podríamos indicar aquí).
+3. Cuál es la clase que va a utilizar para hacer esa gestión.
+
+```bash
+$ vi yarn-site.xml
+
+<configuration>
+	**~~<property>
+		<name>yarn.resourcemanager.hostname</name>
+		<value>debianh</value>
+	</property>~~**
+	<property>
+		<name>yarn.nodemanager.aux-services</name>
+		<value>mapreduce_shuffle</value>
+	</property>
+	<property>
+		<name>yarn.nodemanager.aux-services.mapreduce_shuffle.class</name>
+		<value>org.apache.hadoop.mapred.ShuffleHandler</value>
+	</property>
+</configuration>
+```
+
+Arrancamos
+
+```bash
+# Primero la parte de datos
+$ start-dfs.sh
+
+# Después la parte de procesos
+$ start-yarn.sh
+```
+
+Comprobamos que todos los servicios están funcionando:
+
+```bash
+$ jps
+791 DataNode
+713 NameNode
+1294 NodeManager
+1214 ResourceManager
+927 SecondaryNameNode
+1647 Jps
+```
+
+# 2. Web admin YARN
+
+Se puede acceder a la web para ver la configuración del yarn a través del **puerto 8088**.
+
+Nos aseguramos que esté el puerto abierto en la máquina virtual:
+
+```bash
+# Si no existe el comando netstat, debemos instalar el paquete net-tools
+
+$ netstat -anp | grep 8088
+tcp        0      0   0.0.0.0:8088          0.0.0.0:*               LISTEN      1214/java
+```
+
+- Si no se puede acceder:
+    
+    [https://github.com/apache/samza-hello-samza/pull/1](https://github.com/apache/samza-hello-samza/pull/1)
+    
+    Al configurar todo en el mismo cluster hay un problema con la propiedad que hemos añadido en `yarn-site.xml` indicando el hostname. Por lo que:
+    
+    1. Borramos esta propiedad.
+    2. Paramos yarn.
+    3. Volvemos a arrancar yarn.
+    
+    ```bash
+    $ netstat -anp | grep 8088
+    tcp        0      0 0.0.0.0:8088            0.0.0.0:*               LISTEN      2144/java
+    ```
+    
+    Ya debería ser accesible:
+    
+
+![Untitled](<./UD03 1 Configurar cluster YARN fffe913de6c481549f7ce547ed771a25/Untitled.png>)
+
+# 3. Opciones Web admin YARN
+
+![Untitled](<./UD03 1 Configurar cluster YARN fffe913de6c481549f7ce547ed771a25/Untitled 1.png>)
+
+Por defecto asume que tendrá mínimo 1Gb y Máximo 8Gb (da igual cuanta memoria tenga nuestra máquina virtual)
+
+---
+
+Pesaña **NODOS**, nodos activos
+
+En nuestro caso habrá 1 nodo activo y nos podemos comunicar con él por el puerto 8042
+
+Si pinchamos en el nodo podremos ver sus propiedades, aplicaciones que está lanzando, contenedores (recursos reales que se utilizan para hacer los procesos).
+
+Volvemos desde RM Home.
+
+---
+
+**Node Labels** (para etiquetar los diferentes nodos, no lo vamos a utilizar.
+
+---
+
+**Applications**: Las aplicaciones que tenemos funcionando en este momento.
+
+(Se pueden seleccionar por estado, NEW, NEW SAVING, SUBMITTED, ACCEPTED…)
+
+---
+
+**Schenduler**: Métricas del planificador, podemos ver lo que ha ocurrido cuando lancemos una aplicación. Por el momento aparecerá vacío.
+
+---
+
+**Tools**: Podemos ver la configuración, logs, estadísticas….
+
+# 4. Errores
+
+Para los que uséis la versión 3 de Hadoop, a veces puede generar un error al realizar alguno de los ejemplos.
+
+Para solucionarlo, es necesario explicitar algunas librerías
+
+En concreto hay que añadir en el yarn-site.xml la siguiente entrada (por supuesto adaptarlo a vuestro HADOOP_HOME.
+
+```xml
+<property>
+	<name>yarn.application.classpath</name>
+	<value>
+      /opt/hadoop3/hadoop/etc/hadoop,
+      /opt/hadoop3/share/hadoop/common/*,
+      /opt/hadoop3/share/hadoop/common/lib/*,
+      /opt/hadoop3/share/hadoop/hdfs/*,
+      /opt/hadoop3/share/hadoop/hdfs/lib/*,
+      /opt/hadoop3/share/hadoop/mapreduce/*,
+      /opt/hadoop3/share/hadoop/mapreduce/lib/*,
+      /opt/hadoop3/share/hadoop/yarn/*,
+      /opt/hadoop3/share/hadoop/yarn/lib/*
+	</value>
+</property>
+```

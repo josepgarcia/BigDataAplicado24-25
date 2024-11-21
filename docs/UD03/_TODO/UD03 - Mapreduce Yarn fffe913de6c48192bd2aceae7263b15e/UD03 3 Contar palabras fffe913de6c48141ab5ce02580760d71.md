@@ -1,0 +1,155 @@
+# UD03 3. Contar palabras
+
+# 1. Práctica Hadoop Wordcount
+
+```bash
+# RECORDATORIO: En la UD02, ejecutamos el comando "grep" de hadoop
+$ hadoop jar hadoop-mapreduce-examples-3.3.6.jar grep /tmp/entrada /tmp/salida/ 'kms'
+```
+
+## **Ejemplo MapReduce: wordcount**
+
+1. Vamos a ejecutar el proceso “wordcount” que ya habíamos utilizado anteriormente.
+2. Descargamos el libro del quijote en formato texto: Don Quijote by Miguel de Cervantes Saavedra - Free Ebook ([gutenberg.org](http://gutenberg.org/)) y lo guardamos en el directorio `/tmp`
+    
+    [https://www.gutenberg.org/cache/epub/2000/pg2000.txt](https://www.gutenberg.org/cache/epub/2000/pg2000.txt)
+    
+3. Transladamos el libro a nuestro sistema HDFS, dentro de la carpeta `libros`
+4. Queremos obtener una salida con el número de palabras que tiene y cuantas veces aparece la palabra. Vamos a situarnos en el directorio de mapreduce (`/opt/hadoop/share/hadoop/mapreduce/`) y ejecutar dentro del Jar “MapReduce examples” el programa “**wordcount**”.
+    
+    El programa wordcount busca en un directorio los ficheros planos y deja el resultado en otro directorio.
+    
+- **Sol**
+    
+    ```bash
+    hadoop jar hadoop-mapreduce-examples-3.3.6.jar wordcount /libros /salida_libros
+    ```
+    
+
+Podemos ver cómo se va ejecutando la tarea:
+
+![Captura de pantalla 2023-11-20 a las 16.26.55.png](<./UD03 3 Contar palabras fffe913de6c48141ab5ce02580760d71/Captura_de_pantalla_2023-11-20_a_las_16.26.55.png>)
+
+![Untitled](<./UD03 3 Contar palabras fffe913de6c48141ab5ce02580760d71/Untitled.png>)
+
+![Untitled](<./UD03 3 Contar palabras fffe913de6c48141ab5ce02580760d71/Untitled 1.png>)
+
+Si hacemos click en “Id” en la ejecución que queremos, veremos el detalle de esta. En los logs podemos ver el detalle de la ejecución y revisar si hay algún error.
+
+![Untitled](<./UD03 3 Contar palabras fffe913de6c48141ab5ce02580760d71/Untitled 2.png>)
+
+Si vamos al Attempt Id podremos ver el número de peticiones que se han hecho, numero de containers lanzado, etc.
+
+El enlace al histórico no funcionara porque lo tenemos desactivado.
+
+---
+
+1. ¿Qué diferencia existe en el comando que acabamos de ejecutar y el que utilizamos en la UD02?
+2. Vamos a revisar la salida de la ejecución descargando el fichero del resultado a nuestro sistema de ficheros (fuera del HDFS).
+
+## Errores
+
+### Error 1
+
+Fichero mapred-site.xml, añadir esta propiedad:
+
+```xml
+  <property>
+   		<name>yarn.app.mapreduce.am.env</name>
+   		<value>HADOOP_MAPRED_HOME=/opt/hadoop</value>
+	</property>
+```
+
+### Error 2
+
+Si ocurre un error de memoria similar a:
+
+Current usage: 449 MB of 1 GB physical memory used; 2.6 GB of 2.1 GB virtual memory used. Killing container
+
+Modificaremos yarn-site.xml para “engañar” a hadoop.
+
+```xml
+<property>
+	<name>
+		yarn.nodemanager.vmem-check-enabled
+	</name>
+	<value>
+		False
+	</value>
+</property>
+```
+
+### Error3
+
+```xml
+# file: hadoop-env.sh
+
+export JAVA_HOME=/usr/lib/jvm/jdk-11-oracle-x64
+export HADOOP_HOME=/opt/hadoop
+export HADOOP_OS_TYPE=${HADOOP_OS_TYPE:-$(uname -s)}
+export HADOOP_SSH_OPTS="-p 22"
+export HADOOP_CLASSPATH+=" $HADOOP_CONF_DIR/lib/*.jar"
+```
+
+### Error 4
+
+```xml
+# file: yarn-site.xml
+
+<property>
+    <name>yarn.application.classpath</name>
+		<value>
+			/opt/hadoop/hadoop/etc/hadoop,
+			/opt/hadoop/share/hadoop/common/*,
+			/opt/hadoop/share/hadoop/common/lib/*,
+			/opt/hadoop/share/hadoop/hdfs/*,
+			/opt/hadoop/share/hadoop/hdfs/lib/*,
+			/opt/hadoop/share/hadoop/mapreduce/*,
+			/opt/hadoop/share/hadoop/mapreduce/lib/*,
+			/opt/hadoop/share/hadoop/yarn/*,
+			/opt/hadoop/share/hadoop/yarn/lib/*
+		</value>
+ 	</property>
+```
+
+# 2. Práctica Java wordcount
+
+[ContarPalabras.java](<./UD03 3 Contar palabras fffe913de6c48141ab5ce02580760d71/ContarPalabras.java>)
+
+[ContarPalabras.java.tgz](<./UD03 3 Contar palabras fffe913de6c48141ab5ce02580760d71/ContarPalabras.java.tgz>)
+
+1. En la máquina virtual, creamos una carpeta en ~/practicas
+2. Copiamos el archivo [ContarPalabras.java](http://ContarPalabras.java) y lo revisamos para ver su funcionamiento
+3. Lo compilamos con:
+
+```bash
+hadoop com.sun.tools.javac.Main ContarPalabras.java
+
+jar cf ContarPalabras.jar Contar*.class
+
+# creará un archivo llamado ContarPalabras.jar
+```
+
+1. Ya lo tenemos compilado y preparado para ejecutar con MapReduce. Aseguremos que tenemos la web abierta para visualizar la ejecución [http://nodo1:8088/cluster/apps](http://nodo1:8088/cluster/apps)
+2. Vamos a activar el proceso para generar el histórico de ejecuciones con todo el detalle.
+
+```bash
+mapred --daemon start historyserver
+```
+
+1. Ejecutamos ContarPalabras.java y podemos ir revisando tanto la Shell como la web viendo cómo avanza la ejecución. 
+
+```bash
+$ hadoop jar ContarPalabras.jar ContarPalabras /libros/quijote.txt /salida_libros2
+```
+
+<aside>
+🧑🏼‍🎓 **Ejercicio aules**
+
+Cuenta las palabras del fichero `access_log.gz` que utilizamos en la unidad anterior.
+Entregar:
+* PDF con comandos ejecutados.
+* Capturas donde se vea el cluster funcionando (diferentes webviews), contenedores creados, procesos mapreduce...
+* Descarga el fichero de salida generado y pega también el el documento las 30 primeras líneas
+
+</aside>
