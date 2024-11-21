@@ -1,0 +1,956 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD03/_TODO/UD03%20-%20Mapreduce%20Yarn%20fffe913de6c48192bd2aceae7263b15e/UD03%205%20Mapreduce%20con%20Python%20%F0%9F%90%8D%20fffe913de6c4815b9aecfc4cc69f6780/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>UD03 5. Mapreduce con Python 🐍 - Big Data Aplicado 2024-25</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ud03-5-mapreduce-con-python" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../.." title="Big Data Aplicado 2024-25" class="md-header__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Big Data Aplicado 2024-25
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UD03 5. Mapreduce con Python 🐍
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/josepgarcia/bigDataAplicado24-25/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Big Data Aplicado 2024-25" class="md-nav__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Big Data Aplicado 2024-25
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/josepgarcia/bigDataAplicado24-25/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    INICIO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 00 Conceptos Generales
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            UD 00 Conceptos Generales
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD00/1.ConceptosGenerales/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conceptos Generales
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD00/2.bash/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    $_bash
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD00/3.ssh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ssh scp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD00/4.BashScripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    bash script
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD00/8.EntornosVirtualesPython/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Entornos Virtuales
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD00/9.ModificarApuntes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Editar apuntes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 02 Cluster Pseudo. HDFS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            UD 02 Cluster Pseudo. HDFS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD02/1.instalacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD02/2.comandosHDFS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comandos HDFS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD02/3.comandosHDFSejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios HDFS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD02/4.administracionHDFS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Administración HDFS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD02/6.snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Snapshopts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD02/8.clusterdocker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD02/7.HDFSdesdePython/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HDFS desde python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD03/_TODO/UD03 - Mapreduce Yarn fffe913de6c48192bd2aceae7263b15e/UD03 5 Mapreduce con Python 🐍 fffe913de6c4815b9aecfc4cc69f6780.md" title="Editar esta página" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="ud03-5-mapreduce-con-python">UD03 5. Mapreduce con Python 🐍</h1>
+<h1 id="que-es-mapreduce">¿Qué es MapReduce?</h1>
+<p>El objetivo de esta guía es trabajar con la resolución de ejercicios siguiendo el modelo de programación MapReduce con Python para entender los principales fundamentos de MapReduce para dar soporte a la computación paralela sobre grandes colecciones de datos en un contexto de procesamiento distribuido.</p>
+<p>La mayoría de las tareas de análisis deben poder combinar los datos de alguna manera, y es posible que los datos leídos de un disco deban combinarse con los datos de otros. MapReduce proporciona un modelo de programación que abstrae el problema de las lecturas y escrituras de disco, transformándolo en un cálculo sobre conjuntos de claves y valores. Para ello, MapReduce combina su operatoria en dos partes en el cálculo: el mapeo y la reducción, y es la interfaz entre las dos donde ocurre la "mezcla".</p>
+<p>MapReduce es un procesador de consultas batch, con capacidad de ejecutar una consulta ad hoc en todo un conjunto de datos, del orden de los petabytes, y obtener resultados en un tiempo razonable.</p>
+<h1 id="programando-mapreduce-simple">Programando MapReduce “Simple”</h1>
+<p><strong>Ejercicio:</strong> Vamos a programar un proceso MapReduce que nos permita realizar un conteo de palabras para saber, en un supuesto dataset del orden de los petabytes, la cantidad de veces que aparece cada palabra.</p>
+<p>Vamos a emular el funcionamiento de Hadoop MapReduce en función del siguiente esquema de funcionamiento:</p>
+<p><img alt="Untitled" src="Untitled.png" /></p>
+<p>En resumen, en el siguiente ejercicio, vamos a hacer un conteo de palabras en función de la siguiente operatoria:</p>
+<ol>
+<li>Vamos a suponer que tenemos 3 nodos que se distribuyen los datos en 3 split de datos diferentes.</li>
+<li>En cada nodo se va a procesar un split diferente, transformando cada palabra a un par <strong><clave, valor></strong> (el separador será el <em>tab</em>).</li>
+<li>Luego, tendremos un sorter.py que ordenará las claves emulando la operación de Hadoop que realiza esta actividad automáticamente.</li>
+<li>Luego habrá un merger que mezclará los archivos procesados en cada nodo emulando a Hadoop que realiza esta operación automáticamente.</li>
+<li>En este ejercicio vamos a suponer que tenemos un único Reducer.</li>
+<li>Por último, habrá un reducer.py que integrará los datos en un único archivo de salida que tendrá el procesamiento final de los datos.</li>
+</ol>
+<p>El flujo de datos puede observarse en el siguiente esquema:</p>
+<p><img alt="Untitled" src="Untitled%201.png" /></p>
+<h2 id="1-mapper">1. Mapper</h2>
+<p>Cada mapper leerá un split de datos y lo procesará. El objetivo de esta actividad es convertir la entrada en un par <clave, valor> que permita resolver el problema. Como lo que buscamos es realizar un conteo de palabras para saber, en un supuesto dataset del orden de los petabytes, la cantidad de veces que aparece cada palabra, vamos a tomar como clave la palabra y al valor le asignaremos 1 que indicará la ocurrencia de esa palabra.</p>
+<ol>
+<li>Leemos un fichero línea a línea</li>
+<li>Separamos cada palabra de la línea</li>
+<li>
+<p>Imprimimos cada palabra de la siguiente manera:</p>
+<p>Palabra <tabluador> 1</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">En</span>     <span class="mi">1</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">un</span>     <span class="mi">1</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">lugar</span>  <span class="mi">1</span> 
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">de</span>     <span class="mi">1</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">la</span>     <span class="mi">1</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">Mancha</span> <span class="mi">1</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="o">...</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">de</span>     <span class="mi">1</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="o">...</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">Mancha</span> <span class="mi">1</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="o">.....</span>
+</span></code></pre></div>
+<p>Aunque aparezca la misma palabra después, siempre se indicará un uno después del tabulador</p>
+</li>
+<li>
+<p><strong>Código</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="ch">#!/usr/bin/env python</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="sd">&quot;&quot;&quot;mapper_simple.py&quot;&quot;&quot;</span>  <span class="c1"># &lt;- Triple comilla, generar documentacion</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">import</span> <span class="nn">string</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;test.txt&#39;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="c1"># Eliminar espacios iniciales y finales</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="c1"># Separar línea el palabras</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="n">words</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="c1"># Recorremos las palabras</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></code></pre></div>
+</li>
+</ol>
+<h2 id="2-sorter">2. Sorter</h2>
+<p>Una de las operaciones que provee automáticamente Hadoop MapReduce es el sort por claves a la salida de cada nodo. </p>
+<p>Nosotros lo programamos puesto que estamos emulando el funcionamiento.</p>
+<h2 id="3-reducer">3. Reducer</h2>
+<hr />
+<h1 id="ejecutar-hadoop-mapreducer-utilizando-los-scripts-realizados">Ejecutar hadoop mapreducer utilizando los scripts realizados</h1>
+<ul>
+<li>En primer lugar, iniciar HDFS y YARN.</li>
+<li>Copiar en la máquina virtual los archivos mapper.py y reducer.py</li>
+<li>Descargar quijote.txt</li>
+</ul>
+<p>https://babel.upm.es/~angel/teaching/pps/quijote.txt</p>
+<ul>
+<li>Ejecutar el siguiente comando, vamos a utilizar la utilidad <code>hadoop-streaming</code></li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>hadoop<span class="w"> </span>jar<span class="w"> </span>/opt/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.3.6.jar<span class="w"> </span>-file<span class="w"> </span>mapper.py<span class="w"> </span>-mapper<span class="w"> </span>mapper.py<span class="w"> </span>-file<span class="w"> </span>reducer.py<span class="w"> </span>-reducer<span class="w"> </span>reducer.py<span class="w"> </span>-input<span class="w"> </span>../quijote.txt<span class="w"> </span>-output<span class="w"> </span>/quijote_salida
+</span></code></pre></div>
+<p><strong>Error 1:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ERROR<span class="w"> </span>streaming.StreamJob:<span class="w"> </span>Error<span class="w"> </span>Launching<span class="w"> </span>job<span class="w"> </span>:<span class="w"> </span>Input<span class="w"> </span>path<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>exist:<span class="w"> </span>hdfs://debianh:9000/user/quijote.txt
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Streaming<span class="w"> </span>Command<span class="w"> </span>Failed!
+</span></code></pre></div>
+<ul>
+<li>
+<p><strong>Sol</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>hdfs<span class="w"> </span>dfs<span class="w"> </span>-put<span class="w"> </span>../quijote.txt<span class="w"> </span>/
+</span></code></pre></div>
+</li>
+</ul>
+<p><strong>Error 2:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Error:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span>find<span class="w"> </span>or<span class="w"> </span>load<span class="w"> </span>main<span class="w"> </span>class<span class="w"> </span>org.apache.hadoop.mapreduce.v2.app.MRAppMaster
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Caused<span class="w"> </span>by:<span class="w"> </span>java.lang.ClassNotFoundException:<span class="w"> </span>org.apache.hadoop.mapreduce.v2.app.MRAppMaster
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Please<span class="w"> </span>check<span class="w"> </span>whether<span class="w"> </span>your<span class="w"> </span>&lt;HADOOP_HOME&gt;/etc/hadoop/mapred-site.xml<span class="w"> </span>contains<span class="w"> </span>the<span class="w"> </span>below<span class="w"> </span>configuration:
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>&lt;property&gt;
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>&lt;name&gt;yarn.app.mapreduce.am.env&lt;/name&gt;
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>&lt;value&gt;HADOOP_MAPRED_HOME<span class="o">=</span><span class="si">${</span><span class="nv">full</span><span class="p"> path of your hadoop distribution directory</span><span class="si">}</span>&lt;/value&gt;
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>&lt;/property&gt;
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>&lt;property&gt;
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>&lt;name&gt;mapreduce.map.env&lt;/name&gt;
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>&lt;value&gt;HADOOP_MAPRED_HOME<span class="o">=</span><span class="si">${</span><span class="nv">full</span><span class="p"> path of your hadoop distribution directory</span><span class="si">}</span>&lt;/value&gt;
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>&lt;/property&gt;
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>&lt;property&gt;
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>&lt;name&gt;mapreduce.reduce.env&lt;/name&gt;
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>&lt;value&gt;HADOOP_MAPRED_HOME<span class="o">=</span><span class="si">${</span><span class="nv">full</span><span class="p"> path of your hadoop distribution directory</span><span class="si">}</span>&lt;/value&gt;
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>&lt;/property&gt;
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>For<span class="w"> </span>more<span class="w"> </span>detailed<span class="w"> </span>output,<span class="w"> </span>check<span class="w"> </span>the<span class="w"> </span>application<span class="w"> </span>tracking<span class="w"> </span>page:<span class="w"> </span>http://debianh:8088/cluster/app/application_1700062943857_0003<span class="w"> </span>Then<span class="w"> </span>click<span class="w"> </span>on<span class="w"> </span>links<span class="w"> </span>to<span class="w"> </span>logs<span class="w"> </span>of<span class="w"> </span>each<span class="w"> </span>attempt.
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>.<span class="w"> </span>Failing<span class="w"> </span>the<span class="w"> </span>application.
+</span></code></pre></div>
+<ul>
+<li>
+<p><strong>Sol</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>https://stackoverflow.com/questions/50927577/could-not-find-or-load-main-class-org-apache-hadoop-mapreduce-v2-app-mrappmaster
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Edit<span class="w"> </span>mapred-site.xml
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Add:
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>&lt;property&gt;
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">   </span>&lt;name&gt;yarn.app.mapreduce.am.env&lt;/name&gt;
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">   </span>&lt;value&gt;HADOOP_MAPRED_HOME<span class="o">=</span>/opt/hadoop&lt;/value&gt;
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>&lt;/property&gt;
+</span></code></pre></div>
+</li>
+</ul>
+<p><strong>Error 3:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Error:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span>find<span class="w"> </span>or<span class="w"> </span>load<span class="w"> </span>main<span class="w"> </span>class<span class="w"> </span>org.apache.hadoop.mapred.YarnChild
+</span></code></pre></div>
+<ul>
+<li>
+<p><strong>Sol</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Ejecutar:<span class="w"> </span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>$<span class="w"> </span>hadoop<span class="w"> </span>classpath
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>Añadir<span class="w"> </span>en<span class="w"> </span>yarn-site.xml<span class="w"> </span>la<span class="w"> </span>salida<span class="w"> </span>del<span class="w"> </span>comando<span class="w"> </span>anterior
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>&lt;property&gt;
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span>&lt;name&gt;yarn.application.classpath&lt;/name&gt;
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span>&lt;value&gt;**SALIDA<span class="w"> </span>COMANDO<span class="w"> </span>ANTERIOR**&lt;/value&gt;
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>&lt;/property&gt;
+</span></code></pre></div>
+</li>
+</ul>
+<p><strong>Error 4:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>FAILED
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Error:<span class="w"> </span>java.lang.RuntimeException:<span class="w"> </span>PipeMapRed.waitOutputThreads<span class="o">()</span>:<span class="w"> </span>subprocess<span class="w"> </span>failed<span class="w"> </span>with<span class="w"> </span>code<span class="w"> </span><span class="m">127</span>
+</span></code></pre></div>
+<ul>
+<li>
+<p><strong>Sol</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Cambiar<span class="w"> </span>el<span class="w"> </span>entorno<span class="w"> </span>de<span class="w"> </span>ejecución<span class="w"> </span>de<span class="w"> </span>los<span class="w"> </span>scripts<span class="w"> </span>en<span class="w"> </span>pyton<span class="w"> </span>a:
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1">#!/usr/bin/env python3</span>
+</span></code></pre></div>
+</li>
+</ul>
+<p>Error 5, problema con el reducer</p>
+<p><a href="https://stackoverflow.com/questions/52076577/error-java-lang-runtimeexception-pipemapred-waitoutputthreads-subprocess-fa">https://stackoverflow.com/questions/52076577/error-java-lang-runtimeexception-pipemapred-waitoutputthreads-subprocess-fa</a></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>first<span class="w"> </span>line<span class="w"> </span>:<span class="w">  </span><span class="sb">`</span><span class="c1">#!/usr/bin/python` </span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>second<span class="w"> </span>line<span class="w"> </span>:<span class="w"> </span><span class="sb">`</span><span class="c1"># -*-coding:utf-8 -*`</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>chmod<span class="w"> </span>+x<span class="w"> </span>WordCountMapper.py
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>chmod<span class="w"> </span>+x<span class="w"> </span>WordCountReducer.py
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1">########### Use this command :</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>mapred<span class="w"> </span>streaming<span class="w"> </span>-files<span class="w"> </span>WordCountMapper.py,WordCountReducer.py<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>-input<span class="w"> </span>/data/input/README.TXT<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>-output<span class="w"> </span>/data/output<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>-mapper<span class="w"> </span>./WordCountMapper.py<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>-reducer<span class="w"> </span>./WordCountReducer.py
+</span></code></pre></div>
+<p>¿Cómo solucionar el Warning?</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>WARN<span class="w"> </span>streaming.StreamJob:<span class="w"> </span>-file<span class="w"> </span>option<span class="w"> </span>is<span class="w"> </span>deprecated,<span class="w"> </span>please<span class="w"> </span>use<span class="w"> </span>generic<span class="w"> </span>option<span class="w"> </span>-files<span class="w"> </span>instead.
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># Otra llamada con -fles</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>**hadoop<span class="w"> </span>jar<span class="w"> </span><span class="nv">$HADOOP_HOME</span>/share/hadoop/tools/lib/hadoop-streaming-*.jar<span class="w"> </span><span class="se">\*</span>*
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span>-D<span class="w"> </span>stream.num.map.output.key.fields<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">  </span>-D<span class="w"> </span>mapreduce.partition.keypartitioner.options<span class="o">=</span>-k1,1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">  </span>-D<span class="w"> </span>mapreduce.job.output.key.comparator.class<span class="o">=</span><span class="se">\</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>org.apache.hadoop.mapred.lib.KeyFieldBasedComparator<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">  </span>-D<span class="w"> </span>mapreduce.partition.keycomparator.options<span class="o">=</span><span class="s2">&quot;-k1n -k2nr&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>****<span class="w">  </span>-files<span class="w"> </span>secondary_sort_map.py,secondary_sort_reduce.py<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">  </span>-input<span class="w"> </span>input/ncdc/all<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">  </span>-output<span class="w"> </span>output-secondarysort-streaming<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">  </span>**-mapper<span class="w"> </span>ch09-mr-features/src/main/python/secondary_sort_map.py<span class="w"> </span><span class="se">\*</span>*
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">  </span>-partitioner<span class="w"> </span>org.apache.hadoop.mapred.lib.KeyFieldBasedPartitioner<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">  </span>**-reducer<span class="w"> </span>ch09-mr-features/src/main/python/secondary_sort_reduce.py**
+</span></code></pre></div>
+<p>Podemos ver el proceso</p>
+<p><img alt="Untitled" src="Untitled%202.png" /></p>
+<hr />
+<h1 id="funciona">Funciona</h1>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>**mapper.py**
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1">#!/usr/bin/env python3</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>import<span class="w"> </span>sys
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="k">for</span><span class="w"> </span>line<span class="w"> </span><span class="k">in</span><span class="w"> </span>sys.stdin:
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="nv">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>line.strip<span class="o">()</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="nv">words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>line.split<span class="o">()</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span>word<span class="w"> </span><span class="k">in</span><span class="w"> </span>words:
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">        </span>print<span class="o">(</span><span class="s1">&#39;%s\t%s&#39;</span><span class="w"> </span>%<span class="w"> </span><span class="o">(</span>word,<span class="w"> </span><span class="m">1</span><span class="o">))</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="c1">####################################################################################</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="c1">####################################################################################</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>**reducer.py**
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="c1">#!/usr/bin/env python3</span>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="s2">&quot;&quot;&quot;reducer.py&quot;&quot;&quot;</span>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>import<span class="w"> </span>sys
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="nv">word</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>None
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="nv">current_word</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>None
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="nv">current_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>
+</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a><span class="c1"># input comes from STDIN (standard input)</span>
+</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a><span class="k">for</span><span class="w"> </span>line<span class="w"> </span><span class="k">in</span><span class="w"> </span>sys.stdin:
+</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a><span class="w">        </span><span class="nv">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>line.strip<span class="o">()</span>
+</span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a><span class="w">        </span>word,<span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>line.split<span class="o">(</span><span class="s1">&#39;\t&#39;</span>,<span class="w"> </span><span class="m">1</span><span class="o">)</span>
+</span><span id="__span-13-29"><a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a>
+</span><span id="__span-13-30"><a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a><span class="w">        </span>try:
+</span><span id="__span-13-31"><a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a><span class="w">          </span><span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>int<span class="o">(</span>count<span class="o">)</span>
+</span><span id="__span-13-32"><a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a><span class="w">        </span>except<span class="w"> </span>ValueError:
+</span><span id="__span-13-33"><a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a><span class="w">          </span><span class="k">continue</span>
+</span><span id="__span-13-34"><a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a>
+</span><span id="__span-13-35"><a id="__codelineno-13-35" name="__codelineno-13-35" href="#__codelineno-13-35"></a><span class="w">        </span><span class="c1"># Para que funciona la entrada debe estar ordenada (sort)</span>
+</span><span id="__span-13-36"><a id="__codelineno-13-36" name="__codelineno-13-36" href="#__codelineno-13-36"></a><span class="w">        </span><span class="c1"># en hadoop funciona directamente porque ya hace un sort</span>
+</span><span id="__span-13-37"><a id="__codelineno-13-37" name="__codelineno-13-37" href="#__codelineno-13-37"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nv">current_word</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>word:
+</span><span id="__span-13-38"><a id="__codelineno-13-38" name="__codelineno-13-38" href="#__codelineno-13-38"></a><span class="w">          </span><span class="nv">current_count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span>count
+</span><span id="__span-13-39"><a id="__codelineno-13-39" name="__codelineno-13-39" href="#__codelineno-13-39"></a><span class="w">        </span><span class="k">else</span>:
+</span><span id="__span-13-40"><a id="__codelineno-13-40" name="__codelineno-13-40" href="#__codelineno-13-40"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span>current_word:<span class="w"> </span><span class="c1"># Primera iteración es None</span>
+</span><span id="__span-13-41"><a id="__codelineno-13-41" name="__codelineno-13-41" href="#__codelineno-13-41"></a><span class="w">            </span>print<span class="w"> </span><span class="o">(</span><span class="s1">&#39;%s\t%s&#39;</span><span class="w"> </span>%<span class="w"> </span><span class="o">(</span>current_word,<span class="w"> </span>current_count<span class="o">))</span>
+</span><span id="__span-13-42"><a id="__codelineno-13-42" name="__codelineno-13-42" href="#__codelineno-13-42"></a><span class="w">          </span><span class="nv">current_word</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>word
+</span><span id="__span-13-43"><a id="__codelineno-13-43" name="__codelineno-13-43" href="#__codelineno-13-43"></a><span class="w">          </span><span class="nv">current_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-13-44"><a id="__codelineno-13-44" name="__codelineno-13-44" href="#__codelineno-13-44"></a>
+</span><span id="__span-13-45"><a id="__codelineno-13-45" name="__codelineno-13-45" href="#__codelineno-13-45"></a><span class="k">if</span><span class="w"> </span><span class="nv">current_word</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>word:
+</span><span id="__span-13-46"><a id="__codelineno-13-46" name="__codelineno-13-46" href="#__codelineno-13-46"></a><span class="w">  </span>print<span class="w"> </span><span class="o">(</span><span class="s1">&#39;%s\t%s&#39;</span><span class="w"> </span>%<span class="w"> </span><span class="o">(</span>current_word,<span class="w"> </span>current_count<span class="o">))</span>
+</span><span id="__span-13-47"><a id="__codelineno-13-47" name="__codelineno-13-47" href="#__codelineno-13-47"></a>
+</span><span id="__span-13-48"><a id="__codelineno-13-48" name="__codelineno-13-48" href="#__codelineno-13-48"></a><span class="c1">####################################################################################</span>
+</span><span id="__span-13-49"><a id="__codelineno-13-49" name="__codelineno-13-49" href="#__codelineno-13-49"></a><span class="c1">####################################################################################</span>
+</span><span id="__span-13-50"><a id="__codelineno-13-50" name="__codelineno-13-50" href="#__codelineno-13-50"></a>
+</span><span id="__span-13-51"><a id="__codelineno-13-51" name="__codelineno-13-51" href="#__codelineno-13-51"></a>$<span class="w"> </span>mapred<span class="w"> </span>streaming<span class="w"> </span>-files<span class="w"> </span>mapper2.py,reducer.py<span class="w"> </span>-input<span class="w"> </span>/quijote.txt<span class="w"> </span>
+</span><span id="__span-13-52"><a id="__codelineno-13-52" name="__codelineno-13-52" href="#__codelineno-13-52"></a>-output<span class="w"> </span>/quijote_salida1<span class="w"> </span>-mapper<span class="w"> </span>./mapper2.py<span class="w"> </span>-reducer<span class="w"> </span>./reducer.py
+</span><span id="__span-13-53"><a id="__codelineno-13-53" name="__codelineno-13-53" href="#__codelineno-13-53"></a>
+</span><span id="__span-13-54"><a id="__codelineno-13-54" name="__codelineno-13-54" href="#__codelineno-13-54"></a>$<span class="w"> </span>hadoop<span class="w"> </span>jar<span class="w"> </span>/opt/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.3.6.jar<span class="w"> </span>-file<span class="w"> </span>mapper2.py<span class="w"> </span>
+</span><span id="__span-13-55"><a id="__codelineno-13-55" name="__codelineno-13-55" href="#__codelineno-13-55"></a>-mapper<span class="w"> </span>mapper2.py<span class="w"> </span>-file<span class="w"> </span>reducer.py<span class="w"> </span>-reducer<span class="w"> </span>reducer.py<span class="w"> </span>-input<span class="w"> </span>/quijote.txt<span class="w"> </span>
+</span><span id="__span-13-56"><a id="__codelineno-13-56" name="__codelineno-13-56" href="#__codelineno-13-56"></a>-output<span class="w"> </span>/quijote_salida2
+</span></code></pre></div>
+<h1 id="mejorando-mapreducer">Mejorando MapReducer</h1>
+<h2 id="1-mapper_1">1. Mapper</h2>
+<h2 id="2-sorter_1">2. Sorter</h2>
+<h2 id="3-reducer_1">3. Reducer</h2>
+<h2 id="revisar">Revisar:</h2>
+<ul>
+<li>[ ]  <a href="https://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/">https://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/</a><ul>
+<li>[ ]  <strong>Runing the phython code in hadoop</strong></li>
+<li>[ ]  Se puede acceder desde web a hadoop</li>
+</ul>
+</li>
+<li>[ ]  <a href="https://colab.research.google.com/github/bdm-unlu/2021/blob/main/guias/Guia_IntroMapReduce.ipynb#scrollTo=Wc5iyJ0qB8qh">https://colab.research.google.com/github/bdm-unlu/2021/blob/main/guias/Guia_IntroMapReduce.ipynb#scrollTo=Wc5iyJ0qB8qh</a></li>
+<li>[ ]  </li>
+</ul>
+<h1 id="creditos-info">Créditos + Info</h1>
+<p><a href="https://colab.research.google.com/github/bdm-unlu/2021/blob/main/guias/Guia_IntroMapReduce.ipynb#scrollTo=4OqzVfBpU8yx">https://colab.research.google.com/github/bdm-unlu/2021/blob/main/guias/Guia_IntroMapReduce.ipynb#scrollTo=4OqzVfBpU8yx</a></p>
+<p><a href="https://github.com/bdm-unlu/2023/blob/master/guias/Guia_IntroMapReduce.ipynb">https://github.com/bdm-unlu/2023/blob/master/guias/Guia_IntroMapReduce.ipynb</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Josep Garcia Garcia | <a href="https://github.com/josepgarcia/BigDataAplicado24-25" target="_blank">https://github.com/josepgarcia/BigDataAplicado24-25</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

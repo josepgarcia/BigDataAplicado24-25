@@ -635,11 +635,53 @@
   
   
     <li class="md-nav__item">
+      <a href="../6.snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Snapshopts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../8.clusterdocker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.HDFSdesdePython/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HDFS desde python
   </span>
   
 
@@ -947,7 +989,7 @@ http://HOSTNAME_O_IP:PUERTO<br />
 <a href="http://192.168.64.14:9870/">http://192.168.64.14:9870/</a></p>
 <p>Una vez en la web de administración, pestaña DATANODES podemos acceder a un determinado nodo, en nuestro caso al ser un cluster pseudodistribuido solamente tenemos un nodo.<br />
 <a href="http://debianh:9864/">http://debianh:9864/</a> → Menos opciones ya que accedemos a un nodo determinado</p>
-<p><img alt="" src="../images/instalacion1.png" /><br />
+<p><img alt="" src="./images/instalacion1.png" /><br />
 <img alt="" src="../images/instalacion2.png" /></p>
 <h1 id="3-trabajar-con-hfs">3. Trabajar con HFS</h1>
 <p>En <code>/datos/namenode/current</code> hay 3 tipos de ficheros:<br />
@@ -995,7 +1037,7 @@ http://HOSTNAME_O_IP:PUERTO<br />
 <ol>
 <li>
 <p><strong>Permission denied: user=dr.who, access=WRITE, inode="/":hadoop:supergroup:drwxr-xr-x</strong><br />
-<img alt="" src="../images/instalacion3.png" /></p>
+<img alt="" src="./images/instalacion3.png" /></p>
 </li>
 <li>
 <p><strong>Error en el sistema de ficheros HDFS, podemos utilizar fsck</strong></p>
@@ -1022,7 +1064,7 @@ http://HOSTNAME_O_IP:PUERTO<br />
 <li><strong>Eliminar los warnings</strong><br />
 <strong>Error: WARN util.NativeCodeLoader</strong></li>
 </ol>
-<p><img alt="" src="../images/instalacion4.png" /></p>
+<p><img alt="" src="./images/instalacion4.png" /></p>
 <p>No encuentra librerías nativas, no importa, es un warning (podría ir más lento debido a este error)</p>
 <p>Para eliminar el warning hay que añadir en .bashrc</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HADOOP_HOME_WARN_SUPRESS</span><span class="o">=</span><span class="m">1</span>

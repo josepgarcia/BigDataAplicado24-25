@@ -520,11 +520,53 @@
   
   
     <li class="md-nav__item">
+      <a href="../UD02/6.snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Snapshopts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../UD02/8.clusterdocker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UD02/7.HDFSdesdePython/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HDFS desde python
   </span>
   
 
@@ -583,6 +625,15 @@
 
 
 <p>✏️ <strong>EJERCICIOS</strong></p>
+<details class="solución">
+<summary>Solución</summary>
+<p>$ hdfs dfsadmin -report <br />
+     "Under replicated blocks" -&gt; Si configuramos como réplica por ejemplo 3 y hay algún bloque con menos. Si esto baja de un determinado porcentaje, hadoop se pone en modo seguro porque piensa que hay algún problema. <br />
+ $ hdfs fsck / <br />
+ $ hdfs fsck /datos2 <br />
+ $ hdfs dfsadmin -printTopology <br />
+ $ hdfs dfsadmin -listOpenFiles</p>
+</details>
 <h1 id="admonition">Admonition</h1>
 <div class="admonition note">
 <p class="admonition-title">Title -&gt; Para ejercicios</p>

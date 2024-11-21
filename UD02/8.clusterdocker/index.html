@@ -11,8 +11,10 @@
         <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD02/8.clusterdocker/">
       
       
-        <link rel="prev" href="../4.administracionHDFS/">
+        <link rel="prev" href="../6.snapshots/">
       
+      
+        <link rel="next" href="../7.HDFSdesdePython/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -62,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cluster-pseudodistribuido-en-docker" class="md-skip">
+        <a href="#configuracion-de-un-cluster-hadoop-pseudo-distribuido-en-docker" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -521,6 +523,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Snapshopts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -570,54 +593,105 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#opcion-1" class="md-nav__link">
+  <a href="#tabla-de-contenidos" class="md-nav__link">
     <span class="md-ellipsis">
-      Opción 1
+      Tabla de Contenidos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#revisar-1" class="md-nav__link">
+  <a href="#introduccion" class="md-nav__link">
     <span class="md-ellipsis">
-      Revisar 1
+      Introducción
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#revisar-2" class="md-nav__link">
+  <a href="#prerrequisitos" class="md-nav__link">
     <span class="md-ellipsis">
-      Revisar 2
+      Prerrequisitos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#creacion-imagen-debian-11" class="md-nav__link">
+  <a href="#estructura-del-proyecto" class="md-nav__link">
     <span class="md-ellipsis">
-      Creación imagen debian 11
+      Estructura del Proyecto
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#descarga-e-instalacion-hadoop" class="md-nav__link">
+  <a href="#configuracion-de-hadoop" class="md-nav__link">
     <span class="md-ellipsis">
-      Descarga e instalación hadoop
+      Configuración de Hadoop
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración de Hadoop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-sitexml" class="md-nav__link">
+    <span class="md-ellipsis">
+      core-site.xml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hdfs-sitexml" class="md-nav__link">
+    <span class="md-ellipsis">
+      hdfs-site.xml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapred-sitexml" class="md-nav__link">
+    <span class="md-ellipsis">
+      mapred-site.xml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yarn-sitexml" class="md-nav__link">
+    <span class="md-ellipsis">
+      yarn-site.xml
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#archivo-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Archivo Dockerfile
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ultima-correccion" class="md-nav__link">
+  <a href="#script-de-inicio-start-hadoopsh" class="md-nav__link">
     <span class="md-ellipsis">
-      Última corrección
+      Script de Inicio: start-hadoop.sh
     </span>
   </a>
   
@@ -627,6 +701,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.HDFSdesdePython/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HDFS desde python
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -666,54 +761,105 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#opcion-1" class="md-nav__link">
+  <a href="#tabla-de-contenidos" class="md-nav__link">
     <span class="md-ellipsis">
-      Opción 1
+      Tabla de Contenidos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#revisar-1" class="md-nav__link">
+  <a href="#introduccion" class="md-nav__link">
     <span class="md-ellipsis">
-      Revisar 1
+      Introducción
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#revisar-2" class="md-nav__link">
+  <a href="#prerrequisitos" class="md-nav__link">
     <span class="md-ellipsis">
-      Revisar 2
+      Prerrequisitos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#creacion-imagen-debian-11" class="md-nav__link">
+  <a href="#estructura-del-proyecto" class="md-nav__link">
     <span class="md-ellipsis">
-      Creación imagen debian 11
+      Estructura del Proyecto
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#descarga-e-instalacion-hadoop" class="md-nav__link">
+  <a href="#configuracion-de-hadoop" class="md-nav__link">
     <span class="md-ellipsis">
-      Descarga e instalación hadoop
+      Configuración de Hadoop
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración de Hadoop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-sitexml" class="md-nav__link">
+    <span class="md-ellipsis">
+      core-site.xml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hdfs-sitexml" class="md-nav__link">
+    <span class="md-ellipsis">
+      hdfs-site.xml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapred-sitexml" class="md-nav__link">
+    <span class="md-ellipsis">
+      mapred-site.xml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yarn-sitexml" class="md-nav__link">
+    <span class="md-ellipsis">
+      yarn-site.xml
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#archivo-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Archivo Dockerfile
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ultima-correccion" class="md-nav__link">
+  <a href="#script-de-inicio-start-hadoopsh" class="md-nav__link">
     <span class="md-ellipsis">
-      Última corrección
+      Script de Inicio: start-hadoop.sh
     </span>
   </a>
   
@@ -742,225 +888,257 @@
   
 
 
-<h1 id="cluster-pseudodistribuido-en-docker">Cluster pseudodistribuido en docker</h1>
-<div class="admonition danger">
-<p class="admonition-title">NO DISPONIBLE</p>
-<p>Contenido pendiente de finalizar y revisar</p>
-</div>
-<h2 id="opcion-1">Opción 1</h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-p<span class="w"> </span><span class="m">8042</span><span class="w"> </span>-p<span class="w"> </span><span class="m">8088</span><span class="w"> </span>-p<span class="w"> </span><span class="m">19888</span><span class="w"> </span>-p<span class="w"> </span><span class="m">50070</span><span class="w"> </span>-p<span class="w"> </span><span class="m">50075</span><span class="w"> </span>harisekhon/hadoop
-</span></code></pre></div>
-<h2 id="revisar-1">Revisar 1</h2>
-<p>https://medium.com/@bayuadiwibowo/deploying-a-big-data-ecosystem-dockerized-hadoop-spark-hive-and-zeppelin-654014069c82</p>
-<h2 id="revisar-2">Revisar 2</h2>
-<p>https://www.writecode.es/2019-02-25-cluster_hadoop_docker/</p>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p><strong>SIN TERMINAR</strong></p>
-</div>
+<h1 id="configuracion-de-un-cluster-hadoop-pseudo-distribuido-en-docker">Configuración de un Clúster Hadoop Pseudo-Distribuido en Docker</h1>
+<p>Este documento proporciona una guía detallada para configurar un clúster Hadoop en modo pseudo-distribuido utilizando Docker. Al final de esta guía, tendrás un entorno Hadoop completamente funcional en un contenedor Docker, ideal para propósitos de desarrollo y pruebas.</p>
+<p><a href="./">Preparando la versión 2, con Java 11 y hadoop 3.4.1</a></p>
+<h2 id="tabla-de-contenidos"><strong>Tabla de Contenidos</strong></h2>
+<ol>
+<li><a href="#introducción">Introducción</a></li>
+<li><a href="#prerrequisitos">Prerrequisitos</a></li>
+<li><a href="#estructura-del-proyecto">Estructura del Proyecto</a></li>
+<li><a href="#configuración-de-hadoop">Configuración de Hadoop</a></li>
+<li>4.1. <a href="#core-sitexml">core-site.xml</a></li>
+<li>4.2. <a href="#hdfs-sitexml">hdfs-site.xml</a></li>
+<li>4.3. <a href="#mapred-sitexml">mapred-site.xml</a></li>
+<li>4.4. <a href="#yarn-sitexml">yarn-site.xml</a></li>
+<li><a href="#archivo-dockerfile">Archivo Dockerfile</a></li>
+<li><a href="#script-de-inicio-start-hadoopsh">Script de Inicio: start-hadoop.sh</a></li>
+<li><a href="#construcción-y-ejecución-del-contenedor">Construcción y Ejecución del Contenedor</a></li>
+<li>7.1. <a href="#71-construir-la-imagen-docker">Construir la Imagen Docker</a></li>
+<li>7.2. <a href="#72-ejecutar-el-contenedor-docker">Ejecutar el Contenedor Docker</a></li>
+<li><a href="#verificación-de-la-configuración">Verificación de la Configuración</a></li>
+<li>8.1. <a href="#81-comprobar-los-procesos-de-hadoop">Comprobar los Procesos de Hadoop</a></li>
+<li>8.2. <a href="#82-acceder-a-las-interfaces-web">Acceder a las Interfaces Web</a></li>
+<li>8.3. <a href="#83-probar-comandos-hdfs">Probar Comandos HDFS</a></li>
+<li>8.4. <a href="#84-ejecutar-un-trabajo-de-mapreduce">Ejecutar un Trabajo de MapReduce</a></li>
+<li><a href="#conclusión">Conclusión</a></li>
+</ol>
+<hr />
+<h2 id="introduccion"><strong>Introducción</strong></h2>
+<p>La configuración de un clúster Hadoop en modo <strong>pseudo-distribuido</strong> permite simular un entorno distribuido en una sola máquina. Utilizando Docker, podemos aislar este entorno, facilitando su gestión y portabilidad.</p>
+<hr />
+<h2 id="prerrequisitos"><strong>Prerrequisitos</strong></h2>
 <ul>
-<li>Lo vamos a hacer sobre debian 11 slim (debian 11 tiene java 11, debian 12 java 17).</li>
-<li>Creamos una carpeta para preparar la imagen y allí creamos el archivo Dockerfile.</li>
+<li><strong>Docker</strong> instalado en tu sistema.</li>
+<li>Conocimientos básicos de <strong>Linux</strong> y <strong>Docker</strong>.</li>
+<li>Conexión a Internet para descargar Hadoop y las imágenes base.</li>
 </ul>
-<h2 id="creacion-imagen-debian-11">Creación imagen debian 11</h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">#En una pestaña del terminal corremos un contenedor con debian 11 slim para ir probando los comandos</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">#Indico la plataforma porque estoy con macos m1</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1">## Hago un pull</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>docker<span class="w"> </span>pull<span class="w"> </span>--platform<span class="w"> </span>linux/amd64<span class="w"> </span>debian:11-slim
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">## Y después un run</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>docker<span class="w"> </span>run<span class="w"> </span>--platform<span class="w"> </span>linux/amd64<span class="w"> </span>-it<span class="w"> </span>debian:11-slim
+<hr />
+<h2 id="estructura-del-proyecto"><strong>Estructura del Proyecto</strong></h2>
+<p>Organiza tu proyecto con la siguiente estructura de directorios y archivos:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>hadoop-pseudo-docker/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├──<span class="w"> </span>config/
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│<span class="w">   </span>├──<span class="w"> </span>core-site.xml
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│<span class="w">   </span>├──<span class="w"> </span>hdfs-site.xml
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│<span class="w">   </span>├──<span class="w"> </span>mapred-site.xml
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│<span class="w">   </span>└──<span class="w"> </span>yarn-site.xml
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├──<span class="w"> </span>Dockerfile
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>├──<span class="w"> </span>hadoop-3.3.5.tar.gz
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>└──<span class="w"> </span>start-hadoop.sh
 </span></code></pre></div>
-<p>En otra pestaña nos ponemos con el Dockerfile, creamos el archivo con el siguiente contenido, por el momento una debian 11, con locales en español, actualizada y con algunos paquetes instalados</p>
-<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">debian:11-slim</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c"># Configuración de entorno</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>es_ES.UTF-8<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nv">LANGUAGE</span><span class="o">=</span>es_ES:es<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nv">LC_ALL</span><span class="o">=</span>es_ES.UTF-8
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c"># Instalación de dependencias</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span>locales<span class="w"> </span>openjdk-11-jdk<span class="w"> </span>net-tools<span class="w"> </span>curl<span class="w"> </span>netcat<span class="w"> </span>gnupg<span class="w"> </span>libsnappy-dev<span class="w"> </span>vim<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt/lists/*<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>localedef<span class="w"> </span>-i<span class="w"> </span>es_ES<span class="w"> </span>-c<span class="w"> </span>-f<span class="w"> </span>UTF-8<span class="w"> </span>-A<span class="w"> </span>/usr/share/locale/locale.alias<span class="w"> </span>es_ES.UTF-8
+<ul>
+<li><strong>config/</strong>: Directorio que contiene los archivos de configuración de Hadoop.</li>
+<li><strong>Dockerfile</strong>: Archivo de construcción de la imagen Docker.</li>
+<li><strong>hadoop-3.3.5.tar.gz</strong>: Archivo comprimido de Hadoop (debe descargarse previamente).</li>
+<li><strong>start-hadoop.sh</strong>: Script para iniciar los servicios dentro del contenedor.</li>
+</ul>
+<hr />
+<h2 id="configuracion-de-hadoop"><strong>Configuración de Hadoop</strong></h2>
+<p>Crea los archivos de configuración en el directorio <code>config/</code> con el contenido siguiente.</p>
+<h3 id="core-sitexml"><strong>core-site.xml</strong></h3>
+<p>Configura el sistema de archivos predeterminado.</p>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">&lt;configuration&gt;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&lt;property&gt;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="nt">&lt;name&gt;</span>fs.defaultFS<span class="nt">&lt;/name&gt;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="nt">&lt;value&gt;</span>hdfs://localhost:9000<span class="nt">&lt;/value&gt;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nt">&lt;/configuration&gt;</span>
 </span></code></pre></div>
-<p>Podemos hacer un build del Dockerfile que tenemos para ver cómo va quedando:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker build -t hadoop-base-image --platform linux/amd64 .
+<h3 id="hdfs-sitexml"><strong>hdfs-site.xml</strong></h3>
+<p>Establece la replicación de datos.</p>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">&lt;configuration&gt;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&lt;property&gt;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="nt">&lt;name&gt;</span>dfs.replication<span class="nt">&lt;/name&gt;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="nt">&lt;value&gt;</span>1<span class="nt">&lt;/value&gt;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nt">&lt;/configuration&gt;</span>
 </span></code></pre></div>
-<p>Ya tenemos una imagen creada según el Dockerfile</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>image<span class="w"> </span>ls
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>REPOSITORY<span class="w">                     </span>TAG<span class="w">       </span>IMAGE<span class="w"> </span>ID<span class="w">       </span>CREATED<span class="w">          </span>SIZE
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>hadoop-base-image<span class="w">              </span>latest<span class="w">    </span>4bfe812532fc<span class="w">   </span><span class="m">6</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">    </span>668MB
+<h3 id="mapred-sitexml"><strong>mapred-site.xml</strong></h3>
+<p>Define el framework de MapReduce.</p>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">&lt;configuration&gt;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&lt;property&gt;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="nt">&lt;name&gt;</span>mapreduce.framework.name<span class="nt">&lt;/name&gt;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="nt">&lt;value&gt;</span>yarn<span class="nt">&lt;/value&gt;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nt">&lt;/configuration&gt;</span>
 </span></code></pre></div>
-<p>Podemos "arrancarla", en modo interactivo (-it), cuando salimos se borra lo que hemos hecho<br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker run --platform linux/amd64 -it hadoop-base-image
-</span></code></pre></div></p>
-<h2 id="descarga-e-instalacion-hadoop">Descarga e instalación hadoop</h2>
-<p>Modificamos Dockerfile con:</p>
-<div class="language-Dockerfile highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">debian:11-slim</span>
+<h3 id="yarn-sitexml"><strong>yarn-site.xml</strong></h3>
+<p>Configura YARN para soportar MapReduce.</p>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">&lt;configuration&gt;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">&lt;property&gt;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">        </span><span class="nt">&lt;name&gt;</span>yarn.nodemanager.aux-services<span class="nt">&lt;/name&gt;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="nt">&lt;value&gt;</span>mapreduce_shuffle<span class="nt">&lt;/value&gt;</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nt">&lt;/configuration&gt;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="archivo-dockerfile"><strong>Archivo Dockerfile</strong></h2>
+<p>El <code>Dockerfile</code> define cómo se construirá la imagen Docker. A continuación, se presenta el contenido completo:</p>
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c"># Imagen base</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">openjdk:8-jdk</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c"># Establecer variables de entorno</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">HADOOP_VERSION</span><span class="o">=</span><span class="m">3</span>.3.5
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">HADOOP_HOME</span><span class="o">=</span>/usr/local/hadoop
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/local/openjdk-8
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HADOOP_HOME</span>/bin:<span class="nv">$HADOOP_HOME</span>/sbin
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c"># Instalar paquetes necesarios</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>openssh-server<span class="w"> </span>wget<span class="w"> </span>rsync<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt/lists/*
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="c"># Crear usuario y grupo hadoop</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="k">RUN</span><span class="w"> </span>groupadd<span class="w"> </span>hadoop<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span>useradd<span class="w"> </span>-ms<span class="w"> </span>/bin/bash<span class="w"> </span>-g<span class="w"> </span>hadoop<span class="w"> </span>hadoop
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="c"># Instalar sudo</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>sudo<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt/lists/*
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="c"># Permitir que el usuario hadoop use sudo sin contraseña</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="k">RUN</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hadoop ALL=(ALL) NOPASSWD:ALL&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/sudoers
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="c"># Configurar SSH para el usuario hadoop</span>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="k">RUN</span><span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/home/hadoop/.ssh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">    </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-f<span class="w"> </span>/home/hadoop/.ssh/id_rsa<span class="w"> </span>-q<span class="w"> </span>-N<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">    </span>cat<span class="w"> </span>/home/hadoop/.ssh/id_rsa.pub<span class="w"> </span>&gt;&gt;<span class="w"> </span>/home/hadoop/.ssh/authorized_keys<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="w">    </span>chown<span class="w"> </span>-R<span class="w"> </span>hadoop:hadoop<span class="w"> </span>/home/hadoop/.ssh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="w">    </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/home/hadoop/.ssh/authorized_keys
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="c"># Instalar Hadoop</span>
+</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="k">COPY</span><span class="w"> </span>hadoop-3.3.5.tar.gz<span class="w"> </span>/tmp/
+</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a><span class="k">RUN</span><span class="w"> </span>tar<span class="w"> </span>-xzvf<span class="w"> </span>/tmp/hadoop-3.3.5.tar.gz<span class="w"> </span>-C<span class="w"> </span>/usr/local/<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="w">    </span>mv<span class="w"> </span>/usr/local/hadoop-3.3.5<span class="w"> </span><span class="nv">$HADOOP_HOME</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a><span class="w">    </span>rm<span class="w"> </span>/tmp/hadoop-3.3.5.tar.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a><span class="w">    </span>chown<span class="w"> </span>-R<span class="w"> </span>hadoop:hadoop<span class="w"> </span><span class="nv">$HADOOP_HOME</span>
+</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>
+</span><span id="__span-5-39"><a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a><span class="c"># Configurar variables de entorno de Hadoop</span>
+</span><span id="__span-5-40"><a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a><span class="k">RUN</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export JAVA_HOME=/usr/local/openjdk-8&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$HADOOP_HOME</span>/etc/hadoop/hadoop-env.sh
+</span><span id="__span-5-41"><a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a>
+</span><span id="__span-5-42"><a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a><span class="c"># Copiar archivos de configuración</span>
+</span><span id="__span-5-43"><a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a><span class="k">COPY</span><span class="w"> </span>config/*<span class="w"> </span><span class="nv">$HADOOP_HOME</span>/etc/hadoop/
+</span><span id="__span-5-44"><a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a><span class="k">RUN</span><span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>hadoop:hadoop<span class="w"> </span><span class="nv">$HADOOP_HOME</span>/etc/hadoop/
+</span><span id="__span-5-45"><a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a>
+</span><span id="__span-5-46"><a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a><span class="c"># Cambiar al usuario hadoop</span>
+</span><span id="__span-5-47"><a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a><span class="k">USER</span><span class="w"> </span><span class="s">hadoop</span>
+</span><span id="__span-5-48"><a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a>
+</span><span id="__span-5-49"><a id="__codelineno-5-49" name="__codelineno-5-49" href="#__codelineno-5-49"></a><span class="c"># Formatear HDFS</span>
+</span><span id="__span-5-50"><a id="__codelineno-5-50" name="__codelineno-5-50" href="#__codelineno-5-50"></a><span class="k">RUN</span><span class="w"> </span><span class="nv">$HADOOP_HOME</span>/bin/hdfs<span class="w"> </span>namenode<span class="w"> </span>-format
+</span><span id="__span-5-51"><a id="__codelineno-5-51" name="__codelineno-5-51" href="#__codelineno-5-51"></a>
+</span><span id="__span-5-52"><a id="__codelineno-5-52" name="__codelineno-5-52" href="#__codelineno-5-52"></a><span class="c"># Exponer puertos</span>
+</span><span id="__span-5-53"><a id="__codelineno-5-53" name="__codelineno-5-53" href="#__codelineno-5-53"></a><span class="k">EXPOSE</span><span class="w"> </span><span class="s">9870 8088 9000 8042 22</span>
+</span><span id="__span-5-54"><a id="__codelineno-5-54" name="__codelineno-5-54" href="#__codelineno-5-54"></a>
+</span><span id="__span-5-55"><a id="__codelineno-5-55" name="__codelineno-5-55" href="#__codelineno-5-55"></a><span class="c"># Volver al usuario root para copiar el script de inicio</span>
+</span><span id="__span-5-56"><a id="__codelineno-5-56" name="__codelineno-5-56" href="#__codelineno-5-56"></a><span class="k">USER</span><span class="w"> </span><span class="s">root</span>
+</span><span id="__span-5-57"><a id="__codelineno-5-57" name="__codelineno-5-57" href="#__codelineno-5-57"></a>
+</span><span id="__span-5-58"><a id="__codelineno-5-58" name="__codelineno-5-58" href="#__codelineno-5-58"></a><span class="c"># Copiar el script de inicio</span>
+</span><span id="__span-5-59"><a id="__codelineno-5-59" name="__codelineno-5-59" href="#__codelineno-5-59"></a><span class="k">COPY</span><span class="w"> </span>start-hadoop.sh<span class="w"> </span>/start-hadoop.sh
+</span><span id="__span-5-60"><a id="__codelineno-5-60" name="__codelineno-5-60" href="#__codelineno-5-60"></a><span class="k">RUN</span><span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/start-hadoop.sh
+</span><span id="__span-5-61"><a id="__codelineno-5-61" name="__codelineno-5-61" href="#__codelineno-5-61"></a>
+</span><span id="__span-5-62"><a id="__codelineno-5-62" name="__codelineno-5-62" href="#__codelineno-5-62"></a><span class="c"># Cambiar al usuario hadoop</span>
+</span><span id="__span-5-63"><a id="__codelineno-5-63" name="__codelineno-5-63" href="#__codelineno-5-63"></a><span class="k">USER</span><span class="w"> </span><span class="s">hadoop</span>
+</span><span id="__span-5-64"><a id="__codelineno-5-64" name="__codelineno-5-64" href="#__codelineno-5-64"></a>
+</span><span id="__span-5-65"><a id="__codelineno-5-65" name="__codelineno-5-65" href="#__codelineno-5-65"></a><span class="c"># Definir el punto de entrada</span>
+</span><span id="__span-5-66"><a id="__codelineno-5-66" name="__codelineno-5-66" href="#__codelineno-5-66"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/start-hadoop.sh&quot;</span><span class="p">]</span>
+</span></code></pre></div>
+<hr />
+<h2 id="script-de-inicio-start-hadoopsh"><strong>Script de Inicio: start-hadoop.sh</strong></h2>
+<p>Crea el archivo <code>start-hadoop.sh</code> en el directorio raíz de tu proyecto con el siguiente contenido:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="ch">#!/bin/bash</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c"># Configuración de entorno</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>es_ES.UTF-8<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="nv">LANGUAGE</span><span class="o">=</span>es_ES:es<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nv">LC_ALL</span><span class="o">=</span>es_ES.UTF-8<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="nv">HADOOP_VERSION</span><span class="o">=</span><span class="m">3</span>.4.0<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="nv">HADOOP_HOME</span><span class="o">=</span>/opt/hadoop
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1"># Iniciar el servicio SSH (requiere privilegios de root)</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>sudo<span class="w"> </span>service<span class="w"> </span>ssh<span class="w"> </span>start
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># Iniciar los servicios de Hadoop</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nv">$HADOOP_HOME</span>/sbin/start-dfs.sh
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="nv">$HADOOP_HOME</span>/sbin/start-yarn.sh
 </span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c"># Instalación de dependencias</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span>locales<span class="w"> </span>openjdk-11-jdk<span class="w"> </span>net-tools<span class="w"> </span>curl<span class="w"> </span>netcat<span class="w"> </span>gnupg<span class="w"> </span>libsnappy-dev<span class="w"> </span>vim<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt/lists/*<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>localedef<span class="w"> </span>-i<span class="w"> </span>es_ES<span class="w"> </span>-c<span class="w"> </span>-f<span class="w"> </span>UTF-8<span class="w"> </span>-A<span class="w"> </span>/usr/share/locale/locale.alias<span class="w"> </span>es_ES.UTF-8
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="c"># Descarga e instalación de Hadoop</span>
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="c"># No hacemos ningún enlace, nos descargamos hadoop</span>
-</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="c"># lo descomprimimos en OPT y renombramos a hadoop</span>
-</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="k">RUN</span><span class="w"> </span>curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.apache.org/hadoop/common/hadoop-<span class="si">${</span><span class="nv">HADOOP_VERSION</span><span class="si">}</span>/hadoop-<span class="si">${</span><span class="nv">HADOOP_VERSION</span><span class="si">}</span>.tar.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span>tar<span class="w"> </span>-xzf<span class="w"> </span>hadoop-<span class="si">${</span><span class="nv">HADOOP_VERSION</span><span class="si">}</span>.tar.gz<span class="w"> </span>-C<span class="w"> </span>/opt/<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">    </span>mv<span class="w"> </span>/opt/hadoop-<span class="si">${</span><span class="nv">HADOOP_VERSION</span><span class="si">}</span><span class="w"> </span><span class="nv">$HADOOP_HOME</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">    </span>rm<span class="w"> </span>hadoop-<span class="si">${</span><span class="nv">HADOOP_VERSION</span><span class="si">}</span>.tar.gz
-</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>
-</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>
-</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="c"># Configuración de variables de entorno para Hadoop y Java</span>
-</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HADOOP_HOME</span>/bin:<span class="nv">$HADOOP_HOME</span>/sbin<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="w">    </span><span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/lib/jvm/java-11-openjdk-amd64
-</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>
-</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a><span class="c"># Configuración básica de Hadoop (core-site.xml y hdfs-site.xml)</span>
-</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="k">RUN</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;&lt;?xml version=&quot;1.0&quot;?&gt; \</span>
-</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a><span class="s1">    &lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt; \</span>
-</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="s1">    &lt;configuration&gt; \</span>
-</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a><span class="s1">        &lt;property&gt; \</span>
-</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a><span class="s1">            &lt;name&gt;fs.defaultFS&lt;/name&gt; \</span>
-</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a><span class="s1">            &lt;value&gt;hdfs://localhost:9000&lt;/value&gt; \</span>
-</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a><span class="s1">        &lt;/property&gt; \</span>
-</span><span id="__span-6-37"><a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a><span class="s1">    &lt;/configuration&gt;&#39;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$HADOOP_HOME</span>/etc/hadoop/core-site.xml<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-38"><a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;&lt;?xml version=&quot;1.0&quot;?&gt; \</span>
-</span><span id="__span-6-39"><a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a><span class="s1">    &lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt; \</span>
-</span><span id="__span-6-40"><a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a><span class="s1">    &lt;configuration&gt; \</span>
-</span><span id="__span-6-41"><a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a><span class="s1">        &lt;property&gt; \</span>
-</span><span id="__span-6-42"><a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a><span class="s1">            &lt;name&gt;dfs.replication&lt;/name&gt; \</span>
-</span><span id="__span-6-43"><a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a><span class="s1">            &lt;value&gt;1&lt;/value&gt; \</span>
-</span><span id="__span-6-44"><a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a><span class="s1">        &lt;/property&gt; \</span>
-</span><span id="__span-6-45"><a id="__codelineno-6-45" name="__codelineno-6-45" href="#__codelineno-6-45"></a><span class="s1">    &lt;/configuration&gt;&#39;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$HADOOP_HOME</span>/etc/hadoop/hdfs-site.xml
-</span><span id="__span-6-46"><a id="__codelineno-6-46" name="__codelineno-6-46" href="#__codelineno-6-46"></a>
-</span><span id="__span-6-47"><a id="__codelineno-6-47" name="__codelineno-6-47" href="#__codelineno-6-47"></a><span class="c"># Crear directorios de Hadoop necesarios para almacenamiento de datos</span>
-</span><span id="__span-6-48"><a id="__codelineno-6-48" name="__codelineno-6-48" href="#__codelineno-6-48"></a><span class="k">RUN</span><span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/opt/hadoop/hdfs/namenode<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-49"><a id="__codelineno-6-49" name="__codelineno-6-49" href="#__codelineno-6-49"></a><span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/opt/hadoop/hdfs/datanode
-</span><span id="__span-6-50"><a id="__codelineno-6-50" name="__codelineno-6-50" href="#__codelineno-6-50"></a>
-</span><span id="__span-6-51"><a id="__codelineno-6-51" name="__codelineno-6-51" href="#__codelineno-6-51"></a><span class="c"># Configuración del puerto para Hadoop (en caso de necesitar mapear)</span>
-</span><span id="__span-6-52"><a id="__codelineno-6-52" name="__codelineno-6-52" href="#__codelineno-6-52"></a><span class="k">EXPOSE</span><span class="w"> </span><span class="s">9870 9000</span>
-</span><span id="__span-6-53"><a id="__codelineno-6-53" name="__codelineno-6-53" href="#__codelineno-6-53"></a>
-</span><span id="__span-6-54"><a id="__codelineno-6-54" name="__codelineno-6-54" href="#__codelineno-6-54"></a><span class="c"># Comando de inicio para HDFS</span>
-</span><span id="__span-6-55"><a id="__codelineno-6-55" name="__codelineno-6-55" href="#__codelineno-6-55"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">]</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1"># Mantener el contenedor en ejecución</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>tail<span class="w"> </span>-f<span class="w"> </span>/dev/null
 </span></code></pre></div>
-<p>Reconstruimos de nuevo la imagen:<br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker build -t hadoop-base-image --platform linux/amd64 .
+<p>Concede permisos de ejecución al script:<br />
+<strong>¿Hace falta?</strong><br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>start-hadoop.sh
 </span></code></pre></div></p>
-<p>Y la levantamos:<br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker run --platform linux/amd64 -it hadoop-base-image
-</span></code></pre></div></p>
-<p>Y devuelve el siguiente error:<br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>/************************************************************
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>SHUTDOWN_MSG: Shutting down NameNode at facb9e116dc3/192.168.215.2
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>************************************************************/
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>Iniciando HDFS...
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>Starting namenodes on [localhost]
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>ERROR: Attempting to operate on hdfs namenode as root
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>ERROR: but there is no HDFS_NAMENODE_USER defined. Aborting operation.
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>Starting datanodes
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>ERROR: Attempting to operate on hdfs datanode as root
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>ERROR: but there is no HDFS_DATANODE_USER defined. Aborting operation.
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>Starting secondary namenodes [facb9e116dc3]
-</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>ERROR: Attempting to operate on hdfs secondarynamenode as root
-</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>ERROR: but there is no HDFS_SECONDARYNAMENODE_USER defined. Aborting operation.
-</span></code></pre></div></p>
-<h2 id="ultima-correccion">Última corrección</h2>
-<p>Este error ocurre porque Hadoop no está diseñado para ejecutarse como root y necesita usuarios específicos definidos para ejecutar los procesos de namenode, datanode, y secondarynamenode.</p>
-<p>Para solucionarlo, puedes crear un usuario no-root en el Dockerfile y configurar las variables de entorno:<br />
-HDFS_NAMENODE_USER<br />
-HDFS_DATANODE_USER<br />
-HDFS_SECONDARYNAMENODE_USER</p>
-<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">debian:11-slim</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>es_ES.UTF-8<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="nv">LANGUAGE</span><span class="o">=</span>es_ES:es<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="nv">LC_ALL</span><span class="o">=</span>es_ES.UTF-8<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="nv">HADOOP_VERSION</span><span class="o">=</span><span class="m">3</span>.4.0<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="nv">HADOOP_HOME</span><span class="o">=</span>/opt/hadoop<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="nv">HDFS_NAMENODE_USER</span><span class="o">=</span>hadoop<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="nv">HDFS_DATANODE_USER</span><span class="o">=</span>hadoop<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="nv">HDFS_SECONDARYNAMENODE_USER</span><span class="o">=</span>hadoop
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="c"># Instalación de dependencias</span>
-</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span>locales<span class="w"> </span>openjdk-11-jdk<span class="w"> </span>net-tools<span class="w"> </span>curl<span class="w"> </span>netcat-openbsd<span class="w"> </span>gnupg<span class="w"> </span>libsnappy-dev<span class="w"> </span>vim<span class="w"> </span>openssh-client<span class="w"> </span>openssh-server<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt/lists/*<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>localedef<span class="w"> </span>-i<span class="w"> </span>es_ES<span class="w"> </span>-c<span class="w"> </span>-f<span class="w"> </span>UTF-8<span class="w"> </span>-A<span class="w"> </span>/usr/share/locale/locale.alias<span class="w"> </span>es_ES.UTF-8
-</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>
-</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="c"># Crear usuario no-root para Hadoop</span>
-</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="k">RUN</span><span class="w"> </span>useradd<span class="w"> </span>-m<span class="w"> </span>hadoop
-</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>
-</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="c"># Descargar e instalar Hadoop</span>
-</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="k">RUN</span><span class="w"> </span>curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.apache.org/hadoop/common/hadoop-<span class="si">${</span><span class="nv">HADOOP_VERSION</span><span class="si">}</span>/hadoop-<span class="si">${</span><span class="nv">HADOOP_VERSION</span><span class="si">}</span>.tar.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="w">    </span>tar<span class="w"> </span>-xzf<span class="w"> </span>hadoop-<span class="si">${</span><span class="nv">HADOOP_VERSION</span><span class="si">}</span>.tar.gz<span class="w"> </span>-C<span class="w"> </span>/opt/<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="w">    </span>mv<span class="w"> </span>/opt/hadoop-<span class="si">${</span><span class="nv">HADOOP_VERSION</span><span class="si">}</span><span class="w"> </span><span class="nv">$HADOOP_HOME</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="w">    </span>rm<span class="w"> </span>hadoop-<span class="si">${</span><span class="nv">HADOOP_VERSION</span><span class="si">}</span>.tar.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a><span class="w">    </span>chown<span class="w"> </span>-R<span class="w"> </span>hadoop:hadoop<span class="w"> </span><span class="nv">$HADOOP_HOME</span>
-</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>
-</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a><span class="c"># Configuración de variables de entorno para Hadoop y Java</span>
-</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HADOOP_HOME</span>/bin:<span class="nv">$HADOOP_HOME</span>/sbin<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a><span class="w">    </span><span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/lib/jvm/java-11-openjdk-amd64
-</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>
-</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a><span class="c"># Configuración básica de Hadoop</span>
-</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a><span class="k">RUN</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;&lt;?xml version=&quot;1.0&quot;?&gt; \</span>
-</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a><span class="s1">    &lt;configuration&gt; \</span>
-</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a><span class="s1">        &lt;property&gt; \</span>
-</span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a><span class="s1">            &lt;name&gt;fs.defaultFS&lt;/name&gt; \</span>
-</span><span id="__span-10-37"><a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a><span class="s1">            &lt;value&gt;hdfs://localhost:9000&lt;/value&gt; \</span>
-</span><span id="__span-10-38"><a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a><span class="s1">        &lt;/property&gt; \</span>
-</span><span id="__span-10-39"><a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a><span class="s1">    &lt;/configuration&gt;&#39;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$HADOOP_HOME</span>/etc/hadoop/core-site.xml<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-40"><a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;&lt;?xml version=&quot;1.0&quot;?&gt; \</span>
-</span><span id="__span-10-41"><a id="__codelineno-10-41" name="__codelineno-10-41" href="#__codelineno-10-41"></a><span class="s1">    &lt;configuration&gt; \</span>
-</span><span id="__span-10-42"><a id="__codelineno-10-42" name="__codelineno-10-42" href="#__codelineno-10-42"></a><span class="s1">        &lt;property&gt; \</span>
-</span><span id="__span-10-43"><a id="__codelineno-10-43" name="__codelineno-10-43" href="#__codelineno-10-43"></a><span class="s1">            &lt;name&gt;dfs.replication&lt;/name&gt; \</span>
-</span><span id="__span-10-44"><a id="__codelineno-10-44" name="__codelineno-10-44" href="#__codelineno-10-44"></a><span class="s1">            &lt;value&gt;1&lt;/value&gt; \</span>
-</span><span id="__span-10-45"><a id="__codelineno-10-45" name="__codelineno-10-45" href="#__codelineno-10-45"></a><span class="s1">        &lt;/property&gt; \</span>
-</span><span id="__span-10-46"><a id="__codelineno-10-46" name="__codelineno-10-46" href="#__codelineno-10-46"></a><span class="s1">    &lt;/configuration&gt;&#39;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$HADOOP_HOME</span>/etc/hadoop/hdfs-site.xml
-</span><span id="__span-10-47"><a id="__codelineno-10-47" name="__codelineno-10-47" href="#__codelineno-10-47"></a>
-</span><span id="__span-10-48"><a id="__codelineno-10-48" name="__codelineno-10-48" href="#__codelineno-10-48"></a><span class="c"># Crear directorios de Hadoop necesarios y asignar permisos al usuario</span>
-</span><span id="__span-10-49"><a id="__codelineno-10-49" name="__codelineno-10-49" href="#__codelineno-10-49"></a><span class="k">RUN</span><span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/opt/hadoop/hdfs/namenode<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-50"><a id="__codelineno-10-50" name="__codelineno-10-50" href="#__codelineno-10-50"></a><span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/opt/hadoop/hdfs/datanode<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-51"><a id="__codelineno-10-51" name="__codelineno-10-51" href="#__codelineno-10-51"></a><span class="w">    </span>chown<span class="w"> </span>-R<span class="w"> </span>hadoop:hadoop<span class="w"> </span>/opt/hadoop/hdfs
-</span><span id="__span-10-52"><a id="__codelineno-10-52" name="__codelineno-10-52" href="#__codelineno-10-52"></a>
-</span><span id="__span-10-53"><a id="__codelineno-10-53" name="__codelineno-10-53" href="#__codelineno-10-53"></a><span class="c"># Configurar SSH para que funcione sin clave en localhost</span>
-</span><span id="__span-10-54"><a id="__codelineno-10-54" name="__codelineno-10-54" href="#__codelineno-10-54"></a><span class="k">RUN</span><span class="w"> </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-f<span class="w"> </span>/etc/ssh/ssh_host_rsa_key<span class="w"> </span>-N<span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-55"><a id="__codelineno-10-55" name="__codelineno-10-55" href="#__codelineno-10-55"></a><span class="w">    </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-f<span class="w"> </span>/home/hadoop/.ssh/id_rsa<span class="w"> </span>-q<span class="w"> </span>-N<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-56"><a id="__codelineno-10-56" name="__codelineno-10-56" href="#__codelineno-10-56"></a><span class="w">    </span>cat<span class="w"> </span>/home/hadoop/.ssh/id_rsa.pub<span class="w"> </span>&gt;&gt;<span class="w"> </span>/home/hadoop/.ssh/authorized_keys<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-57"><a id="__codelineno-10-57" name="__codelineno-10-57" href="#__codelineno-10-57"></a><span class="w">    </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/home/hadoop/.ssh/authorized_keys<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-58"><a id="__codelineno-10-58" name="__codelineno-10-58" href="#__codelineno-10-58"></a><span class="w">    </span>chown<span class="w"> </span>-R<span class="w"> </span>hadoop:hadoop<span class="w"> </span>/home/hadoop/.ssh
-</span><span id="__span-10-59"><a id="__codelineno-10-59" name="__codelineno-10-59" href="#__codelineno-10-59"></a><span class="w">    </span>
-</span><span id="__span-10-60"><a id="__codelineno-10-60" name="__codelineno-10-60" href="#__codelineno-10-60"></a><span class="c"># Script de inicio para formateo y arranque</span>
-</span><span id="__span-10-61"><a id="__codelineno-10-61" name="__codelineno-10-61" href="#__codelineno-10-61"></a><span class="k">RUN</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;#!/bin/bash \n\</span>
-</span><span id="__span-10-62"><a id="__codelineno-10-62" name="__codelineno-10-62" href="#__codelineno-10-62"></a><span class="s1">if [ ! -d &quot;/opt/hadoop/hdfs/namenode/current&quot; ]; then \n\</span>
-</span><span id="__span-10-63"><a id="__codelineno-10-63" name="__codelineno-10-63" href="#__codelineno-10-63"></a><span class="s1">    echo &quot;Formateando namenode...&quot; \n\</span>
-</span><span id="__span-10-64"><a id="__codelineno-10-64" name="__codelineno-10-64" href="#__codelineno-10-64"></a><span class="s1">    $HADOOP_HOME/bin/hdfs namenode -format \n\</span>
-</span><span id="__span-10-65"><a id="__codelineno-10-65" name="__codelineno-10-65" href="#__codelineno-10-65"></a><span class="s1">fi \n\</span>
-</span><span id="__span-10-66"><a id="__codelineno-10-66" name="__codelineno-10-66" href="#__codelineno-10-66"></a><span class="s1">echo &quot;Iniciando HDFS...&quot; \n\</span>
-</span><span id="__span-10-67"><a id="__codelineno-10-67" name="__codelineno-10-67" href="#__codelineno-10-67"></a><span class="s1">$HADOOP_HOME/sbin/start-dfs.sh \n\</span>
-</span><span id="__span-10-68"><a id="__codelineno-10-68" name="__codelineno-10-68" href="#__codelineno-10-68"></a><span class="s1">tail -f /dev/null&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>/opt/start-hadoop.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/opt/start-hadoop.sh
-</span><span id="__span-10-69"><a id="__codelineno-10-69" name="__codelineno-10-69" href="#__codelineno-10-69"></a>
-</span><span id="__span-10-70"><a id="__codelineno-10-70" name="__codelineno-10-70" href="#__codelineno-10-70"></a><span class="c"># Cambiar al usuario hadoop</span>
-</span><span id="__span-10-71"><a id="__codelineno-10-71" name="__codelineno-10-71" href="#__codelineno-10-71"></a><span class="k">USER</span><span class="w"> </span><span class="s">hadoop</span>
-</span><span id="__span-10-72"><a id="__codelineno-10-72" name="__codelineno-10-72" href="#__codelineno-10-72"></a>
-</span><span id="__span-10-73"><a id="__codelineno-10-73" name="__codelineno-10-73" href="#__codelineno-10-73"></a><span class="c"># Establecer script de inicio</span>
-</span><span id="__span-10-74"><a id="__codelineno-10-74" name="__codelineno-10-74" href="#__codelineno-10-74"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/opt/start-hadoop.sh&quot;</span><span class="p">]</span>
+<h1 id="construccion-y-ejecucion-del-contenedor">Construcción y Ejecución del Contenedor</h1>
+<h2 id="7-construccion-y-ejecucion-del-contenedor"><strong>7. Construcción y Ejecución del Contenedor</strong></h2>
+<h3 id="71-construir-la-imagen-docker"><strong>7.1. Construir la Imagen Docker</strong></h3>
+<p>Ejecuta el siguiente comando desde el directorio raíz del proyecto para construir la imagen Docker:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>hadoop-pseudo<span class="w"> </span>.
 </span></code></pre></div>
-<p>Reconstruimos la imagen y la levantamos:<br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker build -t hadoop-base-image --platform linux/amd64 .
-</span></code></pre></div></p>
+<ul>
+<li><code>-t hadoop-pseudo</code>: Asigna el nombre <code>hadoop-pseudo</code> a la imagen.</li>
+<li><code>.</code>: Especifica el contexto de construcción como el directorio actual.</li>
+</ul>
+<h3 id="72-ejecutar-el-contenedor-docker"><strong>7.2. Ejecutar el Contenedor Docker</strong></h3>
+<p>Inicia un contenedor a partir de la imagen creada:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>hadoop-container<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span>-p<span class="w"> </span><span class="m">9870</span>:9870<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span>-p<span class="w"> </span><span class="m">8088</span>:8088<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span>-p<span class="w"> </span><span class="m">9000</span>:9000<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span>-p<span class="w"> </span><span class="m">8042</span>:8042<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span>hadoop-pseudo
+</span></code></pre></div>
+<ul>
+<li><code>-it</code>: Ejecuta el contenedor en modo interactivo.</li>
+<li><code>--name hadoop-container</code>: Asigna el nombre <code>hadoop-container</code> al contenedor.</li>
+<li><code>-p</code>: Mapea puertos para permitir el acceso a las interfaces web.</li>
+</ul>
+<hr />
+<h2 id="8-verificacion-de-la-configuracion"><strong>8. Verificación de la Configuración</strong></h2>
+<h3 id="81-comprobar-los-procesos-de-hadoop"><strong>8.1. Comprobar los Procesos de Hadoop</strong></h3>
+<p>Dentro del contenedor, ejecuta el comando <code>jps</code> para verificar los procesos en ejecución:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>jps
+</span></code></pre></div>
+<p>Deberías obtener una salida similar a:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>XXXX NameNode
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>XXXX DataNode
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>XXXX ResourceManager
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>XXXX NodeManager
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>XXXX SecondaryNameNode
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>XXXX Jps
+</span></code></pre></div>
+<p>Cada uno de estos procesos representa un componente clave de Hadoop.</p>
+<h3 id="82-acceder-a-las-interfaces-web"><strong>8.2. Acceder a las Interfaces Web</strong></h3>
+<p>Verifica que las interfaces web estén funcionando accediendo a las siguientes URL desde tu navegador:</p>
+<ul>
+<li>
+<p><strong>NameNode UI</strong>: <a href="http://localhost:9870">http://localhost:9870</a><br />
+  Proporciona información sobre el sistema de archivos distribuido (HDFS).</p>
+</li>
+<li>
+<p><strong>ResourceManager UI</strong>: <a href="http://localhost:8088">http://localhost:8088</a><br />
+  Muestra información sobre los recursos YARN y las aplicaciones en ejecución.</p>
+</li>
+</ul>
+<h3 id="83-probar-comandos-hdfs"><strong>8.3. Probar Comandos HDFS</strong></h3>
+<p>Prueba el sistema de archivos HDFS creando un directorio:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>hdfs<span class="w"> </span>dfs<span class="w"> </span>-mkdir<span class="w"> </span>/user/hadoop
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>hdfs<span class="w"> </span>dfs<span class="w"> </span>-ls<span class="w"> </span>/user
+</span></code></pre></div>
+<p>Si todo está configurado correctamente, deberías ver el directorio listado sin errores.</p>
+<h3 id="84-ejecutar-un-trabajo-de-mapreduce"><strong>8.4. Ejecutar un Trabajo de MapReduce</strong></h3>
+<p>Ejecuta un ejemplo de cálculo de Pi para probar el framework MapReduce:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>hadoop<span class="w"> </span>jar<span class="w"> </span><span class="nv">$HADOOP_HOME</span>/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar<span class="w"> </span>pi<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">5</span>
+</span></code></pre></div>
+<p>Este comando ejecutará un trabajo de MapReduce y mostrará una estimación del valor de Pi.</p>
+<hr />
+<h2 id="9-conclusion"><strong>9. Conclusión</strong></h2>
+<p>Has configurado exitosamente un clúster Hadoop en modo pseudo-distribuido dentro de un contenedor Docker. Este entorno te permite desarrollar y probar aplicaciones Hadoop sin necesidad de un clúster físico distribuido, reduciendo la complejidad.</p>
 
 
 
