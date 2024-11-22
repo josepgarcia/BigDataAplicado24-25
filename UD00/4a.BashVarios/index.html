@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD00/1.ConceptosGenerales/">
+        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD00/4a.BashVarios/">
       
       
-        <link rel="prev" href="../..">
+        <link rel="prev" href="../4.BashScripting/">
       
       
-        <link rel="next" href="../2.bash/">
+        <link rel="next" href="../8.EntornosVirtualesPython/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Conceptos Generales - Big Data Aplicado 2024-25</title>
+        <title>bash varios - Big Data Aplicado 2024-25</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#conceptos-generales" class="md-skip">
+        <a href="#bash-varios" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Conceptos Generales
+              bash varios
             
           </span>
         </div>
@@ -271,30 +271,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Conceptos Generales
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../1.ConceptosGenerales/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -303,86 +283,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#imprescindibles" class="md-nav__link">
-    <span class="md-ellipsis">
-      Imprescindibles
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#discos-duros" class="md-nav__link">
-    <span class="md-ellipsis">
-      Discos Duros
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#particiones" class="md-nav__link">
-    <span class="md-ellipsis">
-      Particiones
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Particiones">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#programas-para-realizar-particiones" class="md-nav__link">
-    <span class="md-ellipsis">
-      Programas para realizar particiones
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sistemas-de-archivos" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sistemas de archivos
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuracion-red-virtualbox" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuración red VirtualBox
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -455,10 +355,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../4a.BashVarios/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    bash varios
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -467,6 +387,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#comando-sudo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comando: sudo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comando: sudo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definicion-uso-tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definición, uso, tldr
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -842,37 +815,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#imprescindibles" class="md-nav__link">
+  <a href="#comando-sudo" class="md-nav__link">
     <span class="md-ellipsis">
-      Imprescindibles
+      Comando: sudo
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#discos-duros" class="md-nav__link">
-    <span class="md-ellipsis">
-      Discos Duros
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#particiones" class="md-nav__link">
-    <span class="md-ellipsis">
-      Particiones
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Particiones">
+    <nav class="md-nav" aria-label="Comando: sudo">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#programas-para-realizar-particiones" class="md-nav__link">
+  <a href="#definicion-uso-tldr" class="md-nav__link">
     <span class="md-ellipsis">
-      Programas para realizar particiones
+      Definición, uso, tldr
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos
     </span>
   </a>
   
@@ -880,24 +844,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sistemas-de-archivos" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sistemas de archivos
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuracion-red-virtualbox" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuración red VirtualBox
-    </span>
-  </a>
   
 </li>
       
@@ -916,7 +862,7 @@
                   
 
   
-    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD00/1.ConceptosGenerales.md" title="Editar esta página" class="md-content__button md-icon">
+    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD00/4a.BashVarios.md" title="Editar esta página" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -924,119 +870,13 @@
   
 
 
-<h1 id="conceptos-generales">Conceptos Generales</h1>
-<h2 id="imprescindibles">Imprescindibles</h2>
-<ul>
-<li>
-<p><strong><a href="https://www.youtube.com/watch?v=bIoVtXiG9xc">Cómo utilizar Virtualbox</a></strong></p>
-</li>
-<li>
-<p><strong><a href="https://www.youtube.com/watch?v=ZidJzAf4VSw">Terminal Linux</a></strong></p>
-</li>
-</ul>
-<h2 id="discos-duros">Discos Duros</h2>
-<p><strong>Tipos de discos duros</strong></p>
-<ul>
-<li>HDD (Hard Drive Disk): Mecánicos</li>
-<li>Unidad de estado sólido o SSD<ul>
-<li>Conexión SATA o PCIe</li>
-<li>Conexión NVME m.2</li>
-</ul>
-</li>
-</ul>
-<p><img alt="discosduros1" src="../images/discosduros1.png" /><br />
-<img alt="00-discosduros1" src="../images/discosduros2.png" /><br />
-<img alt="discosduros1" src="../images/discosduros1.png" /></p>
-<h2 id="particiones">Particiones</h2>
-<p>Una partición</p>
-<p><img alt="" src="../images/particiones1.png" /></p>
-<p>Varias particiones</p>
-<p><img alt="" src="../images/particiones2.png" /></p>
-<p>Tipos de particiones<br />
-<img alt="" src="../images/particiones3.png" /><img alt="" src="../images/particiones4.png" /><br />
-Independientemente del sistema de archivos de una partición (FAT, NTFS, ext3, ext4, etc.), si se habla de un disco duro que use MBR, existen 3 tipos diferentes de particiones:</p>
-<p><strong>Partición primaria</strong>. Son las divisiones primarias del disco. En un disco duro, pueden existir de una a cuatro particiones primarias o hasta tres primarias y una extendida. Depende de una tabla de particiones. Un disco duro físico completamente formateado (por ejemplo, una unidad de disco duro externa USB nueva) consiste, en realidad, en una partición primaria que ocupa todo el espacio del disco y posee un sistema de archivos. Prácticamente, cualquier sistema operativo puede detectar este tipo de particiones primarias, y asignarles una unidad, siempre y cuando el sistema operativo reconozca su formato (sistema de archivos).</p>
-<p><strong>Partición extendida.</strong> También conocida como partición secundaria, es otro tipo de partición que actúa como una partición primaria; sirve para contener múltiples unidades lógicas en su interior. Fue ideada para romper la limitación de 4 particiones primarias en un solo disco físico. Solo puede existir una partición de este tipo por disco, y solo sirve para contener particiones lógicas. Por lo tanto, es el único tipo de partición que no soporta un sistema de archivos directamente.</p>
-<p><strong>Partición lógica.</strong> Ocupa una porción de la partición extendida o la totalidad de la misma, y se ha formateado con un tipo específico de sistema de archivos (FAT32, NTFS, ext3, ext4, etc.) y se le ha asignado una unidad, así el sistema operativo reconoce las particiones lógicas o su sistema de archivos. Se pueden tener un máximo de 23 particiones lógicas en una partición extendida. Aunque algunos sistemas operativos pueden ser más restrictivos, como Linux que impone un máximo de 15, incluyendo las 4 primarias, en discos SCSI y en discos IDE 8963.</p>
-<p>El número de particiones que puede crear en un disco básico depende del estilo de partición del disco:</p>
-<ul>
-<li>En los discos con registro de inicio maestro (MBR) se pueden crear hasta cuatro particiones primarias por disco o bien se pueden crear hasta tres particiones primarias y una partición extendida. Dentro de la partición extendida se pueden crear un número ilimitado de unidades lógicas.</li>
-<li>En los discos con tabla de particiones GUID (GPT) se pueden crear hasta 128 particiones primarias. Con GPT no existe la limitación a cuatro particiones primarias por lo que no es necesario crear particiones extendidas ni unidades lógicas.</li>
-</ul>
-<h3 id="programas-para-realizar-particiones">Programas para realizar particiones</h3>
-<p>Gparted</p>
-<p><img alt="" src="../images/particiones5.png" /></p>
-<p>cfdisk (consola) o fdisk</p>
-<p><img alt="" src="../images/particiones6.png" /></p>
-<p>Gestor de disco Windows</p>
-<p><img alt="" src="../images/particiones7.png" /></p>
-<p>Utilidad de discos MacOS</p>
-<p><img alt="" src="./images/particiones8.png" /></p>
-<h2 id="sistemas-de-archivos">Sistemas de archivos</h2>
-<p>Un sistema de archivos indexa toda la información de los datos en un dispositivo de almacenamiento, incluyendo el tamaño del Archivo, los atributos, la ubicación y la jerarquía en el directorio. El sistema de archivos también especifica la ruta a un archivo mediante la estructura de directorios con un formato.</p>
-<ul>
-<li><strong>Sistema de archivos de Windows</strong> - FAT, NTFS, exFAT</li>
-<li><strong>macOS</strong> - HFS, APFS, HFS+</li>
-<li><strong>Linux -</strong> EXT2/3/4, XFS, JFS, Btrfs</li>
-</ul>
-<p>Comparativa deferentes sistemas de ficheros.</p>
-<h2 id="configuracion-red-virtualbox">Configuración red VirtualBox</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th><strong>VM ↔ HOST</strong></th>
-<th><strong>VM1 ↔ VM2</strong></th>
-<th><strong>VM → INTERNET</strong></th>
-<th><strong>VM ← INTERNET</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Solo anfitrión</strong></td>
-<td><strong>SI</strong></td>
-<td><strong>SI</strong></td>
-<td>NO</td>
-<td>NO</td>
-</tr>
-<tr>
-<td><strong>Interna</strong></td>
-<td>NO</td>
-<td><strong>SI</strong></td>
-<td>NO</td>
-<td>NO</td>
-</tr>
-<tr>
-<td><strong>Adaptador puente</strong></td>
-<td><strong>SI</strong></td>
-<td><strong>SI</strong></td>
-<td><strong>SI</strong></td>
-<td><strong>SI</strong></td>
-</tr>
-<tr>
-<td><strong>NAT</strong></td>
-<td>NO</td>
-<td>NO</td>
-<td><strong>SI</strong></td>
-<td>Reenvío de puertos</td>
-</tr>
-<tr>
-<td><strong>Red NAT</strong></td>
-<td>NO</td>
-<td><strong>SI</strong></td>
-<td><strong>SI</strong></td>
-<td>Reenvío de puertos</td>
-</tr>
-</tbody>
-</table>
-<p>El modo que nos da más flexibilidad sería el adaptador puente, mientras que el resto serían más restrictivos.</p>
-<ul>
-<li>El <strong>adaptador puente</strong> hace que la máquina virtual se conecte a la misma red que el anfitrión, de tal forma que la MV se comportará como si fuera un PC más conectado a la red real. Nos permite conectar entre MV, desde el anfitrión, y a Internet bidireccionalmente. Por contra, nos puede ocasionar problemas puesto que estará conectado a la red real (especialmente en caso de montar servidores).</li>
-<li>En <strong>modo solo anfitrión</strong> podremos conectarnos desde el anfitrión a nuestras máquinas virtuales y viceversa, así como conectar entre máquinas virtuales. En todo caso, no tendremos por defecto conexión a internet (ni de salida ni de entrada)</li>
-<li>El <strong>modo NAT</strong> sería todo lo contrario al modo anterior. Las máquinas virtuales tendrían salida a internet, pero para poder conectar desde internet se tendrían que mapear puertos mediante NAT. No podríamos conectarnos entre diferentes máquinas virtuales.</li>
-<li>Para poder conectar también entre máquinas virtuales existe el <strong>modo red NAT</strong>, que añade a las características del modo NAT.</li>
-<li>El <strong>modo interno</strong> sería el más restringido, permitiendo únicamente conexión entre las máquinas virtuales. No podríamos conectar desde el anfitrión a las MV, ni tendríamos salida a Internet desde las MV.</li>
-</ul>
+<h1 id="bash-varios">Bash Varios</h1>
+<h2 id="comando-sudo">Comando: sudo</h2>
+<h3 id="definicion-uso-tldr">Definición, uso, tldr</h3>
+<h3 id="ejemplos">Ejemplos</h3>
+<p><strong>Otras cosas que explicar</strong><br />
+¿Cómo permitir a un usuario que ejecute sudo?<br />
+¿Qué significa !! ?</p>
 
 
 
