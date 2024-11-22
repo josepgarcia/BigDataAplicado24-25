@@ -9,9 +9,14 @@ nav:
     - Conceptos Generales: UD00/1.ConceptosGenerales.md
     - $_bash: UD00/2.bash.md
     - ssh scp: UD00/3.ssh.md
-    - bash script: UD00/4.BashScripting.md
+    - bash scripting: UD00/4.BashScripting.md
+    - bash varios: UD00/4a.BashVarios.md
     - Entornos Virtuales: UD00/8.EntornosVirtualesPython.md
     - Editar apuntes: UD00/9.ModificarApuntes.md
+  - UD 01 Ubuntu + Hadoop:
+    - Ubuntu server: UD01/1.instalacionubuntuserver.md
+    - Hadoop: UD01/2.descargaconfighadoop.md
+    - Ejercicios: UD01/3.ejercicios.md
   - UD 02 Cluster Pseudo. HDFS:
     - Instalación: UD02/1.instalacion.md
     - Comandos HDFS: UD02/2.comandosHDFS.md
