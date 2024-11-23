@@ -8,21 +8,24 @@
       
       
       
-        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD03/_TODO/UD03%20-%20Mapreduce%20Yarn%20fffe913de6c48192bd2aceae7263b15e/">
+        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD03/_PENDENT/UD03%20-%20Mapreduce%20Yarn%20fffe913de6c48192bd2aceae7263b15e/UD03%205%20%5BGuiado%5D%20MovieLens%20Dataset%20127e913de6c4802ba951fbfc0f95237b/">
       
       
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
       
-        <title>UD03 - Mapreduce. Yarn. - Big Data Aplicado 2024-25</title>
+        <title>UD03 5. [Guiado] MovieLens Dataset - Big Data Aplicado 2024-25</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -41,7 +44,9 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -51,7 +56,12 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -60,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ud03-mapreduce-yarn" class="md-skip">
+        <a href="#ud03-5-guiado-movielens-dataset" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -76,7 +86,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
-    <a href="../../.." title="Big Data Aplicado 2024-25" class="md-header__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+    <a href="../../../.." title="Big Data Aplicado 2024-25" class="md-header__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -96,15 +106,15 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              UD03 - Mapreduce. Yarn.
+              UD03 5. [Guiado] MovieLens Dataset
             
           </span>
         </div>
       </div>
     </div>
     
+      
     
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
@@ -183,7 +193,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Big Data Aplicado 2024-25" class="md-nav__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+    <a href="../../../.." title="Big Data Aplicado 2024-25" class="md-nav__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -213,7 +223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -268,7 +278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD00/1.ConceptosGenerales/" class="md-nav__link">
+      <a href="../../../../UD00/1.ConceptosGenerales/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -289,7 +299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD00/2.bash/" class="md-nav__link">
+      <a href="../../../../UD00/2.bash/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -310,7 +320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD00/3.ssh/" class="md-nav__link">
+      <a href="../../../../UD00/3.ssh/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -331,7 +341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD00/4.BashScripting/" class="md-nav__link">
+      <a href="../../../../UD00/4.BashScripting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -352,7 +362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD00/4a.BashVarios/" class="md-nav__link">
+      <a href="../../../../UD00/4a.BashVarios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -373,7 +383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD00/8.EntornosVirtualesPython/" class="md-nav__link">
+      <a href="../../../../UD00/8.EntornosVirtualesPython/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -394,7 +404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD00/9.ModificarApuntes/" class="md-nav__link">
+      <a href="../../../../UD00/9.ModificarApuntes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -457,7 +467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD01/1.instalacionubuntuserver/" class="md-nav__link">
+      <a href="../../../../UD01/1.instalacionubuntuserver/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -478,7 +488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD01/2.descargaconfighadoop/" class="md-nav__link">
+      <a href="../../../../UD01/2.descargaconfighadoop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -499,7 +509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD01/3.ejercicios/" class="md-nav__link">
+      <a href="../../../../UD01/3.ejercicios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -562,7 +572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD02/1.instalacion/" class="md-nav__link">
+      <a href="../../../../UD02/1.instalacion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -583,7 +593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD02/2.comandosHDFS/" class="md-nav__link">
+      <a href="../../../../UD02/2.comandosHDFS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -604,7 +614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD02/3.comandosHDFSejercicios/" class="md-nav__link">
+      <a href="../../../../UD02/3.comandosHDFSejercicios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -625,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD02/4.administracionHDFS/" class="md-nav__link">
+      <a href="../../../../UD02/4.administracionHDFS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -646,7 +656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD02/6.snapshots/" class="md-nav__link">
+      <a href="../../../../UD02/6.snapshots/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -667,11 +677,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD02/8.clusterdocker/" class="md-nav__link">
+      <a href="../../../../UD02/7.HDFSdesdePython/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Docker
+    HDFS desde python
   </span>
   
 
@@ -688,11 +698,116 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD02/7.HDFSdesdePython/" class="md-nav__link">
+      <a href="../../../../UD02/8.clusterdocker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    HDFS desde python
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 03 YARN
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            UD 03 YARN
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.configurarclusterYARN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuración
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.fasesmapreduce/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fases MapReduce
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.contarpalabras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejemplo
   </span>
   
 
@@ -729,41 +844,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#teoria" class="md-nav__link">
-    <span class="md-ellipsis">
-      Teoría
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#practica" class="md-nav__link">
-    <span class="md-ellipsis">
-      Práctica
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#otros" class="md-nav__link">
-    <span class="md-ellipsis">
-      Otros
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -777,7 +857,7 @@
                   
 
   
-    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD03/_TODO/UD03 - Mapreduce Yarn fffe913de6c48192bd2aceae7263b15e.md" title="Editar esta página" class="md-content__button md-icon">
+    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD03/_PENDENT/UD03 - Mapreduce Yarn fffe913de6c48192bd2aceae7263b15e/UD03 5 [Guiado] MovieLens Dataset 127e913de6c4802ba951fbfc0f95237b.md" title="Editar esta página" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -785,37 +865,10 @@
   
 
 
-<h1 id="ud03-mapreduce-yarn">UD03 - Mapreduce. Yarn.</h1>
-<h2 id="teoria">Teoría</h2>
-<p><a href="https://docs.google.com/presentation/d/1JzeThJc2oyxjw7OdOyQnyrQGnaBQm4-6aCx02m50i-Y/edit?usp=sharing">https://docs.google.com/presentation/d/1JzeThJc2oyxjw7OdOyQnyrQGnaBQm4-6aCx02m50i-Y/edit?usp=sharing</a></p>
-<h2 id="practica">Práctica</h2>
-<p><a href="UD03%201%20Configurar%20cluster%20YARN%20fffe913de6c481549f7ce547ed771a25/">UD03 1. Configurar cluster YARN.</a></p>
-<p><a href="UD03%202%20MapReduce%20MAP%20%E2%86%92%20Shuffle%2C%20Sort%20%E2%86%92%20Reduce%20fffe913de6c48121b674f1e3bdabe9ef/">UD03 2. MapReduce: MAP → Shuffle, Sort → Reduce</a></p>
-<p><a href="UD03%203%20Contar%20palabras%20fffe913de6c48141ab5ce02580760d71/">UD03 3. Contar palabras</a></p>
-<p><a href="UD03%204%20Hadoop%20Ventas%20fffe913de6c481e3b212c54c397d2715/">UD03 4. Hadoop Ventas</a></p>
-<p><a href="UD03%205%20%5BEJ%5D%20Hadoop%20Temperatura%20fffe913de6c4813592e6fcd836f1ece0/">UD03 5. [EJ] Hadoop Temperatura.</a></p>
-<p><strong>OTROS CURSO 24-25</strong></p>
-<p><a href="UD03%205%20%5BGuiado%5D%20MovieLens%20Dataset%20127e913de6c4802ba951fbfc0f95237b/">UD03 5. [Guiado] MovieLens Dataset</a></p>
-<p><a href="Ejercicio%201%20ana%CC%81lisis%20de%20ventas%20126e913de6c480f79d1bc5e4f99b1904/">Ejercicio 1: análisis de ventas</a></p>
-<h2 id="otros">Otros</h2>
-<p><a href="Mapreduce%20-%20Bash%20script%20fffe913de6c481c8bbabe93106da5b3d/">Mapreduce - Bash script</a></p>
-<p><a href="UD03%205%20Mapreduce%20con%20Python%20%F0%9F%90%8D%20fffe913de6c4815b9aecfc4cc69f6780/">UD03 5. Mapreduce con Python 🐍</a></p>
-<h1 id="06-practicas-con-mapreduce">06. Prácticas con MapReduce</h1>
-<ol>
-<li>Contar palabras</li>
-</ol>
-<p><a href="9-PracticasBigData_MapReduce.pdf">9-Practicas+BigData_MapReduce.pdf</a></p>
-<ol>
-<li>
-<p>Ejemplo con Java, ver código, compilar… contar más datos que en el anterior.</p>
-<p><a href="https://www.udemy.com/course/monta-un-cluster-hadoop-big-data-desde-cero/learn/lecture/4836216#overview">https://www.udemy.com/course/monta-un-cluster-hadoop-big-data-desde-cero/learn/lecture/4836216#overview</a></p>
-<p><a href="ContarPalabras.java.txt">ContarPalabras.java.txt</a></p>
-<p><a href="https://www.udemy.com/course/monta-un-cluster-hadoop-big-data-desde-cero/learn/lecture/9033048#overview">https://www.udemy.com/course/monta-un-cluster-hadoop-big-data-desde-cero/learn/lecture/9033048#overview</a></p>
-</li>
-<li>
-<p>Ejemplo con streaming python</p>
-</li>
-</ol>
+<h1 id="ud03-5-guiado-movielens-dataset">UD03 5. [Guiado] MovieLens Dataset</h1>
+<h1 id="instalando-dataset">Instalando dataset</h1>
+<p><strong>Seguir los pasos</strong></p>
+<p><a href="https://www.udemy.com/course/the-ultimate-hands-on-hadoop-tame-your-big-data/learn/lecture/5951202#overview">https://www.udemy.com/course/the-ultimate-hands-on-hadoop-tame-your-big-data/learn/lecture/5951202#overview</a></p>
 
 
 
@@ -867,10 +920,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>

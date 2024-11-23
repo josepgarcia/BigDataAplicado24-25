@@ -8,21 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD03/_TODO/UD03%20-%20Mapreduce%20Yarn%20fffe913de6c48192bd2aceae7263b15e/UD03%202%20MapReduce%20MAP%20%E2%86%92%20Shuffle%2C%20Sort%20%E2%86%92%20Reduce%20fffe913de6c48121b674f1e3bdabe9ef/">
+        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD03/2.fasesmapreduce/">
       
       
+        <link rel="prev" href="../1.configurarclusterYARN/">
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+        <link rel="next" href="../3.contarpalabras/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
       
-        <title>UD03 2. MapReduce: MAP → Shuffle, Sort → Reduce - Big Data Aplicado 2024-25</title>
+        <title>Fases MapReduce - Big Data Aplicado 2024-25</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -41,7 +48,9 @@
       
     
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -51,7 +60,12 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -60,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ud03-2-mapreduce-map-shuffle-sort-reduce" class="md-skip">
+        <a href="#fases-mapreduce" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -76,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
-    <a href="../../../.." title="Big Data Aplicado 2024-25" class="md-header__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+    <a href="../.." title="Big Data Aplicado 2024-25" class="md-header__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -96,15 +110,15 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              UD03 2. MapReduce: MAP → Shuffle, Sort → Reduce
+              Fases MapReduce
             
           </span>
         </div>
       </div>
     </div>
     
+      
     
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
@@ -183,7 +197,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Big Data Aplicado 2024-25" class="md-nav__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+    <a href="../.." title="Big Data Aplicado 2024-25" class="md-nav__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -213,7 +227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -268,7 +282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD00/1.ConceptosGenerales/" class="md-nav__link">
+      <a href="../../UD00/1.ConceptosGenerales/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -289,7 +303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD00/2.bash/" class="md-nav__link">
+      <a href="../../UD00/2.bash/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -310,7 +324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD00/3.ssh/" class="md-nav__link">
+      <a href="../../UD00/3.ssh/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -331,7 +345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD00/4.BashScripting/" class="md-nav__link">
+      <a href="../../UD00/4.BashScripting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -352,7 +366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD00/4a.BashVarios/" class="md-nav__link">
+      <a href="../../UD00/4a.BashVarios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -373,7 +387,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD00/8.EntornosVirtualesPython/" class="md-nav__link">
+      <a href="../../UD00/8.EntornosVirtualesPython/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -394,7 +408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD00/9.ModificarApuntes/" class="md-nav__link">
+      <a href="../../UD00/9.ModificarApuntes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -457,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD01/1.instalacionubuntuserver/" class="md-nav__link">
+      <a href="../../UD01/1.instalacionubuntuserver/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -478,7 +492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD01/2.descargaconfighadoop/" class="md-nav__link">
+      <a href="../../UD01/2.descargaconfighadoop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -499,7 +513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD01/3.ejercicios/" class="md-nav__link">
+      <a href="../../UD01/3.ejercicios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -562,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD02/1.instalacion/" class="md-nav__link">
+      <a href="../../UD02/1.instalacion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -583,7 +597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD02/2.comandosHDFS/" class="md-nav__link">
+      <a href="../../UD02/2.comandosHDFS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -604,7 +618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD02/3.comandosHDFSejercicios/" class="md-nav__link">
+      <a href="../../UD02/3.comandosHDFSejercicios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -625,7 +639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD02/4.administracionHDFS/" class="md-nav__link">
+      <a href="../../UD02/4.administracionHDFS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -646,7 +660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD02/6.snapshots/" class="md-nav__link">
+      <a href="../../UD02/6.snapshots/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -667,11 +681,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD02/8.clusterdocker/" class="md-nav__link">
+      <a href="../../UD02/7.HDFSdesdePython/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Docker
+    HDFS desde python
   </span>
   
 
@@ -688,11 +702,305 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD02/7.HDFSdesdePython/" class="md-nav__link">
+      <a href="../../UD02/8.clusterdocker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    HDFS desde python
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 03 YARN
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            UD 03 YARN
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.configurarclusterYARN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuración
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Fases MapReduce
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Fases MapReduce
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fase-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fase: Map
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-shuffle-y-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fase: Shuffle y Sort
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-reduce" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fase: Reduce
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-a-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso a paso
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paso a paso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fase-map_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fase MAP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-shuffle-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fase Shuffle - Sort
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-reduce_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fase Reduce
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-1-contador-de-palabras" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 1: Contador de palabras
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-2-analisis-de-registros-de-acceso-a-un-servidor-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 2: Análisis de Registros de Acceso a un Servidor Web
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-3-ejemplo-calculo-del-saldo-total-por-cuenta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 3: Ejemplo: Cálculo del Saldo Total por Cuenta
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-4-encontrar-la-temperatura-maxima-por-ubicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 4: Encontrar la Temperatura Máxima por Ubicación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-5-calculo-del-tiempo-total-por-usuario-en-una-plataforma-en-linea" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 5: Cálculo del Tiempo Total por Usuario en una Plataforma en Línea
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-6-identificacion-de-usuarios-influyentes-en-una-red-social" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 6: Identificación de Usuarios Influyentes en una Red Social
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-7-deteccion-de-anomalias-en-datos-de-sensores-industriales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 7: Detección de Anomalías en Datos de Sensores Industriales
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.contarpalabras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejemplo
   </span>
   
 
@@ -729,6 +1037,161 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fase-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fase: Map
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-shuffle-y-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fase: Shuffle y Sort
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-reduce" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fase: Reduce
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-a-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso a paso
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paso a paso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fase-map_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fase MAP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-shuffle-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fase Shuffle - Sort
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-reduce_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fase Reduce
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-1-contador-de-palabras" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 1: Contador de palabras
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-2-analisis-de-registros-de-acceso-a-un-servidor-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 2: Análisis de Registros de Acceso a un Servidor Web
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-3-ejemplo-calculo-del-saldo-total-por-cuenta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 3: Ejemplo: Cálculo del Saldo Total por Cuenta
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-4-encontrar-la-temperatura-maxima-por-ubicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 4: Encontrar la Temperatura Máxima por Ubicación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-5-calculo-del-tiempo-total-por-usuario-en-una-plataforma-en-linea" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 5: Cálculo del Tiempo Total por Usuario en una Plataforma en Línea
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-6-identificacion-de-usuarios-influyentes-en-una-red-social" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 6: Identificación de Usuarios Influyentes en una Red Social
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-7-deteccion-de-anomalias-en-datos-de-sensores-industriales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 7: Detección de Anomalías en Datos de Sensores Industriales
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -742,7 +1205,7 @@
                   
 
   
-    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD03/_TODO/UD03 - Mapreduce Yarn fffe913de6c48192bd2aceae7263b15e/UD03 2 MapReduce MAP → Shuffle, Sort → Reduce fffe913de6c48121b674f1e3bdabe9ef.md" title="Editar esta página" class="md-content__button md-icon">
+    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD03/2.fasesmapreduce.md" title="Editar esta página" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -750,13 +1213,11 @@
   
 
 
-<h1 id="ud03-2-mapreduce-map-shuffle-sort-reduce">UD03 2. MapReduce: MAP → Shuffle, Sort → Reduce</h1>
-<hr />
-<h1 id="1-fases">1. Fases</h1>
+<h1 id="fases-mapreduce">Fases MapReduce</h1>
 <p>MapReduce es un modelo de programación utilizado en Hadoop para procesar y analizar grandes conjuntos de datos distribuidos en un clúster de computadoras. Las fases de MapReduce se dividen principalmente en dos pasos: Map y Reduce.</p>
 <p>La fase map estudia el problema, lo divide en trozos y los manda a diferentes máquinas para que todos los trozos puedan ejecutarse concurrentemente.</p>
 <p>Los resultados de este proceso paralelo se recogen y se distribuyen a través de un distintos servidores que ejecutan una función “reduce”, que toma los resultados de los trozos y los recombina para obtener una respuesta simple</p>
-<h2 id="fase-map">Fase Map</h2>
+<h2 id="fase-map">Fase: Map</h2>
 <p>Es la primera etapa del proceso y se encarga de transformar los datos de entrada en pares clave-valor. </p>
 <ol>
 <li><strong>División de Datos</strong>: La entrada se divide en fragmentos más pequeños llamados "splits". Cada split se asigna a un mapper.</li>
@@ -769,24 +1230,24 @@
 <li>Cada tarea MAP ataca a un solo bloque de datos HDFS</li>
 <li>Se ejecuta en el nodo donde reside el bloque (salvo excepciones)</li>
 </ol>
-<h2 id="fase-shuffle-y-sort">Fase Shuffle y Sort</h2>
+<h2 id="fase-shuffle-y-sort">Fase: Shuffle y Sort</h2>
 <p>Después de la fase Map, los resultados intermedios se agrupan según sus claves. Los datos con la misma clave se agrupan juntos y se envían a la fase Reduce. Además, se realiza un proceso de ordenamiento para facilitar el trabajo de la fase Reduce.</p>
 <ul>
 <li>Ordena y consolida los datos intermedios (temporales) que generan los mappers</li>
 <li>Se lanzan después de que todos los mappers hayan terminado y antes de que se lancen los procesos<br />
 Reduce</li>
 </ul>
-<h2 id="fase-reduce">Fase Reduce</h2>
+<h2 id="fase-reduce">Fase: Reduce</h2>
 <ul>
 <li><strong>Reduce</strong>: En esta fase, los datos agrupados se pasan a una función de reducción (función Reduce). Esta función procesa los datos y realiza las operaciones finales. La salida de esta fase es el resultado final del procesamiento.</li>
-<li><strong>Output</strong>: El resultado final después de la fase Reduce se almacena en el sistema de archivos Hadoop o se utiliza para futuros análisis, según los requisitos del usuario.</li>
+<li><strong>Output</strong>: El resultado final después de la fase Reduce se almacena en el sistema de archivos Hadoop o se utiliza para futuros análisis, según los requisitos del usuario.<br />
+<img alt="" src="../images/2.fases1.png" /><br />
+<img alt="" src="../images/2.fases2.png" /></li>
 </ul>
-<p><img alt="Untitled" src="Untitled.png" /></p>
-<p><img alt="Untitled" src="Untitled%201.png" /></p>
 <hr />
 <p><strong>Ejemplo con más detalle</strong></p>
-<p>En la fase Map, se divide y transforma la entrada en pares clave-valor, mientras que en la fase Reduce, se procesan y combinan estos pares para producir el resultado final. La fase Shuffle y Sort es crucial para organizar los datos intermedios y asegurar que los datos con la misma clave se envíen al mismo proceso Reduce. Estas fases son esenciales para manejar eficientemente grandes conjuntos de datos distribuidos en un entorno de clúster.</p>
-<p><img alt="Untitled" src="Untitled%202.png" /></p>
+<p>En la fase Map, se divide y transforma la entrada en pares clave-valor, mientras que en la fase Reduce, se procesan y combinan estos pares para producir el resultado final. La fase Shuffle y Sort es crucial para organizar los datos intermedios y asegurar que los datos con la misma clave se envíen al mismo proceso Reduce. Estas fases son esenciales para manejar eficientemente grandes conjuntos de datos distribuidos en un entorno de clúster.<br />
+<img alt="" src="../images/2.fases3.png" /></p>
 <p><a href="https://www.guru99.com/introduction-to-mapreduce.html">https://www.guru99.com/introduction-to-mapreduce.html</a></p>
 <h2 id="paso-a-paso">Paso a paso</h2>
 <p>Tenemos 3 documentos y vamos a contar las repeticiones de palabras:</p>
@@ -871,8 +1332,8 @@ Reduce</li>
 </span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="o">(</span>un,<span class="w"> </span><span class="m">1</span><span class="o">)</span>
 </span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="o">(</span>una,<span class="w"> </span><span class="m">1</span><span class="o">)</span>
 </span></code></pre></div>
-<h1 id="2-ejemplos">2. Ejemplos</h1>
-<h2 id="ejemplo-1-contador-de-palabras">Ejemplo 1: Contador de palabras</h2>
+<h2 id="ejemplos">Ejemplos</h2>
+<h3 id="ejemplo-1-contador-de-palabras">Ejemplo 1: Contador de palabras</h3>
 <p>Supongamos que tienes un conjunto de datos de palabras en varios documentos y quieres contar cuántas veces aparece cada palabra. El proceso de mapeo podría ser algo así:</p>
 <p><strong>Entrada</strong> (fragmento de datos): </p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Hadoop<span class="w"> </span>es<span class="w"> </span>un<span class="w"> </span>framework,<span class="w"> </span>Hadoop<span class="w"> </span>procesa<span class="w"> </span>grandes<span class="w"> </span>conjuntos<span class="w"> </span>de<span class="w"> </span>datos
@@ -901,7 +1362,7 @@ Reduce</li>
 </span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="o">(</span>datos,<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">])</span>
 </span></code></pre></div>
 <p>La fase Map genera este conjunto intermedio de pares clave-valor, que luego se utiliza en la fase Shuffle y Sort antes de pasar a la fase Reduce. Este proceso de mapeo se realiza de forma paralela en múltiples nodos del clúster, lo que permite un procesamiento eficiente de grandes conjuntos de datos.</p>
-<h2 id="ejemplo-2-analisis-de-registros-de-acceso-a-un-servidor-web"><strong>Ejemplo 2: Análisis de Registros de Acceso a un Servidor Web</strong></h2>
+<h3 id="ejemplo-2-analisis-de-registros-de-acceso-a-un-servidor-web"><strong>Ejemplo 2: Análisis de Registros de Acceso a un Servidor Web</strong></h3>
 <p>Supongamos que tienes registros de acceso a un servidor web en el siguiente formato:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Registro<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>/pagina1
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Registro<span class="w"> </span><span class="m">2</span>:<span class="w"> </span>/pagina2
@@ -930,7 +1391,7 @@ En la fase Reduce, se sumarían los valores asociados a cada clave para obtener 
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="o">(</span>/pagina2,<span class="w"> </span><span class="m">2</span><span class="o">)</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="o">(</span>/pagina3,<span class="w"> </span><span class="m">1</span><span class="o">)</span>
 </span></code></pre></div>
-<h2 id="ejemplo-3-ejemplo-calculo-del-saldo-total-por-cuenta">Ejemplo 3: Ejemplo: Cálculo del Saldo Total por Cuenta</h2>
+<h3 id="ejemplo-3-ejemplo-calculo-del-saldo-total-por-cuenta">Ejemplo 3: Ejemplo: Cálculo del Saldo Total por Cuenta</h3>
 <p>Supongamos que tienes registros de transacciones financieras con el siguiente formato:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Transacción<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>Cuenta_A,<span class="w"> </span><span class="m">100</span>.00
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Transacción<span class="w"> </span><span class="m">2</span>:<span class="w"> </span>Cuenta_B,<span class="w"> </span><span class="m">50</span>.00
@@ -955,7 +1416,7 @@ En la fase Reduce, se sumarían los valores asociados a cada clave para obtener 
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="o">(</span>Cuenta_A,<span class="w"> </span><span class="m">130</span>.00<span class="o">)</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="o">(</span>Cuenta_B,<span class="w"> </span><span class="m">80</span>.00<span class="o">)</span>
 </span></code></pre></div>
-<h2 id="ejemplo-4-encontrar-la-temperatura-maxima-por-ubicacion"><strong>Ejemplo 4: Encontrar la Temperatura Máxima por Ubicación</strong></h2>
+<h3 id="ejemplo-4-encontrar-la-temperatura-maxima-por-ubicacion"><strong>Ejemplo 4: Encontrar la Temperatura Máxima por Ubicación</strong></h3>
 <p>Supongamos que tienes registros de temperatura con el siguiente formato:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Registro<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>Ubicacion_A,<span class="w"> </span><span class="m">25</span>.5°C
 </span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Registro<span class="w"> </span><span class="m">2</span>:<span class="w"> </span>Ubicacion_B,<span class="w"> </span><span class="m">28</span>.3°C
@@ -980,7 +1441,7 @@ En la fase Reduce, se encontraría la temperatura máxima para cada ubicación.<
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="o">(</span>Ubicacion_A,<span class="w"> </span><span class="m">27</span>.8°C<span class="o">)</span>
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="o">(</span>Ubicacion_B,<span class="w"> </span><span class="m">30</span>.2°C<span class="o">)</span>
 </span></code></pre></div>
-<h2 id="ejemplo-5-calculo-del-tiempo-total-por-usuario-en-una-plataforma-en-linea"><strong>Ejemplo 5: Cálculo del Tiempo Total por Usuario en una Plataforma en Línea</strong></h2>
+<h3 id="ejemplo-5-calculo-del-tiempo-total-por-usuario-en-una-plataforma-en-linea"><strong>Ejemplo 5: Cálculo del Tiempo Total por Usuario en una Plataforma en Línea</strong></h3>
 <aside>
 ✅ **Corregida**
 
@@ -1008,7 +1469,7 @@ En la fase Reduce, se sumarían los tiempos asociados a cada usuario para obtene
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="o">(</span>Usuario_A,<span class="w"> </span><span class="m">95</span><span class="w"> </span>minutos<span class="o">)</span>
 </span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="o">(</span>Usuario_B,<span class="w"> </span><span class="m">30</span><span class="w"> </span>minutos<span class="o">)</span>
 </span></code></pre></div>
-<h2 id="ejemplo-6-identificacion-de-usuarios-influyentes-en-una-red-social"><strong>Ejemplo 6: Identificación de Usuarios Influyentes en una Red Social</strong></h2>
+<h3 id="ejemplo-6-identificacion-de-usuarios-influyentes-en-una-red-social"><strong>Ejemplo 6: Identificación de Usuarios Influyentes en una Red Social</strong></h3>
 <p>Datos de Entrada:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Evento<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>Usuario_A<span class="w"> </span>publicó<span class="w"> </span>un<span class="w"> </span>mensaje.
 </span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>Evento<span class="w"> </span><span class="m">2</span>:<span class="w"> </span>Usuario_B<span class="w"> </span>comentó<span class="w"> </span>en<span class="w"> </span>el<span class="w"> </span>mensaje<span class="w"> </span>de<span class="w"> </span>Usuario_A.
@@ -1038,7 +1499,7 @@ En la fase Reduce, se analizarían los patrones de interacción para determinar 
 </span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="o">(</span>Usuario_B,<span class="w"> </span>Puntaje:<span class="w"> </span><span class="m">3</span><span class="o">)</span>
 </span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="o">(</span>Usuario_C,<span class="w"> </span>Puntaje:<span class="w"> </span><span class="m">3</span><span class="o">)</span>
 </span></code></pre></div>
-<h2 id="ejemplo-7-deteccion-de-anomalias-en-datos-de-sensores-industriales"><strong>Ejemplo 7: Detección de Anomalías en Datos de Sensores Industriales</strong></h2>
+<h3 id="ejemplo-7-deteccion-de-anomalias-en-datos-de-sensores-industriales"><strong>Ejemplo 7: Detección de Anomalías en Datos de Sensores Industriales</strong></h3>
 <p>Datos de Entrada:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>Evento<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>Sensor_A,<span class="w"> </span>Temperatura,<span class="w"> </span><span class="m">30</span>°C
 </span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>Evento<span class="w"> </span><span class="m">2</span>:<span class="w"> </span>Sensor_B,<span class="w"> </span>Presión,<span class="w"> </span><span class="m">100</span><span class="w"> </span>psi
@@ -1113,10 +1574,10 @@ En la fase Reduce, se analizarían los patrones de comportamiento para identific
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>

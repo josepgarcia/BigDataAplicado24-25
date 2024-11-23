@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD03/_TODO/UD03%20-%20Mapreduce%20Yarn%20fffe913de6c48192bd2aceae7263b15e/UD03%201%20Configurar%20cluster%20YARN%20fffe913de6c481549f7ce547ed771a25/">
+        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD03/_PENDENT/UD03%20-%20Mapreduce%20Yarn%20fffe913de6c48192bd2aceae7263b15e/Mapreduce%20-%20Bash%20script%20fffe913de6c481c8bbabe93106da5b3d/">
       
       
       
@@ -18,11 +18,14 @@
     
     
       
-        <title>UD03 1. Configurar cluster YARN. - Big Data Aplicado 2024-25</title>
+        <title>Mapreduce - Bash script - Big Data Aplicado 2024-25</title>
       
     
     
       <link rel="stylesheet" href="../../../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -41,6 +44,8 @@
       
     
     
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -51,7 +56,12 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -60,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ud03-1-configurar-cluster-yarn" class="md-skip">
+        <a href="#mapreduce-bash-script" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -96,15 +106,15 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              UD03 1. Configurar cluster YARN.
+              Mapreduce - Bash script
             
           </span>
         </div>
       </div>
     </div>
     
+      
     
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
@@ -667,11 +677,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD02/8.clusterdocker/" class="md-nav__link">
+      <a href="../../../../UD02/7.HDFSdesdePython/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Docker
+    HDFS desde python
   </span>
   
 
@@ -688,11 +698,116 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD02/7.HDFSdesdePython/" class="md-nav__link">
+      <a href="../../../../UD02/8.clusterdocker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    HDFS desde python
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 03 YARN
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            UD 03 YARN
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.configurarclusterYARN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuración
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.fasesmapreduce/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fases MapReduce
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.contarpalabras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejemplo
   </span>
   
 
@@ -742,7 +857,7 @@
                   
 
   
-    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD03/_TODO/UD03 - Mapreduce Yarn fffe913de6c48192bd2aceae7263b15e/UD03 1 Configurar cluster YARN fffe913de6c481549f7ce547ed771a25.md" title="Editar esta página" class="md-content__button md-icon">
+    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD03/_PENDENT/UD03 - Mapreduce Yarn fffe913de6c48192bd2aceae7263b15e/Mapreduce - Bash script fffe913de6c481c8bbabe93106da5b3d.md" title="Editar esta página" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -750,134 +865,59 @@
   
 
 
-<h1 id="ud03-1-configurar-cluster-yarn">UD03 1. Configurar cluster YARN.</h1>
-<aside>
-ℹ️ No vamos a tocar la versión 1 de MapReduce, vamos a montar la versión 2 (YARN).
-
-</aside>
-
-<h1 id="1-configurar-cluster">1. Configurar cluster</h1>
-<p>Pasos a seguir:</p>
-<p>Paramos el cluster (user hadoop)</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>stop-dfs.sh
+<h1 id="mapreduce-bash-script">Mapreduce - Bash script</h1>
+<p><a href="https://princetonits.com/blog/technology/hadoop-mapreduce-streaming-using-bash-script/">https://princetonits.com/blog/technology/hadoop-mapreduce-streaming-using-bash-script/</a></p>
+<p><strong>Step 1: Create a mapper script(word_length.sh) on your local file system</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">#This mapper script will read one line at a time and then break it into words</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1">#For each word starting LETTER and LENGTH of the word are emitted</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>line
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">do</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w"> </span><span class="k">for</span><span class="w"> </span>word<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$line</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="nv">$word</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nv">wcount</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$word</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-m<span class="sb">`</span><span class="p">;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nv">wlength</span><span class="o">=</span><span class="sb">`</span>expr<span class="w"> </span><span class="nv">$wcount</span><span class="w"> </span>-<span class="w"> </span><span class="m">1</span><span class="sb">`</span><span class="p">;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nv">letter</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$word</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-c1<span class="sb">`</span><span class="p">;</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$lettert$wlength</span><span class="s2">&quot;</span><span class="p">;</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w"> </span><span class="k">fi</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="k">done</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="k">done</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1">#The output of the mapper would be “starting letter of each word” and “its length”, separated by a tab space.</span>
 </span></code></pre></div>
-<p>Vamos a la carpeta donde se encuentran los ficheros de configuración</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/opt/hadoop/etc/hadoop/
+<p><strong>Step 2:  Create a reducer script(average_word_length.sh)</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">#This reducer script will take-in output from the mapper and emit starting letter of each word and average length</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">#Remember that the framework will sort the output from the mappers based on the Key</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">#Note that the input to a reducer will be of a form(Key,Value)and not (Key,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1">#This is unlike the input i.e.; usually passed to a reducer written in Java.</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nv">lastkey</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nv">count</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nv">total</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nv">iteration</span><span class="o">=</span><span class="m">1</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>line
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="nv">newkey</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$line</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="sb">`</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="nv">value</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$line</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="sb">`</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$iteration</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="nv">lastkey</span><span class="o">=</span><span class="nv">$newkey</span><span class="p">;</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="nv">iteration</span><span class="o">=</span><span class="sb">`</span>expr<span class="w"> </span><span class="nv">$iteration</span><span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="sb">`</span><span class="p">;</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">   </span><span class="k">fi</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$lastkey</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$newkey</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="nv">average</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;scale=5;</span><span class="nv">$total</span><span class="s2"> / </span><span class="nv">$count</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc<span class="sb">`</span><span class="p">;</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$lastkeyt$average</span><span class="s2">&quot;</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="nv">count</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="nv">lastkey</span><span class="o">=</span><span class="nv">$newkey</span><span class="p">;</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">    </span><span class="nv">total</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="nv">average</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">   </span><span class="k">fi</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">   </span><span class="nv">total</span><span class="o">=</span><span class="sb">`</span>expr<span class="w"> </span><span class="nv">$total</span><span class="w"> </span>+<span class="w"> </span><span class="nv">$value</span><span class="sb">`</span><span class="p">;</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">   </span><span class="nv">lastkey</span><span class="o">=</span><span class="nv">$newkey</span><span class="p">;</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">   </span><span class="nv">count</span><span class="o">=</span><span class="sb">`</span>expr<span class="w"> </span><span class="nv">$count</span><span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="sb">`</span><span class="p">;</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="k">done</span>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="c1">#The output would be Key,Value pairs(letter,average length of the words starting with this letter)</span>
 </span></code></pre></div>
-<p>Editamos para indicar que el motor que gestiona mapreduce será yarn:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>vi<span class="w"> </span>mapred-site.xml
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>&lt;configuration&gt;
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span>&lt;property&gt;
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span>&lt;name&gt;yarn.app.mapreduce.am.env&lt;/name&gt;
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span>&lt;value&gt;HADOOP_MAPRED_HOME<span class="o">=</span>/opt/hadoop&lt;/value&gt;
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span>&lt;/property&gt;
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span>&lt;property&gt;
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span>&lt;name&gt;mapreduce.framework.name&lt;/name&gt;
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span>&lt;value&gt;yarn&lt;/value&gt;
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span>&lt;/property&gt;
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>&lt;/configuration&gt;
-</span></code></pre></div>
-<p>Añadimos 3 propiedades a yarn-site.xml</p>
-<ol>
-<li>Indicamos donde se encuentra el yarn. Indicamos quién es el maestro que va a gestionar los procesos YARN.</li>
-<li>Servicios auxiliares que deben iniciar en el NodeManager (si por ejemplo creamos un servicio que se llame “myservice” lo podríamos indicar aquí).</li>
-<li>Cuál es la clase que va a utilizar para hacer esa gestión.</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>vi<span class="w"> </span>yarn-site.xml
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>&lt;configuration&gt;
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span>**~~&lt;property&gt;
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span>&lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span>&lt;value&gt;debianh&lt;/value&gt;
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span>&lt;/property&gt;~~**
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span>&lt;property&gt;
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span>&lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span>&lt;value&gt;mapreduce_shuffle&lt;/value&gt;
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span>&lt;/property&gt;
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span>&lt;property&gt;
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span>&lt;name&gt;yarn.nodemanager.aux-services.mapreduce_shuffle.class&lt;/name&gt;
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span>&lt;value&gt;org.apache.hadoop.mapred.ShuffleHandler&lt;/value&gt;
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span>&lt;/property&gt;
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>&lt;/configuration&gt;
-</span></code></pre></div>
-<p>Arrancamos</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Primero la parte de datos</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>$<span class="w"> </span>start-dfs.sh
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Después la parte de procesos</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>$<span class="w"> </span>start-yarn.sh
-</span></code></pre></div>
-<p>Comprobamos que todos los servicios están funcionando:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>jps
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="m">791</span><span class="w"> </span>DataNode
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="m">713</span><span class="w"> </span>NameNode
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="m">1294</span><span class="w"> </span>NodeManager
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="m">1214</span><span class="w"> </span>ResourceManager
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="m">927</span><span class="w"> </span>SecondaryNameNode
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="m">1647</span><span class="w"> </span>Jps
-</span></code></pre></div>
-<h1 id="2-web-admin-yarn">2. Web admin YARN</h1>
-<p>Se puede acceder a la web para ver la configuración del yarn a través del <strong>puerto 8088</strong>.</p>
-<p>Nos aseguramos que esté el puerto abierto en la máquina virtual:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Si no existe el comando netstat, debemos instalar el paquete net-tools</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>$<span class="w"> </span>netstat<span class="w"> </span>-anp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">8088</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>tcp<span class="w">        </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">0</span>.0.0.0:8088<span class="w">          </span><span class="m">0</span>.0.0.0:*<span class="w">               </span>LISTEN<span class="w">      </span><span class="m">1214</span>/java
-</span></code></pre></div>
-<ul>
-<li>
-<p>Si no se puede acceder:</p>
-<p><a href="https://github.com/apache/samza-hello-samza/pull/1">https://github.com/apache/samza-hello-samza/pull/1</a></p>
-<p>Al configurar todo en el mismo cluster hay un problema con la propiedad que hemos añadido en <code>yarn-site.xml</code> indicando el hostname. Por lo que:</p>
-<ol>
-<li>Borramos esta propiedad.</li>
-<li>Paramos yarn.</li>
-<li>Volvemos a arrancar yarn.</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>netstat<span class="w"> </span>-anp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">8088</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>tcp<span class="w">        </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>.0.0.0:8088<span class="w">            </span><span class="m">0</span>.0.0.0:*<span class="w">               </span>LISTEN<span class="w">      </span><span class="m">2144</span>/java
-</span></code></pre></div>
-<p>Ya debería ser accesible:</p>
-</li>
-</ul>
-<p><img alt="Untitled" src="Untitled.png" /></p>
-<h1 id="3-opciones-web-admin-yarn">3. Opciones Web admin YARN</h1>
-<p><img alt="Untitled" src="Untitled%201.png" /></p>
-<p>Por defecto asume que tendrá mínimo 1Gb y Máximo 8Gb (da igual cuanta memoria tenga nuestra máquina virtual)</p>
-<hr />
-<p>Pesaña <strong>NODOS</strong>, nodos activos</p>
-<p>En nuestro caso habrá 1 nodo activo y nos podemos comunicar con él por el puerto 8042</p>
-<p>Si pinchamos en el nodo podremos ver sus propiedades, aplicaciones que está lanzando, contenedores (recursos reales que se utilizan para hacer los procesos).</p>
-<p>Volvemos desde RM Home.</p>
-<hr />
-<p><strong>Node Labels</strong> (para etiquetar los diferentes nodos, no lo vamos a utilizar.</p>
-<hr />
-<p><strong>Applications</strong>: Las aplicaciones que tenemos funcionando en este momento.</p>
-<p>(Se pueden seleccionar por estado, NEW, NEW SAVING, SUBMITTED, ACCEPTED…)</p>
-<hr />
-<p><strong>Schenduler</strong>: Métricas del planificador, podemos ver lo que ha ocurrido cuando lancemos una aplicación. Por el momento aparecerá vacío.</p>
-<hr />
-<p><strong>Tools</strong>: Podemos ver la configuración, logs, estadísticas….</p>
-<h1 id="4-errores">4. Errores</h1>
-<p>Para los que uséis la versión 3 de Hadoop, a veces puede generar un error al realizar alguno de los ejemplos.</p>
-<p>Para solucionarlo, es necesario explicitar algunas librerías</p>
-<p>En concreto hay que añadir en el yarn-site.xml la siguiente entrada (por supuesto adaptarlo a vuestro HADOOP_HOME.</p>
-<div class="language-xml highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">&lt;property&gt;</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="nt">&lt;name&gt;</span>yarn.application.classpath<span class="nt">&lt;/name&gt;</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="nt">&lt;value&gt;</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">      </span>/opt/hadoop3/hadoop/etc/hadoop,
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">      </span>/opt/hadoop3/share/hadoop/common/*,
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">      </span>/opt/hadoop3/share/hadoop/common/lib/*,
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">      </span>/opt/hadoop3/share/hadoop/hdfs/*,
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">      </span>/opt/hadoop3/share/hadoop/hdfs/lib/*,
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">      </span>/opt/hadoop3/share/hadoop/mapreduce/*,
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">      </span>/opt/hadoop3/share/hadoop/mapreduce/lib/*,
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">      </span>/opt/hadoop3/share/hadoop/yarn/*,
-</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">      </span>/opt/hadoop3/share/hadoop/yarn/lib/*
-</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="nt">&lt;/value&gt;</span>
-</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="nt">&lt;/property&gt;</span>
-</span></code></pre></div>
+<p><strong>Step 3: Run the job from the terminal using Hadoop streaming command</strong></p>
+<p>hadoop jar /usr/lib/hadoop-0.20-mapreduce/contrib/streaming/hadoop-streaming*.jar -input /input -output /avgwl -mapper mapper.sh -reducer reducer.sh -file /home/user/mr_streaming_bash/mapper.sh -file /home/user/mr_streaming_bash/reducer.sh</p>
 
 
 
