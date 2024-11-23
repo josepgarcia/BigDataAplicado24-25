@@ -39,6 +39,11 @@ theme:
     - content.code.copy
     - content.code.select
     - content.code.annotate
+  palette:
+    primary: custom
+
+extra_css:
+    - stylesheets/extra.css
 
 copyright: >
   Josep Garcia Garcia | <a href="https://github.com/josepgarcia/BigDataAplicado24-25" target="_blank">https://github.com/josepgarcia/BigDataAplicado24-25</a>
