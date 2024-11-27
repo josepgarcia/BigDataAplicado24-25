@@ -11,6 +11,10 @@
         <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD00/7.docker/">
       
       
+        <link rel="prev" href="../4c.BashChuleta/">
+      
+      
+        <link rel="next" href="../8.EntornosVirtualesPython/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -18,7 +22,7 @@
     
     
       
-        <title>Repaso docker - Big Data Aplicado 2024-25</title>
+        <title>Docker - Big Data Aplicado 2024-25</title>
       
     
     
@@ -106,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Repaso docker
+              Docker
             
           </span>
         </div>
@@ -240,17 +244,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -264,7 +270,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             UD 00 Conceptos Generales
@@ -371,6 +377,409 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4b.BashEjercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    bash ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4c.BashChuleta/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    bash chuleta
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-arquitectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Arquitectura
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-instalacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Instalación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Instalación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-comandos-basicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. Comandos básicos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1. Comandos básicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-imagenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gestión de imagenes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-contenedores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gestión de contenedores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-crear-contenedor-interactivo-y-con-nombre" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. Crear contenedor interactivo y con nombre.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-imagenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Imagenes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-volumenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Volúmenes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Volúmenes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-operaciones-con-volumenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. Operaciones con volúmenes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-ejemplo-compartir-volumenes-con-host" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. Ejemplo: compartir volúmenes con host
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-ejemplo-compartir-volumenes-con-contenedores" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. Ejemplo: compartir volúmenes con contenedores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-compartir-volumenes-con-contenedores-y-en-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. Compartir volumenes con contenedores y en local
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-docker-compose-vs-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. docker-compose vs DockerFile
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. docker-compose vs DockerFile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-diferencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1. Diferencias
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2. Docker Compose
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3. DockerFile
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3. DockerFile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-basico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo básico
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-imagenes-propias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creación de imágenes propias
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from" class="md-nav__link">
+    <span class="md-ellipsis">
+      FROM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    <span class="md-ellipsis">
+      RUN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy" class="md-nav__link">
+    <span class="md-ellipsis">
+      COPY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#env" class="md-nav__link">
+    <span class="md-ellipsis">
+      ENV
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      WORKDIR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expose" class="md-nav__link">
+    <span class="md-ellipsis">
+      EXPOSE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#label" class="md-nav__link">
+    <span class="md-ellipsis">
+      LABEL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user" class="md-nav__link">
+    <span class="md-ellipsis">
+      USER
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      CMD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      IGNORE
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entrypoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      ENTRYPOINT
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
