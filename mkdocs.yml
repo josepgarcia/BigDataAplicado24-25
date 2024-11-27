@@ -11,6 +11,9 @@ nav:
     - ssh scp: UD00/3.ssh.md
     - bash scripting: UD00/4.BashScripting.md
     - bash varios: UD00/4a.BashVarios.md
+    - bash ejercicios: UD00/4b.BashEjercicios.md
+    - bash chuleta: UD00/4c.BashChuleta.md
+    - Docker: UD00/7.docker.md
     - Entornos Virtuales: UD00/8.EntornosVirtualesPython.md
     - Editar apuntes: UD00/9.ModificarApuntes.md
   - UD 01 Ubuntu + Hadoop:
@@ -29,7 +32,6 @@ nav:
     - Configuración: UD03/1.configurarclusterYARN.md
     - Fases MapReduce: UD03/2.fasesmapreduce.md
     - Ejemplo: UD03/3.contarpalabras.md
-
 
 theme: 
   language: es

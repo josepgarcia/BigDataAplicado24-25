@@ -1,7 +1,6 @@
 # Big Data Aplicado curso: 24-25
 
 ![](<./images/EduardoPrimoMarques.jpg>)
-
 **UD00: Conceptos generales**
 1. [ConceptosGenerales](<./UD00/1.ConceptosGenerales.md>)
 2. [bash](<./UD00/2.bash.md>)
