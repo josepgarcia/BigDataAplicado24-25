@@ -4,7 +4,7 @@ repo_url: https://github.com/josepgarcia/bigDataAplicado24-25/
 edit_uri: edit/main/docs/
 
 nav:
-  - INICIO: index.md
+  - Inicio: index.md
   - UD 00 Conceptos Generales:
     - Conceptos Generales: UD00/1.ConceptosGenerales.md
     - $_bash: UD00/2.bash.md
@@ -28,11 +28,12 @@ nav:
     - Snapshopts: UD02/6.snapshots.md
     - HDFS desde python: UD02/7.HDFSdesdePython.md
     - Docker: UD02/8.clusterdocker.md
-  - UD 03 YARN:
+  - UD 03 MapReduce. Yarn:
     - Introducción: UD03/0.index.md
     - Configuración: UD03/1.configurarclusterYARN.md
     - Fases MapReduce: UD03/2.fasesmapreduce.md
     - Ejemplo: UD03/3.contarpalabras.md
+    - Ejercicio Ventas: UD03/4.ejercicioVentas.md
 
 theme: 
   language: es
@@ -42,6 +43,8 @@ theme:
     - content.code.copy
     - content.code.select
     - content.code.annotate
+    - toc.integrate
+    - navigation.top
   palette:
     primary: custom
 
