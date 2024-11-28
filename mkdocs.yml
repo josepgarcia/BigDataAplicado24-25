@@ -28,7 +28,8 @@ nav:
     - Snapshopts: UD02/6.snapshots.md
     - HDFS desde python: UD02/7.HDFSdesdePython.md
     - Docker: UD02/8.clusterdocker.md
-  - UD 03 YARN: 
+  - UD 03 YARN:
+    - Introducción: UD03/0.index.md
     - Configuración: UD03/1.configurarclusterYARN.md
     - Fases MapReduce: UD03/2.fasesmapreduce.md
     - Ejemplo: UD03/3.contarpalabras.md
