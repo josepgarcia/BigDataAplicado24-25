@@ -153,15 +153,19 @@
          <lastmod>2024-11-28</lastmod>
     </url>
     <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD03/4.ejercicioVentas/</loc>
+         <lastmod>2024-11-28</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD03/4.ejercicioVentasSOL/</loc>
+         <lastmod>2024-11-28</lastmod>
+    </url>
+    <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD03/_PENDENT/UD03%20-%20Mapreduce%20Yarn%20fffe913de6c48192bd2aceae7263b15e/Ejercicio%201%20ana%CC%81lisis%20de%20ventas%20126e913de6c480f79d1bc5e4f99b1904/</loc>
          <lastmod>2024-11-28</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD03/_PENDENT/UD03%20-%20Mapreduce%20Yarn%20fffe913de6c48192bd2aceae7263b15e/Mapreduce%20-%20Bash%20script%20fffe913de6c481c8bbabe93106da5b3d/</loc>
-         <lastmod>2024-11-28</lastmod>
-    </url>
-    <url>
-         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD03/_PENDENT/UD03%20-%20Mapreduce%20Yarn%20fffe913de6c48192bd2aceae7263b15e/UD03%204%20Hadoop%20Ventas%20fffe913de6c481e3b212c54c397d2715/</loc>
          <lastmod>2024-11-28</lastmod>
     </url>
     <url>
@@ -174,6 +178,10 @@
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD03/_PENDENT/UD03%20-%20Mapreduce%20Yarn%20fffe913de6c48192bd2aceae7263b15e/UD03%205%20%5BGuiado%5D%20MovieLens%20Dataset%20127e913de6c4802ba951fbfc0f95237b/</loc>
+         <lastmod>2024-11-28</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/_TODO/UD03%20-%20Mapreduce%20Yarn%20fffe913de6c48192bd2aceae7263b15e/UD03%204%20Hadoop%20Ventas%20fffe913de6c481e3b212c54c397d2715/</loc>
          <lastmod>2024-11-28</lastmod>
     </url>
 </urlset>

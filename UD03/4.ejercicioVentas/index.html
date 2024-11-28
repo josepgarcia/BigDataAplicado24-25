@@ -8,8 +8,10 @@
       
       
       
-        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD02/3.comandosHDFSejerciciosSOL/">
+        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD03/4.ejercicioVentas/">
       
+      
+        <link rel="prev" href="../3.contarpalabras/">
       
       
       
@@ -18,7 +20,7 @@
     
     
       
-        <title>Ejercicios hdfs - Big Data Aplicado 2024-25</title>
+        <title>Ejercicio Ventas - Big Data Aplicado 2024-25</title>
       
     
     
@@ -70,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ejercicios-hdfs" class="md-skip">
+        <a href="#hadoop-ventas" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -106,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ejercicios hdfs
+              Ejercicio Ventas
             
           </span>
         </div>
@@ -637,7 +639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1.instalacion/" class="md-nav__link">
+      <a href="../../UD02/1.instalacion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -658,7 +660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2.comandosHDFS/" class="md-nav__link">
+      <a href="../../UD02/2.comandosHDFS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -679,7 +681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.comandosHDFSejercicios/" class="md-nav__link">
+      <a href="../../UD02/3.comandosHDFSejercicios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -700,7 +702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../4.administracionHDFS/" class="md-nav__link">
+      <a href="../../UD02/4.administracionHDFS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -721,7 +723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../6.snapshots/" class="md-nav__link">
+      <a href="../../UD02/6.snapshots/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -742,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../7.HDFSdesdePython/" class="md-nav__link">
+      <a href="../../UD02/7.HDFSdesdePython/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -763,7 +765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../8.clusterdocker/" class="md-nav__link">
+      <a href="../../UD02/8.clusterdocker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -788,17 +790,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -812,7 +816,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             UD 03 MapReduce. Yarn
@@ -826,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../UD03/0.index/" class="md-nav__link">
+      <a href="../0.index/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -847,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../UD03/1.configurarclusterYARN/" class="md-nav__link">
+      <a href="../1.configurarclusterYARN/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -868,7 +872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../UD03/2.fasesmapreduce/" class="md-nav__link">
+      <a href="../2.fasesmapreduce/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -889,7 +893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../UD03/3.contarpalabras/" class="md-nav__link">
+      <a href="../3.contarpalabras/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -907,10 +911,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../UD03/4.ejercicioVentas/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Ejercicio Ventas
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -919,6 +943,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-1-fase-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 1: Fase 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-1-fase-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 1: Fase 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-1-fase-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 1: Fase 3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-1-fase-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 1: Fase 4
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 4
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -946,7 +1077,7 @@
                   
 
   
-    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD02/3.comandosHDFSejerciciosSOL.md" title="Editar esta página" class="md-content__button md-icon">
+    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD03/4.ejercicioVentas.md" title="Editar esta página" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -954,66 +1085,133 @@
   
 
 
-<h1 id="ejercicios-hdfs">Ejercicios hdfs</h1>
-<p>Podéis encontrar los archivos de datos en el siguiente repositorio:<br />
-https://github.com/josepgarcia/datos</p>
-<h3 id="ejercicio-1-fichero-de-logs">Ejercicio 1. Fichero de logs.</h3>
+<h1 id="hadoop-ventas">Hadoop Ventas</h1>
+<p>Para comprender mejor cómo funciona un trabajo típico de Hadoop basado en MapReduce, a continuación profundizaremos en la programación y ejecución de un ejemplo utilizando el lenguaje Python.</p>
+<p>Hadoop funciona de forma nativa con Java pero cuenta con una herramienta que permite la ejecución de programas/scripts en diferentes lenguajes como python. Esta es la herramienta "Streaming": <a href="https://hadoop.apache.org/docs/stable/hadoop-streaming/HadoopStreaming.html">https://hadoop.apache.org/docs/stable/hadoop-streaming/HadoopStreaming.html</a><br />
+Este ejemplo trabaja con un conjunto de datos relacionados con las ventas de una empresa con múltiples tiendas: <code>purchases.txt</code></p>
+<p>Lo puedes descargar en:<br />
+<a href="https://github.com/josepgarcia/datos">https://github.com/josepgarcia/datos</a></p>
+<p>A continuación puede ver un extracto del archivo, que contiene seis campos sobre compras: fecha, hora, ubicación de la tienda, categoría de producto, compra total y método de pago.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>2012-01-01  09:00   San Jose    Men&#39;s Clothing  214.05  Amex
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>2012-01-01  09:00   Fort Worth  Women&#39;s Clothing    153.57  Visa
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>2012-01-01  09:00   San Diego   Music   66.08   Cash
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>2012-01-01  09:00   Pittsburgh  Pet Supplies    493.51  Discover
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>2012-01-01  09:00   Omaha   Children&#39;s Clothing 235.63  MasterCard
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>2012-01-01  09:00   Stockton    Men&#39;s Clothing  247.18  MasterCard
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>2012-01-01  09:00   Austin  Cameras 379.6   Visa
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>2012-01-01  09:00   New York    Consumer Electronics    296.8   Cash
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>2012-01-01  09:00   Corpus Christi  Toys    25.38   Discover
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>2012-01-01  09:00   Fort Worth  Toys    213.88  Visa
+</span></code></pre></div>
+<h2 id="ejemplo-1-fase-1">Ejemplo 1: Fase 1</h2>
+<p>Queremos saber el importe total de ventas de cada tienda (la tienda corresponde a la tercera columna del archivo, hay una tienda por ciudad).</p>
+<p>El paradigma MapReduce tiene 3 pasos: <br />
+mapper()<br />
+shuffle - sort<br />
+reducer()</p>
+<p><strong>mapper</strong><br />
+El mapper estará a cargo de construir el par clave:valor de cada línea. Piensa que cada nodo del cluster ejecutará el mapper en las líneas del archivo que le corresponden. En cualquier caso, es un trabajo que se ejecuta por líneas, lo que <strong>permite una fácil paralelización</strong>.</p>
+<p>Nuestro mapper debe devolver como clave el nombre de la tienda y como valor el importe de las ventas. Por ejemplo:<br />
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>San José    214,05
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Fort Worth    153,57
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>...
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Fort Worth    213,88
+</span></code></pre></div></p>
+<p><strong>shuffle - sort</strong><br />
+Sustituiremos esta fase por el comando sort, por lo que simplemente haremos un:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cat<span class="w"> </span>salida_mapper.csv<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>&gt;<span class="w"> </span>salida_sort.csv
+</span></code></pre></div>
+<p><strong>reducer</strong><br />
+El reducer se encargará de sumar los valores correspondientes a cada clave.<br />
+La salida será, por ejemplo:<br />
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>San José    214.05
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Fort Worth    367,45       # (135,57+213,88)
+</span></code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<p>Programa el <strong>mapper</strong> y <strong>reducer</strong> con python, ten en cuenta que cuando los datos lleguen al reducer estarán ordenados (se realizará un sort antes).</p>
+</div>
+<p><strong>Ejemplo de funcionamiento</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python<span class="w"> </span>mapper.py<span class="w"> </span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>San<span class="w"> </span>Jose<span class="w">    </span><span class="m">214</span>.05
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Fort<span class="w"> </span>Worth<span class="w">  </span><span class="m">153</span>.57
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>San<span class="w"> </span>Diego<span class="w">   </span><span class="m">66</span>.08
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Pittsburgh<span class="w">  </span><span class="m">493</span>.51
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Omaha<span class="w">   </span><span class="m">235</span>.63
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>Stockton<span class="w">    </span><span class="m">247</span>.18
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>Austin<span class="w">  </span><span class="m">379</span>.6
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>New<span class="w"> </span>York<span class="w">    </span><span class="m">296</span>.8
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1"># Lo guardamos en un archivo intermedio</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>python<span class="w"> </span>mapper.py<span class="w"> </span>&gt;<span class="w"> </span>salida_mapper.txt
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="c1"># Hacemos el shuffle + sort &quot;manualmente&quot;</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>cat<span class="w"> </span>salida_mapper.txt<span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>&gt;<span class="w"> </span>salida_sort.txt
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="c1"># El archivo salida_sort debe contener los datos ordenados</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="c1">#Albuquerque    440.7</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="c1">#Anchorage  22.36</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="c1">#Anchorage  298.86</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="c1">#Anchorage  368.42</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="c1">#Anchorage  390.2</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="c1">#Anchorage  6.38</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="c1">#Atlanta    254.62</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="c1"># Hacemos el reducer</span>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>python3<span class="w"> </span>reducer_simple.py
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>Albuquerque<span class="w">      </span><span class="m">440</span>.7<span class="w"> </span><span class="c1"># suma de todas las líneas con clave Albuquerque</span>
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>Anchorage<span class="w">    </span><span class="m">1086</span>.2200000000003
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>Atlanta<span class="w">      </span><span class="m">254</span>.62
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>Aurora<span class="w">   </span><span class="m">117</span>.81
+</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>Austin<span class="w">   </span><span class="m">1304</span>.7800000000002
+</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>Boise<span class="w">    </span><span class="m">481</span>.09000000000003
+</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>Boston<span class="w">   </span><span class="m">418</span>.94
+</span></code></pre></div>
+<h2 id="ejemplo-1-fase-2">Ejemplo 1: Fase 2</h2>
+<p>Uso de tuberías.<br />
+Para que podamos ejecutar el programa a través de hadoop, ha de hacer uso de tuberías no de ficheros.</p>
+<p>Modifica el código para que en vez de leer de un fichero lea del stream de entrada (sys.stdin)</p>
+<p>Puedes comprobar el funcionamiento ejecutando:<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cat<span class="w"> </span>purchases.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>python<span class="w"> </span>mapper.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>python<span class="w"> </span>reducer.py<span class="w"> </span>&gt;<span class="w"> </span>salida.txt
+</span></code></pre></div></p>
+<h2 id="ejemplo-1-fase-3">Ejemplo 1: Fase 3</h2>
+<p>Mejora el código:</p>
 <ul>
-<li>Descargamos un fichero más grande (access_log.gz )</li>
-<li>Lo descomprimimos. Quedará un archivo de 482mb.</li>
-<li>Lo movemos a HDFS, dentro la carpeta </li>
-<li>Comprobamos en cuantos bloques se encuentra.</li>
-<li>¿A qué archivos apunta en la máquina virtual?</li>
+<li>[ ] Todas las líneas del archivo de entrada deben tener el mismo número de campos, si no es así en alguna línea hay que descartarla. </li>
+<li>[ ] Asegúrate que el valor numérico sea float. </li>
+<li>[ ] Como se ha mencionado anteriormente, hay que tener en cuenta que al <strong>reducer</strong> le llegan los datos ordenados.</li>
+<li>[ ] ¿Otras mejoras?</li>
 </ul>
+<h2 id="ejemplo-1-fase-4">Ejemplo 1: Fase 4</h2>
+<p>Ejecución en el cluster.</p>
+<h2 id="ejercicios">Ejercicios</h2>
+<div class="admonition note">
+<p class="admonition-title">Entregables</p>
+<p>Entregables en AULES</p>
+</div>
+<h3 id="ejercicio-1">Ejercicio 1</h3>
+<p>Redefine el mapper para que mapreduce devuelva como salida las ventas totales por categoría.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>**Ejemplo de resultado (datos no reales):**
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Pet Supplies   1123.4  
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Music          22344.56
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Clothing       3356.45
+</span></code></pre></div>
 <h3 id="ejercicio-2">Ejercicio 2</h3>
-<ol>
-<li>Crea un fichero “saludo.txt” en local, que contenga el texto “Hola”.<br />
-   Súbelo a HDFS, a la carpeta /temporal (si no existe hay que crearla)<br />
-   Borra el fichero en local<br />
-   Muestra el contenido del fichero (en remoto).</li>
-<li>Copia el fichero saludo.txt a local con el nombre (saludolocal.txt)</li>
-<li>Entra a la web de administración para ver que existe el fichero.</li>
-<li>Borra el fichero remoto.</li>
-<li>Asegúrate que se ha borrado el fichero con ls.</li>
-<li>Borra el directorio temporal.<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>hdfs<span class="w"> </span>dfs<span class="w"> </span>-cat<span class="w"> </span>/temporal/prueba.txt<span class="w"> </span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$<span class="w"> </span>hdfs<span class="w"> </span>dfs<span class="w"> </span>-get<span class="w"> </span>/temporal/prueba.txt<span class="w"> </span>/tmp/borrar.txt<span class="w"> </span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>$<span class="w"> </span>hdfs<span class="w"> </span>dfs<span class="w"> </span>-mkdir<span class="w"> </span>directorio1<span class="w"> </span>$<span class="w"> </span>hdfs<span class="w"> </span>dfs<span class="w"> </span>-rm<span class="w"> </span>/temporal/prueba.txt
-</span></code></pre></div></li>
-</ol>
+<p>Redefine el mapper y reducer para que se obtenga la venta más alta para cada tipo de pago de las registradas en todo el archivo.</p>
+<p><strong>No hay que devolver las ventas totales por tipo de pago</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>**Ejemplo de resultado (datos no reales):**
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Visa           133.5   -&gt; la venta más alta de todas las hechas con visa
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Cash           223.56  -&gt; la venta más alta de todas las hechas con cash
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>Mastercard     1356.45 -&gt; la venta más alta de todas las hechas con Mastercard
+</span></code></pre></div>
 <h3 id="ejercicio-3">Ejercicio 3</h3>
-<ol>
-<li>Crea un fichero “otrosaludo.txt” en local, que contenga el texto “Hola”.<br />
-<strong>MUÉVELO</strong> a HDFS, dentro de la carpeta /ejercicios/saludos/<br />
-   Comprueba que ya no existe el fichero en local</li>
-<li>Crea un directorio en local llamado prueba<br />
-   Dentro de este directorio crea un fichero llamado ejercicioprueba.txt<br />
-   Mueve todo el directorio prueba a HDFS, dentro de la carpeta /ejercicios<br />
-   Comprueba que ya no existe la carpeta en local<br />
-   Realiza una copia de HDFS a local de la carpeta que acabas de subir.<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Move file / Folder from Local disk to HDFS </span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$<span class="w"> </span>hdfs<span class="w"> </span>dfs<span class="w"> </span>-moveFromLocal<span class="w"> </span>/local-file-path<span class="w"> </span>/hdfs-file-path<span class="w"> </span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Copy </span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>$<span class="w"> </span>hdfs<span class="w"> </span>dfs<span class="w"> </span>-copyFromLocal<span class="w"> </span>/hdfs-file-path<span class="w"> </span>/local-file-path<span class="w"> </span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Move a File to HDFS from Local </span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>$<span class="w"> </span>hdfs<span class="w"> </span>dfs<span class="w"> </span>-moveToLocal<span class="w"> </span>/hdfs-file-path<span class="w"> </span>/local-file-path<span class="w"> </span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Copy </span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>$<span class="w"> </span>hdfs<span class="w"> </span>dfs<span class="w"> </span>-copyToLocal<span class="w"> </span>/hdfs-file-path<span class="w"> </span>/local-file-path
-</span></code></pre></div><br />
-<a href="https://sparkbyexamples.com/apache-hadoop/hadoop-hdfs-dfs-commands-and-starting-hdfs-dfs-services/">https://sparkbyexamples.com/apache-hadoop/hadoop-hdfs-dfs-commands-and-starting-hdfs-dfs-services/</a></li>
-</ol>
+<p>Realiza las modificaciones necesarias para que mapreduce nos devuelve la venta más alta de todas las realizadas</p>
 <h3 id="ejercicio-4">Ejercicio 4</h3>
-<ol>
-<li>Crea un archivo en /tmp llamado archivogrande que tenga un tamaño de 500MB (aproximadamente) <br />
-   -&gt; Utiliza el comando dd</li>
-<li>Crea una carpeta en HDFS llamada datos2.</li>
-<li>Sube el archivo a la carpeta creada.<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Crear archivo de 500Mb </span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/zero<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/tmp/archivogrande<span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">1024</span><span class="w"> </span><span class="nv">count</span><span class="o">=</span>512k<span class="w"> </span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># Verificar el tamaño del archivo creado </span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>du<span class="w"> </span>-sh<span class="w"> </span>/tmp/archivogrande
-</span></code></pre></div></li>
-</ol>
+<p>Redefine los scripts para que se obtengan las ventas totales.</p>
 
 
 
