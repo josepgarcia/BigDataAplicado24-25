@@ -7,6 +7,7 @@ Màquina virtual per a executar bash i fer tots ahí
 + bash (pràctica per a instalar ssh)
 
 
+
 Hardware
 - Grupos de discos LVM (ubuntu)
 
