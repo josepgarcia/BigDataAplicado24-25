@@ -374,31 +374,31 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-ssh" class="md-nav__link">
+  <a href="#ssh" class="md-nav__link">
     <span class="md-ellipsis">
-      1. ssh
+      ssh
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-scp" class="md-nav__link">
+  <a href="#scp" class="md-nav__link">
     <span class="md-ellipsis">
-      2. scp
+      scp
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-screen" class="md-nav__link">
+  <a href="#screen" class="md-nav__link">
     <span class="md-ellipsis">
-      3. screen
+      screen
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. screen">
+    <nav class="md-nav" aria-label="screen">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -416,18 +416,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-sshfs" class="md-nav__link">
+  <a href="#sshfs" class="md-nav__link">
     <span class="md-ellipsis">
-      4. sshfs
+      sshfs
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-open-vpn" class="md-nav__link">
+  <a href="#open-vpn" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Open VPN
+      Open VPN
     </span>
   </a>
   
@@ -1061,7 +1061,7 @@
 
 
 <h1 id="varios-ssh-scp-screen-sshfs">Varios: ssh - scp - screen - sshfs</h1>
-<h2 id="1-ssh">1. ssh</h2>
+<h2 id="ssh">ssh</h2>
 <p><img alt="" src="../images/ssh.png" /></p>
 <p>A la máquina virtual podemos acceder de dos formas:</p>
 <ol>
@@ -1093,7 +1093,7 @@
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>2. Modifica el puerto del servicio SSH para que escuche por el 2222.
 </span></code></pre></div>
-<h2 id="2-scp">2. scp</h2>
+<h2 id="scp">scp</h2>
 <p>Se utiliza para copiar archivos y directorios de forma segura entre sistemas remotos a través de SSH (Secure Shell). Es especialmente útil para transferir archivos de un sistema local a uno remoto o viceversa de manera segura y eficiente.</p>
 <p><strong>Principales opciones:</strong></p>
 <ul>
@@ -1111,7 +1111,7 @@
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Copiar un directorio y su contenido de manera recursiva</span>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>scp<span class="w"> </span>-r<span class="w"> </span>directorio_local/<span class="w"> </span>usuario@servidor.com:/ruta/destino/
 </span></code></pre></div>
-<h2 id="3-screen">3. screen</h2>
+<h2 id="screen">screen</h2>
 <p>Permite crear sesiones de terminal multiplexadas en sistemas Unix y Linux. Esto significa que puedes iniciar múltiples sesiones de terminal dentro de una sola ventana y alternar entre ellas. Además, las sesiones de <code>screen</code> pueden ejecutarse en segundo plano, lo que permite desacoplarlas de la sesión de terminal actual.</p>
 <p>La principal ventaja de <code>screen</code> es que podemos:</p>
 <ul>
@@ -1156,7 +1156,7 @@
 <h3 id="ejercicio">Ejercicio</h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>- Realiza las modificaciones necesarias para que al conectarte al ssh de tu máquina virtual no te pida contraseña.
 </span></code></pre></div>
-<h2 id="4-sshfs">4. sshfs</h2>
+<h2 id="sshfs">sshfs</h2>
 <p><code>sshfs</code> nos permite montar carpetas de máquinas remotas a través de ssh.</p>
 <p><a href="https://www.digitalocean.com/community/tutorials/how-to-use-sshfs-to-mount-remote-file-systems-over-ssh">https://www.digitalocean.com/community/tutorials/how-to-use-sshfs-to-mount-remote-file-systems-over-ssh</a></p>
 <p>Instalación en máquina remota</p>
@@ -1176,7 +1176,7 @@
 <li><code>sammy@your_other_server:~/</code> provides the full path to the remote directory, including the remote username, <code>sammy</code>, the remote server, <code>your_other_server</code>, and the path, in this case <code>~/</code> for the remote user’s home directory. This uses the same syntax as SSH or SCP.</li>
 <li><code>/mnt/droplet</code> is the path to the local directory being used as a mount point.</li>
 </ul>
-<h2 id="5-open-vpn">5. Open VPN</h2>
+<h2 id="open-vpn">Open VPN</h2>
 <p>Script que nos facilita la instalación de una VPN</p>
 <p><a href="https://github.com/Nyr/openvpn-install">https://github.com/Nyr/openvpn-install</a></p>
 
