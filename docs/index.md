@@ -5,6 +5,12 @@
 1. [ConceptosGenerales](<./UD00/1.ConceptosGenerales.md>)
 2. [bash](<./UD00/2.bash.md>)
 3. [EntornosVirtualesPython](<./UD00/8.EntornosVirtualesPython.md>)
+4. [Bash Scripting](<./UD00/4.BashScripting.md>)
+5. [Bash Varios](<./UD00/4a.BashVarios.md>)
+6. [Bash Ejercicios](<./UD00/4b.BashEjercicios.md>)
+7. [Bash Chuleta](<./UD00/4c.BashChuleta.md>)
+8. [Entornos Virtuales Python](<./UD00/8.EntornosVirtualesPython.md>)
+9. [¿Cómo modificar los apuntes?](<./UD00/9.ModificarApuntes.md>)
 
 **UD01: Hadoop**
 1. [Instalación Ubuntu Server](<./UD01/1.instalacionubuntuserver.md>)
@@ -20,6 +26,10 @@
 6. [HDFS desde Python](<./UD02/7.HDFSdesdePython.md>)
 7. [Cluster con docker](<./UD02/8.clusterdocker.md>)
 
-
-
+**UD03: Mapreduce. Yarn**
+1. [0.index](<./UD03/0.index.md>)
+2. [Configurar cluster YARN](<./UD03/1.configurarclusterYARN.md>)
+3. [Fases mapreduce](<./UD03/2.fasesmapreduce.md>)
+4. [Contar palabras](<./UD03/3.contarpalabras.md>)
+5. [Ejercicio ventas](<./UD03/4.ejercicioVentas.md>)
 
