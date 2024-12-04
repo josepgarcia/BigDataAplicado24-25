@@ -34,6 +34,7 @@ nav:
     - Fases MapReduce: UD03/2.fasesmapreduce.md
     - Ejemplo: UD03/3.contarpalabras.md
     - Ejercicio Ventas: UD03/4.ejercicioVentas.md
+    - Ejercicio Temperatura: UD03/5.ejercicioTemperatura.md
 
 theme: 
   language: es
