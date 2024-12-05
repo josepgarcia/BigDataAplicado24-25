@@ -18,7 +18,7 @@
 3. [Ejercicios](<./UD01/3.ejercicios.md>)
 
 **UD02: Cluster Hadoop pseudodistribuido. HDFS.**
-1. [Instalacion](<./UD02/1.instalacion.md>)
+1. [Instalación](<./UD02/1.instalacion.md>)
 2. [Comandos HDFS](<./UD02/2.comandosHDFS.md>)
 3. [Ejercicios HDFS](<./UD02/3.comandosHDFSejercicios.md>)
 4. [Administración HDFS](<./UD02/4.administracionHDFS.md>)
@@ -32,4 +32,10 @@
 3. [Fases mapreduce](<./UD03/2.fasesmapreduce.md>)
 4. [Contar palabras](<./UD03/3.contarpalabras.md>)
 5. [Ejercicio ventas](<./UD03/4.ejercicioVentas.md>)
+6. [Ejercicio temperatura -AULES-](<./UD03/5.ejercicioTemperatura.md>)
 
+**UD04: Sqoop. Hive.**
+
+
+**UD09: Extra**
+1. [Cluster hadoop varios nodos](<./UD09/1.clusterdocker.md>)
