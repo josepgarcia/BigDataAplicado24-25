@@ -1085,6 +1085,69 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 09 Extra
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            UD 09 Extra
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD09/1.clusterdocker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cluster docker avanzado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1193,8 +1256,9 @@ La salida será, por ejemplo:<br />
 </span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>Boston<span class="w">   </span><span class="m">418</span>.94
 </span></code></pre></div>
 <h2 id="ejemplo-1-fase-2">Ejemplo 1: Fase 2</h2>
-<p>Uso de tuberías.<br />
-Para que podamos ejecutar el programa a través de hadoop, ha de hacer uso de tuberías no de ficheros.</p>
+<p>Uso de tuberías.</p>
+<p>¿Cómo funcionan las tuberías en bash?</p>
+<p>Para que podamos ejecutar el programa a través de hadoop, ha de hacer uso de tuberías no de ficheros.</p>
 <p>Modifica el código para que en vez de leer de un fichero lea del stream de entrada (sys.stdin)</p>
 <p>Puedes comprobar el funcionamiento ejecutando:<br />
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cat<span class="w"> </span>purchases.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>python<span class="w"> </span>mapper.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>python<span class="w"> </span>reducer.py<span class="w"> </span>&gt;<span class="w"> </span>salida.txt
@@ -1206,29 +1270,46 @@ Para que podamos ejecutar el programa a través de hadoop, ha de hacer uso de tu
 [ ] Como se ha mencionado anteriormente, hay que tener en cuenta que al <strong>reducer</strong> le llegan los datos ordenados.<br />
 [ ] ¿Otras mejoras?</p>
 <h2 id="ejemplo-1-fase-4">Ejemplo 1: Fase 4</h2>
-<p>Ejecución en el cluster.</p>
+<ol>
+<li>Subir a hdfs el dataset, en mi caso <code>/compras/test.txt</code></li>
+<li>
+<p>Subir al contenedor los archivos .py<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>mapred<span class="w"> </span>streaming<span class="w"> </span>-files<span class="w"> </span>mapper_tuberias.py,reducer_tuberias.py<span class="w"> </span>-input<span class="w"> </span>/compras/test.txt<span class="w"> </span>-output<span class="w"> </span>/comprasxtienda<span class="w"> </span>-mapper<span class="w"> </span>./mapper_tuberias.py<span class="w"> </span>-reducer<span class="w"> </span>./reducer_tuberias.py
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Una vez ejecutado el comando, podemos ver la salida en /comprasxtienda/part-00000</p>
+</li>
+<li>Si la ejecución es correcta existirá un archivo SUCCESS<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>dfs<span class="w"> </span>-ls<span class="w"> </span>/comprasxtienda
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>-rw-r--r--<span class="w">   </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>supergroup<span class="w">          </span><span class="m">0</span><span class="w"> </span><span class="m">2024</span>-12-05<span class="w"> </span><span class="m">11</span>:11<span class="w"> </span>/comprasxtienda7/_SUCCESS
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>-rw-r--r--<span class="w">   </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>supergroup<span class="w">       </span><span class="m">1201</span><span class="w"> </span><span class="m">2024</span>-12-05<span class="w"> </span><span class="m">11</span>:11<span class="w"> </span>/comprasxtienda7/part-00000
+</span></code></pre></div></li>
+</ol>
+<p>CORRECCIÓN DE ERRORES:<br />
+https://stackoverflow.com/questions/50927577/could-not-find-or-load-main-class-org-apache-hadoop-mapreduce-v2-app-mrappmaster</p>
 <h2 id="ejercicios">Ejercicios</h2>
 <h3 id="ejercicio-1">Ejercicio 1</h3>
 <p>Redefine el mapper para que mapreduce devuelva como salida las ventas totales por categoría.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Ejemplo de resultado (datos no reales):
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Pet Supplies   1123.4  
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Music          22344.56
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Clothing       3356.45
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Ejemplo de resultado (datos no reales):
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Pet Supplies   1123.4  
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>Music          22344.56
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>Clothing       3356.45
 </span></code></pre></div>
 <h3 id="ejercicio-2">Ejercicio 2</h3>
 <p>Redefine el mapper y reducer para que se obtenga la venta más alta para cada tipo de pago de las registradas en todo el archivo.</p>
 <p><strong>No hay que devolver las ventas totales por tipo de pago</strong></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Ejemplo de resultado (datos no reales):
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Visa           133.5   -&gt; la venta más alta de todas las hechas con visa
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Cash           223.56  -&gt; la venta más alta de todas las hechas con cash
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>Mastercard     1356.45 -&gt; la venta más alta de todas las hechas con Mastercard
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Ejemplo de resultado (datos no reales):
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Visa           133.5   -&gt; la venta más alta de todas las hechas con visa
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>Cash           223.56  -&gt; la venta más alta de todas las hechas con cash
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>Mastercard     1356.45 -&gt; la venta más alta de todas las hechas con Mastercard
 </span></code></pre></div>
 <h3 id="ejercicio-3">Ejercicio 3</h3>
 <p>Realiza las modificaciones necesarias para que mapreduce nos devuelve la venta más alta de todas las realizadas</p>
 <h3 id="ejercicio-4">Ejercicio 4</h3>
-<p>Redefine los scripts para que se obtengan las ventas totales.</p>
+<p>Redefine los scripts para que se obtengan la suma de todas las ventass.</p>
 
 
 

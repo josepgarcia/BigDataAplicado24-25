@@ -8,24 +8,26 @@
       
       
       
-        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD01/_PENDENT/UD01%20-%20Big%20Data%20Hadoop%20118e913de6c4806493b8e271ad30161a/">
+        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD09/1.clusterdocker/">
+      
+      
+        <link rel="prev" href="../../UD03/5.ejercicioTemperatura/">
       
       
       
-      
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
       
-        <title>UD01 - Big Data. Hadoop. - Big Data Aplicado 2024-25</title>
+        <title>Cluster docker avanzado - Big Data Aplicado 2024-25</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ud01-big-data-hadoop" class="md-skip">
+        <a href="#creacion-de-un-cluster-real-con-hadoop" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -86,7 +88,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
-    <a href="../../.." title="Big Data Aplicado 2024-25" class="md-header__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+    <a href="../.." title="Big Data Aplicado 2024-25" class="md-header__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -106,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              UD01 - Big Data. Hadoop.
+              Cluster docker avanzado
             
           </span>
         </div>
@@ -195,7 +197,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Big Data Aplicado 2024-25" class="md-nav__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+    <a href="../.." title="Big Data Aplicado 2024-25" class="md-nav__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -225,7 +227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -280,7 +282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD00/1.ConceptosGenerales/" class="md-nav__link">
+      <a href="../../UD00/1.ConceptosGenerales/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -301,7 +303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD00/2.bash/" class="md-nav__link">
+      <a href="../../UD00/2.bash/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -322,7 +324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD00/3.ssh/" class="md-nav__link">
+      <a href="../../UD00/3.ssh/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -343,7 +345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD00/4.BashScripting/" class="md-nav__link">
+      <a href="../../UD00/4.BashScripting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -364,7 +366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD00/4a.BashVarios/" class="md-nav__link">
+      <a href="../../UD00/4a.BashVarios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -385,7 +387,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD00/4b.BashEjercicios/" class="md-nav__link">
+      <a href="../../UD00/4b.BashEjercicios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -406,7 +408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD00/4c.BashChuleta/" class="md-nav__link">
+      <a href="../../UD00/4c.BashChuleta/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -427,7 +429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD00/7.docker/" class="md-nav__link">
+      <a href="../../UD00/7.docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -448,7 +450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD00/8.EntornosVirtualesPython/" class="md-nav__link">
+      <a href="../../UD00/8.EntornosVirtualesPython/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -469,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD00/9.ModificarApuntes/" class="md-nav__link">
+      <a href="../../UD00/9.ModificarApuntes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -532,7 +534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../1.instalacionubuntuserver/" class="md-nav__link">
+      <a href="../../UD01/1.instalacionubuntuserver/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -553,7 +555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2.descargaconfighadoop/" class="md-nav__link">
+      <a href="../../UD01/2.descargaconfighadoop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -574,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../3.ejercicios/" class="md-nav__link">
+      <a href="../../UD01/3.ejercicios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -637,7 +639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD02/1.instalacion/" class="md-nav__link">
+      <a href="../../UD02/1.instalacion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -658,7 +660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD02/2.comandosHDFS/" class="md-nav__link">
+      <a href="../../UD02/2.comandosHDFS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -679,7 +681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD02/3.comandosHDFSejercicios/" class="md-nav__link">
+      <a href="../../UD02/3.comandosHDFSejercicios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -700,7 +702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD02/4.administracionHDFS/" class="md-nav__link">
+      <a href="../../UD02/4.administracionHDFS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -721,7 +723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD02/6.snapshots/" class="md-nav__link">
+      <a href="../../UD02/6.snapshots/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -742,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD02/7.HDFSdesdePython/" class="md-nav__link">
+      <a href="../../UD02/7.HDFSdesdePython/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -763,7 +765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD02/8.clusterdocker/" class="md-nav__link">
+      <a href="../../UD02/8.clusterdocker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -826,7 +828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD03/0.index/" class="md-nav__link">
+      <a href="../../UD03/0.index/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -847,7 +849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD03/1.configurarclusterYARN/" class="md-nav__link">
+      <a href="../../UD03/1.configurarclusterYARN/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -868,7 +870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD03/2.fasesmapreduce/" class="md-nav__link">
+      <a href="../../UD03/2.fasesmapreduce/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -889,7 +891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD03/3.contarpalabras/" class="md-nav__link">
+      <a href="../../UD03/3.contarpalabras/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -910,7 +912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD03/4.ejercicioVentas/" class="md-nav__link">
+      <a href="../../UD03/4.ejercicioVentas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -931,7 +933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UD03/5.ejercicioTemperatura/" class="md-nav__link">
+      <a href="../../UD03/5.ejercicioTemperatura/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -956,17 +958,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -980,7 +984,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             UD 09 Extra
@@ -991,10 +995,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../UD09/1.clusterdocker/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1003,6 +1016,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1030,7 +1044,7 @@
                   
 
   
-    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD01/_PENDENT/UD01 - Big Data Hadoop 118e913de6c4806493b8e271ad30161a.md" title="Editar esta página" class="md-content__button md-icon">
+    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD09/1.clusterdocker.md" title="Editar esta página" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1038,18 +1052,10 @@
   
 
 
-<h1 id="ud01-big-data-hadoop">UD01 - Big Data. Hadoop.</h1>
-<h1 id="teoria">Teoría</h1>
-<p><a href="UD01_-_Hadoop._Introduccion.pdf">UD01 - Hadoop. Introducción.pdf</a></p>
-<p><strong>Presentación, diapositivas</strong></p>
-<p><img alt="Untitled" src="Untitled.png" /></p>
-<p><a href="https://docs.google.com/presentation/d/1M3rEkf7FvIfpyjGgWZ-rXq5TxPM_zb1xgQF8WBmRPmk/edit?usp=sharing">https://docs.google.com/presentation/d/1M3rEkf7FvIfpyjGgWZ-rXq5TxPM_zb1xgQF8WBmRPmk/edit?usp=sharing</a></p>
-<h1 id="practica">Práctica</h1>
-<p>https://www.profesionalreview.com/2020/08/16/como-usar-virtualbox/</p>
-<p><a href="../../1.instalacionubuntuserver/">UD01 1. Instalación Ubuntu server. Configuración entorno.</a></p>
-<p><a href="../../2.descargaconfighadoop/">UD01 2. Descarga y configuración Hadoop.</a></p>
-<p><a href="../../3.ejercicios/">UD01 3. Hadoop, ejercicios.</a></p>
-<p><a href="../../3.ejerciciosSOL/">UD01 3b. Hadoop, ejercicios (soluciones).</a></p>
+<h1 id="creacion-de-un-cluster-real-con-hadoop">Creación de un cluster real con hadoop</h1>
+<p>Creación de un cluster con varios nodos utilizando contenedores.</p>
+<p>https://www.youtube.com/watch?v=f6FJ91f-qpA&amp;list=PLzp6eJhjmaiDX5vPppsjQwYsO2yPQR1m6&amp;index=1</p>
+<p><img alt="" src="../files/cluster.tar.gz" /></p>
 
 
 
@@ -1107,10 +1113,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.copy", "content.code.select", "content.code.annotate", "toc.integrate", "navigation.top"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.copy", "content.code.select", "content.code.annotate", "toc.integrate", "navigation.top"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>
