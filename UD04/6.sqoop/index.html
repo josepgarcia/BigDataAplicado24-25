@@ -8,24 +8,24 @@
       
       
       
-        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD04/_PENDENT/UD04%20-%20HIVE%2015ae913de6c4808faa08c7bc62c140fe/UD04%202%20Comandos%20Hive%2015ae913de6c4818ba2f6c95f44be7ef8/">
+        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD04/6.sqoop/">
       
       
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
       
-        <title>UD04 2. Comandos Hive. - Big Data Aplicado 2024-25</title>
+        <title>Sqoop - Big Data Aplicado 2024-25</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ud04-2-comandos-hive" class="md-skip">
+        <a href="#sqoop" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -86,7 +86,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
-    <a href="../../../.." title="Big Data Aplicado 2024-25" class="md-header__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+    <a href="../.." title="Big Data Aplicado 2024-25" class="md-header__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              UD04 2. Comandos Hive.
+              Sqoop
             
           </span>
         </div>
@@ -195,7 +195,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Big Data Aplicado 2024-25" class="md-nav__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+    <a href="../.." title="Big Data Aplicado 2024-25" class="md-nav__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -225,7 +225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -280,7 +280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD00/1.ConceptosGenerales/" class="md-nav__link">
+      <a href="../../UD00/1.ConceptosGenerales/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -301,7 +301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD00/2.bash/" class="md-nav__link">
+      <a href="../../UD00/2.bash/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -322,7 +322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD00/3.ssh/" class="md-nav__link">
+      <a href="../../UD00/3.ssh/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -343,7 +343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD00/4.BashScripting/" class="md-nav__link">
+      <a href="../../UD00/4.BashScripting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -364,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD00/4a.BashVarios/" class="md-nav__link">
+      <a href="../../UD00/4a.BashVarios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -385,7 +385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD00/4b.BashEjercicios/" class="md-nav__link">
+      <a href="../../UD00/4b.BashEjercicios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -406,7 +406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD00/4c.BashChuleta/" class="md-nav__link">
+      <a href="../../UD00/4c.BashChuleta/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -427,7 +427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD00/7.docker/" class="md-nav__link">
+      <a href="../../UD00/7.docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -448,7 +448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD00/8.EntornosVirtualesPython/" class="md-nav__link">
+      <a href="../../UD00/8.EntornosVirtualesPython/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -469,7 +469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD00/9.ModificarApuntes/" class="md-nav__link">
+      <a href="../../UD00/9.ModificarApuntes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -532,7 +532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD01/1.instalacionubuntuserver/" class="md-nav__link">
+      <a href="../../UD01/1.instalacionubuntuserver/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -553,7 +553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD01/2.descargaconfighadoop/" class="md-nav__link">
+      <a href="../../UD01/2.descargaconfighadoop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -574,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD01/3.ejercicios/" class="md-nav__link">
+      <a href="../../UD01/3.ejercicios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -637,7 +637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD02/1.instalacion/" class="md-nav__link">
+      <a href="../../UD02/1.instalacion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -658,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD02/2.comandosHDFS/" class="md-nav__link">
+      <a href="../../UD02/2.comandosHDFS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -679,7 +679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD02/3.comandosHDFSejercicios/" class="md-nav__link">
+      <a href="../../UD02/3.comandosHDFSejercicios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -700,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD02/4.administracionHDFS/" class="md-nav__link">
+      <a href="../../UD02/4.administracionHDFS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -721,7 +721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD02/6.snapshots/" class="md-nav__link">
+      <a href="../../UD02/6.snapshots/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -742,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD02/7.HDFSdesdePython/" class="md-nav__link">
+      <a href="../../UD02/7.HDFSdesdePython/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -763,7 +763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD02/8.clusterdocker/" class="md-nav__link">
+      <a href="../../UD02/8.clusterdocker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -826,7 +826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD03/0.index/" class="md-nav__link">
+      <a href="../../UD03/0.index/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -847,7 +847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD03/1.configurarclusterYARN/" class="md-nav__link">
+      <a href="../../UD03/1.configurarclusterYARN/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -868,7 +868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD03/2.fasesmapreduce/" class="md-nav__link">
+      <a href="../../UD03/2.fasesmapreduce/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -889,7 +889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD03/3.contarpalabras/" class="md-nav__link">
+      <a href="../../UD03/3.contarpalabras/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -910,7 +910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD03/4.ejercicioVentas/" class="md-nav__link">
+      <a href="../../UD03/4.ejercicioVentas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -931,7 +931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD03/5.ejercicioTemperatura/" class="md-nav__link">
+      <a href="../../UD03/5.ejercicioTemperatura/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -994,7 +994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../0.index/" class="md-nav__link">
+      <a href="../0.index/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1015,11 +1015,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../1.hive-instalacion/" class="md-nav__link">
+      <a href="../1.hive-instalacion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Instalación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.hive-tablas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tablas
   </span>
   
 
@@ -1078,7 +1099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../UD09/1.clusterdocker/" class="md-nav__link">
+      <a href="../../UD09/1.clusterdocker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1114,7 +1135,7 @@
                   
 
   
-    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD04/_PENDENT/UD04 - HIVE 15ae913de6c4808faa08c7bc62c140fe/UD04 2 Comandos Hive 15ae913de6c4818ba2f6c95f44be7ef8.md" title="Editar esta página" class="md-content__button md-icon">
+    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD04/6.sqoop.md" title="Editar esta página" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1122,11 +1143,96 @@
   
 
 
-<h1 id="ud04-2-comandos-hive">UD04 2. Comandos Hive.</h1>
-<p><img alt="CleanShot 2023-11-29 at 17.41.37.png" src="CleanShot_2023-11-29_at_17.41.37.png" /></p>
-<p><img alt="CleanShot 2023-11-29 at 17.41.55.png" src="CleanShot_2023-11-29_at_17.41.55.png" /></p>
-<p><img alt="CleanShot 2023-11-29 at 17.42.38.png" src="CleanShot_2023-11-29_at_17.42.38.png" /></p>
-<p><img alt="CleanShot 2023-11-29 at 17.43.00.png" src="CleanShot_2023-11-29_at_17.43.00.png" /></p>
+<h1 id="sqoop">Sqoop</h1>
+<ul>
+<li>Permite transferir grandes volumenes de datos de manera eficiente entre Hadoop y gestores de datos estructurados, como Bases de datos relacionales</li>
+<li>Ofrece conectores para integrar Hadoop con otros sistemas, como por ejemplo Oracle o SqlServer</li>
+</ul>
+<p>http://sqoop.apache.org/</p>
+<p><img alt="" src="../images/sqoop1.png" /></p>
+<p>https://www.udemy.com/course/monta-un-cluster-hadoop-big-data-desde-cero/learn/lecture/9075166#overview</p>
+<p>https://aitor-medrano.github.io/iabd/hadoop/sqoop.html</p>
+<p>http://localhost:8888/notebooks/Tema_4/Tutor%C3%ADa_BDA_04_Sqoop_Flume.ipynb</p>
+<h2 id="instalacion-sqoop">Instalación sqoop</h2>
+<p>https://www.tutorialspoint.com/sqoop/sqoop_installation.htm</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>wget<span class="w"> </span>http://archive.apache.org/dist/sqoop/1.4.7/sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>tar<span class="w"> </span>-xf<span class="w"> </span>sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>mv<span class="w"> </span>sqoop-1.4.7.bin__hadoop-2.6.0<span class="w"> </span>/usr/local/sqoop<span class="w"> </span>
+</span></code></pre></div>
+<p>Añadir en .bashrc<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">SQOOP_HOME</span><span class="o">=</span>/usr/lib/sqoop<span class="w"> </span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$SQOOP_HOME</span>/bin
+</span></code></pre></div></p>
+<p>Configurar:<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$SQOOP_HOME</span>/conf
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>mv<span class="w"> </span>sqoop-env-template.sh<span class="w"> </span>sqoop-env.sh
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1">## Añádir al archivo sqoop-env.sh</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HADOOP_COMMON_HOME</span><span class="o">=</span>/usr/local/hadoop<span class="w"> </span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HADOOP_MAPRED_HOME</span><span class="o">=</span>/usr/local/hadoop
+</span></code></pre></div></p>
+<h3 id="verificar-la-instalacion-de-sqoop">Verificar la instalación de sqoop</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$SQOOP_HOME</span>/bin
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>sqoop-version
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Warning:<span class="w"> </span>/usr/local/sqoop/../hbase<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>exist!<span class="w"> </span>HBase<span class="w"> </span>imports<span class="w"> </span>will<span class="w"> </span>fail.
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Please<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">$HBASE_HOME</span><span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>root<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>HBase<span class="w"> </span>installation.
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>Warning:<span class="w"> </span>/usr/local/sqoop/../hcatalog<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>exist!<span class="w"> </span>HCatalog<span class="w"> </span><span class="nb">jobs</span><span class="w"> </span>will<span class="w"> </span>fail.
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>Please<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">$HCAT_HOME</span><span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>root<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>HCatalog<span class="w"> </span>installation.
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>Warning:<span class="w"> </span>/usr/local/sqoop/../accumulo<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>exist!<span class="w"> </span>Accumulo<span class="w"> </span>imports<span class="w"> </span>will<span class="w"> </span>fail.
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>Please<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">$ACCUMULO_HOME</span><span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>root<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>Accumulo<span class="w"> </span>installation.
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>Warning:<span class="w"> </span>/usr/local/sqoop/../zookeeper<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>exist!<span class="w"> </span>Accumulo<span class="w"> </span>imports<span class="w"> </span>will<span class="w"> </span>fail.
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>Please<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">$ZOOKEEPER_HOME</span><span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>root<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>Zookeeper<span class="w"> </span>installation.
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="m">2024</span>-12-03<span class="w"> </span><span class="m">18</span>:54:23,587<span class="w"> </span>INFO<span class="w"> </span>sqoop.Sqoop:<span class="w"> </span>Running<span class="w"> </span>Sqoop<span class="w"> </span>version:<span class="w"> </span><span class="m">1</span>.4.7
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>Sqoop<span class="w"> </span><span class="m">1</span>.4.7
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>git<span class="w"> </span>commit<span class="w"> </span>id<span class="w"> </span>2328971411f57f0cb683dfb79d19d4d19d185dd8
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>Compiled<span class="w"> </span>by<span class="w"> </span>maugli<span class="w"> </span>on<span class="w"> </span>Thu<span class="w"> </span>Dec<span class="w"> </span><span class="m">21</span><span class="w"> </span><span class="m">15</span>:59:58<span class="w"> </span>STD<span class="w"> </span><span class="m">2017</span>
+</span></code></pre></div>
+<p>Es normal que aparezcan warnings, no tenemos esas herramientas que se indican.</p>
+<h2 id="instalacion-mysql">Instalación mysql</h2>
+<p>Instala mysql en el contenedor</p>
+<h2 id="actualizacion-imagen-del-cluster">Actualización imagen del cluster</h2>
+<p>Actualiza la imagen de docker con las líneas necesarias para que después de instalar hadoop + yarn añada a la instalación sqoop + mysql</p>
+<h2 id="comandos-sqoop">Comandos sqoop</h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ ls -la bin/
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>total 88
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>drwxr-xr-x 1 hadoop hadoop  586 Dec 18  2017 .
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>drwxr-xr-x 1 hadoop hadoop  336 Dec 18  2017 ..
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>-rwxr-xr-x 1 hadoop hadoop 6770 Dec 18  2017 configure-sqoop
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>-rwxr-xr-x 1 hadoop hadoop 6533 Dec 18  2017 configure-sqoop.cmd
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>-rwxr-xr-x 1 hadoop hadoop 3133 Dec 18  2017 sqoop
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>-rwxr-xr-x 1 hadoop hadoop 3060 Dec 18  2017 sqoop-codegen
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>-rwxr-xr-x 1 hadoop hadoop 3070 Dec 18  2017 sqoop-create-hive-table
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>-rwxr-xr-x 1 hadoop hadoop 3057 Dec 18  2017 sqoop-eval
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>-rwxr-xr-x 1 hadoop hadoop 3059 Dec 18  2017 sqoop-export
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>-rwxr-xr-x 1 hadoop hadoop 3057 Dec 18  2017 sqoop-help
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>-rwxr-xr-x 1 hadoop hadoop 3059 Dec 18  2017 sqoop-import
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>-rwxr-xr-x 1 hadoop hadoop 3070 Dec 18  2017 sqoop-import-all-tables
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>-rwxr-xr-x 1 hadoop hadoop 3069 Dec 18  2017 sqoop-import-mainframe
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>-rwxr-xr-x 1 hadoop hadoop 3056 Dec 18  2017 sqoop-job
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>-rwxr-xr-x 1 hadoop hadoop 3067 Dec 18  2017 sqoop-list-databases
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>-rwxr-xr-x 1 hadoop hadoop 3064 Dec 18  2017 sqoop-list-tables
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>-rwxr-xr-x 1 hadoop hadoop 3058 Dec 18  2017 sqoop-merge
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>-rwxr-xr-x 1 hadoop hadoop 3062 Dec 18  2017 sqoop-metastore
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>-rwxr-xr-x 1 hadoop hadoop 3060 Dec 18  2017 sqoop-version
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>-rwxr-xr-x 1 hadoop hadoop 1055 Dec 18  2017 sqoop.cmd
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>-rwxr-xr-x 1 hadoop hadoop 3987 Dec 18  2017 start-metastore.sh
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>-rwxr-xr-x 1 hadoop hadoop 1564 Dec 18  2017 stop-metastore.sh
+</span></code></pre></div>
+<p>Se pueden ver las opciones disponibles también con:<br />
+<code>sqoop help</code></p>
+<h3 id="sqoop-import">sqoop-import</h3>
+<p>Importar movie data a mysql <br />
+https://www.udemy.com/course/the-ultimate-hands-on-hadoop-tame-your-big-data/learn/lecture/5963236#learning-tools</p>
+<p>Pasar de mysql a hdfs<br />
+https://www.udemy.com/course/the-ultimate-hands-on-hadoop-tame-your-big-data/learn/lecture/5963266#learning-tools</p>
+<h3 id="sqoop-export">sqoop-export</h3>
+<p>Exportar de hadoop a mysql<br />
+https://www.udemy.com/course/the-ultimate-hands-on-hadoop-tame-your-big-data/learn/lecture/5963272#learning-tools</p>
 
 
 
@@ -1184,10 +1290,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.code.copy", "content.code.select", "content.code.annotate", "toc.integrate", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.copy", "content.code.select", "content.code.annotate", "toc.integrate", "navigation.top"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>

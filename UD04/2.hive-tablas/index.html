@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD04/2.sqoop/">
+        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD04/2.hive-tablas/">
       
       
+        <link rel="prev" href="../1.hive-instalacion/">
+      
+      
+        <link rel="next" href="../../UD09/1.clusterdocker/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -18,7 +22,7 @@
     
     
       
-        <title>Sqoop - Big Data Aplicado 2024-25</title>
+        <title>Tablas - Big Data Aplicado 2024-25</title>
       
     
     
@@ -70,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sqoop" class="md-skip">
+        <a href="#hive-tablas" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -106,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Sqoop
+              Tablas
             
           </span>
         </div>
@@ -956,17 +960,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -980,7 +986,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             UD 04 Hive
@@ -1024,6 +1030,127 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Tablas
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Tablas
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-tablas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de tablas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos de tablas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tablas-internas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tablas Internas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tablas-externas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tablas Externas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuales-utilizamos" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Cuáles utilizamos?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Internas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#externas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Externas
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1114,7 +1241,7 @@
                   
 
   
-    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD04/2.sqoop.md" title="Editar esta página" class="md-content__button md-icon">
+    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD04/2.hive-tablas.md" title="Editar esta página" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1122,96 +1249,106 @@
   
 
 
-<h1 id="sqoop">Sqoop</h1>
+<h1 id="hive-tablas">Hive. Tablas.</h1>
+<h2 id="tipos-de-tablas">Tipos de tablas</h2>
+<h3 id="tablas-internas">Tablas Internas</h3>
 <ul>
-<li>Permite transferir grandes volumenes de datos de manera eficiente entre Hadoop y gestores de datos estructurados, como Bases de datos relacionales</li>
-<li>Ofrece conectores para integrar Hadoop con otros sistemas, como por ejemplo Oracle o SqlServer</li>
+<li>Son gestionadas completamente por Hive.</li>
+<li>Los datos y la estructura están bajo el control total de Hive, incluyendo la eliminación de datos cuando se elimina la tabla.</li>
 </ul>
-<p>http://sqoop.apache.org/</p>
-<p><img alt="" src="../images/sqoop1.png" /></p>
-<p>https://www.udemy.com/course/monta-un-cluster-hadoop-big-data-desde-cero/learn/lecture/9075166#overview</p>
-<p>https://aitor-medrano.github.io/iabd/hadoop/sqoop.html</p>
-<p>http://localhost:8888/notebooks/Tema_4/Tutor%C3%ADa_BDA_04_Sqoop_Flume.ipynb</p>
-<h2 id="instalacion-sqoop">Instalación sqoop</h2>
-<p>https://www.tutorialspoint.com/sqoop/sqoop_installation.htm</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>wget<span class="w"> </span>http://archive.apache.org/dist/sqoop/1.4.7/sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>tar<span class="w"> </span>-xf<span class="w"> </span>sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>mv<span class="w"> </span>sqoop-1.4.7.bin__hadoop-2.6.0<span class="w"> </span>/usr/local/sqoop<span class="w"> </span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>CREATE<span class="w"> </span>TABLE<span class="w"> </span>empleados<span class="w"> </span><span class="o">(</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>id<span class="w"> </span>INT,
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>nombre<span class="w"> </span>STRING,
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span>salario<span class="w"> </span>DOUBLE
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="o">)</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Añadir en .bashrc<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">SQOOP_HOME</span><span class="o">=</span>/usr/lib/sqoop<span class="w"> </span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$SQOOP_HOME</span>/bin
-</span></code></pre></div></p>
-<p>Configurar:<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$SQOOP_HOME</span>/conf
+<h3 id="tablas-externas">Tablas Externas</h3>
+<ul>
+<li>Hive gestiona solo la estructura de metadatos, pero los datos residen fuera de Hive.</li>
+<li>Los datos <strong>NO</strong> se eliminan automáticamente cuando se elimina la tabla en Hive.</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>CREATE<span class="w"> </span>EXTERNAL<span class="w"> </span>TABLE<span class="w"> </span>empleados_externos<span class="w"> </span><span class="o">(</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>id<span class="w"> </span>INT,
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>nombre<span class="w"> </span>STRING,
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>salario<span class="w"> </span>DOUBLE
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="o">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>LOCATION<span class="w"> </span><span class="s1">&#39;/ruta/en/hadoop/datos/empleados&#39;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>En ambos casos, estas tablas pueden ser consultadas y utilizadas en consultas SQL dentro de Hive, pero la diferencia clave radica en la gestión de los datos y la persistencia.</p>
+<h3 id="cuales-utilizamos">¿Cuáles utilizamos?</h3>
+<p>¿Por qué utilizar tablas internas? ¿en qué casos?</p>
+<ul>
+<li>Se necesita que Hive se encargue de garantizar la integridad y coherencia de datos.</li>
+<li>Gestión de recursos, con tablas internas se elimina el dato completamente.</li>
+<li>Hive puede optimizar consultas ya que tiene el control total sobre la distribución y organización de los datos.</li>
+<li>Proporcionan un extra de seguridad ya que se gestionan políticas de seguridad a nivel de Hive.</li>
+</ul>
+<p>El uso de tablas internas en Hive es beneficioso cuando se busca un control más granular sobre la administración de datos, garantizando la consistencia, la seguridad y la eficiencia en los procesos analíticos y de negocio.</p>
+<p>¿Por qué utilizar datas externas? ¿en qué casos?</p>
+<ul>
+<li>Cuando los datos son compartidos entre varios sistemas.</li>
+<li>Si los datos son generados por procesos externos a Hive.</li>
+<li>Cuando los datos están en formatos específicos (orc, avro…) y se quiere acceder a ellos sin tener que realizar una carga previa de los datos.</li>
+<li>Cuando los datos se encuentran en almacenamientos externos como Amazon S3, Azure y se desea acceder a ellos sin moverlos físicamente a HDFS.</li>
+</ul>
+<p>Las tablas externas son ideales cuando se trata de acceder a datos que están fuera del control directo de Hive, proporcionando flexibilidad en el acceso a información compartida entre sistemas y permitiendo la lectura directa de datos en su ubicación original.</p>
+<h2 id="internas">Internas</h2>
+<p>Nos creamos un fichero plano con una nueva terminal.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>/tmp/hadoop
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>mv<span class="w"> </span>sqoop-env-template.sh<span class="w"> </span>sqoop-env.sh
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1">## Añádir al archivo sqoop-env.sh</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HADOOP_COMMON_HOME</span><span class="o">=</span>/usr/local/hadoop<span class="w"> </span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HADOOP_MAPRED_HOME</span><span class="o">=</span>/usr/local/hadoop
-</span></code></pre></div></p>
-<h3 id="verificar-la-instalacion-de-sqoop">Verificar la instalación de sqoop</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$SQOOP_HOME</span>/bin
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>sqoop-version
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Warning:<span class="w"> </span>/usr/local/sqoop/../hbase<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>exist!<span class="w"> </span>HBase<span class="w"> </span>imports<span class="w"> </span>will<span class="w"> </span>fail.
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Please<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">$HBASE_HOME</span><span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>root<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>HBase<span class="w"> </span>installation.
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>Warning:<span class="w"> </span>/usr/local/sqoop/../hcatalog<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>exist!<span class="w"> </span>HCatalog<span class="w"> </span><span class="nb">jobs</span><span class="w"> </span>will<span class="w"> </span>fail.
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>Please<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">$HCAT_HOME</span><span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>root<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>HCatalog<span class="w"> </span>installation.
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>Warning:<span class="w"> </span>/usr/local/sqoop/../accumulo<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>exist!<span class="w"> </span>Accumulo<span class="w"> </span>imports<span class="w"> </span>will<span class="w"> </span>fail.
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>Please<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">$ACCUMULO_HOME</span><span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>root<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>Accumulo<span class="w"> </span>installation.
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>Warning:<span class="w"> </span>/usr/local/sqoop/../zookeeper<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>exist!<span class="w"> </span>Accumulo<span class="w"> </span>imports<span class="w"> </span>will<span class="w"> </span>fail.
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>Please<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">$ZOOKEEPER_HOME</span><span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>root<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>Zookeeper<span class="w"> </span>installation.
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="m">2024</span>-12-03<span class="w"> </span><span class="m">18</span>:54:23,587<span class="w"> </span>INFO<span class="w"> </span>sqoop.Sqoop:<span class="w"> </span>Running<span class="w"> </span>Sqoop<span class="w"> </span>version:<span class="w"> </span><span class="m">1</span>.4.7
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>Sqoop<span class="w"> </span><span class="m">1</span>.4.7
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>git<span class="w"> </span>commit<span class="w"> </span>id<span class="w"> </span>2328971411f57f0cb683dfb79d19d4d19d185dd8
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>Compiled<span class="w"> </span>by<span class="w"> </span>maugli<span class="w"> </span>on<span class="w"> </span>Thu<span class="w"> </span>Dec<span class="w"> </span><span class="m">21</span><span class="w"> </span><span class="m">15</span>:59:58<span class="w"> </span>STD<span class="w"> </span><span class="m">2017</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>vi<span class="w"> </span>empleados.txt
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Rosa,50
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Pedro,60
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Raul,56
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Maria,35
 </span></code></pre></div>
-<p>Es normal que aparezcan warnings, no tenemos esas herramientas que se indican.</p>
-<h2 id="instalacion-mysql">Instalación mysql</h2>
-<p>Instala mysql en el contenedor</p>
-<h2 id="actualizacion-imagen-del-cluster">Actualización imagen del cluster</h2>
-<p>Actualiza la imagen de docker con las líneas necesarias para que después de instalar hadoop + yarn añada a la instalación sqoop + mysql</p>
-<h2 id="comandos-sqoop">Comandos sqoop</h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ ls -la bin/
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>total 88
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>drwxr-xr-x 1 hadoop hadoop  586 Dec 18  2017 .
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>drwxr-xr-x 1 hadoop hadoop  336 Dec 18  2017 ..
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>-rwxr-xr-x 1 hadoop hadoop 6770 Dec 18  2017 configure-sqoop
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>-rwxr-xr-x 1 hadoop hadoop 6533 Dec 18  2017 configure-sqoop.cmd
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>-rwxr-xr-x 1 hadoop hadoop 3133 Dec 18  2017 sqoop
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>-rwxr-xr-x 1 hadoop hadoop 3060 Dec 18  2017 sqoop-codegen
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>-rwxr-xr-x 1 hadoop hadoop 3070 Dec 18  2017 sqoop-create-hive-table
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>-rwxr-xr-x 1 hadoop hadoop 3057 Dec 18  2017 sqoop-eval
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>-rwxr-xr-x 1 hadoop hadoop 3059 Dec 18  2017 sqoop-export
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>-rwxr-xr-x 1 hadoop hadoop 3057 Dec 18  2017 sqoop-help
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>-rwxr-xr-x 1 hadoop hadoop 3059 Dec 18  2017 sqoop-import
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>-rwxr-xr-x 1 hadoop hadoop 3070 Dec 18  2017 sqoop-import-all-tables
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>-rwxr-xr-x 1 hadoop hadoop 3069 Dec 18  2017 sqoop-import-mainframe
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>-rwxr-xr-x 1 hadoop hadoop 3056 Dec 18  2017 sqoop-job
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>-rwxr-xr-x 1 hadoop hadoop 3067 Dec 18  2017 sqoop-list-databases
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>-rwxr-xr-x 1 hadoop hadoop 3064 Dec 18  2017 sqoop-list-tables
-</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>-rwxr-xr-x 1 hadoop hadoop 3058 Dec 18  2017 sqoop-merge
-</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>-rwxr-xr-x 1 hadoop hadoop 3062 Dec 18  2017 sqoop-metastore
-</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>-rwxr-xr-x 1 hadoop hadoop 3060 Dec 18  2017 sqoop-version
-</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>-rwxr-xr-x 1 hadoop hadoop 1055 Dec 18  2017 sqoop.cmd
-</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>-rwxr-xr-x 1 hadoop hadoop 3987 Dec 18  2017 start-metastore.sh
-</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>-rwxr-xr-x 1 hadoop hadoop 1564 Dec 18  2017 stop-metastore.sh
+<p>Vamos a la terminal conectada a Hive y la base de datos ejemplo. Creamos una nueva tabla empleados especificando que la cargaremos de fichero especificando que esta formateadas por filas y separadas por comas.</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">hive</span><span class="o">&gt;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">empleados</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">(</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">nombre</span><span class="w"> </span><span class="n">string</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">edad</span><span class="w"> </span><span class="nb">integer</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">)</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">row</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">delimited</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">fields</span><span class="w"> </span><span class="n">terminated</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="k">local</span><span class="w"> </span><span class="n">inpath</span><span class="w"> </span><span class="s1">&#39;/tmp/hadoop/empleados.txt&#39;</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">empleados</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Se pueden ver las opciones disponibles también con:<br />
-<code>sqoop help</code></p>
-<h3 id="sqoop-import">sqoop-import</h3>
-<p>Importar movie data a mysql <br />
-https://www.udemy.com/course/the-ultimate-hands-on-hadoop-tame-your-big-data/learn/lecture/5963236#learning-tools</p>
-<p>Pasar de mysql a hdfs<br />
-https://www.udemy.com/course/the-ultimate-hands-on-hadoop-tame-your-big-data/learn/lecture/5963266#learning-tools</p>
-<h3 id="sqoop-export">sqoop-export</h3>
-<p>Exportar de hadoop a mysql<br />
-https://www.udemy.com/course/the-ultimate-hands-on-hadoop-tame-your-big-data/learn/lecture/5963272#learning-tools</p>
+<p>Volvemos a repetir la creación de otro fichero (p.e. copiando los datos del anterior) y lo cargamos en Hive. Veremos que Hive lo guarda todo como ficheros en el directorio correspondiente de hdfs.</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="k">local</span><span class="w"> </span><span class="n">inpath</span><span class="w"> </span><span class="s1">&#39;/tmp/hadoop/empleados2.txt&#39;</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">empleados</span><span class="p">;</span><span class="w"> </span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="o">##</span><span class="w"> </span><span class="p">(</span><span class="k">local</span><span class="w"> </span><span class="n">especifica</span><span class="w"> </span><span class="n">que</span><span class="w"> </span><span class="n">busca</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">fichero</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">maquina</span><span class="w"> </span><span class="k">local</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Podemos realizar búsquedas:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">select</span><span class="w"> </span>*<span class="w"> </span>from<span class="w"> </span>empleados<span class="w"> </span>where<span class="w"> </span>edad<span class="w"> </span>&gt;<span class="w"> </span><span class="m">50</span><span class="p">;</span>
+</span></code></pre></div>
+<p>** Accedemos a web HDFS para ver cómo ha importado los archivos) **</p>
+<p>Si ahora borramos la tabla con Hive. Veremos cómo desaparece tanto la tabla como los ficheros en <strong>HDFS</strong>. Es el propio Hive quien gestiona los datos a todos los niveles.</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">empleados</span><span class="p">;</span>
+</span></code></pre></div>
+<h2 id="externas">Externas</h2>
+<p>Vamos a subir el fichero de empleados a través de hdfs.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>hdfs<span class="w"> </span>dfs<span class="w"> </span>-mkdir<span class="w"> </span>/prueba
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>hdfs<span class="w"> </span>dfs<span class="w"> </span>-put<span class="w"> </span>empleados.txt<span class="w"> </span>/prueba
+</span></code></pre></div>
+<p>Creamos la tabla como external y especificando la localización. Visualizaremos como crea automáticamente el directorio en el sistema hdfs. Luego cargamos la información del fichero.</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">create</span><span class="w"> </span><span class="k">external</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">empleados</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="p">(</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">nombre</span><span class="w"> </span><span class="n">string</span><span class="p">,</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">edad</span><span class="w"> </span><span class="nb">integer</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">)</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="k">row</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">delimited</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="n">fields</span><span class="w"> </span><span class="n">terminated</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;,&#39;</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="k">location</span><span class="w"> </span><span class="s1">&#39;/user/hive/datos/empleados&#39;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>location: dónde vamos a tener los datos.</p>
+<p>** Entrar en webdfs para ver que se ha creado un directorio llamado datos en la carpeta que hemos indicado.</p>
+<p>Cargamos los datos:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>load<span class="w"> </span>data<span class="w"> </span>inpath<span class="w"> </span><span class="s1">&#39;/prueba/empleados.txt&#39;</span><span class="w"> </span>into<span class="w"> </span>table<span class="w"> </span>empleados<span class="p">;</span>
+</span></code></pre></div>
+<p>Ahora ya podemos ver el fichero desde webdfs.</p>
+<p>Lo más importante de las tablas externas, es que cuando hacemos ahora un drop de la tabla, el fichero no desaparece en hdfs.</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">empleados</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Podemos ver que aún existen el webdfs.</p>
 
 
 
