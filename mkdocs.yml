@@ -35,6 +35,9 @@ nav:
     - Ejemplo: UD03/3.contarpalabras.md
     - Ejercicio Ventas: UD03/4.ejercicioVentas.md
     - Ejercicio Temperatura: UD03/5.ejercicioTemperatura.md
+  - UD 04 Hive:
+    - Introducción: UD04/0.index.md
+    - Instalación: UD04/1.hive-instalacion.md
   - UD 09 Extra:
     - Cluster docker avanzado: UD09/1.clusterdocker.md
 
