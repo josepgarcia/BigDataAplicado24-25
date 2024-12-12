@@ -1106,7 +1106,7 @@
             
   
   <span class="md-ellipsis">
-    UD 09 Extra
+    UD 04 Hive
   </span>
   
 
@@ -1115,6 +1115,90 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            UD 04 Hive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD04/0.index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD04/1.hive-instalacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 09 Extra
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             UD 09 Extra
           </label>
@@ -1272,14 +1356,14 @@ La salida será, por ejemplo:<br />
 <h2 id="ejemplo-1-fase-4">Ejemplo 1: Fase 4</h2>
 <ol>
 <li>Subir a hdfs el dataset, en mi caso <code>/compras/test.txt</code></li>
-<li>
-<p>Subir al contenedor los archivos .py<br />
+<li>Subir al contenedor los archivos .py<br />
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>mapred<span class="w"> </span>streaming<span class="w"> </span>-files<span class="w"> </span>mapper_tuberias.py,reducer_tuberias.py<span class="w"> </span>-input<span class="w"> </span>/compras/test.txt<span class="w"> </span>-output<span class="w"> </span>/comprasxtienda<span class="w"> </span>-mapper<span class="w"> </span>./mapper_tuberias.py<span class="w"> </span>-reducer<span class="w"> </span>./reducer_tuberias.py
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Una vez ejecutado el comando, podemos ver la salida en /comprasxtienda/part-00000</p>
-</li>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1">## Si el comando anterior falla:</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>mapred<span class="w"> </span>streaming<span class="w"> </span>-files<span class="w"> </span>mapper_tuberias.py,reducer_tuberias.py<span class="w"> </span>-input<span class="w"> </span>/compras/test.txt<span class="w"> </span>-output<span class="w"> </span>/comprasxtienda<span class="w"> </span>-mapper<span class="w"> </span><span class="s2">&quot;python3 ./mapper_tuberias.py&quot;</span><span class="w"> </span>-reducer<span class="w"> </span><span class="s2">&quot;python3 ./reducer_tuberias.py&quot;</span>
+</span></code></pre></div></li>
+<li>Una vez ejecutado el comando, podemos ver la salida en /comprasxtienda/part-00000</li>
 <li>Si la ejecución es correcta existirá un archivo SUCCESS<br />
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>dfs<span class="w"> </span>-ls<span class="w"> </span>/comprasxtienda
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>-rw-r--r--<span class="w">   </span><span class="m">1</span><span class="w"> </span>hadoop<span class="w"> </span>supergroup<span class="w">          </span><span class="m">0</span><span class="w"> </span><span class="m">2024</span>-12-05<span class="w"> </span><span class="m">11</span>:11<span class="w"> </span>/comprasxtienda7/_SUCCESS

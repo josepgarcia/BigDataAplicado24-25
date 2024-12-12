@@ -1,0 +1,1390 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD04/1.hive-instalacion/">
+      
+      
+        <link rel="prev" href="../0.index/">
+      
+      
+        <link rel="next" href="../../UD09/1.clusterdocker/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>Instalación - Big Data Aplicado 2024-25</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hive-instalacion-y-configuracion-inicial" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Big Data Aplicado 2024-25" class="md-header__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Big Data Aplicado 2024-25
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Instalación
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/josepgarcia/bigDataAplicado24-25/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Big Data Aplicado 2024-25" class="md-nav__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Big Data Aplicado 2024-25
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/josepgarcia/bigDataAplicado24-25/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 00 Conceptos Generales
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            UD 00 Conceptos Generales
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD00/1.ConceptosGenerales/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conceptos Generales
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD00/2.bash/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    $_bash
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD00/3.ssh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ssh scp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD00/4.BashScripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    bash scripting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD00/4a.BashVarios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    bash varios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD00/4b.BashEjercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    bash ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD00/4c.BashChuleta/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    bash chuleta
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD00/7.docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD00/8.EntornosVirtualesPython/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Entornos Virtuales
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD00/9.ModificarApuntes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Editar apuntes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 01 Ubuntu + Hadoop
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            UD 01 Ubuntu + Hadoop
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD01/1.instalacionubuntuserver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu server
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD01/2.descargaconfighadoop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hadoop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD01/3.ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 02 Cluster Pseudo. HDFS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            UD 02 Cluster Pseudo. HDFS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD02/1.instalacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD02/2.comandosHDFS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comandos HDFS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD02/3.comandosHDFSejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios HDFS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD02/4.administracionHDFS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Administración HDFS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD02/6.snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Snapshopts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD02/7.HDFSdesdePython/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HDFS desde python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD02/8.clusterdocker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 03 MapReduce. Yarn
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            UD 03 MapReduce. Yarn
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD03/0.index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD03/1.configurarclusterYARN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuración
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD03/2.fasesmapreduce/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fases MapReduce
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD03/3.contarpalabras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejemplo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD03/4.ejercicioVentas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicio Ventas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD03/5.ejercicioTemperatura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicio Temperatura
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 04 Hive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            UD 04 Hive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0.index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Instalación
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 09 Extra
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            UD 09 Extra
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD09/1.clusterdocker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cluster docker avanzado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD04/1.hive-instalacion.md" title="Editar esta página" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="hive-instalacion-y-configuracion-inicial">HIVE: Instalación y configuración inicial.</h1>
+<p><img alt="" src="../images/hive1.png" /></p>
+<p>Herramienta desarrollada por Facebook y luego donada a la Apache Software Foundation.</p>
+<p>Proporciona una interfaz de consulta similar a SQL (Structured Query Language) para interactuar con grandes conjuntos de datos almacenados en Hadoop Distributed File System (HDFS) o en otros sistemas de almacenamiento compatibles con Hadoop.</p>
+<p>Funcionamiento:</p>
+<ol>
+<li><strong>Metastore:</strong> Almacena información sobre el esquema de datos y las particiones en una base de datos relacional para facilitar la administración de metadatos.</li>
+<li><strong>HQL (Hive Query Language):</strong> Los usuarios escriben consultas en un lenguaje similar a SQL llamado HQL para expresar las operaciones que desean realizar en los datos.</li>
+<li><strong>Traducción a MapReduce:</strong> Las consultas HQL se traducen internamente en tareas MapReduce, que se ejecutan en un clúster Hadoop distribuido.</li>
+<li><strong>Optimizaciones internas:</strong> Hive realiza optimizaciones para mejorar el rendimiento, como la eliminación de pasos redundantes y la reorganización eficiente de tareas MapReduce.</li>
+<li><strong>Almacenamiento de datos:</strong> Los resultados de las consultas se almacenan en HDFS o en otros sistemas compatibles con Hadoop, organizados en tablas y en formatos específicos para un almacenamiento eficiente.</li>
+<li><strong>Integración:</strong> Hive se integra con diversas herramientas en el ecosistema Hadoop, permitiendo a los usuarios utilizar diferentes herramientas según sus necesidades.</li>
+</ol>
+<h1 id="componentes">Componentes</h1>
+<p><img alt="" src="../images/hive2.png" /></p>
+<h2 id="instalacion">Instalación</h2>
+<ol>
+<li>Descargaremos en /opt/hadoop la versión 2.3.9<br />
+<em>Versión compatible con el Java 11 que tenemos instalado, con la versión 3.1.3 dará error.</em></li>
+</ol>
+<p><a href="https://dlcdn.apache.org/hive/hive-2.3.9/apache-hive-2.3.9-bin.tar.gz">https://dlcdn.apache.org/hive/hive-2.3.9/apache-hive-2.3.9-bin.tar.gz</a></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1. Descargar en /opt/hadoop o en /usr/local dependiendo de donde hayas instalado hadoop
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>wget https://apache.root.lu/hive/hive-2.3.9/apache-hive-2.3.9-bin.tar.gz
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>2. Descomprimir
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>3. Crear &quot;enlace&quot; blando llamado &quot;hive&quot; que apunte a la carpeta descomprimida
+</span></code></pre></div>
+<ol>
+<li>Añadimos HIVE_HOME a .bashrc y modificamos el PATH</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">## Sustituye el path si tu instalación de hive no se encuentra en este directorio</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HIVE_HOME</span><span class="o">=</span>/opt/hadoop/hive
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HIVE_HOME</span>/bin
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">ATENCIÓN</p>
+<p>Hemos puesto nuevas variables y paths en el .bashrc, hemos de “ejecutarlo” para que estos cambios hagan efecto en la sesión actual.</p>
+</div>
+<p>Dentro del directorio bin de hive podemos ver los siguientes binarios:<br />
+- <code>beeline</code>: herramienta cliente modo comandos.<br />
+- <code>hive</code>: herramienta cliente.<br />
+- <code>hiveserver2</code>: servidor de hive.<br />
+- <code>schematools</code>: herramienta que nos permite trabajar con los metadatos de hive.</p>
+<ol>
+<li>Configuramos Hive (carpeta <code>conf</code> dentro de hive)</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Copiamos los siguientes templates por defecto</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>cp<span class="w"> </span>hive-default.xml.template<span class="w"> </span>hive-site.xml
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>cp<span class="w"> </span>hive-env.sh.template<span class="w"> </span>hive-env.sh
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>cp<span class="w"> </span>hive-exec-log4j2.properties.template<span class="w"> </span>hive-exec-log4j2.properties
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>cp<span class="w"> </span>hive-log4j2.properties.template<span class="w"> </span>hive-log4j2.properties
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>cp<span class="w"> </span>beeline-log4j2.properties.template<span class="w"> </span>beeline-log4j2.properties
+</span></code></pre></div>
+<ol>
+<li>Editamos <code>hive-env.sh</code> y añadimos:</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>export HADOOP_HOME=/opt/hadoop
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>export HIVE_CONF_DIR=/opt/hadoop/hive/conf
+</span></code></pre></div>
+<ol>
+<li>Hive ataca al sistema de ficheros HDFS de Hadoop. Por lo tanto, es necesario que para trabajar con Hive creemos una serie de directorios en el HDFS.</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Dará error si ya existe</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>hdfs<span class="w"> </span>dfs<span class="w"> </span>-mkdir<span class="w"> </span>/tmp
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Como vamos a trabajar con el usuario hadoop</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># damos permisos a /tmp para que no de problemas</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>hdfs<span class="w"> </span>dfs<span class="w"> </span>-chmod<span class="w"> </span>g+w<span class="w"> </span>/tmp
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># Directorio donde trabaja Hive, no cambiar de nombre</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>hdfs<span class="w"> </span>dfs<span class="w"> </span>-mkdir<span class="w"> </span>-p<span class="w"> </span>/user/hive/warehouse
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1"># Damos permisos para que Hive pueda trabajar aquí.</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1"># Le daremos permisos al grupo hadoop, que es el que usaremos con Hive</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>hdfs<span class="w"> </span>dfs<span class="w"> </span>-chmod<span class="w"> </span>g+w<span class="w"> </span>/user/hive/warehouse
+</span></code></pre></div>
+<ol>
+<li>Añadimos al archivo hive-site.xml:</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>&lt;property&gt;
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span>&lt;name&gt;system:java.io.tmpdir&lt;/name&gt;
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span>&lt;value&gt;/tmp/hive/java&lt;value&gt;
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>&lt;/property&gt;
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>&lt;property&gt;
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span>&lt;name&gt;system:user.name&lt;/name&gt;
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span>&lt;value&gt;<span class="si">${</span><span class="nv">user</span><span class="p">.name</span><span class="si">}</span>&lt;/value&gt;
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>&lt;/property&gt;
+</span></code></pre></div>
+<p>→ Directorio temporal</p>
+<p>→ Que utilice como nombre de usuario el del usuario que lo está ejecutando (en nuestro caso será hadoop), hubiésemos podido escribir en value <value>hadoop</value></p>
+<hr />
+<ol>
+<li>Creamos una base de datos a través del cliente hive.</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span><span class="nb">pwd</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>/opt/hadoop/hive
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Crea una carpeta y si la creación ha sido correcta entra en ella</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>$<span class="w"> </span>mkdir<span class="w"> </span>bbdd<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>bbdd
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Inicialicamos una base de datos (un esquema)</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>$<span class="w"> </span>schematool<span class="w"> </span>-dbType<span class="w"> </span>derby<span class="w"> </span>-initSchema
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>**-&gt;<span class="w"> </span>Dará<span class="w"> </span>error,<span class="w"> </span>solucionarlo.**
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>$<span class="w"> </span>ls
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>derby.log<span class="w"> </span><span class="c1"># log de la base de datos</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>metastore_db<span class="w"> </span><span class="c1"># directorio de la base de datos, no tocar ficheros</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="c1"># validar el schema que hemos creado, para conocer el comando por si posteriormente hay algún error</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>$<span class="w"> </span>schematool<span class="w"> </span>-validate<span class="w"> </span>-dbType<span class="w"> </span>-verbose
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="c1">## Este comando dará error, falta un parámetro</span>
+</span></code></pre></div>
+<ul>
+<li><strong>Sol</strong><br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">  </span><span class="m">1</span>.<span class="w"> </span>Error<span class="w"> </span>en<span class="w"> </span>hive-site.xml,<span class="w"> </span>la<span class="w"> </span>etiqueta<span class="w"> </span>de<span class="w"> </span>cierre<span class="w"> </span>“value”<span class="w"> </span>está<span class="w"> </span>mal.
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">        </span>&lt;value&gt;/tmp/hive/java&lt;value&gt;
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="m">2</span>.<span class="w"> </span>Error<span class="w"> </span><span class="m">2</span>,<span class="w"> </span>carácter<span class="w"> </span>extraño<span class="w"> </span>en:
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">     </span>at<span class="w"> </span><span class="o">[</span>row,col,system-id<span class="o">]</span>:<span class="w"> </span><span class="o">[</span>**3224,96,**<span class="s2">&quot;file:/opt/hadoop-3.3.6/apache-hive-3.1.3-bin/conf/hive-site.xml&quot;</span><span class="o">]</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span>**Otros<span class="w"> </span>errores:**
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span>Resolved<span class="w"> </span>by<span class="w"> </span>using<span class="w"> </span>below<span class="w"> </span>steps:step<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>Go<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>HADOOP_INSTALLATION_DIR/share/hadoop/common/lib<span class="w"> </span>and<span class="w"> </span>check<span class="w"> </span>the<span class="w"> </span>guava.jar<span class="w"> </span>version<span class="w"> </span>step<span class="w"> </span><span class="m">2</span>:<span class="w"> </span>Now<span class="w"> </span>go<span class="w"> </span>to<span class="w"> </span>HIVE_INSTALLATION_DIR/lib<span class="w"> </span>and<span class="w"> </span>compare<span class="w"> </span>the<span class="w"> </span>guava<span class="w"> </span>file<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>hive<span class="w"> </span>with<span class="w"> </span>hadoop.<span class="w"> </span>If<span class="w"> </span>they<span class="w"> </span>are<span class="w"> </span>not<span class="w"> </span>same,<span class="w"> </span>delete<span class="w"> </span>the<span class="w"> </span>older<span class="w"> </span>version<span class="w"> </span>among<span class="w"> </span>them<span class="w"> </span>and<span class="w"> </span>copy<span class="w"> </span>the<span class="w"> </span>newer<span class="w"> </span>version<span class="w"> </span><span class="k">in</span><span class="w"> </span>both.
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="o">[</span>https://stackoverflow.com/questions/58903865/i-installed-hadoop-3-2-1-and-top-of-hadoop-installed-hive-on-centos7-and-getting<span class="o">](</span>https://stackoverflow.com/questions/58903865/i-installed-hadoop-3-2-1-and-top-of-hadoop-installed-hive-on-centos7-and-getting<span class="o">)</span>
+</span></code></pre></div></li>
+</ul>
+<h3 id="dbtype-derby">dbType derby</h3>
+<p><strong>¿ Qué significa el comando: “schematool -dbType derby -initSchema”?</strong></p>
+<p>Utilizaremos un “gestor de base de datos” llamado “derby”, se utiliza para testing, es muy ligero. Al inicializar se crean 2 archivos (log y metastore), por eso hemos inicializado dentro de una carpeta (bbdd), para que no queden en la raíz de hive.</p>
+<p>Otras opciones posibles serían:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>schematool<span class="w"> </span>-dbType<span class="w"> </span>mysql<span class="w"> </span>-initSchema
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>schematool<span class="w"> </span>-dbType<span class="w"> </span>postgres<span class="w"> </span>-initSchema
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>schematool<span class="w"> </span>-dbType<span class="w"> </span>oracle<span class="w"> </span>-initSchema
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>schematool<span class="w"> </span>-dbType<span class="w"> </span>mssql<span class="w"> </span>-initSchema
+</span></code></pre></div>
+<ol>
+<li>Atacamos el metastore con el cliente hive</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">ATENCIÓN</p>
+<p>Para ejecutar hive debemos estar en la carpeta de la bbdd que hemos creado anteriormente, a esta carpeta la hemos llamado bbdd y tenía los metadatos para dbType "derby"</p>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$<span class="w"> </span>hive
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>....
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>hive&gt;<span class="w"> </span>create<span class="w"> </span>database<span class="w"> </span>ejemplo<span class="p">;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>show<span class="w"> </span>databases<span class="p">;</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>use<span class="w"> </span>ejemplo<span class="p">;</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>show<span class="w"> </span>tables<span class="p">;</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>create<span class="w"> </span>table<span class="w"> </span><span class="k">if</span><span class="w"> </span>not<span class="w"> </span>exists<span class="w"> </span>t1<span class="w"> </span><span class="o">(</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>name<span class="w"> </span>string
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="o">)</span><span class="p">;</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>show<span class="w"> </span>tables<span class="p">;</span>
+</span></code></pre></div>
+<ol>
+<li>Vamos a la página de hadoop (puerto 9870) y localizamos la base de datos.</li>
+</ol>
+<p><img alt="" src="../images/hive3.png" /></p>
+<ol>
+<li>Insertamos una fila</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>insert<span class="w"> </span>into<span class="w"> </span>t1<span class="w"> </span>values<span class="w"> </span><span class="o">(</span><span class="s1">&#39;Mi nombre&#39;</span><span class="o">)</span><span class="p">;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">select</span><span class="w"> </span>*<span class="w"> </span>from<span class="w"> </span>t1<span class="p">;</span>
+</span></code></pre></div>
+<p>** start-yarn.sh</p>
+<ol>
+<li>Creamos otra tabla e insertamos otro registro</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>create<span class="w"> </span>table<span class="w"> </span><span class="k">if</span><span class="w"> </span>not<span class="w"> </span>exists<span class="w"> </span>t2<span class="w"> </span><span class="o">(</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span>codigo<span class="w"> </span>integer
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="o">)</span><span class="p">;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>Insert<span class="w"> </span>into<span class="w"> </span>t2<span class="w"> </span>values<span class="w"> </span><span class="o">(</span><span class="m">10</span><span class="o">)</span><span class="p">;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="k">select</span><span class="w"> </span>*<span class="w"> </span>from<span class="w"> </span>t2<span class="p">;</span>
+</span></code></pre></div>
+<hr />
+<p>✅ <strong>Ejercicio: instalación y configuración.</strong><br />
+1. Muestra el contenido de las tablas a través de la web de HDFS y realiza una captura de pantalla.<br />
+2. Muestra el contenido de las tablas a través de la consola, con el comando hdfs y realiza una captura de pantalla.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Josep Garcia Garcia | <a href="https://github.com/josepgarcia/BigDataAplicado24-25" target="_blank">https://github.com/josepgarcia/BigDataAplicado24-25</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.copy", "content.code.select", "content.code.annotate", "toc.integrate", "navigation.top"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
