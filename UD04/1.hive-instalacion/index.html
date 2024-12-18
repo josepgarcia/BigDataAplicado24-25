@@ -1066,6 +1066,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.hive-practica-empleados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica empleados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1272,6 +1293,32 @@
 </span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="c1"># validar el schema que hemos creado, para conocer el comando por si posteriormente hay algún error</span>
 </span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>$<span class="w"> </span>schematool<span class="w"> </span>-validate<span class="w"> </span>-dbType<span class="w"> </span>-verbose
 </span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="c1">## Este comando dará error, falta un parámetro</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="c1"># El comando debe devolver:</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>Starting<span class="w"> </span>metastore<span class="w"> </span>validation
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>Validating<span class="w"> </span>schema<span class="w"> </span>version
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>Succeeded<span class="w"> </span><span class="k">in</span><span class="w"> </span>schema<span class="w"> </span>version<span class="w"> </span>validation.
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="o">[</span>SUCCESS<span class="o">]</span>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>Validating<span class="w"> </span>sequence<span class="w"> </span>number<span class="w"> </span><span class="k">for</span><span class="w"> </span>SEQUENCE_TABLE
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>Succeeded<span class="w"> </span><span class="k">in</span><span class="w"> </span>sequence<span class="w"> </span>number<span class="w"> </span>validation<span class="w"> </span><span class="k">for</span><span class="w"> </span>SEQUENCE_TABLE
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="o">[</span>SUCCESS<span class="o">]</span>
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>Validating<span class="w"> </span>metastore<span class="w"> </span>schema<span class="w"> </span>tables
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>Succeeded<span class="w"> </span><span class="k">in</span><span class="w"> </span>schema<span class="w"> </span>table<span class="w"> </span>validation.
+</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="o">[</span>SUCCESS<span class="o">]</span>
+</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>
+</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>Validating<span class="w"> </span>database/table/partition<span class="w"> </span>locations
+</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>Succeeded<span class="w"> </span><span class="k">in</span><span class="w"> </span>database/table/partition<span class="w"> </span>location<span class="w"> </span>validation
+</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a><span class="o">[</span>SUCCESS<span class="o">]</span>
+</span><span id="__span-6-37"><a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>
+</span><span id="__span-6-38"><a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>Validating<span class="w"> </span>columns<span class="w"> </span><span class="k">for</span><span class="w"> </span>incorrect<span class="w"> </span>NULL<span class="w"> </span>values
+</span><span id="__span-6-39"><a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a>Succeeded<span class="w"> </span><span class="k">in</span><span class="w"> </span>column<span class="w"> </span>validation<span class="w"> </span><span class="k">for</span><span class="w"> </span>incorrect<span class="w"> </span>NULL<span class="w"> </span>values
+</span><span id="__span-6-40"><a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a><span class="o">[</span>SUCCESS<span class="o">]</span>
+</span><span id="__span-6-41"><a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a>
+</span><span id="__span-6-42"><a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a>Done<span class="w"> </span>with<span class="w"> </span>metastore<span class="w"> </span>validation:<span class="w"> </span><span class="o">[</span>SUCCESS<span class="o">]</span>
+</span><span id="__span-6-43"><a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a>schemaTool<span class="w"> </span>completed
 </span></code></pre></div>
 <ul>
 <li><strong>Sol</strong><br />
