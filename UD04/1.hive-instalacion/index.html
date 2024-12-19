@@ -1087,6 +1087,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.hive-deslizamientos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica deslizamientos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1284,55 +1305,46 @@
 </span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
 </span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Inicialicamos una base de datos (un esquema)</span>
 </span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>$<span class="w"> </span>schematool<span class="w"> </span>-dbType<span class="w"> </span>derby<span class="w"> </span>-initSchema
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>**-&gt;<span class="w"> </span>Dará<span class="w"> </span>error,<span class="w"> </span>solucionarlo.**
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>$<span class="w"> </span>ls
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>derby.log<span class="w"> </span><span class="c1"># log de la base de datos</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>metastore_db<span class="w"> </span><span class="c1"># directorio de la base de datos, no tocar ficheros</span>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="c1"># validar el schema que hemos creado, para conocer el comando por si posteriormente hay algún error</span>
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>$<span class="w"> </span>schematool<span class="w"> </span>-validate<span class="w"> </span>-dbType<span class="w"> </span>-verbose
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="c1">## Este comando dará error, falta un parámetro</span>
-</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
-</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="c1"># El comando debe devolver:</span>
-</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>Starting<span class="w"> </span>metastore<span class="w"> </span>validation
-</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>
-</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>Validating<span class="w"> </span>schema<span class="w"> </span>version
-</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>Succeeded<span class="w"> </span><span class="k">in</span><span class="w"> </span>schema<span class="w"> </span>version<span class="w"> </span>validation.
-</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="o">[</span>SUCCESS<span class="o">]</span>
-</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>
-</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>Validating<span class="w"> </span>sequence<span class="w"> </span>number<span class="w"> </span><span class="k">for</span><span class="w"> </span>SEQUENCE_TABLE
-</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>Succeeded<span class="w"> </span><span class="k">in</span><span class="w"> </span>sequence<span class="w"> </span>number<span class="w"> </span>validation<span class="w"> </span><span class="k">for</span><span class="w"> </span>SEQUENCE_TABLE
-</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="o">[</span>SUCCESS<span class="o">]</span>
-</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>
-</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>Validating<span class="w"> </span>metastore<span class="w"> </span>schema<span class="w"> </span>tables
-</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>Succeeded<span class="w"> </span><span class="k">in</span><span class="w"> </span>schema<span class="w"> </span>table<span class="w"> </span>validation.
-</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="o">[</span>SUCCESS<span class="o">]</span>
-</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>
-</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>Validating<span class="w"> </span>database/table/partition<span class="w"> </span>locations
-</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>Succeeded<span class="w"> </span><span class="k">in</span><span class="w"> </span>database/table/partition<span class="w"> </span>location<span class="w"> </span>validation
-</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a><span class="o">[</span>SUCCESS<span class="o">]</span>
-</span><span id="__span-6-37"><a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>
-</span><span id="__span-6-38"><a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>Validating<span class="w"> </span>columns<span class="w"> </span><span class="k">for</span><span class="w"> </span>incorrect<span class="w"> </span>NULL<span class="w"> </span>values
-</span><span id="__span-6-39"><a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a>Succeeded<span class="w"> </span><span class="k">in</span><span class="w"> </span>column<span class="w"> </span>validation<span class="w"> </span><span class="k">for</span><span class="w"> </span>incorrect<span class="w"> </span>NULL<span class="w"> </span>values
-</span><span id="__span-6-40"><a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a><span class="o">[</span>SUCCESS<span class="o">]</span>
-</span><span id="__span-6-41"><a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a>
-</span><span id="__span-6-42"><a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a>Done<span class="w"> </span>with<span class="w"> </span>metastore<span class="w"> </span>validation:<span class="w"> </span><span class="o">[</span>SUCCESS<span class="o">]</span>
-</span><span id="__span-6-43"><a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a>schemaTool<span class="w"> </span>completed
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>$<span class="w"> </span>ls
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>derby.log<span class="w"> </span><span class="c1"># log de la base de datos</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>metastore_db<span class="w"> </span><span class="c1"># directorio de la base de datos, no tocar ficheros</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="c1"># validar el schema que hemos creado, para conocer el comando por si posteriormente hay algún error</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>$<span class="w"> </span>schematool<span class="w"> </span>-validate<span class="w"> </span>-dbType<span class="w"> </span>-verbose
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="c1">## Este comando dará error, falta un parámetro</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="c1"># El comando debe devolver:</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>Starting<span class="w"> </span>metastore<span class="w"> </span>validation
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>Validating<span class="w"> </span>schema<span class="w"> </span>version
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>Succeeded<span class="w"> </span><span class="k">in</span><span class="w"> </span>schema<span class="w"> </span>version<span class="w"> </span>validation.
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="o">[</span>SUCCESS<span class="o">]</span>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>Validating<span class="w"> </span>sequence<span class="w"> </span>number<span class="w"> </span><span class="k">for</span><span class="w"> </span>SEQUENCE_TABLE
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>Succeeded<span class="w"> </span><span class="k">in</span><span class="w"> </span>sequence<span class="w"> </span>number<span class="w"> </span>validation<span class="w"> </span><span class="k">for</span><span class="w"> </span>SEQUENCE_TABLE
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="o">[</span>SUCCESS<span class="o">]</span>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>Validating<span class="w"> </span>metastore<span class="w"> </span>schema<span class="w"> </span>tables
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>Succeeded<span class="w"> </span><span class="k">in</span><span class="w"> </span>schema<span class="w"> </span>table<span class="w"> </span>validation.
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a><span class="o">[</span>SUCCESS<span class="o">]</span>
+</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>
+</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>Validating<span class="w"> </span>database/table/partition<span class="w"> </span>locations
+</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>Succeeded<span class="w"> </span><span class="k">in</span><span class="w"> </span>database/table/partition<span class="w"> </span>location<span class="w"> </span>validation
+</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a><span class="o">[</span>SUCCESS<span class="o">]</span>
+</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>
+</span><span id="__span-6-37"><a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>Validating<span class="w"> </span>columns<span class="w"> </span><span class="k">for</span><span class="w"> </span>incorrect<span class="w"> </span>NULL<span class="w"> </span>values
+</span><span id="__span-6-38"><a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>Succeeded<span class="w"> </span><span class="k">in</span><span class="w"> </span>column<span class="w"> </span>validation<span class="w"> </span><span class="k">for</span><span class="w"> </span>incorrect<span class="w"> </span>NULL<span class="w"> </span>values
+</span><span id="__span-6-39"><a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a><span class="o">[</span>SUCCESS<span class="o">]</span>
+</span><span id="__span-6-40"><a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a>
+</span><span id="__span-6-41"><a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a>Done<span class="w"> </span>with<span class="w"> </span>metastore<span class="w"> </span>validation:<span class="w"> </span><span class="o">[</span>SUCCESS<span class="o">]</span>
+</span><span id="__span-6-42"><a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a>schemaTool<span class="w"> </span>completed
 </span></code></pre></div>
-<ul>
-<li><strong>Sol</strong><br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">  </span><span class="m">1</span>.<span class="w"> </span>Error<span class="w"> </span>en<span class="w"> </span>hive-site.xml,<span class="w"> </span>la<span class="w"> </span>etiqueta<span class="w"> </span>de<span class="w"> </span>cierre<span class="w"> </span>“value”<span class="w"> </span>está<span class="w"> </span>mal.
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">        </span>&lt;value&gt;/tmp/hive/java&lt;value&gt;
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="m">2</span>.<span class="w"> </span>Error<span class="w"> </span><span class="m">2</span>,<span class="w"> </span>carácter<span class="w"> </span>extraño<span class="w"> </span>en:
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">     </span>at<span class="w"> </span><span class="o">[</span>row,col,system-id<span class="o">]</span>:<span class="w"> </span><span class="o">[</span>**3224,96,**<span class="s2">&quot;file:/opt/hadoop-3.3.6/apache-hive-3.1.3-bin/conf/hive-site.xml&quot;</span><span class="o">]</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span>**Otros<span class="w"> </span>errores:**
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span>Resolved<span class="w"> </span>by<span class="w"> </span>using<span class="w"> </span>below<span class="w"> </span>steps:step<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>Go<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>HADOOP_INSTALLATION_DIR/share/hadoop/common/lib<span class="w"> </span>and<span class="w"> </span>check<span class="w"> </span>the<span class="w"> </span>guava.jar<span class="w"> </span>version<span class="w"> </span>step<span class="w"> </span><span class="m">2</span>:<span class="w"> </span>Now<span class="w"> </span>go<span class="w"> </span>to<span class="w"> </span>HIVE_INSTALLATION_DIR/lib<span class="w"> </span>and<span class="w"> </span>compare<span class="w"> </span>the<span class="w"> </span>guava<span class="w"> </span>file<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>hive<span class="w"> </span>with<span class="w"> </span>hadoop.<span class="w"> </span>If<span class="w"> </span>they<span class="w"> </span>are<span class="w"> </span>not<span class="w"> </span>same,<span class="w"> </span>delete<span class="w"> </span>the<span class="w"> </span>older<span class="w"> </span>version<span class="w"> </span>among<span class="w"> </span>them<span class="w"> </span>and<span class="w"> </span>copy<span class="w"> </span>the<span class="w"> </span>newer<span class="w"> </span>version<span class="w"> </span><span class="k">in</span><span class="w"> </span>both.
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="o">[</span>https://stackoverflow.com/questions/58903865/i-installed-hadoop-3-2-1-and-top-of-hadoop-installed-hive-on-centos7-and-getting<span class="o">](</span>https://stackoverflow.com/questions/58903865/i-installed-hadoop-3-2-1-and-top-of-hadoop-installed-hive-on-centos7-and-getting<span class="o">)</span>
-</span></code></pre></div></li>
-</ul>
+<p><strong>POSIBLE ERROR</strong><br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Resolved<span class="w"> </span>by<span class="w"> </span>using<span class="w"> </span>below<span class="w"> </span>steps:step<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>Go<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>HADOOP_INSTALLATION_DIR/share/hadoop/common/lib<span class="w"> </span>and<span class="w"> </span>check<span class="w"> </span>the<span class="w"> </span>guava.jar<span class="w"> </span>version<span class="w"> </span>step<span class="w"> </span><span class="m">2</span>:<span class="w"> </span>Now<span class="w"> </span>go<span class="w"> </span>to<span class="w"> </span>HIVE_INSTALLATION_DIR/lib<span class="w"> </span>and<span class="w"> </span>compare<span class="w"> </span>the<span class="w"> </span>guava<span class="w"> </span>file<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>hive<span class="w"> </span>with<span class="w"> </span>hadoop.<span class="w"> </span>If<span class="w"> </span>they<span class="w"> </span>are<span class="w"> </span>not<span class="w"> </span>same,<span class="w"> </span>delete<span class="w"> </span>the<span class="w"> </span>older<span class="w"> </span>version<span class="w"> </span>among<span class="w"> </span>them<span class="w"> </span>and<span class="w"> </span>copy<span class="w"> </span>the<span class="w"> </span>newer<span class="w"> </span>version<span class="w"> </span><span class="k">in</span><span class="w"> </span>both.
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="o">[</span>https://stackoverflow.com/questions/58903865/i-installed-hadoop-3-2-1-and-top-of-hadoop-installed-hive-on-centos7-and-getting<span class="o">](</span>https://stackoverflow.com/questions/58903865/i-installed-hadoop-3-2-1-and-top-of-hadoop-installed-hive-on-centos7-and-getting<span class="o">)</span>
+</span></code></pre></div></p>
 <h3 id="dbtype-derby">dbType derby</h3>
 <p><strong>¿ Qué significa el comando: “schematool -dbType derby -initSchema”?</strong></p>
 <p>Utilizaremos un “gestor de base de datos” llamado “derby”, se utiliza para testing, es muy ligero. Al inicializar se crean 2 archivos (log y metastore), por eso hemos inicializado dentro de una carpeta (bbdd), para que no queden en la raíz de hive.</p>
@@ -1375,7 +1387,7 @@
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">select</span><span class="w"> </span>*<span class="w"> </span>from<span class="w"> </span>t1<span class="p">;</span>
 </span></code></pre></div>
-<p>** start-yarn.sh</p>
+<p><strong>start-yarn.sh</strong></p>
 <ol>
 <li>Creamos otra tabla e insertamos otro registro</li>
 </ol>
