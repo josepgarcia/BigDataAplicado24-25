@@ -38,6 +38,13 @@ nav:
   - UD 04 Hive:
     - Introducción: UD04/0.index.md
     - Instalación: UD04/1.hive-instalacion.md
+    - Tablas: UD04/2.hive-tablas.md
+    - Práctica empleados: UD04/3.hive-practica-empleados.md
+    - Práctica deslizamientos: UD04/4.hive-deslizamientos.md
+  - UD 05 Spark:
+    - Instalacion: UD05-Spark/1.instalacion.md
+    - Scala Spark: UD05-Spark/2.scala-spark-hadoop.md
+    - Scala Spark: UD05-Spark/3.pyspark.md
   - UD 09 Extra:
     - Cluster docker avanzado: UD09/1.clusterdocker.md
 
