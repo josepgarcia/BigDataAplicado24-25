@@ -1256,7 +1256,7 @@
             
   
   <span class="md-ellipsis">
-    UD 09 Extra
+    UD 05 Spark
   </span>
   
 
@@ -1265,6 +1265,111 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            UD 05 Spark
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD05-Spark/1.instalacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalacion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD05-Spark/2.scala-spark-hadoop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scala Spark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UD05-Spark/3.pyspark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PySpark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 09 Extra
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             UD 09 Extra
           </label>
@@ -1277,7 +1382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../UD09/1.clusterdocker/" class="md-nav__link">
+      <a href="../../UD09/1.clusterdocker.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1383,42 +1488,33 @@ También contendrá información sobre si hay determinados procesos en marcha en
 <h2 id="ejercicio-8">Ejercicio 8</h2>
 <p>Implementa un script que se ejecute cada 5 minutos y compruebe que siguen ejecutándose los procesos necesarios para hadoop y yarn. <br />
 Si al ejecutarse no encuentra alguno de los procesos necesarios ha de dejar un registro (log)<br />
-Si al ejecutarse encuentra todos los procesos necesarios también ha de indicarlo en el log.</p>
-<ul>
-<li>
-<p>Pistas:</p>
-<ul>
-<li>Ejecutar un script cada X minutos o segundos… utilizaremos “cron”<ul>
-<li><a href="https://nksistemas.com/crear-un-script-simple-y-ejecutarlo-con-cron-crontab-en-tu-linux/">https://nksistemas.com/crear-un-script-simple-y-ejecutarlo-con-cron-crontab-en-tu-linux/</a></li>
-<li>Para ayudarnos a generar el cron correctamente: <a href="https://crontab.guru/">https://crontab.guru/</a></li>
-</ul>
-</li>
-<li>Procesos activos en el sistema <code>ps -aux</code> , o para hadoop <code>jps</code></li>
-</ul>
-<p>Ejemplo de log creado:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>lun 11 dic 2023 18:10:00 CET     Ejecución correcta [OK]
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>lun 11 dic 2023 18:15:00 CET     Error NodeManager  [ERROR]
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>lun 11 dic 2023 18:15:00 CET     Error SecondaryNameNode  [ERROR]
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>lun 11 dic 2023 18:15:00 CET     Error ResourceManager  [ERROR]
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>lun 11 dic 2023 18:20:00 CET     Ejecución correcta [OK]
-</span></code></pre></div>
-</li>
-</ul>
+Si al ejecutarse encuentra todos los procesos necesarios también ha de indicarlo en el log.<br />
+Pistas:<br />
+   - Ejecutar un script cada X minutos o segundos… utilizaremos "cron"<br />
+       - <a href="https://nksistemas.com/crear-un-script-simple-y-ejecutarlo-con-cron-crontab-en-tu-linux/">https://nksistemas.com/crear-un-script-simple-y-ejecutarlo-con-cron-crontab-en-tu-linux/</a><br />
+     - Para ayudarnos a generar el cron correctamente: <a href="https://crontab.guru/">https://crontab.guru/</a><br />
+   - Procesos activos en el sistema <code>ps -aux</code> , o para hadoop <code>jps</code><br />
+   - <code>bash -c "exec -a &lt;MyProcessName&gt; &lt;Command&gt;"</code></p>
+<p>Ejemplo de log creado:<br />
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>  lun 11 dic 2023 18:10:00 CET     Ejecución correcta [OK]
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  lun 11 dic 2023 18:15:00 CET     Error NodeManager  [ERROR]
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  lun 11 dic 2023 18:15:00 CET     Error SecondaryNameNode  [ERROR]
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  lun 11 dic 2023 18:15:00 CET     Error ResourceManager  [ERROR]
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  lun 11 dic 2023 18:20:00 CET     Ejecución correcta [OK]
+</span></code></pre></div></p>
 <hr />
 <h2 id="ejercicio-9">Ejercicio 9</h2>
 <p>Mandar los logs del script anterior por telegram.<br />
 1. Crear bot con BotFather<br />
 Obtener token HTTP API<br />
-6482272093:AAEWWA3hfaZ0O6t4tC4TCpP5ewPVSjpQNL0jj</p>
-<ol>
-<li>Entrar en el bot Start bot</li>
-<li>Obtener chatID a través de una URL<br />
-    https://api.telegram.org/bot<strong>${token}</strong>/getUpdates</li>
-<li>Obtener chatID<br />
+6482272093:AAEWWA3hZ0O6t4tC4TCpP5ewPVSjpQNL0jj<br />
+2. Entrar en el bot Start bot<br />
+3. Obtener chatID a través de una URL<br />
+    https://api.telegram.org/bot<strong>${token}</strong>/getUpdates<br />
+4. Obtener chatID<br />
 <a href="https://ungineer.github.io/chatid.html">https://ungineer.github.io/chatid.html</a><br />
-<strong>25156175583</strong></li>
-<li>Mandar mensaje a través de bash:</li>
-</ol>
+<strong>251175583</strong><br />
+5. Mandar mensaje a través de bash:<br />
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">API_TOKEN</span><span class="o">=</span><span class="s2">&quot;&lt;your_api_token&gt;&quot;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nv">CHAT_ID</span><span class="o">=</span><span class="s2">&quot;&lt;your_chat_id&gt;&quot;</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
@@ -1427,7 +1523,7 @@ Obtener token HTTP API<br />
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Use the curl command to send the message</span>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>curl<span class="w"> </span>-s<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.telegram.org/bot<span class="nv">$API_TOKEN</span>/sendMessage<span class="w"> </span>-d<span class="w"> </span><span class="nv">chat_id</span><span class="o">=</span><span class="nv">$CHAT_ID</span><span class="w"> </span>-d<span class="w"> </span><span class="nv">text</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$MESSAGE</span><span class="s2">&quot;</span>
-</span></code></pre></div>
+</span></code></pre></div></p>
 <hr />
 <h2 id="ejercicio-10">Ejercicio 10</h2>
 <p>Un sistema informático almacena en varios ficheros “log” los usuarios y la fecha de conexión (usuario:mes:dia).</p>
@@ -1453,17 +1549,15 @@ Obtener token HTTP API<br />
 </span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>pedro:MAY:01
 </span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>juan:MAR:13
 </span></code></pre></div>
-<p><strong>Ejemplos de ejecución</strong></p>
+<p><strong>Ejemplos de ejecución</strong><br />
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">## Teniendo en cuenta que el mes actual es ENERO</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>./conexiones.sh<span class="w"> </span>ana<span class="w"> </span>datos.log
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>El<span class="w"> </span>usuario<span class="w"> </span>ana<span class="w"> </span>se<span class="w"> </span>ha<span class="w"> </span>conectado<span class="w"> </span>este<span class="w"> </span>mes<span class="w"> </span><span class="m">0</span><span class="w"> </span>veces.
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>./conexiones.sh<span class="w"> </span>ana<span class="w"> </span>datos.log
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>El<span class="w"> </span>usuario<span class="w"> </span>ana<span class="w"> </span>se<span class="w"> </span>ha<span class="w"> </span>conectado<span class="w"> </span>este<span class="w"> </span>mes<span class="w"> </span><span class="m">0</span><span class="w"> </span>veces.
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>./conexiones.sh<span class="w"> </span>pedro<span class="w"> </span>datos.log
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>./conexiones.sh<span class="w"> </span>pedro<span class="w"> </span>datos.log
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>El<span class="w"> </span>usuario<span class="w"> </span>pedro<span class="w"> </span>se<span class="w"> </span>ha<span class="w"> </span>conectado<span class="w"> </span>este<span class="w"> </span>mes<span class="w"> </span><span class="m">1</span><span class="w"> </span>vez.
-</span></code></pre></div>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>El<span class="w"> </span>usuario<span class="w"> </span>pedro<span class="w"> </span>se<span class="w"> </span>ha<span class="w"> </span>conectado<span class="w"> </span>este<span class="w"> </span>mes<span class="w"> </span><span class="m">1</span><span class="w"> </span>vez.
+</span></code></pre></div></p>
 
 
 

@@ -2,250 +2,386 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/_TODO/</loc>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/formato/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/SLIDES/UD03/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/1.ConceptosGenerales/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/10.git/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/2.bash/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/3.ssh-soluciones/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/3.ssh/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/4.BashScripting/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/4a.BashVarios/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/4b.BashEjercicios-soluciones/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/4b.BashEjercicios/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/4c.BashChuleta/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/7.docker/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/8.EntornosVirtualesPython/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/9.ModificarApuntes/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD00/_TODO/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD01/1.instalacionubuntuserver/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD01/2.descargaconfighadoop/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD01/3.ejercicios/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD01/3.ejerciciosSOL/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD01/_TODO/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD01/_PENDENT/UD01%20-%20Big%20Data%20Hadoop%20118e913de6c4806493b8e271ad30161a/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD010-Practicas/1.clusterdocker/</loc>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/1.instalacion/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/2.comandosHDFS/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/3.comandosHDFSejercicios/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/3.comandosHDFSejerciciosSOL/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/4.administracionHDFS/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/6.snapshots/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/7.HDFSdesdePython/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/8.clusterdocker/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/8b.clusterdocker/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/9.ejercicio1_wordcount/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD02/_TODO/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD03/0.index/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD03/1.configurarclusterYARN/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD03/2.fasesmapreduce/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD03/3.contarpalabras/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD03/4.ejercicioVentas/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD03/4.ejercicioVentasSOL/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD03/5.ejercicioTemperatura/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD03/5.ejercicioTemperaturaSOL/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD03/_TODO/</loc>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD03/_PENDENT/UD03%20-%20Mapreduce%20Yarn%20fffe913de6c48192bd2aceae7263b15e/Ejercicio%201%20ana%CC%81lisis%20de%20ventas%20126e913de6c480f79d1bc5e4f99b1904/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD03/_PENDENT/UD03%20-%20Mapreduce%20Yarn%20fffe913de6c48192bd2aceae7263b15e/Mapreduce%20-%20Bash%20script%20fffe913de6c481c8bbabe93106da5b3d/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD03/_PENDENT/UD03%20-%20Mapreduce%20Yarn%20fffe913de6c48192bd2aceae7263b15e/UD03%205%20Mapreduce%20con%20Python%20%F0%9F%90%8D%20fffe913de6c4815b9aecfc4cc69f6780/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD03/_PENDENT/UD03%20-%20Mapreduce%20Yarn%20fffe913de6c48192bd2aceae7263b15e/UD03%205%20%5BEJ%5D%20Hadoop%20Temperatura%20fffe913de6c4813592e6fcd836f1ece0/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD03/_PENDENT/UD03%20-%20Mapreduce%20Yarn%20fffe913de6c48192bd2aceae7263b15e/UD03%205%20%5BGuiado%5D%20MovieLens%20Dataset%20127e913de6c4802ba951fbfc0f95237b/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD04/0.index/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD04/1.hive-instalacion/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD04/2.hive-tablas/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD04/3.hive-practica-empleados/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD04/4.hive-deslizamientos/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD04/6.sqoop/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD04/_TODO/</loc>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD04/_PENDENT/UD04%20-%20HIVE%2015ae913de6c4808faa08c7bc62c140fe/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD04/_PENDENT/UD04%20-%20HIVE%2015ae913de6c4808faa08c7bc62c140fe/UD04%204%20Importaciones%20%281%29%2015ae913de6c481659b2cf5f1cb099b08/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD04/_PENDENT/UD04%20-%20HIVE%2015ae913de6c4808faa08c7bc62c140fe/UD04%204%20Pra%CC%81ctica%20tablas%20%28SOL%29%2015ae913de6c48185af5fe5b314cb0365/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD04/_PENDENT/UD04%20-%20HIVE%2015ae913de6c4808faa08c7bc62c140fe/UD04%205%20%5B%5BFALTA%5D%5D%20Conexiones%20remotas%2015ae913de6c4812a8d5dd0c525de9ef4/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD04/_PENDENT/UD04%20-%20HIVE%2015ae913de6c4808faa08c7bc62c140fe/UD04%206%20Pra%CC%81ctica%2C%20deslizamientos%20de%20la%20tierra%20%5BSOL%2015ae913de6c481c594c6ed41cd2f1436/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD04/_PENDENT/UD04%20-%20HIVE%2015ae913de6c4808faa08c7bc62c140fe/UD04%207%20Pra%CC%81ctica%20MovieLens%20%28SOL%29%2015ae913de6c481f9924edd4871b282a0/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD04/_PENDENT/UD04%20-%20HIVE%2015ae913de6c4808faa08c7bc62c140fe/UD04%207%20Pra%CC%81ctica%20MovieLens%2015ae913de6c481398b8fe9304b2a0dd4/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
          <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD04/_PENDENT/UD04%20-%20HIVE%2015ae913de6c4808faa08c7bc62c140fe/UD04%208%20Integracio%CC%81n%20MySql%20%26%20Hadoop%2015ae913de6c481dc8092e14141e916f2/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <lastmod>2025-01-15</lastmod>
     </url>
     <url>
-         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD09/1.clusterdocker/</loc>
-         <lastmod>2024-12-19</lastmod>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/1.instalacion/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/2.scala-spark-hadoop/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/3.pyspark/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/4.pysparkRDD/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/8.varios/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/9.funcionesLambda/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/_TODO/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/_PENDENT/UD07%20-%20Spark%20fffe913de6c481708398c95c5e34d79e/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/_PENDENT/UD07%20-%20Spark%20fffe913de6c481708398c95c5e34d79e/Borrar%20%E2%86%92%20UD05%206%20SparkSQL%20-%20Dataframes%20-%20Datasets%20fffe913de6c481f084d4c6a30183a6b3/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/_PENDENT/UD07%20-%20Spark%20fffe913de6c481708398c95c5e34d79e/UD05%203%20Spark%20Python%201%20fffe913de6c481ae92c9e7bb3fb6dbb1/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/_PENDENT/UD07%20-%20Spark%20fffe913de6c481708398c95c5e34d79e/UD05%205%20RDDs%20II%20fffe913de6c48132bc7bf6a22eab582a/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/_PENDENT/UD07%20-%20Spark%20fffe913de6c481708398c95c5e34d79e/UD05%206%20Dataframes%20-%20Datasets%20fffe913de6c48110aa20d3b6efe733de/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/_PENDENT/UD07%20-%20Spark%20fffe913de6c481708398c95c5e34d79e/UD05%207%20Formatos%20de%20datos%20fffe913de6c4819d941fc4613769fd0a/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/_PENDENT/UD07%20-%20Spark%20fffe913de6c481708398c95c5e34d79e/UD05%208%20Streaming%20fffe913de6c4819a9593edd001b23257/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/_PENDENT/UD07%20-%20Spark%20fffe913de6c481708398c95c5e34d79e/UD05%209%20Streaming%20II%20fffe913de6c4813ba343cd33d13ac4fa/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/_PENDENT/UD07%20-%20Spark%20fffe913de6c481708398c95c5e34d79e/UD05%20X%20Databricks%20fffe913de6c481af9842dacd233933c5/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/_PENDENT/UD07%20-%20Spark%20fffe913de6c481708398c95c5e34d79e/UD05%20X%20Python%20venv%20fffe913de6c481a19c2ee94a768efa37/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/_PENDENT/UD07%20-%20Spark%20fffe913de6c481708398c95c5e34d79e/UD05%20X%20Spark%20Submit%20fffe913de6c481a29d8af18879ed4e05/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/_PENDENT/UD07%20-%20Spark%20fffe913de6c481708398c95c5e34d79e/UD05%20X%20Ti%CC%81tulo%20fffe913de6c481d388d8e7b3debb3451/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/_PENDENT/UD07%20-%20Spark%20fffe913de6c481708398c95c5e34d79e/UD05%20XX%20Spark%20StandAlone%20fffe913de6c48193a1cde94bcab44600/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD08-cloud/_TODO/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD09-Herramientas/1.faker/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD09-Herramientas/2.domotica/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD09-Herramientas/3.kafka/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD09-Herramientas/3b.kafkaSOL/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD09-Herramientas/4.mqtt/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD09-Herramientas/5.databricks/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD09-Herramientas/_TODO/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD09-Herramientas/27c8a05e-9516-44af-b1a9-4a2af1fac089_Export-deaed103-6353-41af-a78a-be12228dd6e2/UD%2008%20-%20Otras%20herramientas%20fffe913de6c481f3a815ca61f406ba9e/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD09-Herramientas/27c8a05e-9516-44af-b1a9-4a2af1fac089_Export-deaed103-6353-41af-a78a-be12228dd6e2/UD%2008%20-%20Otras%20herramientas%20fffe913de6c481f3a815ca61f406ba9e/UD08%201a%20Faker%20fffe913de6c481a3ba13f25e6ccb4ef5/</loc>
+         <lastmod>2025-01-15</lastmod>
+    </url>
+    <url>
+         <loc>https://josepgarcia.github.io/BigDataAplicado24-25/UD09-Herramientas/27c8a05e-9516-44af-b1a9-4a2af1fac089_Export-deaed103-6353-41af-a78a-be12228dd6e2/UD%2008%20-%20Otras%20herramientas%20fffe913de6c481f3a815ca61f406ba9e/UD08%203%20Kafka%20II%20fffe913de6c4813e82abcf00fa8f7c76/</loc>
+         <lastmod>2025-01-15</lastmod>
     </url>
 </urlset>

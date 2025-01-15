@@ -1,0 +1,1892 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD05-Spark/_PENDENT/UD07%20-%20Spark%20fffe913de6c481708398c95c5e34d79e/UD05%208%20Streaming%20fffe913de6c4819a9593edd001b23257/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>UD05 8. Streaming - Big Data Aplicado 2024-25</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ud05-8-streaming" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../.." title="Big Data Aplicado 2024-25" class="md-header__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Big Data Aplicado 2024-25
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UD05 8. Streaming
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/josepgarcia/bigDataAplicado24-25/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Big Data Aplicado 2024-25" class="md-nav__button md-logo" aria-label="Big Data Aplicado 2024-25" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Big Data Aplicado 2024-25
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/josepgarcia/bigDataAplicado24-25/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 00 Conceptos Generales
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            UD 00 Conceptos Generales
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD00/1.ConceptosGenerales/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conceptos Generales
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD00/2.bash/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    $_bash
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD00/3.ssh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ssh scp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD00/4.BashScripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    bash scripting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD00/4a.BashVarios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    bash varios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD00/4b.BashEjercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    bash ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD00/4c.BashChuleta/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    bash chuleta
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD00/7.docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD00/8.EntornosVirtualesPython/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Entornos Virtuales
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD00/9.ModificarApuntes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Editar apuntes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 01 Ubuntu + Hadoop
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            UD 01 Ubuntu + Hadoop
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD01/1.instalacionubuntuserver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu server
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD01/2.descargaconfighadoop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hadoop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD01/3.ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 02 Cluster Pseudo. HDFS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            UD 02 Cluster Pseudo. HDFS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD02/1.instalacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD02/2.comandosHDFS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comandos HDFS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD02/3.comandosHDFSejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios HDFS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD02/4.administracionHDFS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Administración HDFS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD02/6.snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Snapshopts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD02/7.HDFSdesdePython/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HDFS desde python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD02/8.clusterdocker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 03 MapReduce. Yarn
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            UD 03 MapReduce. Yarn
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD03/0.index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD03/1.configurarclusterYARN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuración
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD03/2.fasesmapreduce/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fases MapReduce
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD03/3.contarpalabras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejemplo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD03/4.ejercicioVentas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicio Ventas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD03/5.ejercicioTemperatura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicio Temperatura
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 04 Hive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            UD 04 Hive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD04/0.index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD04/1.hive-instalacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD04/2.hive-tablas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tablas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD04/3.hive-practica-empleados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica empleados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD04/4.hive-deslizamientos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica deslizamientos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 05 Spark
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            UD 05 Spark
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.instalacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalacion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.scala-spark-hadoop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scala Spark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.pyspark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PySpark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 09 Extra
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            UD 09 Extra
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UD09/1.clusterdocker.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cluster docker avanzado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD05-Spark/_PENDENT/UD07 - Spark fffe913de6c481708398c95c5e34d79e/UD05 8 Streaming fffe913de6c4819a9593edd001b23257.md" title="Editar esta página" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="ud05-8-streaming">UD05 8. Streaming</h1>
+<p><a href="https://aitor-medrano.github.io/iabd/spark/streaming.html">https://aitor-medrano.github.io/iabd/spark/streaming.html</a></p>
+<h1 id="1-comando-ncat-nc">1. Comando ncat (nc)</h1>
+<p>Permite acceder a puertos TCP o UDP de la propia máquina o de otras máquinas remotas. También permite quedar a la escucha en un puerto dado (TCP o UDP) de la máquina local.</p>
+<p>Podemos utilizar a ncat como herramienta de escaneo de puertos, de seguridad o de monitoreo; además de como proxy TCP simple. Es muy útil para auditar la seguridad de sistemas, de servidores web, de servidores de correo, entre otros.</p>
+<p>IMPORTANTE: Aunque se asemejan, ncat y netcat son programas diferentes. <a href="https://access.redhat.com/documentation/es-es/red_hat_enterprise_linux/7/html/migration_planning_guide/ch04s07s04">https://access.redhat.com/documentation/es-es/red_hat_enterprise_linux/7/html/migration_planning_guide/ch04s07s04</a></p>
+<ul>
+<li>
+<p><strong>TLDR</strong></p>
+<p>Redirect I/O into a network stream through this versatile tool. More information: <a href="https://manned.org/man/nc.1">https://manned.org/man/nc.1</a>.</p>
+<ul>
+<li>Start a listener on the specified TCP port and send a file into it:<br />
+nc -l -p port &lt; filename</li>
+<li>Connect to a target listener on the specified port and receive a file from it:<br />
+nc host port &gt; received_filename</li>
+<li>Scan the open TCP ports of a specified host:<br />
+nc -v -z -w timeout_in_seconds host start_port-end_port</li>
+<li>Start a listener on the specified TCP port and provide your local shell access to the connected party (this is dangerous and can be abused):<br />
+nc -l -p port -e shell_executable</li>
+<li>Connect to a target listener and provide your local shell access to the remote party (this is dangerous and can be abused):<br />
+nc host port -e shell_executable</li>
+<li>Act as a proxy and forward data from a local TCP port to the given remote host:<br />
+nc -l -p local_port | nc host remote_port</li>
+<li>Send an HTTP GET request:<br />
+echo -e "GET / HTTP/1.1\nHost: host\n\n" | nc host 80</li>
+</ul>
+</li>
+</ul>
+<p><strong>Funcionamiento</strong></p>
+<p>Cuando funciona como cliente, nc crea un socket para conectarse al puerto indicado de la máquina destino.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>nc<span class="w"> </span>maquina_destino<span class="w"> </span>puerto_destino
+</span></code></pre></div>
+<p>La conexión permenecerá abierta mientras no la finalice el servidor o el cliente nc (CONTROL+C)</p>
+<p>Cuando funciona como servidor (modo escucha [opción -l, listen]), abre un socket en la máquina local que queda a la escucha en el puerto indicado</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>nc<span class="w"> </span>-l<span class="w"> </span>-p<span class="w"> </span>puerto_escucha
+</span></code></pre></div>
+<p>En ambos casos, una vez establecida la conexión, nc envía a través del socket creado todo lo que reciba por la entrada estándar y envía a la salida estándar lo que le llegue por el socket.</p>
+<p>Opciones interesantes:</p>
+<p>-u usa el modo UDP (por defecto son conexiones TCP)<br />
+-c comando / -e ejecutable ejecuta un comando/programa una vez iniciada la conexión cuyas entrada y salida estándar están redirigidas a la conexión establecida</p>
+<p><strong>Ejemplo: Enviar - Recibir</strong> </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># En una terminal escuchamos</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>nc<span class="w"> </span>-l<span class="w"> </span>-p<span class="w"> </span><span class="m">999</span><span class="w"> </span><span class="c1"># En mac sin -p</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># En otra terminal enviamos</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>nc<span class="w"> </span>localhost<span class="w"> </span><span class="m">999</span><span class="w"> </span>
+</span></code></pre></div>
+<p><strong>Ejemplo: Copia de ficheros</strong></p>
+<p><strong><em>* Intentar con linux </em></strong>*</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Abrimos un terminal, se queda a la escucha</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>nc<span class="w"> </span>localhost<span class="w"> </span><span class="m">88</span><span class="w"> </span>&gt;<span class="w"> </span>destino.txt
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Abrimos otro termina, creamos un fichero y lo mandamos al primer terminal</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;aa\nb\ncc\ndd&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>origen.txt
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>nc<span class="w"> </span>localhost<span class="w"> </span><span class="m">88</span><span class="w"> </span>&lt;<span class="w"> </span>origen.txt
+</span></code></pre></div>
+<p><strong>Ejemplo con python:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># En un terminal</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># Opción k -&gt; keep open, mantiene la conexión abierta incluso después de recibir datos.</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>nc<span class="w"> </span>-lk<span class="w"> </span><span class="m">88</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span> <span class="nn">socket</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">import</span> <span class="nn">time</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">import</span> <span class="nn">random</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">def</span> <span class="nf">enviar_palabra</span><span class="p">(</span><span class="n">palabra</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">puerto</span><span class="o">=</span><span class="mi">88</span><span class="p">):</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="c1"># Crear un socket TCP/IP</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="n">cliente_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>        <span class="c1"># Conectar al servidor netcat</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>        <span class="n">cliente_socket</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">host</span><span class="p">,</span> <span class="n">puerto</span><span class="p">))</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>        <span class="c1"># Enviar la palabra al servidor</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>        <span class="n">palabra</span> <span class="o">=</span> <span class="n">palabra</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>        <span class="n">cliente_socket</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">palabra</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>        <span class="c1"># Esperar X segundos</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>        <span class="n">intervalo</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">intervalo</span><span class="p">)</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>    <span class="k">finally</span><span class="p">:</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>        <span class="c1"># Cerrar la conexión</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>        <span class="n">cliente_socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>    <span class="n">palabras</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hola&quot;</span><span class="p">,</span> <span class="s2">&quot;mundo&quot;</span><span class="p">,</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;netcat&quot;</span><span class="p">,</span> <span class="s2">&quot;socket&quot;</span><span class="p">]</span>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>    <span class="n">palabras</span> <span class="o">=</span> <span class="n">palabras</span> <span class="o">*</span> <span class="mi">2</span>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>    <span class="k">for</span> <span class="n">palabra</span> <span class="ow">in</span> <span class="n">palabras</span><span class="p">:</span>
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>        <span class="n">enviar_palabra</span><span class="p">(</span><span class="n">palabra</span><span class="p">)</span>
+</span></code></pre></div>
+<p>La función encode() se utiliza para convertir una cadena de caracteres (string) en su representación en bytes, utilizando un cierto esquema de codificación de caracteres. En el contexto de la comunicación a través de sockets o de la lectura/escritura de archivos, es importante trabajar con cadenas de bytes en lugar de cadenas de caracteres directamente, ya que muchos protocolos y sistemas de archivos operan a nivel de bytes.</p>
+<p><a href="https://medium.com/@HackTheBridge/beginners-guide-to-netcat-for-hackers-55abe449991d">Beginner’s Guide To Netcat for Hackers</a></p>
+<p><a href="https://www.youtube.com/watch?v=8oGm4pEAsd8">https://www.youtube.com/watch?v=8oGm4pEAsd8</a></p>
+<h1 id="2-caso-1-hola-spark-streaming"><strong>2. Caso 1: Hola Spark Streaming</strong></h1>
+<p>Escuchamos en un terminal:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>nc<span class="w"> </span>-lk<span class="w"> </span><span class="m">9999</span>
+</span></code></pre></div>
+<p>Tras arrancar <em>Netcat</em>, ya podemos crear nuestra aplicación <em>Spark</em> (vamos a indicar que cree 2 hilos, lo cual es el mínimo necesario para realizar <em>streaming</em>, uno para recibir y otro para procesar), en la cual tenemos diferenciadas:</p>
+<ul>
+<li>la fuente de datos: creación del flujo de lectura mediante <a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.SparkSession.readStream.html"><code>readStream</code></a> que devuelve un <a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.ss/api/pyspark.sql.streaming.DataStreamReader.html">DataStreamReader</a> que utilizaremos para cargar un <em>DataFrame</em>.</li>
+<li>la lógica de procesamiento, ya sea mediante <em>DataFrames API</em> o <em>Spark SQL</em>.</li>
+<li>la persistencia de los datos mediante <a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.SparkSession.writeStream.html">writeStream</a> que devuelve un <a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.ss/api/pyspark.sql.streaming.DataStreamWriter.html">DataStreamWriter</a> donde indicamos el modo de salida, el cual, al iniciarlo con <code>start</code> nos devuelve un <a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.ss/api/pyspark.sql.streaming.StreamingQuery.html">StreamingQuery</a></li>
+<li>y finalmente el cierre del flujo de datos a partir de la consult en <em>streaming</em> mediante <a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.ss/api/pyspark.sql.streaming.StreamingQuery.awaitTermination.html?highlight=awaittermination"><code>awaitTermination</code></a>.</li>
+</ul>
+<p><strong>En un cuaderno jupyter….</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="sd">&#39;&#39;&#39; Streaming1.ipynb &#39;&#39;&#39;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span> \
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>        <span class="o">.</span><span class="n">builder</span> \
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>        <span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&quot;Streaming IABD WordCount&quot;</span><span class="p">)</span> \
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>        <span class="o">.</span><span class="n">master</span><span class="p">(</span><span class="s2">&quot;local[2]&quot;</span><span class="p">)</span> \
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>        <span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="c1"># Creamos un flujo de escucha sobre netcat en localhost:9999</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="c1"># En Spark Streaming, la lectura se realiza mediante readStream</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="n">lineasDF</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">readStream</span> \
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>        <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;socket&quot;</span><span class="p">)</span> \
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>        <span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;host&quot;</span><span class="p">,</span> <span class="s2">&quot;IP_MAQUINA&quot;</span><span class="p">)</span> \ <span class="c1"># Ponemos IP local de la máquina</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>        <span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;port&quot;</span><span class="p">,</span> <span class="s2">&quot;9999&quot;</span><span class="p">)</span> \
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>        <span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="c1"># Leemos las líneas y las pasamos a palabras.</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="c1"># Sobre ellas, realizamos la agrupación count (transformación)</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="n">explode</span><span class="p">,</span> <span class="n">split</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="n">palabrasDF</span> <span class="o">=</span> <span class="n">lineasDF</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">explode</span><span class="p">(</span><span class="n">split</span><span class="p">(</span><span class="n">lineasDF</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">))</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;palabra&#39;</span><span class="p">))</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="n">cantidadDF</span> <span class="o">=</span> <span class="n">palabrasDF</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s2">&quot;palabra&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="c1"># Mostramos las palabras por consola (sink)</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="c1"># En Spark Streaming, la persistencia se realiza mediante writeStream</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="c1">#  y en vez de realizar un save, ahora utilizamos start</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="n">wordCountQuery</span> <span class="o">=</span> <span class="n">cantidadDF</span><span class="o">.</span><span class="n">writeStream</span> \
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>        <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;console&quot;</span><span class="p">)</span> \
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>        <span class="o">.</span><span class="n">outputMode</span><span class="p">(</span><span class="s2">&quot;complete&quot;</span><span class="p">)</span> \
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>        <span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="c1"># dejamos Spark a la escucha</span>
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="n">wordCountQuery</span><span class="o">.</span><span class="n">awaitTermination</span><span class="p">()</span>
+</span></code></pre></div>
+<h1 id="3-elementos">3. Elementos</h1>
+<p>La idea básica al trabajar los datos en <em>streaming</em> es similar a tener una tabla de entrada de tamaño ilimitado, y conforme llegan nuevos datos, tratarlos como un nuevo conjunto de filas que se adjuntan a la tabla.</p>
+<p><img alt="Untitled" src="Untitled.png" /></p>
+<h2 id="fuentes-de-datos">Fuentes de Datos</h2>
+<p>Mientras que en el procesamiento <em>batch</em> las fuentes de datos son <em>datasets</em> estáticos que residen en un almacenamiento como pueda ser un sistema local, HDFS o S3, al hablar de procesamiento en <em>streaming</em> las fuentes de datos generan los datos de forma continuada, por lo que necesitamos otro tipo de fuentes.</p>
+<p><em>Structured Streaming</em> ofrece un conjunto predefinido de <a href="https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#input-sources">fuentes de datos</a> que se leen a partir de un <a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.ss/api/pyspark.sql.streaming.DataStreamReader.html">DataStreamReader</a>. Los tipos existentes son:</p>
+<p><strong>Fichero</strong>: permite leer ficheros desde un directorio como un flujo de datos, con soporte para ficheros de texto, CSV, JSON, Parquet, ORC, etc…</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Lee todos los ficheros csv de un directorio</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">esquemaUsuario</span> <span class="o">=</span> <span class="n">StructType</span><span class="p">()</span> \
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;nombre&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;edad&quot;</span><span class="p">,</span> <span class="s2">&quot;integer&quot;</span><span class="p">)</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">csvDF</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">readStream</span> \
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;sep&quot;</span><span class="p">,</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span> \
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="o">.</span><span class="n">schema</span><span class="p">(</span><span class="n">esquemaUsuario</span><span class="p">)</span> \
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    <span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">&quot;/path/al/directorio&quot;</span><span class="p">)</span>  <span class="c1"># equivalente a format(&quot;csv&quot;).load(&quot;/path/al/directorio&quot;)</span>
+</span></code></pre></div>
+<p><strong>Socket</strong>: lee texto UTF8 desde una conexión <em>socket</em> (es el que hemos utilizado en el caso de uso 1). Sólo se debe utilizar para pruebas ya que no ofrece garantía de tolerancia de fallos de punto a punto.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">socketDF</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">readStream</span> \
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;socket&quot;</span><span class="p">)</span> \
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;host&quot;</span><span class="p">,</span> <span class="s2">&quot;localhost&quot;</span><span class="p">)</span> \
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;port&quot;</span><span class="p">,</span> <span class="mi">9999</span><span class="p">)</span> \
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Rate</strong>: Genera datos indicando una cantidad de filas por segundo, donde cada fila contiene un <em>timestamp</em> y el valor de un contador secuencial (la primera fila contiene el 0). Esta fuente también se utiliza para la realización de pruebas y <em>benchmarking</em>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">socketDF</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">readStream</span> \
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;rate&quot;</span><span class="p">)</span> \
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;rowsPerSecond&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Tabla</strong> (desde <em>Spark 3.1</em>): Carga los datos desde una tabla temporal de <em>SparkSQL</em>, la cual podemos utilizar tanto para cargar como para persistir los cálculos realizados. Más información en la <a href="https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#streaming-table-apis">documentación oficial</a>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">tablaDF</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">readStream</span> \
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s2">&quot;clientes&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="sinks">Sinks</h2>
+<p>El término "sinks" se refiere a las operaciones de escritura de datos que se realizan al final de un proceso de streaming o transformación de datos. Un "sink" (o "destino" en español) en PySpark es el lugar donde se envían los datos procesados para su almacenamiento o uso posterior.</p>
+<p>Escriben a partir de un <a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.ss/api/pyspark.sql.streaming.DataStreamWriter.html">DataStreamWriter</a> mediante el interfaz <a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.DataFrame.writeStream.html"><code>writeStream</code></a></p>
+<p><strong>Fichero</strong>: Podemos almacenar los resultados en un sistema de archivos, HDFS o S3, con soporte para los formatos CSV, JSON, ORC y Parquet.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Otros valores pueden ser &quot;json&quot;, &quot;csv&quot;, etc...</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">df</span><span class="o">.</span><span class="n">writeStream</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;parquet&quot;</span><span class="p">)</span> \        
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;path&quot;</span><span class="p">,</span> <span class="s2">&quot;/path/al/directorio&quot;</span><span class="p">)</span> \ 
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    <span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Kafka</strong>: Envía los datos a un clúster de <em>Kafka</em>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">df</span><span class="o">.</span><span class="n">writeStream</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;kafka&quot;</span><span class="p">)</span> \        
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    <span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;kafka.bootstrap.servers&quot;</span><span class="p">,</span> <span class="s2">&quot;host1:port1,host2:port2&quot;</span><span class="p">)</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    <span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;topic&quot;</span><span class="p">,</span> <span class="s2">&quot;miTopic&quot;</span><span class="p">)</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    <span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Foreach y ForeachBatch</strong>: permiten realizar operaciones y escribir lógica sobre la salida de una consulta de <em>streaming</em>, ya sea a nivel de fila (<em>foreach</em>) como a nivel de micro-batch (<em>foreachBatch</em>). Más información en la <a href="https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#using-foreach-and-foreachbatch">documentación oficial</a>.</p>
+<p><strong>Consola</strong>: se emplea para pruebas y depuración y permite mostrar el resultado por consola.</p>
+<p>Admite las opciones <code>numRows</code> para indicar las filas a mostrar y <code>truncate</code> para truncar los datos si las filas son muy largas.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">df</span><span class="o">.</span><span class="n">writeStream</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;console&quot;</span><span class="p">)</span> \        
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    <span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Memoria</strong>: se emplea para pruebas y depuración, ya que sólo permite un volumen pequeño de datos para evitar un problema de falta de memoria en el driver para almacenar la salida. Los datos se almacenan en una tabla temporal a la cual podemos acceder desde <em>SparkSQL</em>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">df</span><span class="o">.</span><span class="n">writeStream</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;memory&quot;</span><span class="p">)</span> \  
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="o">.</span><span class="n">queryName</span><span class="p">(</span><span class="s2">&quot;nombreTabla&quot;</span><span class="p">)</span>  
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></code></pre></div>
+<h2 id="modos-de-salida">Modos de salida</h2>
+<p>El <a href="https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#output-modes">modo de salida</a> determina cómo salen los datos a un sumidero de datos. Existen tres opciones:</p>
+<ul>
+<li>Añadir (<code>*append*</code>): para insertar los datos, cuando sabemos que no vamos a modificar ninguna salida anterior, y que cada <em>batch</em> únicamente escribirá nuevos registros. Es el modo por defecto.</li>
+<li>Modificar (<code>*update*</code>): similar a un <em>upsert</em>, donde veremos solo registros que, bien son nuevos, bien son valores antiguos que debemos modificar.</li>
+<li>Completa (<code>*complete*</code>): para sobrescribir completamente el resultado, de manera que siempre recibimos la salida completa.</li>
+</ul>
+<p>En el caso 1 hemos utilizado el modo de salida completa, de manera que con cada dato nuevo, se mostraba como resultado todas las palabras y su cantidad. Si hubiésemos elegido el modo <em>update</em>, en cada micro-batch solo se mostraría el resultado acumulado de cada <em>batch</em>.</p>
+<p><strong>Ejercicio</strong></p>
+<ol>
+<li>Abrimos nc -lk -p 9999</li>
+<li>Duplicamos Streaming1.ipynb a Streaming2.ipynb</li>
+<li>Iniciamos</li>
+<li>
+<p>Mandamos dos frases </p>
+<p>Esta es la <strong>primera</strong> frase</p>
+<p>Enviamos segunda linea <strong>primera</strong></p>
+</li>
+</ol>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>-------------------------------------------
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="gu">Batch: 2</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="gu">-------------------------------------------</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>+--------+-----+
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>| palabra|count|
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>+--------+-----+
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>|   frase|    1|
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>| segunda|    1|
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>|      es|    1|
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>|   linea|    1|
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>|    Esta|    1|
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>|      la|    1|
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>|Enviamos|    1|
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>| primera|    1|
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>+--------+-----+
+</span></code></pre></div>
+<ol>
+<li>Modificamos el código del ejercicio, detenemos todo, volvemos a iniciar</li>
+</ol>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">wordCountQuery</span> <span class="o">=</span> <span class="n">cantidadDF</span><span class="o">.</span><span class="n">writeStream</span> \
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;console&quot;</span><span class="p">)</span> \
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    <span class="o">.</span><span class="n">outputMode</span><span class="p">(</span><span class="s2">&quot;update&quot;</span><span class="p">)</span> \
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>    <span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></code></pre></div>
+<ol>
+<li>Mandamos las mismas frases</li>
+</ol>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>-------------------------------------------
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="gu">Batch: 2</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="gu">-------------------------------------------</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>+--------+-----+
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>| palabra|count|
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>+--------+-----+
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>| segunda|    1|
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>|   linea|    1|
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>|      la|    2|
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>|Enviamos|    1|
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>+--------+-----+
+</span></code></pre></div>
+<ol>
+<li>Modificamos el código del ejercicio, detenemos todo, volvemos a iniciar</li>
+</ol>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>wordCountQuery = cantidadDF.writeStream \
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    .format(&quot;console&quot;) \
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    .outputMode(&quot;append&quot;) \
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>    .start()
+</span></code></pre></div>
+<p>Con este ejemplo, el modo <em>append</em> no tiene sentido (ya que para contar las palabras necesitamos las anteriores), y <em>Spark</em> es tan listo que cuando realizamos agregaciones no permite su uso y lanza una excepción del tipo <code>AnalysisException</code>:<br />
+<code>AnalysisException: Append output mode not supported when there are streaming aggregations on streaming DataFrames/DataSets without watermark;</code></p>
+<p>En resumen, el modo append es sólo para inserciones, update para modificaciones e inserciones y finalmente complete sobrescribe los resultados previos.</p>
+<p>Además, no todos los tipos de salida se pueden aplicar siempre, va a depender del tipo de operaciones que realicemos.</p>
+<h2 id="transformaciones">Transformaciones</h2>
+<ul>
+<li><strong>Sin estado (<em>stateless</em>)</strong>: los datos de cada <em>micro-batch</em> son independientes de los anteriores, y por tanto, podemos realizar las transformaciones <code>select</code>, <code>filter</code>, <code>map</code>, <code>flatMap</code>, <code>explode</code>. Es importante destacar que estas transformaciones no soportan el modo de salida <em>complete</em>, por lo que sólo podemos utilizar los modos <em>append</em> o <em>update</em>.</li>
+<li><strong>Con estado (<em>stateful</em>)</strong>: aquellas que implica realizar agrupaciones, agregaciones, <em>windowing</em> y/o <em>joins</em>, ya que mantienen el estado entre los diferentes <em>micro-batches</em>. Destacar que un abuso del estado puede causar problemas de falta de memoria, ya que el estado se almacena en la memoria de los ejecutores (<em>executors</em>). Por ello, <em>Spark</em> ofrece dos tipos de operaciones con estado:<ul>
+<li>Gestionadas (<em>managed</em>): <em>Spark</em> gestiona el estado y libera la memoria conforme sea necesario.</li>
+<li>Sin gestionar (<em>unmanaged</em>): permite que el desarrollador defina las políticas de limpieza del estado (y su liberación de memoria), por ejemplo, a partir de políticas basadas en el tiempo. A día de hoy, las transformación sin gestionar sólo están disponibles mediante <em>Java</em> o <em>Scala</em>.</li>
+</ul>
+</li>
+</ul>
+<p>Además, hay que tener en cuenta que no todas las operaciones que realizamos con <em>DataFrames</em> están soportadas al trabajar en <em>streaming</em>, como pueden ser <code>show</code>, <code>describe</code>, <code>count</code> (aunque sí que podemos contar sobre agregaciones/funciones ventana), <code>limit</code>, <code>distinct</code>, <code>cube</code> o <code>sort</code> (podemos ordenar en algunos casos después de haber realizado una agregación), ya que los datos no están acotados y provocará una excepción del tipo <code>AnalysisException</code>.</p>
+<h2 id="triggers">Triggers</h2>
+<p>Un <a href="https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#triggers">trigger</a> define el intervalo (<em>timing</em>) temporal de procesamiento de los datos en <em>streaming</em>, indicando si la consulta se ejecutará como un <em>micro-batch</em> mediante un intervalo fijo o con una consulta con procesamiento continuo.</p>
+<p>Así pues, un trigger es un mecanismo para que el motor de <em>Spark SQL</em> determine cuando ejecutar la computación en <em>streaming</em>.</p>
+<p>Los posibles tipos son:</p>
+<ul>
+<li><strong><em>Sin especificar</em></strong>, de manera que cada micro-batch se va a ejecutar tan pronto como lleguen datos.</li>
+<li><strong><em>Por intervalo de tiempo</em></strong>, mediante la propiedad <code>processingTime</code>. Si indicamos un intervalo de un minuto, una vez finalizado un job, si no ha pasado un minuto, se esperará a ejecutarse. Si el micro-batch tardase más de un minuto, el siguiente se ejecutaría inmediatamente. Así pues, de esta manera, <em>Spark</em> permite colectar datos de entrada y procesarlos de manera conjunta (en vez de procesar individualmente cada registro de entrada).</li>
+<li><strong><em>Un intervalo</em></strong>, mediante la propiedad <code>once</code>, de manera que funciona como un proceso <em>batch</em> estándar, creando un único proceso <em>micro-batch</em>, o con la propiedad <code>availableNow</code> para leer todos los datos disponibles hasta el momento mediante múltiples <em>batches</em>.</li>
+<li><strong><em>Continuo</em></strong>, mediante la propiedad <code>continuous</code>, para permitir latencias del orden de milisegundos mediante <a href="https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#continuous-processing">Continuous Processing</a>. Se trata de una opción experimental desde la versión 2.3 de Spark.</li>
+</ul>
+<p>Los triggers se configuran al persistir el <em>DataFrame</em>, tras indicar el modo de salida mediante el método <a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.ss/api/pyspark.sql.streaming.DataStreamWriter.trigger.html?highlight=trigger">trigger</a>:</p>
+<p><strong>Ejercicio</strong>: Modifica Streaming2.ipynb</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">wordCountQuery</span> <span class="o">=</span> <span class="n">cantidadDF</span><span class="o">.</span><span class="n">writeStream</span> \
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;console&quot;</span><span class="p">)</span> \
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    <span class="o">.</span><span class="n">outputMode</span><span class="p">(</span><span class="s2">&quot;complete&quot;</span><span class="p">)</span> \
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>    <span class="o">.</span><span class="n">trigger</span><span class="p">(</span><span class="n">processingTime</span><span class="o">=</span><span class="s2">&quot;1 minute&quot;</span><span class="p">)</span> \
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>    <span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></code></pre></div>
+<h1 id="3-caso-2-facturas">3. Caso 2: Facturas</h1>
+<p>En este caso de uso vamos a poner en práctica algunos de los conceptos que acabamos de ver.</p>
+<p>Vamos a suponer que tenemos un empresa compuesta de diferentes sucursales. Cada una de ellas, <strong>cada 5 minutos</strong> genera un fichero con los datos de las facturas (<a href="https://aitor-medrano.github.io/iabd/spark/resources/invoices.zip"><em>invoices.zip</em></a>) que han generado. Cada una de las facturas contiene una o más líneas de factura, las cuales queremos separar en facturas simples.</p>
+<p>Así pues, vamos a partir de documentos JSON con la siguiente estructura:</p>
+<p><img alt="Untitled" src="Untitled%201.png" /></p>
+<p>Y a partir de él, generaremos 4 documentos (uno por cada línea de factura) con la siguiente estructura:</p>
+<p><img alt="Untitled" src="Untitled%202.png" /></p>
+<h2 id="cargando-los-datos">Cargando los datos</h2>
+<p><a href="https://github.com/josepgarcia/datos/raw/main/invoices/invoices.zip">https://github.com/josepgarcia/datos/raw/main/invoices/invoices.zip</a></p>
+<p>Creamos el archivo invoices.ipynb</p>
+<ol>
+<li>Iniciar sesión spark, leer todas las facturas (formato json).</li>
+<li>Imprimir el schema (lo inferimos, no hace falta indicarlo).</li>
+<li>
+<p><strong>SOL</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span> \
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>        <span class="o">.</span><span class="n">builder</span> \
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>        <span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&quot;Streaming de Ficheros&quot;</span><span class="p">)</span> \
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>        <span class="o">.</span><span class="n">master</span><span class="p">(</span><span class="s2">&quot;local[2]&quot;</span><span class="p">)</span> \
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>        <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.streaming.stopGracefullyOnShutdown&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">)</span> \
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>        <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.sql.shuffle.partitions&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> \
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>        <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.sql.streaming.schemaInference&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">)</span> \
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>        <span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="n">raw_df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">readStream</span> \
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>        <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;json&quot;</span><span class="p">)</span> \
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>        <span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;path&quot;</span><span class="p">,</span> <span class="s2">&quot;PATH_CORRESPONDIENTE_INVOICES&quot;</span><span class="p">)</span> \
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>        <span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a>
+</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a><span class="n">raw_df</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a><span class="c1"># root</span>
+</span><span id="__span-21-18"><a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a><span class="c1">#  |-- CESS: double (nullable = true)</span>
+</span><span id="__span-21-19"><a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a><span class="c1">#  |-- CGST: double (nullable = true)</span>
+</span><span id="__span-21-20"><a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a><span class="c1">#  |-- CashierID: string (nullable = true)</span>
+</span><span id="__span-21-21"><a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a><span class="c1">#  |-- CreatedTime: long (nullable = true)</span>
+</span><span id="__span-21-22"><a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a><span class="c1">#  |-- CustomerCardNo: string (nullable = true)</span>
+</span><span id="__span-21-23"><a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a><span class="c1">#  |-- CustomerType: string (nullable = true)</span>
+</span><span id="__span-21-24"><a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a><span class="c1">#  |-- DeliveryAddress: struct (nullable = true)</span>
+</span><span id="__span-21-25"><a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a><span class="c1">#  |    |-- AddressLine: string (nullable = true)</span>
+</span><span id="__span-21-26"><a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a><span class="c1">#  |    |-- City: string (nullable = true)</span>
+</span><span id="__span-21-27"><a id="__codelineno-21-27" name="__codelineno-21-27" href="#__codelineno-21-27"></a><span class="c1">#  |    |-- ContactNumber: string (nullable = true)</span>
+</span><span id="__span-21-28"><a id="__codelineno-21-28" name="__codelineno-21-28" href="#__codelineno-21-28"></a><span class="c1">#  |    |-- PinCode: string (nullable = true)</span>
+</span><span id="__span-21-29"><a id="__codelineno-21-29" name="__codelineno-21-29" href="#__codelineno-21-29"></a><span class="c1">#  |    |-- State: string (nullable = true)</span>
+</span><span id="__span-21-30"><a id="__codelineno-21-30" name="__codelineno-21-30" href="#__codelineno-21-30"></a><span class="c1">#  |-- DeliveryType: string (nullable = true)</span>
+</span><span id="__span-21-31"><a id="__codelineno-21-31" name="__codelineno-21-31" href="#__codelineno-21-31"></a><span class="c1">#  |-- InvoiceLineItems: array (nullable = true)</span>
+</span><span id="__span-21-32"><a id="__codelineno-21-32" name="__codelineno-21-32" href="#__codelineno-21-32"></a><span class="c1">#  |    |-- element: struct (containsNull = true)</span>
+</span><span id="__span-21-33"><a id="__codelineno-21-33" name="__codelineno-21-33" href="#__codelineno-21-33"></a><span class="c1">#  |    |    |-- ItemCode: string (nullable = true)</span>
+</span><span id="__span-21-34"><a id="__codelineno-21-34" name="__codelineno-21-34" href="#__codelineno-21-34"></a><span class="c1">#  |    |    |-- ItemDescription: string (nullable = true)</span>
+</span><span id="__span-21-35"><a id="__codelineno-21-35" name="__codelineno-21-35" href="#__codelineno-21-35"></a><span class="c1">#  |    |    |-- ItemPrice: double (nullable = true)</span>
+</span><span id="__span-21-36"><a id="__codelineno-21-36" name="__codelineno-21-36" href="#__codelineno-21-36"></a><span class="c1">#  |    |    |-- ItemQty: long (nullable = true)</span>
+</span><span id="__span-21-37"><a id="__codelineno-21-37" name="__codelineno-21-37" href="#__codelineno-21-37"></a><span class="c1">#  |    |    |-- TotalValue: double (nullable = true)</span>
+</span><span id="__span-21-38"><a id="__codelineno-21-38" name="__codelineno-21-38" href="#__codelineno-21-38"></a><span class="c1">#  |-- InvoiceNumber: string (nullable = true)</span>
+</span><span id="__span-21-39"><a id="__codelineno-21-39" name="__codelineno-21-39" href="#__codelineno-21-39"></a><span class="c1">#  |-- NumberOfItems: long (nullable = true)</span>
+</span><span id="__span-21-40"><a id="__codelineno-21-40" name="__codelineno-21-40" href="#__codelineno-21-40"></a><span class="c1">#  |-- PaymentMethod: string (nullable = true)</span>
+</span><span id="__span-21-41"><a id="__codelineno-21-41" name="__codelineno-21-41" href="#__codelineno-21-41"></a><span class="c1">#  |-- PosID: string (nullable = true)</span>
+</span><span id="__span-21-42"><a id="__codelineno-21-42" name="__codelineno-21-42" href="#__codelineno-21-42"></a><span class="c1">#  |-- SGST: double (nullable = true)</span>
+</span><span id="__span-21-43"><a id="__codelineno-21-43" name="__codelineno-21-43" href="#__codelineno-21-43"></a><span class="c1">#  |-- StoreID: string (nullable = true)</span>
+</span><span id="__span-21-44"><a id="__codelineno-21-44" name="__codelineno-21-44" href="#__codelineno-21-44"></a><span class="c1">#  |-- TaxableAmount: double (nullable = true)</span>
+</span><span id="__span-21-45"><a id="__codelineno-21-45" name="__codelineno-21-45" href="#__codelineno-21-45"></a><span class="c1">#  |-- TotalAmount: double (nullable = true)</span>
+</span></code></pre></div>
+<p>Aunque en este caso hemos realizado la inferencia de la estructura de los datos de entrada, lo normal es indicar el esquema de los datos.</p>
+</li>
+</ol>
+<h2 id="proyectando">Proyectando</h2>
+<p>El siguiente paso es seleccionar los datos que nos interesan. Para ello, tras revisar la estructura de salida que deseamos, realizamos una selección de las columnas y utilizaremos la función <code>explode</code> para desenrollar el array de facturas <code>InvoiceLineItems</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">explode_df</span> <span class="o">=</span> <span class="n">raw_df</span><span class="o">.</span><span class="n">selectExpr</span><span class="p">(</span><span class="s2">&quot;InvoiceNumber&quot;</span><span class="p">,</span> <span class="s2">&quot;CreatedTime&quot;</span><span class="p">,</span> <span class="s2">&quot;StoreID&quot;</span><span class="p">,</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>                                 <span class="s2">&quot;PosID&quot;</span><span class="p">,</span> <span class="s2">&quot;CustomerType&quot;</span><span class="p">,</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>                                 <span class="s2">&quot;PaymentMethod&quot;</span><span class="p">,</span> <span class="s2">&quot;DeliveryType&quot;</span><span class="p">,</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>                                 <span class="s2">&quot;explode(InvoiceLineItems) as LineItem&quot;</span><span class="p">)</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="n">explode_df</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Tras ello, vamos a renombrar los campos para quitar los campos anidados (creando columnas nuevas con el nombre deseando y eliminando la columna <code>LineItem</code>):</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="n">expr</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">limpio_df</span> <span class="o">=</span> <span class="n">explode_df</span> \
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>    <span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;ItemCode&quot;</span><span class="p">,</span> <span class="n">expr</span><span class="p">(</span><span class="s2">&quot;LineItem.ItemCode&quot;</span><span class="p">))</span> \
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>    <span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;ItemDescription&quot;</span><span class="p">,</span> <span class="n">expr</span><span class="p">(</span><span class="s2">&quot;LineItem.ItemDescription&quot;</span><span class="p">))</span> \
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>    <span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;ItemPrice&quot;</span><span class="p">,</span> <span class="n">expr</span><span class="p">(</span><span class="s2">&quot;LineItem.ItemPrice&quot;</span><span class="p">))</span> \
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>    <span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;ItemQty&quot;</span><span class="p">,</span> <span class="n">expr</span><span class="p">(</span><span class="s2">&quot;LineItem.ItemQty&quot;</span><span class="p">))</span> \
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>    <span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;TotalValue&quot;</span><span class="p">,</span> <span class="n">expr</span><span class="p">(</span><span class="s2">&quot;LineItem.TotalValue&quot;</span><span class="p">))</span> \
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;LineItem&quot;</span><span class="p">)</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="n">limpio_df</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+</span></code></pre></div>
+<h2 id="guardando-el-resultado">Guardando el resultado</h2>
+<p>Una vez tenemos el proceso de transformación de datos, sólo nos queda crear el <em>WriterQuery</em> para escribir el resultado del flujo de datos. En este caso, vamos a almacenarlo también como ficheros en la carpeta <code>salida</code> en formato <em>JSON</em> a intervalos de un minuto:</p>
+<p>(writeStream)</p>
+<p>.trigger(processingTime="1 minute")</p>
+<ul>
+<li>
+<p><strong>SOL</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">facturaWriterQuery</span> <span class="o">=</span> <span class="n">limpio_df</span><span class="o">.</span><span class="n">writeStream</span> \
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;json&quot;</span><span class="p">)</span> \
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    <span class="o">.</span><span class="n">queryName</span><span class="p">(</span><span class="s2">&quot;Facturas Writer&quot;</span><span class="p">)</span> \
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>    <span class="o">.</span><span class="n">outputMode</span><span class="p">(</span><span class="s2">&quot;append&quot;</span><span class="p">)</span> \
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    <span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;path&quot;</span><span class="p">,</span> <span class="s2">&quot;./salida&quot;</span><span class="p">)</span> \
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>    <span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;checkpointLocation&quot;</span><span class="p">,</span> <span class="s2">&quot;chk-point-dir-caso2&quot;</span><span class="p">)</span> \
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>    <span class="o">.</span><span class="n">trigger</span><span class="p">(</span><span class="n">processingTime</span><span class="o">=</span><span class="s2">&quot;1 minute&quot;</span><span class="p">)</span> \
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>    <span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></code></pre></div>
+</li>
+</ul>
+<h2 id="refinando-el-resultado">Refinando el resultado</h2>
+<p>Una vez que vemos que todo funciona, podemos realizar unos ajustes de configuración.</p>
+<p>Por ejemplo, vamos a configurar que sólo consuma un fichero cada vez. Para ello, en el <em>reader</em> configuramos la opción <code>maxFilesPerTrigger</code>, la cual permite limitar la cantidad de ficheros de cada micro-batch.</p>
+<p>Otras opciones que se usan de manera conjunta son <code>cleanSource</code> y <code>sourceArchiveDir</code>, que permiten archivar los ficheros procesados de forma automática. La opción <code>cleanSource</code> puede tomar los valores <code>archive</code> o <code>delete</code>. Si decidimos archivar, mediante <code>sourceArchiveDir</code> indicamos el destino donde se moverán.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">raw_df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">readStream</span> \
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;json&quot;</span><span class="p">)</span> \
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>    <span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;path&quot;</span><span class="p">,</span> <span class="s2">&quot;../datos/invoices&quot;</span><span class="p">)</span> \
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>    <span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;maxFilesPerTrigger&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> \
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>    <span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;cleanSource&quot;</span><span class="p">,</span> <span class="s2">&quot;delete&quot;</span><span class="p">)</span> \
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>    <span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Hay que tener en cuenta, que tanto archivar como eliminar van a impactar negativamente en el rendimiento de cada micro-batch. Nosotros hemos de limpiar el directorio de entrada, eso es un hecho. Si ejecutamos <em>micro-batch</em> largos, podemos usar la opción <code>cleanSource</code>. En cambio, si nuestros <em>batches</em> son muy cortos y el utilizar <code>cleanSource</code> no es factible por la demora que introduce, debemos crear un proceso de limpieza separado que se ejecute cada X horas y que limpie nuestro directorio de entrada.</p>
+<h2 id="monitorizacion">Monitorización</h2>
+<p>Una vez hemos realizado una consulta, podemos obtener <a href="https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#managing-streaming-queries">información</a> sobre la misma de forma programativa:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">facturaWriterQuery</span><span class="o">.</span><span class="n">explain</span><span class="p">()</span> <span class="c1"># muestra una explicación detalla del plan de ejecución</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="c1"># == Physical Plan ==</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="c1"># *(1) Project [InvoiceNumber#314, CreatedTime#308L, StoreID#319, PosID#317, CustomerType#310, PaymentMethod#316, DeliveryType#312, _extract_City#339 AS City#52, _extract_State#340 AS State#53, _extract_PinCode#341 AS PinCode#54, LineItem#55.ItemCode AS ItemCode#67, LineItem#55.ItemDescription AS ItemDescription#81, LineItem#55.ItemPrice AS ItemPrice#96, LineItem#55.ItemQty AS ItemQty#112L, LineItem#55.TotalValue AS TotalValue#129]</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="c1"># ...</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="n">facturaWriterQuery</span><span class="o">.</span><span class="n">recentProgress</span> <span class="c1"># muestra una lista de los últimos progresos de la consulta</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="c1"># [{&#39;id&#39;: &#39;3b6d37cf-6a3c-405e-a715-1dc787f34b00&#39;,</span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="c1">#   &#39;runId&#39;: &#39;3dc7c478-626a-4558-87ea-4912da55114d&#39;,</span>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="c1">#   &#39;name&#39;: &#39;Facturas Writer&#39;,</span>
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="c1">#   &#39;timestamp&#39;: &#39;2024-05-11T08:20:49.058Z&#39;,</span>
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="c1">#   &#39;batchId&#39;: 0,</span>
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="c1">#   &#39;numInputRows&#39;: 500,</span>
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a><span class="c1">#   &#39;inputRowsPerSecond&#39;: 0.0,</span>
+</span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a><span class="c1">#   &#39;processedRowsPerSecond&#39;: 113.55893708834887,</span>
+</span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a><span class="c1">#   &#39;durationMs&#39;: {&#39;addBatch&#39;: 2496,</span>
+</span><span id="__span-26-15"><a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a><span class="c1"># ...</span>
+</span><span id="__span-26-16"><a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a><span class="n">facturaWriterQuery</span><span class="o">.</span><span class="n">lastProgress</span> <span class="c1"># muestra el último progreso</span>
+</span><span id="__span-26-17"><a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a><span class="c1"># {&#39;id&#39;: &#39;3b6d37cf-6a3c-405e-a715-1dc787f34b00&#39;,</span>
+</span><span id="__span-26-18"><a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a><span class="c1">#  &#39;runId&#39;: &#39;3dc7c478-626a-4558-87ea-4912da55114d&#39;,</span>
+</span><span id="__span-26-19"><a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a><span class="c1">#  &#39;name&#39;: &#39;Facturas Writer&#39;,</span>
+</span><span id="__span-26-20"><a id="__codelineno-26-20" name="__codelineno-26-20" href="#__codelineno-26-20"></a><span class="c1">#  &#39;timestamp&#39;: &#39;2024-05-11T08:33:00.001Z&#39;,</span>
+</span><span id="__span-26-21"><a id="__codelineno-26-21" name="__codelineno-26-21" href="#__codelineno-26-21"></a><span class="c1">#  &#39;batchId&#39;: 3,</span>
+</span><span id="__span-26-22"><a id="__codelineno-26-22" name="__codelineno-26-22" href="#__codelineno-26-22"></a><span class="c1">#  &#39;numInputRows&#39;: 0,</span>
+</span><span id="__span-26-23"><a id="__codelineno-26-23" name="__codelineno-26-23" href="#__codelineno-26-23"></a><span class="c1">#  &#39;inputRowsPerSecond&#39;: 0.0,</span>
+</span><span id="__span-26-24"><a id="__codelineno-26-24" name="__codelineno-26-24" href="#__codelineno-26-24"></a><span class="c1">#  &#39;processedRowsPerSecond&#39;: 0.0,</span>
+</span><span id="__span-26-25"><a id="__codelineno-26-25" name="__codelineno-26-25" href="#__codelineno-26-25"></a><span class="c1">#  &#39;durationMs&#39;: {&#39;latestOffset&#39;: 5, &#39;triggerExecution&#39;: 8},</span>
+</span><span id="__span-26-26"><a id="__codelineno-26-26" name="__codelineno-26-26" href="#__codelineno-26-26"></a><span class="c1"># ...</span>
+</span></code></pre></div>
+<p>Estas mismas estadísticas las podemos obtener de forma gráfica. Al ejecutar procesos en Streaming, si accedemos a Spark UI, ahora podremos ver la pestaña <em>Structured Streaming</em> con información detallada de la cantidad datos de entrada, tiempo procesado y duración de los micro-batches:</p>
+<p><img alt="Untitled" src="Untitled%203.png" /></p>
+<p>Además, podemos iniciar tantas consultas como queramos en una única sesión de Spark, las cuales se ejecutarán de forma concurrente utilizando los recursos del clúster de Spark.</p>
+<aside>
+✅ Para acceder a la webUI deberíamos de mapear los puertos tal y como lo hicimos en:
+
+[UD05 4. PySpark. Contexto, sesión y RDDs.](<../../4.pysparkRDD.md>)
+
+docker run -it -p 8888:8888 -p **4040:4040 -p 4041:4041 -p 4042:4042** -v $(pwd):/home/jovyan/work/projects/ jupyter/pyspark-notebook
+
+</aside>
+
+<h2 id="tolerancia-a-fallos">Tolerancia a fallos</h2>
+<p>Un aplicación en <em>streaming</em> se espera que se ejecute de forma ininterrumpida mediante un bucle infinito de micro-batches.</p>
+<p>Realmente, un escenario de ejecución infinita no es posible, ya que la aplicación se detendrá por:</p>
+<ul>
+<li>un fallo, ya sea por un dato mal formado o un error de red.</li>
+<li>mantenimiento del sistema, para actualizar la aplicación o el hardware donde corre.</li>
+</ul>
+<p>Para tratar la tolerancia a fallos, existen tres escenarios posibles:</p>
+<ul>
+<li>Una vez como mucho (<em>at most once</em>): no se entrega más de una copia de un dato. Es decir, puede darse el caso de que no llegue, pero no habrá repetidos.</li>
+<li>Una vez al menos (<em>at least once</em>): en este caso no habrá pérdidas, pero un dato puede llegar más de una vez.</li>
+<li>Una vez exacta (<em>exactly once</em>): se garantiza que cada dato se entrega una única vez, sin pérdidas ni duplicados.</li>
+</ul>
+<p><img alt="Untitled" src="Untitled%204.png" /></p>
+<p>Por ello, una aplicación <em>Spark Streaming</em> se debe reiniciar de forma transparente para mantener la característica de <strong><em>exactly-once</em></strong> la cual implica que:</p>
+<ol>
+<li>No se pierde ningún registro</li>
+<li>No crea registros duplicados.</li>
+</ol>
+<p>Para ello, <em>Spark Structured Streaming</em> mantiene el estado de los micro-batches mediante <a href="https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#recovering-from-failures-with-checkpointing"><em>checkpoints</em></a> que se almacenan en la carpeta indicada por la opción <code>checkpointLocation</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="n">facturaWriterQuery</span> <span class="o">=</span> <span class="n">limpio_df</span><span class="o">.</span><span class="n">writeStream</span> \
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;json&quot;</span><span class="p">)</span> \
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>    <span class="o">.</span><span class="n">queryName</span><span class="p">(</span><span class="s2">&quot;Facturas Writer&quot;</span><span class="p">)</span> \
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>    <span class="o">.</span><span class="n">outputMode</span><span class="p">(</span><span class="s2">&quot;append&quot;</span><span class="p">)</span> \
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>    <span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;path&quot;</span><span class="p">,</span> <span class="s2">&quot;salida&quot;</span><span class="p">)</span> \
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>    <span class="o">**.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;checkpointLocation&quot;</span><span class="p">,</span> <span class="s2">&quot;chk-point-dir-caso2&quot;</span><span class="p">)</span> \<span class="o">**</span>
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>    <span class="o">.</span><span class="n">trigger</span><span class="p">(</span><span class="n">processingTime</span><span class="o">=</span><span class="s2">&quot;1 minute&quot;</span><span class="p">)</span> \
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>    <span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></code></pre></div>
+<p>La localización de esta carpeta debería ser un sistema de archivo confiable y tolerante a fallos, como HDFS o Amazon S3.</p>
+<p>Esta carpeta contiene dos elementos:</p>
+<ul>
+<li>Posición de lectura, que realiza la misma función que los <em>offset</em> en Kafka, y representa el inicio y el final del rango de datos procesados por el actual <em>micro-batch</em>, de manera que <em>Spark</em> conoce el progreso exacto del procesamiento. Una vez ha finalizado el <em>micro-batch</em>, <em>Spark</em> realiza un <em>commit</em> para indicar que se han procesado los datos de forma exitosa.</li>
+<li>Información del estado, que contiene los datos intermedios del <em>micro-batch</em>, como la cantidad total de palabras contadas.</li>
+</ul>
+<p>De esta manera, <em>Spark</em> mantiene toda la información necesaria para reiniciar un micro-batch que no ha finalizado. Sin embargo, la capacidad de reiniciarse no tiene por qué garantizar la política <em>exactly-once</em>. Para ello, es necesario cumplir los siguientes requisitos:</p>
+<ol>
+<li>Reiniciar la aplicación con el mismo <code>checkpointLocation</code>. Si se elimina la carpeta o se ejecuta la misma consulta sobre otro directorio de <em>checkpoint</em> es como si realizásemos una consulta desde 0.</li>
+<li>Utilizar una fuente de datos que permita volver a leer los datos incompletos del <em>micro-batch</em>, por ejemplo, tanto los ficheros de texto como <em>Kafka</em> permiten volver a leer los datos desde un punto determinado. Sin embargo, los datos que provienen de un socket no permite volver a leerlos.</li>
+<li>Asegurar que la lógica de aplicación, dados los mismos datos de entrada, produce siempre el mismo resultado (aplicación determinista). Si por ejemplo, nuestra lógica de aplicación utilizará alguna dependencia basada en fechas o el tiempo, ya no obtendríamos el mismo resultado.</li>
+<li>El destino (<em>sink</em>) debe ser capaz de identificar los elementos duplicados e ignorarlos o actualizar la copia antigua con el mismo registro, es decir, son idempotentes.</li>
+</ol>
+<h1 id="4-ejercicio-bizum">4. Ejercicio Bizum</h1>
+<aside>
+✅ **Entregar AULES**
+
+</aside>
+
+<p>El archivo bizums.zip contiene una simulación de datos de <em>bizum</em> que llegan a nuestra cuenta. </p>
+<p><a href="https://github.com/josepgarcia/datos/raw/main/bizums/bizums.zip">https://github.com/josepgarcia/datos/raw/main/bizums/bizums.zip</a></p>
+<ol>
+<li>Crea un <em>script</em> <em>Python</em> que, al ejecutarlo, se encargue de simular el envío de <em>bizums.</em></li>
+</ol>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kn">import</span> <span class="nn">os</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="kn">import</span> <span class="nn">shutil</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="kn">import</span> <span class="nn">shutil</span><span class="o">,</span> <span class="nn">os</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span><span class="p">,</span> <span class="n">uniform</span><span class="p">,</span><span class="n">random</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="kn">import</span> <span class="nn">time</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="n">ruta</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="c1">#bizum = input(&#39;Bizum: &#39;)</span>
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">:</span>
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a>    <span class="n">num_aleatorio</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a>    <span class="n">origen</span> <span class="o">=</span> <span class="n">ruta</span> <span class="o">+</span> <span class="s1">&#39;Sin_llegar&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;Bizum&#39;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">num_aleatorio</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span>
+</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a>    <span class="n">destino</span> <span class="o">=</span> <span class="n">ruta</span> <span class="o">+</span> <span class="s1">&#39;recibidos&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;Bizum&#39;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">num_aleatorio</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span>
+</span><span id="__span-28-17"><a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-28-18"><a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a>        <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">origen</span><span class="p">,</span> <span class="n">destino</span><span class="p">)</span>
+</span><span id="__span-28-19"><a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bizum recibido&quot;</span><span class="p">)</span>
+</span><span id="__span-28-20"><a id="__codelineno-28-20" name="__codelineno-28-20" href="#__codelineno-28-20"></a>        <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+</span><span id="__span-28-21"><a id="__codelineno-28-21" name="__codelineno-28-21" href="#__codelineno-28-21"></a>    <span class="k">except</span><span class="p">:</span>
+</span><span id="__span-28-22"><a id="__codelineno-28-22" name="__codelineno-28-22" href="#__codelineno-28-22"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error al enviar bizum&quot;</span><span class="p">)</span>
+</span><span id="__span-28-23"><a id="__codelineno-28-23" name="__codelineno-28-23" href="#__codelineno-28-23"></a>        <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+</span><span id="__span-28-24"><a id="__codelineno-28-24" name="__codelineno-28-24" href="#__codelineno-28-24"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">%</span>
+</span></code></pre></div>
+<ol>
+<li>Crea una aplicación de <em>Spark Streaming</em> que muestre para cada persona, cual <strong>es el <em>bizum</em> más alto</strong>.</li>
+</ol>
+<p>El formato de estos datos es CSV formado por el <code>Nombre;Cantidad;Concepto</code> (dos nombres en mayúsculas y en minúsculas son de la misma persona, convertir a lowercase). Un ejemplo de un <em>bizum</em> recibido sería similar a:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>Aitor<span class="p">;</span><span class="m">25</span><span class="p">;</span>Cena<span class="w"> </span>restaurante
+</span></code></pre></div>
+<p>Muestra el resultado completo por consola.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Josep Garcia Garcia | <a href="https://github.com/josepgarcia/BigDataAplicado24-25" target="_blank">https://github.com/josepgarcia/BigDataAplicado24-25</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.code.copy", "content.code.select", "content.code.annotate", "toc.integrate", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
