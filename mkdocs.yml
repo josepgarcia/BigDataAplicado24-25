@@ -45,7 +45,7 @@ nav:
     - Instalacion: UD05-Spark/1.instalacion.md
     - Scala Spark: UD05-Spark/2.scala-spark-hadoop.md
     - PySpark: UD05-Spark/3.pyspark.md
-    - PySparkRDD: UD05-Spark/4.pysparkRDD.md
+    - SuperHero: UD05-Spark/4.superhero.md
   - UD 09 Extra:
     - Cluster docker avanzado: UD09/1.clusterdocker.md
 
