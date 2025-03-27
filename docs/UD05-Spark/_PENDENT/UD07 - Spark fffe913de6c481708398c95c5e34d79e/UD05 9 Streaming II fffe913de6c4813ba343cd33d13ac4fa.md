@@ -10,7 +10,7 @@ Antes de comenzar levantamos un cluster kafka ([UD08 2. Kafka](https://www.notio
 
 ## Producer
 
-Vamos a utilizar como base la práctica “Bizum” realizada anteriormente ([4. Ejercicio Bizum](<./UD05 8 Streaming fffe913de6c4819a9593edd001b23257.md>)).
+Vamos a utilizar como base la práctica “Bizum” realizada anteriormente ([4. Ejercicio Bizum](<../../6.streaming.md>)).
 
 En este caso realizaremos un script en python que sea un **producer** que:
 

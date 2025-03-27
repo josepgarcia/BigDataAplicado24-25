@@ -46,6 +46,9 @@ nav:
     - Scala Spark: UD05-Spark/2.scala-spark-hadoop.md
     - PySpark: UD05-Spark/3.pyspark.md
     - SuperHero: UD05-Spark/4.superhero.md
+    #- SimilarMovies: UD05-Spark/4b.similarmovies.md
+    - Formato Datos: UD05-Spark/5.formatodatos.md
+    - Streaming: UD05-Spark/6.streaming.md
   - UD 09 Extra:
     - Cluster docker avanzado: UD09/1.clusterdocker.md
 
