@@ -49,6 +49,7 @@ nav:
     #- SimilarMovies: UD05-Spark/4b.similarmovies.md
     - Formato Datos: UD05-Spark/5.formatodatos.md
     - Streaming: UD05-Spark/6.streaming.md
+    - Facturas: UD05-Spark/6b.streamingfacturas.md
   - UD 09 Extra:
     - Cluster docker avanzado: UD09/1.clusterdocker.md
 
