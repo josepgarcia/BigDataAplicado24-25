@@ -18,7 +18,7 @@
     
     
       
-        <title>Ejercicio Bizum - Big Data Aplicado 2024-25</title>
+        <title>Proyecto Bizum - Big Data Aplicado 2024-25</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ejercicio-bizum" class="md-skip">
+        <a href="#proyecto-bizum" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ejercicio Bizum
+              Proyecto Bizum
             
           </span>
         </div>
@@ -1281,6 +1281,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/UD05-Spark/6c.streamingbizum.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bizum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1374,39 +1395,38 @@
   
 
 
-<h1 id="ejercicio-bizum">Ejercicio Bizum</h1>
+<h1 id="proyecto-bizum">Proyecto Bizum</h1>
+<p><img alt="" src="../images/bizum.png" /></p>
 <p>✅ <strong>Entregar AULES</strong></p>
-<p>El archivo bizums.zip contiene una simulación de datos de <em>bizum</em> que llegan a nuestra cuenta. <br />
-<a href="https://github.com/josepgarcia/datos/raw/main/bizums/bizums.zip">https://github.com/josepgarcia/datos/raw/main/bizums/bizums.zip</a></p>
-<p>Crea un <em>script</em> <em>Python</em> que, al ejecutarlo, se encargue de simular el envío de <em>bizums.</em><br />
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">os</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">shutil</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span> <span class="nn">shutil</span><span class="o">,</span> <span class="nn">os</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span><span class="p">,</span> <span class="n">uniform</span><span class="p">,</span><span class="n">random</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kn">import</span> <span class="nn">time</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">ruta</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">:</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">num_aleatorio</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="n">origen</span> <span class="o">=</span> <span class="n">ruta</span> <span class="o">+</span> <span class="s1">&#39;Sin_llegar&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;Bizum&#39;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">num_aleatorio</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="n">destino</span> <span class="o">=</span> <span class="n">ruta</span> <span class="o">+</span> <span class="s1">&#39;recibidos&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;Bizum&#39;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">num_aleatorio</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="k">try</span><span class="p">:</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">origen</span><span class="p">,</span> <span class="n">destino</span><span class="p">)</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bizum recibido&quot;</span><span class="p">)</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="k">except</span><span class="p">:</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error al enviar bizum&quot;</span><span class="p">)</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>        <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">%</span>
+<p>Descomprime y ejecuta el script `bizum_dist.zip</p>
+<p>Al ejecutarlo, este script creará automáticamente una simulación de BIZUMs.<br />
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>✅ Bizum entregado: Hugo Aguirre;463;Compra productos caza
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>✅ Bizum entregado: Pablo Cano;419;Pago fisioterapia
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>✅ Bizum entregado: Ana Sánchez;451;Pago servicio contabilidad
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>⚠️ Error entregando el bizum.
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>✅ Bizum entregado: Pablo Cano;452;Pago transporte público
 </span></code></pre></div></p>
-<p>Crea una aplicación de <em>Spark Streaming</em> que muestre para cada persona, cual <strong>es el <em>bizum</em> más alto</strong>.</p>
-<p>El formato de estos datos es CSV formado por el <code>Nombre;Cantidad;Concepto</code> (dos nombres en mayúsculas y en minúsculas son de la misma persona, convertir a lowercase). Un ejemplo de un <em>bizum</em> recibido sería similar a:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Aitor<span class="p">;</span><span class="m">25</span><span class="p">;</span>Cena<span class="w"> </span>restaurante
-</span></code></pre></div>
-<p>Muestra el resultado completo por consola.</p>
+<p>Los Bizums que se entregan correctamente se guardan en la capeta <code>ENTREGADO</code>y los que fallan se guardan en la carpeta <code>ERROR</code><br />
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>│ .
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│ ├── ENTREGADO
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│ │   ├── 1743764835_52011.csv
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│ │   ├── 1743764836_79627.csv
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│ │   ├── 1743764838_81538.csv
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│ │   ├── 1743764840_99141.csv
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│ │   ├── 1743764845_5786.csv
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│ │   └── 1743764846_4374.csv
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│ ├── ERROR
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│ │   └── 1743764842_6549.csv
+</span></code></pre></div></p>
+<p>El contenido de un csv tiene el siguiente formato:<br />
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ cat ENTREGADO/1743764835_52011.csv 
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>José Gómez;441;Pago médico
+</span></code></pre></div></p>
+<h2 id="ejercicio">Ejercicio</h2>
+<p>Crea una aplicación de <em>Spark Streaming</em> que muestre <strong>por consola:</strong><br />
+- Cuál es el bizum ENTREGADO más alto de cada persona.<br />
+- Cuál es el bizum con más importe que ha dado ERROR.</p>
+<p>Al finalizar, el script proporcionado muestra la salida que debería mostrar tu aplicación.</p>
 
 
 
