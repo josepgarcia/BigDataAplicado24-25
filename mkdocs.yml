@@ -50,6 +50,7 @@ nav:
     - Formato Datos: UD05-Spark/5.formatodatos.md
     - Streaming: UD05-Spark/6.streaming.md
     - Facturas: UD05-Spark/6b.streamingfacturas.md
+    - Bizum: docs/UD05-Spark/6c.streamingbizum.md
   - UD 09 Extra:
     - Cluster docker avanzado: UD09/1.clusterdocker.md
 
