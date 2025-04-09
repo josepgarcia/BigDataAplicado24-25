@@ -1451,8 +1451,9 @@
 <h1 id="proyecto-bizum">Proyecto Bizum</h1>
 <p><img alt="" src="../images/bizum.png" /></p>
 <p>✅ <strong>Entregar AULES</strong></p>
-<p>Descomprime y ejecuta el script `bizum_dist.zip</p>
-<p>Al ejecutarlo, este script creará automáticamente una simulación de BIZUMs.<br />
+<p>Descomprime y ejecuta el script.<br />
+<code>bizum_dist.zip</code></p>
+<p>Al ejecutarlo, este script creará automáticamente una simulación de BIZUMs entregados y con ERROR.<br />
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>✅ Bizum entregado: Victoria Flores;272;Compra productos pesca
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>✅ Bizum entregado: Victoria Flores;195;Pago clases baile
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>⚠️ Error entregando el bizum:  Marta Díaz;453;Compra videojuegos
@@ -1470,15 +1471,17 @@
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│ ├── ERROR
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│ │   └── 1743764842_6549.csv
 </span></code></pre></div></p>
-<p>El contenido de un csv tiene el siguiente formato:<br />
+<p>El contenido de cada BIZUM es un <code>csv</code> con el siguiente formato:<br />
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ cat ENTREGADO/1743764835_52011.csv 
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>José Gómez;441;Pago médico
 </span></code></pre></div></p>
 <h2 id="ejercicio">Ejercicio</h2>
-<p>Crea una aplicación de <em>Spark Streaming</em> que muestre <strong>por consola:</strong><br />
+<p>Crea una aplicación de <em>Spark Streaming</em> que quede a la escucha de nuevos ficheros en los directorios <code>ENTREGADO</code>y <code>ERROR</code> y muestre <strong>por consola</strong> conforme vaya encontrando nuevos ficheros:<br />
 - Cuál es el bizum ENTREGADO más alto de cada persona.<br />
 - Cuál es el bizum con más importe que ha dado ERROR.</p>
-<p>Al finalizar, el script proporcionado muestra la salida que debería mostrar tu aplicación.</p>
+<p>Al finalizar, el script proporcionado muestra la misma salida que debería mostrar tu aplicación.</p>
+<p>Mostrar mensajes por consoa:<br />
+<a href="https://www.youtube.com/watch?v=7bKX4YOaET0">https://www.youtube.com/watch?v=7bKX4YOaET0</a></p>
 
 
 
