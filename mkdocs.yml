@@ -51,8 +51,10 @@ nav:
     - Streaming: UD05-Spark/6.streaming.md
     - Facturas: UD05-Spark/6b.streamingfacturas.md
     - Bizum: UD05-Spark/6c.streamingbizum.md
-  - UD 09 Extra:
-    - Cluster docker avanzado: UD09/1.clusterdocker.md
+  - UD 09 Herramientas:
+    - Faker: UD09-Herramientas/1.faker.md
+    - Kafka: UD09-Herramientas/3.kafka.md
+    #- Cluster docker avanzado: UD09/1.clusterdocker.md
 
 theme: 
   language: es
