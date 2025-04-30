@@ -11,6 +11,8 @@
         <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD09-Herramientas/3.kafka/">
       
       
+        <link rel="prev" href="../1.faker/">
+      
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -18,7 +20,7 @@
     
     
       
-        <title>3.kafka - Big Data Aplicado 2024-25</title>
+        <title>Kafka - Big Data Aplicado 2024-25</title>
       
     
     
@@ -106,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3.kafka
+              Kafka
             
           </span>
         </div>
@@ -1313,34 +1315,36 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    UD 09 Extra
+    UD 09 Herramientas
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            UD 09 Extra
+            UD 09 Herramientas
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1351,15 +1355,220 @@
   
   
     <li class="md-nav__item">
-      <a href="../../UD09/1.clusterdocker.md" class="md-nav__link">
+      <a href="../1.faker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Cluster docker avanzado
+    Faker
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Kafka
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Kafka
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#procesamiento-en-lote-vs-procesamiento-en-tiempo-real" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procesamiento en Lote vs. Procesamiento en Tiempo Real
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tecnologias-necesarias-para-procesamiento-en-tiempo-real" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tecnologías Necesarias para Procesamiento en Tiempo Real
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procesamiento-de-eventos-en-tiempo-real" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procesamiento de Eventos en Tiempo Real
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#almacenamiento-persistente-de-datos-procesados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Almacenamiento Persistente de Datos Procesados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kafka" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kafka
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kafka">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#publicador-suscriptor-productor-consumidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publicador / Suscriptor (Productor / consumidor)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zookeeper" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zookeeper
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instalación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      En local
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contenedores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contenedores
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#producer-desde-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Producer desde python
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consumer-desde-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consumer desde python
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#producer-consumer-desde-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Producer - Consumer desde node
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1395,38 +1604,37 @@
   
 
 
-<h2 id="procesamiento-de-datos-en-tiempo-real">Procesamiento de datos en tiempo real</h2>
-<p><strong>Procesamiento en Lote vs. Procesamiento en Tiempo Real</strong><br />
-• <strong>Procesamiento en lote (Batch Processing):</strong><br />
-    • Es lo que se ha usado hasta ahora:<br />
+<h1 id="procesamiento-de-datos-en-tiempo-real">Procesamiento de datos en tiempo real</h1>
+<h2 id="procesamiento-en-lote-vs-procesamiento-en-tiempo-real">Procesamiento en Lote vs. Procesamiento en Tiempo Real</h2>
+<p><strong>Procesamiento en lote (Batch Processing):</strong><br />
     • Se envía un trabajo (por ejemplo, MapReduce, Spark o Hive) usando Yarn.<br />
     • El sistema ejecuta el trabajo y devuelve una respuesta en pantalla o escribe la salida en HDFS.<br />
     • Se ejecuta en intervalos regulares (cada hora, cada día, etc.).<br />
-    • Es ideal para comenzar con Big Data, pero no es adecuado cuando se requiere procesar datos en intervalos muy cortos.<br />
-• <strong>Procesamiento en tiempo real (Real-Time Processing):</strong><br />
-    • Se utiliza cuando hay necesidad de procesar los datos casi inmediatamente después de que llegan.<br />
-    • Requiere tecnologías y arquitecturas específicas para manejar flujos constantes de datos.</p>
-<p><strong>Tecnologías Necesarias para Procesamiento en Tiempo Real</strong><br />
-• <strong>Ingesta y almacenamiento temporal de datos:</strong><br />
+    • Es ideal para comenzar con Big Data, pero no es adecuado cuando se requiere procesar datos en intervalos muy cortos.</p>
+<p><strong>Procesamiento en tiempo real (Real-Time Processing):</strong><br />
+        • Se utiliza cuando hay necesidad de procesar los datos casi inmediatamente después de que llegan.<br />
+        • Requiere tecnologías y arquitecturas específicas para manejar flujos constantes de datos.</p>
+<h2 id="tecnologias-necesarias-para-procesamiento-en-tiempo-real">Tecnologías Necesarias para Procesamiento en Tiempo Real</h2>
+<p><strong>Ingesta y almacenamiento temporal de datos:</strong><br />
     • Los datos entrantes deben almacenarse temporalmente antes de ser procesados.<br />
-• <strong>Problema con HDFS:</strong><br />
+<strong>Problema con HDFS:</strong><br />
     • HDFS no es eficiente para leer eventos individuales (como una línea o un registro).<br />
-    • Está diseñado para leer bloques completos de datos.<br />
-• <strong>Solución: Kafka</strong><br />
+    • Está diseñado para leer bloques completos de datos.</p>
+<p><strong>SOLUCIÓN Kafka:</strong><br />
     • Kafka es un sistema de mensajería basado en el modelo <strong>publicación-suscripción (pub-sub)</strong>.<br />
     • Actúa como un <strong>log distribuido</strong> que almacena eventos temporalmente en un buffer mientras esperan para ser procesados.</p>
-<p><strong>3. Procesamiento de Eventos en Tiempo Real</strong><br />
-Los servicios que procesan los datos deben estar en ejecución continua dentro del clúster de Hadoop y deben recuperar datos desde sistemas de colas como Kafka.<br />
+<h2 id="procesamiento-de-eventos-en-tiempo-real">Procesamiento de Eventos en Tiempo Real</h2>
+<p>Los servicios que procesan los datos deben estar en ejecución continua dentro del clúster de Hadoop y deben recuperar datos desde sistemas de colas como Kafka.<br />
 <strong>Diferentes enfoques para el procesamiento de eventos:</strong><br />
 • <strong>Storm:</strong> Procesa cada evento de manera individual.<br />
 • <strong>Storm + Trident:</strong> Permite agrupar eventos (batching) y procesar múltiples eventos a la vez.<br />
 • <strong>Spark Streaming:</strong> Utiliza un enfoque de <strong>micro-lotes (micro-batching)</strong>, agrupando eventos dentro de intervalos de tiempo cortos (por ejemplo, cada pocos segundos).</p>
-<p><strong>4. Almacenamiento Persistente de Datos Procesados</strong><br />
-Después de procesar los datos, deben almacenarse para consultas posteriores.<br />
-<strong>Problema con HDFS:</strong><br />
+<h2 id="almacenamiento-persistente-de-datos-procesados">Almacenamiento Persistente de Datos Procesados</h2>
+<p>Después de procesar los datos, deben almacenarse para consultas posteriores.</p>
+<p><strong>Problema con HDFS:</strong><br />
 • No es adecuado para manejar muchos archivos pequeños.<br />
-• Una posible solución sería anexar eventos a un único archivo grande, pero esto hace que la lectura de un evento específico sea difícil.<br />
-<strong>Soluciones ideales:</strong><br />
+• Una posible solución sería anexar eventos a un único archivo grande, pero esto hace que la lectura de un evento específico sea difícil.</p>
+<p><strong>Soluciones ideales:</strong><br />
 • Utilizar almacenes de datos distribuidos como:<br />
 • <strong>HBase:</strong> Diseñado para escritura rápida y lectura eficiente cuando se conoce la clave de fila.<br />
 • <strong>Accumulo:</strong> Similar a HBase, pero con funcionalidades adicionales como control de acceso granular.<br />
@@ -1448,9 +1656,9 @@ Después de procesar los datos, deben almacenarse para consultas posteriores.<br
 <p>Antes de entrar en detalle sobre <em>Kafka</em>, hay que conocer el modelo publicador/suscriptor. Este patrón también se conoce como <em>publish / subscribe</em> o <em>productor / consumidor</em>.</p>
 <p>Hay tres elementos que hay que tener realmente claros:</p>
 <ul>
-<li>Publicador (<em>publisher</em> / productor / emisor): genera un dato y lo coloca en un <em>topic</em> como un mensaje.</li>
-<li>topic (tema): almacén temporal/duradero que guarda los mensajes funcionando como una cola.</li>
-<li>Suscriptor (<em>subscriber</em> / consumidor / receptor): recibe el mensaje.</li>
+<li><strong>Publicador</strong> (<em>publisher</em> / productor / emisor): genera un dato y lo coloca en un <em>topic</em> como un mensaje.</li>
+<li><strong>Topic</strong> (tema): almacén temporal/duradero que guarda los mensajes funcionando como una cola.</li>
+<li><strong>Suscriptor</strong> (<em>subscriber</em> / consumidor / receptor): recibe el mensaje.</li>
 </ul>
 <p>Cabe destacar que un productor no se comunica nunca directamente con un consumidor, siempre lo hace a través de un <em>topic</em>:<br />
 <img alt="" src="../images/kafka.png" /><br />
@@ -1472,11 +1680,11 @@ Después de procesar los datos, deben almacenarse para consultas posteriores.<br
 <img alt="" src="../images/kafka1.png" /></p>
 <p>Pese a su dependencia, los productores y consumidores no interactúan nunca con <em>Zookeeper</em>, sólo lo hacen con <em>Kafka</em>.</p>
 <p>Aunque podemos decir que todavía no es la opción más recomendable en producción, también podemos utilizar una instalación de Kafka sin Zookeeper haciendo uso de <a href="https://kafka.apache.org/documentation/#kraft">Kraft</a>, el cual ofrece un nuevo protocolo de consenso y evita tener una infraestructura extra para Zookeeper.</p>
-<h1 id="instalacion">Instalación</h1>
-<h2 id="en-local">En local</h2>
+<h2 id="instalacion">Instalación</h2>
+<h3 id="en-local">En local</h3>
 <p><a href="https://kafka.apache.org/quickstart">https://kafka.apache.org/quickstart</a></p>
-<h2 id="contenedores">Contenedores</h2>
-<p><a href="https://www.youtube.com/watch?v=rhUuD0eA-EQ">Apaches Kafka con docker compose (producer y consumer)</a></p>
+<h3 id="contenedores">Contenedores</h3>
+<p><a href="https://www.youtube.com/watch?v=rhUuD0eA-EQ">Apache Kafka con docker compose (producer y consumer)</a></p>
 <p>docker-compose.yml<br />
 <div class="language-docker highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>version:<span class="w"> </span><span class="s1">&#39;3.8&#39;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
@@ -1542,11 +1750,11 @@ Después de procesar los datos, deben almacenarse para consultas posteriores.<br
 </span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="c1"># No se muestran por la terminal2, ya que se encuentra escuchando</span>
 </span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c1"># otra &quot;categoría&quot;</span>
 </span></code></pre></div>
-<h1 id="3-ejemplos">3. Ejemplos</h1>
+<h2 id="ejemplos">Ejemplos</h2>
 <p>Posibles ERRORES se solucionan con la versión *-ng :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pip<span class="w"> </span>install<span class="w"> </span>kafka-python-ng
 </span></code></pre></div>
-<h2 id="producer-desde-python">Producer desde python</h2>
+<h3 id="producer-desde-python">Producer desde python</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="sd">&#39;&#39;&#39;producer.py&#39;&#39;&#39;</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="sd">&#39;&#39;&#39;pip install kafka-python&#39;&#39;&#39;</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
@@ -1569,7 +1777,7 @@ Después de procesar los datos, deben almacenarse para consultas posteriores.<br
 </span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
 </span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="n">producer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </span></code></pre></div>
-<h2 id="consumer-desde-python">Consumer desde python</h2>
+<h3 id="consumer-desde-python">Consumer desde python</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="sd">&#39;&#39;&#39;consumer.py&#39;&#39;&#39;</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="sd">&#39;&#39;&#39;pip install kafka-python&#39;&#39;&#39;</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
@@ -1589,7 +1797,7 @@ Después de procesar los datos, deben almacenarse para consultas posteriores.<br
 </span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="k">for</span> <span class="n">mensaje</span> <span class="ow">in</span> <span class="n">consumer</span><span class="p">:</span>
 </span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mensaje recibido: </span><span class="si">{</span><span class="n">mensaje</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-<h2 id="producer-consumer-desde-node">Producer - Consumer desde node</h2>
+<h3 id="producer-consumer-desde-node">Producer - Consumer desde node</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>npm<span class="w"> </span>init
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>npm<span class="w"> </span>install<span class="w"> </span>kafka-node
