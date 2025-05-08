@@ -54,6 +54,7 @@ nav:
   - UD 09 Herramientas:
     - Faker: UD09-Herramientas/1.faker.md
     - Kafka: UD09-Herramientas/3.kafka.md
+    - MQTT: UD09-Herramientas/4.mqtt.md
     #- Cluster docker avanzado: UD09/1.clusterdocker.md
 
 theme: 
