@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD09-Herramientas/pdi_sales/">
+        <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD06-Monitoring/1.Prometheus/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Pdi sales - Big Data Aplicado 2024-25</title>
+        <title>Prometheus - Big Data Aplicado 2024-25</title>
       
     
     
@@ -69,6 +69,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#prometheus" class="md-skip">
+          Saltar a contenido
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -101,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Pdi sales
+              Prometheus
             
           </span>
         </div>
@@ -1346,7 +1351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1.faker/" class="md-nav__link">
+      <a href="../../UD09-Herramientas/1.faker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1367,7 +1372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.kafka/" class="md-nav__link">
+      <a href="../../UD09-Herramientas/3.kafka/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1388,7 +1393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../4.mqtt/" class="md-nav__link">
+      <a href="../../UD09-Herramientas/4.mqtt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1424,7 +1429,7 @@
                   
 
   
-    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD09-Herramientas/pdi_sales.md" title="Editar esta página" class="md-content__button md-icon">
+    <a href="https://github.com/josepgarcia/bigDataAplicado24-25/edit/main/docs/UD06-Monitoring/1.Prometheus.md" title="Editar esta página" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1432,9 +1437,125 @@
   
 
 
-  <h1>Pdi sales</h1>
-
-
+<h1 id="prometheus">Prometheus</h1>
+<p><img alt="" src="../images/prometheus-logo.png" /><br />
+https://prometheus.io/</p>
+<h2 id="que-es-prometheus">¿Qué es prometheus?</h2>
+<p><strong>RESUMEN</strong> Prometheus es un sistema de monitoreo y alerta de código abierto que recopila y almacena métricas de aplicaciones e infraestructuras. Es una base de datos de series temporales que permite monitorizar el estado de los sistemas, detectar problemas y alertar cuando ocurren.</p>
+<p><strong>FUNCIONAMIENTO</strong> Prometheus va recorriendo "escrapeando" diferentes sistemas que le indiquemos los datos de métricas a través de una API y los almacena. Con prometheus podemos consultar estas métricas.</p>
+<p>Recopilación de métricas:<br />
+Prometheus utiliza un modelo de extracción (pull) para recopilar métricas de los sistemas que supervisa. Esto significa que el servidor de Prometheus solicita periódicamente métricas a los objetivos (aplicaciones, servidores, etc.). </p>
+<p>Almacenamiento de series temporales:<br />
+Las métricas recopiladas se almacenan en una base de datos de series temporales, lo que permite analizar los datos a lo largo del tiempo. </p>
+<p>Lenguaje de consulta (PromQL):<br />
+Prometheus ofrece un lenguaje de consulta (PromQL) para consultar las métricas almacenadas, lo que permite crear gráficos, alertas y análisis ad hoc. </p>
+<p>Alertas:<br />
+Prometheus incluye un sistema de alertas que permite configurar reglas para alertar cuando se detectan problemas o cambios en las métricas. </p>
+<h2 id="componentes">Componentes:</h2>
+<p>Prometheus está compuesto por varios componentes, incluyendo:<br />
+- Servidor Prometheus: El componente central que almacena las métricas y proporciona la API de consulta. <br />
+- Exportadores: Agentes de software que recopilan métricas de diferentes sistemas y las exponen en un formato compatible con Prometheus. <br />
+- Alertmanager: Un servicio que gestiona las alertas y las notifica a los usuarios. <br />
+- Pushgateway: Un componente que permite a los servicios enviar métricas a Prometheus sin tener que implementar el modelo de extracción. </p>
+<h2 id="uso">Uso</h2>
+<p>Prometheus se utiliza ampliamente en entornos de desarrollo, operaciones y DevOps para monitorizar la salud de los sistemas, detectar problemas de rendimiento, predecir fallas y mejorar la eficiencia. </p>
+<p>Hay todo un ecosistema de bibliotecas y clientes para exportar métricas compatibles con Prometheus desde multitud de sistemas.<br />
+https://prometheus.io/docs/instrumenting/clientlibs/</p>
+<h2 id="metricas">Métricas</h2>
+<p>Ejemplo de métricas a las que accede prometheus.</p>
+<p><code>nombre_etiqueta{LABELS}</code></p>
+<p><img alt="" src="../images/prometheus-04.png" /></p>
+<h2 id="tipos-de-metricas">Tipos de métricas</h2>
+<p>https://prometheus.io/docs/tutorials/understanding_metric_types/</p>
+<h3 id="contador">Contador</h3>
+<p>Es un valor métrico que solo puede aumentar o restablecerse, es decir, el valor no puede ir a menos. Se puede utilizar para métricas como el número de solicitudes, número de errores, etc.</p>
+<p>Escribe la consulta a continuación en la barra de consultas y haga clic en ejecutar.<br />
+<code>go_gc_duration_seconds_count</code><br />
+<img alt="" src="../images/prometheus-01.png" /><br />
+La función rate() en PromQL toma el historial de métricas durante un período de tiempo y calcula qué tan rápido aumenta el valor por segundo. La tasa es aplicable solo en valores de contador.<br />
+<code>rate(go_gc_duration_seconds_count[5m])</code><br />
+<img alt="" src="../images/prometheus-02.png" /></p>
+<h3 id="gauge-indicador">Gauge (indicador)</h3>
+<p>Es un número que puede subir o bajar. Se puede usar para métricas como el número de eventos en una cola, etc.<br />
+<code>go_memstats_heap_alloc_bytes</code><br />
+<img alt="" src="../images/prometheus-03.png" /><br />
+Funciones promQL como max_over_time, min_over_time y avg_over_time se puede utilizar en métricas de gauge.</p>
+<h3 id="histograma">Histograma</h3>
+<p>Se utilizan para ver distribuciones estadísticas.</p>
+<h3 id="summary">Summary</h3>
+<p>Resúmenes, funcionan como los histogramas pero solamente te dan el valor total.<br />
+Por ejemplo, nos pueden dar la mediana o máximo o mínimo de por ejemplo el uso de la CPU.</p>
+<h2 id="ejemplos">Ejemplos</h2>
+<div class="admonition note">
+<p class="admonition-title">Clonamos el siguiente repositorio para los ejemplos:</p>
+<p><code>https://github.com/josepgarcia/monitoring-prometheus-graphana</code></p>
+</div>
+<h3 id="ejemplo-1-instalacion-basica">Ejemplo 1. Instalación básica.</h3>
+<p>Abre y analiza los archivos: <br />
+<code>docker-compose.yaml</code>y <code>prometheus.yml</code></p>
+<p>Levanta el contenedor con:<br />
+<code>docker compose up</code></p>
+<p>Accede a prometheus <br />
+http://localhost:9090/</p>
+<p>Las métricas que encontramos son las del propio prometheus:<br />
+http://localhost:9090/metrics</p>
+<p>Vemos las métricas que tenemos disponibles.<br />
+<img alt="" src="../images/prometheus-05.png" /><br />
+Encontramos diferentes tipos de métricas:<br />
+<img alt="" src="../images/prometheus-06.png" /></p>
+<p>Ejemplos de consultas que podemos realizar:</p>
+<p>Intervalos entre los diferentes "scrapeos"<br />
+<code>prometheus_target_interval_length_seconds</code></p>
+<p>Si estamos interesados en las de 0.99, las podemos filtrar con:<br />
+<code>prometheus_target_interval_length_seconds{quantile="0.99"}</code></p>
+<p>En graph:<br />
+rate(prometheus_tsdb_head_chunks_created_total[1m])`</p>
+<h3 id="ejemplo-2-cadvisor">Ejemplo 2. cadvisor.</h3>
+<p>https://www.apptio.com/topics/kubernetes/devops-tools/cadvisor/</p>
+<p>cAdvisor es un software de Google, escrito en Go, y programado específicamente para la captura de métricas de contenedores; necesita acceso a varios directorios del host (que mapearemos con bind-mounts en Docker) para capturar los datos. cAdvisor expone el puerto 8080 (interfaz web y REST api) y por defecto permite a Prometheus acceder a varias métricas.</p>
+<p>cadvisor: http://localhost:8080/<br />
+cadvisor metrics: http://localhost:8080/metrics</p>
+<p>Podemos consultar métricas como:<br />
+<code>cadvisor_version_info</code></p>
+<p><code>container_start_time_seconds{name="cadvisor"}</code></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://localhost:9090/graph?g0.range_input=1h&amp;g0.expr=rate(container_cpu_usage_seconds_total%7Bname%3D%22redis%22%7D%5B1m%5D)&amp;g0.tab=1"><code>rate(container_cpu_usage_seconds_total{name="redis"}[1m])</code></a></td>
+<td>The <a href="https://en.wikipedia.org/wiki/Cgroups">cgroup</a>'s CPU usage in the last minute</td>
+<td>The <code>redis</code> container</td>
+</tr>
+<tr>
+<td><a href="http://localhost:9090/graph?g0.range_input=1h&amp;g0.expr=container_memory_usage_bytes%7Bname%3D%22redis%22%7D&amp;g0.tab=1"><code>container_memory_usage_bytes{name="redis"}</code></a></td>
+<td>The cgroup's total memory usage (in bytes)</td>
+<td>The <code>redis</code> container</td>
+</tr>
+<tr>
+<td><a href="http://localhost:9090/graph?g0.range_input=1h&amp;g0.expr=rate(container_network_transmit_bytes_total%5B1m%5D)&amp;g0.tab=1"><code>rate(container_network_transmit_bytes_total[1m])</code></a></td>
+<td>Bytes transmitted over the network by the container per second in the last minute</td>
+<td>All containers</td>
+</tr>
+<tr>
+<td><a href="http://localhost:9090/graph?g0.range_input=1h&amp;g0.expr=rate(container_network_receive_bytes_total%5B1m%5D)&amp;g0.tab=1"><code>rate(container_network_receive_bytes_total[1m])</code></a></td>
+<td>Bytes received over the network by the container per second in the last minute</td>
+<td>All containers</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ejemplo-3-graphana">Ejemplo 3. graphana.</h3>
+<h2 id="netdata">netdata</h2>
+<p>https://github.com/netdata/netdata</p>
+<h2 id="promql">promQL</h2>
+<h2 id="enlaces">Enlaces</h2>
+<p>https://mxulises.medium.com/simple-prometheus-setup-on-docker-compose-f702d5f98579<br />
+https://comacero.com/posts/notes_docker_mon/</p>
 
 
 
