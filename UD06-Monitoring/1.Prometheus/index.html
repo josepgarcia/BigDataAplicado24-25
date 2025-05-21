@@ -11,6 +11,10 @@
         <link rel="canonical" href="https://josepgarcia.github.io/BigDataAplicado24-25/UD06-Monitoring/1.Prometheus/">
       
       
+        <link rel="prev" href="../../UD05-Spark/6c.streamingbizum/">
+      
+      
+        <link rel="next" href="../../UD09-Herramientas/1.faker/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -1313,6 +1317,267 @@
       
   
   
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 06 Monitoring
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            UD 06 Monitoring
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Prometheus
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Prometheus
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-prometheus" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Qué es prometheus?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#componentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Componentes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uso
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métricas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-metricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de métricas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos de métricas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contador
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gauge-indicador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gauge (indicador)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#histograma" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histograma
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-1-instalacion-basica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 1. Instalación básica.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-2-cadvisor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 2. cadvisor.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-3-graphana" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 3. graphana.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#netdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      netdata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#promql" class="md-nav__link">
+    <span class="md-ellipsis">
+      promQL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enlaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enlaces
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
   
   
     
@@ -1323,10 +1588,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1337,8 +1602,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             UD 09 Herramientas
           </label>
@@ -1451,7 +1716,7 @@ Las métricas recopiladas se almacenan en una base de datos de series temporales
 Prometheus ofrece un lenguaje de consulta (PromQL) para consultar las métricas almacenadas, lo que permite crear gráficos, alertas y análisis ad hoc. </p>
 <p>Alertas:<br />
 Prometheus incluye un sistema de alertas que permite configurar reglas para alertar cuando se detectan problemas o cambios en las métricas. </p>
-<h2 id="componentes">Componentes:</h2>
+<h2 id="componentes">Componentes</h2>
 <p>Prometheus está compuesto por varios componentes, incluyendo:<br />
 - Servidor Prometheus: El componente central que almacena las métricas y proporciona la API de consulta. <br />
 - Exportadores: Agentes de software que recopilan métricas de diferentes sistemas y las exponen en un formato compatible con Prometheus. <br />
@@ -1460,7 +1725,7 @@ Prometheus incluye un sistema de alertas que permite configurar reglas para aler
 <h2 id="uso">Uso</h2>
 <p>Prometheus se utiliza ampliamente en entornos de desarrollo, operaciones y DevOps para monitorizar la salud de los sistemas, detectar problemas de rendimiento, predecir fallas y mejorar la eficiencia. </p>
 <p>Hay todo un ecosistema de bibliotecas y clientes para exportar métricas compatibles con Prometheus desde multitud de sistemas.<br />
-https://prometheus.io/docs/instrumenting/clientlibs/</p>
+<a href="https://prometheus.io/docs/instrumenting/clientlibs/">https://prometheus.io/docs/instrumenting/clientlibs/</a></p>
 <h2 id="metricas">Métricas</h2>
 <p>Ejemplo de métricas a las que accede prometheus.</p>
 <p><code>nombre_etiqueta{LABELS}</code></p>
@@ -1556,6 +1821,7 @@ cadvisor metrics: http://localhost:8080/metrics</p>
 <h2 id="enlaces">Enlaces</h2>
 <p>https://mxulises.medium.com/simple-prometheus-setup-on-docker-compose-f702d5f98579<br />
 https://comacero.com/posts/notes_docker_mon/</p>
+<p>[^1]: </p>
 
 
 
