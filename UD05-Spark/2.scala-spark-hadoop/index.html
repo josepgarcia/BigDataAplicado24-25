@@ -1593,7 +1593,7 @@
 
 <h1 id="scala-spark-hadoop">Scala - Spark - Hadoop.</h1>
 <h2 id="scala">Scala</h2>
-<p>https://scala-lang.org/<br />
+<p><a href="https://scala-lang.org/">https://scala-lang.org/</a><br />
 Scala es un lenguaje de programación moderno multi-paradigma diseñado para expresar patrones de programación comunes de una forma concisa, elegante, y con tipado seguro. Integra fácilmente características de lenguajes orientados a objetos y funcionales.</p>
 <h2 id="spark-shell-hdfs">Spark shell HDFS</h2>
 <p>Archivo utilizado: <code>puertos.csv</code><br />
@@ -1638,7 +1638,7 @@ Scala es un lenguaje de programación moderno multi-paradigma diseñado para exp
 <p>Al lanzarlo se conecta al cluster, sube el fichero para trabajar con él…</p>
 <p>Pasa a la cola → Se acepta ACCEPTED → RUNNING → FINISHED</p>
 <p>Una vez finalizado el proceso, vamos a la web de monitorización y buscamos en el apartado de aplicaciones finalizadas con éxito:<br />
-http://IP_MAQUINA_HADOOP:8088/</p>
+<a href="http://IP_MAQUINA_HADOOP:8088/">http://IP_MAQUINA_HADOOP:8088/</a></p>
 <p>Buscamos el apartado de los logs que ha generado la ejecución de la aplicación “apli1”. El fichero stdout tendremos la salida con el <strong>resultado</strong> de la ejecución.<br />
 <img alt="" src="../images/spark2.png" /></p>
 <p>** La aplicación se ha lanzado sobre el cluster, lo que significa que ha utilizado todos sus recursos disponibles (nodos, memoria, disco…)</p>
@@ -1646,7 +1646,7 @@ http://IP_MAQUINA_HADOOP:8088/</p>
 <p>Vamos a crear una aplicación con python y lanzarla contra Hadoop.<br />
 <code>contarPalabras.py</code></p>
 <p>Fichero a contar:<br />
-https://github.com/josepgarcia/datos/blob/main/el_quijote.txt</p>
+<a href="https://github.com/josepgarcia/datos/blob/main/el_quijote.txt">https://github.com/josepgarcia/datos/blob/main/el_quijote.txt</a></p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span> <span class="nn">sys</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">try</span><span class="p">:</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>        <span class="c1"># Permiten poner el entorno, contexto de spark (anteriormente contexto sc sparkcontext)</span>

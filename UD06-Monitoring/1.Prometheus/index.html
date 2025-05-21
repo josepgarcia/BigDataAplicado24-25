@@ -1704,7 +1704,7 @@
 
 <h1 id="prometheus">Prometheus</h1>
 <p><img alt="" src="../images/prometheus-logo.png" /><br />
-https://prometheus.io/</p>
+<a href="https://prometheus.io/">https://prometheus.io/</a></p>
 <h2 id="que-es-prometheus">¿Qué es prometheus?</h2>
 <p><strong>RESUMEN</strong> Prometheus es un sistema de monitoreo y alerta de código abierto que recopila y almacena métricas de aplicaciones e infraestructuras. Es una base de datos de series temporales que permite monitorizar el estado de los sistemas, detectar problemas y alertar cuando ocurren.</p>
 <p><strong>FUNCIONAMIENTO</strong> Prometheus va recorriendo "escrapeando" diferentes sistemas que le indiquemos los datos de métricas a través de una API y los almacena. Con prometheus podemos consultar estas métricas.</p>
@@ -1731,7 +1731,7 @@ Prometheus incluye un sistema de alertas que permite configurar reglas para aler
 <p><code>nombre_etiqueta{LABELS}</code></p>
 <p><img alt="" src="../images/prometheus-04.png" /></p>
 <h2 id="tipos-de-metricas">Tipos de métricas</h2>
-<p>https://prometheus.io/docs/tutorials/understanding_metric_types/</p>
+<p><a href="https://prometheus.io/docs/tutorials/understanding_metric_types/">https://prometheus.io/docs/tutorials/understanding_metric_types/</a></p>
 <h3 id="contador">Contador</h3>
 <p>Es un valor métrico que solo puede aumentar o restablecerse, es decir, el valor no puede ir a menos. Se puede utilizar para métricas como el número de solicitudes, número de errores, etc.</p>
 <p>Escribe la consulta a continuación en la barra de consultas y haga clic en ejecutar.<br />
@@ -1761,9 +1761,9 @@ Por ejemplo, nos pueden dar la mediana o máximo o mínimo de por ejemplo el uso
 <p>Levanta el contenedor con:<br />
 <code>docker compose up</code></p>
 <p>Accede a prometheus <br />
-http://localhost:9090/</p>
+<a href="http://localhost:9090/">http://localhost:9090/</a></p>
 <p>Las métricas que encontramos son las del propio prometheus:<br />
-http://localhost:9090/metrics</p>
+<a href="http://localhost:9090/metrics">http://localhost:9090/metrics</a></p>
 <p>Vemos las métricas que tenemos disponibles.<br />
 <img alt="" src="../images/prometheus-05.png" /><br />
 Encontramos diferentes tipos de métricas:<br />
@@ -1776,10 +1776,10 @@ Encontramos diferentes tipos de métricas:<br />
 <p>En graph:<br />
 rate(prometheus_tsdb_head_chunks_created_total[1m])`</p>
 <h3 id="ejemplo-2-cadvisor">Ejemplo 2. cadvisor.</h3>
-<p>https://www.apptio.com/topics/kubernetes/devops-tools/cadvisor/</p>
+<p><a href="https://www.apptio.com/topics/kubernetes/devops-tools/cadvisor/">https://www.apptio.com/topics/kubernetes/devops-tools/cadvisor/</a></p>
 <p>cAdvisor es un software de Google, escrito en Go, y programado específicamente para la captura de métricas de contenedores; necesita acceso a varios directorios del host (que mapearemos con bind-mounts en Docker) para capturar los datos. cAdvisor expone el puerto 8080 (interfaz web y REST api) y por defecto permite a Prometheus acceder a varias métricas.</p>
-<p>cadvisor: http://localhost:8080/<br />
-cadvisor metrics: http://localhost:8080/metrics</p>
+<p>cadvisor: <a href="http://localhost:8080/">http://localhost:8080/</a><br />
+cadvisor metrics: <a href="http://localhost:8080/metrics">http://localhost:8080/metrics</a></p>
 <p>Podemos consultar métricas como:<br />
 <code>cadvisor_version_info</code></p>
 <p><code>container_start_time_seconds{name="cadvisor"}</code></p>
@@ -1816,12 +1816,11 @@ cadvisor metrics: http://localhost:8080/metrics</p>
 </table>
 <h3 id="ejemplo-3-graphana">Ejemplo 3. graphana.</h3>
 <h2 id="netdata">netdata</h2>
-<p>https://github.com/netdata/netdata</p>
+<p><a href="https://github.com/netdata/netdata">https://github.com/netdata/netdata</a></p>
 <h2 id="promql">promQL</h2>
 <h2 id="enlaces">Enlaces</h2>
-<p>https://mxulises.medium.com/simple-prometheus-setup-on-docker-compose-f702d5f98579<br />
-https://comacero.com/posts/notes_docker_mon/</p>
-<p>[^1]: </p>
+<p><a href="https://mxulises.medium.com/simple-prometheus-setup-on-docker-compose-f702d5f98579">https://mxulises.medium.com/simple-prometheus-setup-on-docker-compose-f702d5f98579</a><br />
+<a href="https://comacero.com/posts/notes_docker_mon/">https://comacero.com/posts/notes_docker_mon/</a></p>
 
 
 
