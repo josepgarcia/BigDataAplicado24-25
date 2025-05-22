@@ -1518,9 +1518,36 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ejemplo-3-graphana" class="md-nav__link">
+  <a href="#ejemplo-3-python" class="md-nav__link">
     <span class="md-ellipsis">
-      Ejemplo 3. graphana.
+      Ejemplo 3. python.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-4-prometheus-node-exporter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 4. prometheus-node-exporter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-5-graphana" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 5. graphana.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-6-netdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 6. netdata
     </span>
   </a>
   
@@ -1528,15 +1555,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#netdata" class="md-nav__link">
-    <span class="md-ellipsis">
-      netdata
-    </span>
-  </a>
   
 </li>
       
@@ -1727,8 +1745,8 @@ Prometheus incluye un sistema de alertas que permite configurar reglas para aler
 <p>Hay todo un ecosistema de bibliotecas y clientes para exportar métricas compatibles con Prometheus desde multitud de sistemas.<br />
 <a href="https://prometheus.io/docs/instrumenting/clientlibs/">https://prometheus.io/docs/instrumenting/clientlibs/</a></p>
 <h2 id="metricas">Métricas</h2>
-<p>Ejemplo de métricas a las que accede prometheus.</p>
-<p><code>nombre_etiqueta{LABELS}</code></p>
+<p>Ejemplo de métricas a las que accede prometheus.<br />
+<code>nombre_etiqueta{LABELS}</code></p>
 <p><img alt="" src="../images/prometheus-04.png" /></p>
 <h2 id="tipos-de-metricas">Tipos de métricas</h2>
 <p><a href="https://prometheus.io/docs/tutorials/understanding_metric_types/">https://prometheus.io/docs/tutorials/understanding_metric_types/</a></p>
@@ -1814,9 +1832,36 @@ cadvisor metrics: <a href="http://localhost:8080/metrics">http://localhost:8080/
 </tr>
 </tbody>
 </table>
-<h3 id="ejemplo-3-graphana">Ejemplo 3. graphana.</h3>
-<h2 id="netdata">netdata</h2>
+<h3 id="ejemplo-3-python">Ejemplo 3. python.</h3>
+<h3 id="ejemplo-4-prometheus-node-exporter">Ejemplo 4. prometheus-node-exporter</h3>
+<div class="admonition warning">
+<p class="admonition-title">No disponible</p>
+<p>No disponible por el momento</p>
+</div>
+<p><a href="https://elpuig.xeill.net/Members/vcarceler/articulos/monitorizacion-con-prometheus-y-grafana">https://elpuig.xeill.net/Members/vcarceler/articulos/monitorizacion-con-prometheus-y-grafana</a><br />
+Cada equipo, o aplicación, que vaya a ser monitorizado con Prometheus debe publicar sus propias métricas mediante HTTP para que Prometheus las recoja. <br />
+Para monitorizar un ordenador con GNU/Linux la opción más sencilla consiste en instalar prometheus-node-exporter que se ejecutará como un servicio y publicará las métricas en el puerto 9100 del ordenador.</p>
+<p><a href="https://medium.com/@aravind33b/mastering-prometheus-on-macos-seamless-integration-with-grafana-5da2a1c95092">https://medium.com/@aravind33b/mastering-prometheus-on-macos-seamless-integration-with-grafana-5da2a1c95092</a></p>
+<h3 id="ejemplo-5-graphana">Ejemplo 5. graphana.</h3>
+<p>Juntamos todos los servicios utilizados anteriormente.</p>
+<p>Creamos un dashboard<br />
+<img alt="" src="../images/Pasted%20image%2020250522155844.png" /></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sum(rate(container_cpu_usage_seconds_total{name=~&quot;.+&quot;}[10m])) by (name) * 100
+</span></code></pre></div>
+<p><img alt="" src="../images/Pasted%20image%2020250522160027.png" /></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>count(count(container_last_seen) by (name))
+</span></code></pre></div>
+<p>Ejemplo dashboards:<br />
+<a href="https://grafana.com/grafana/dashboards/">https://grafana.com/grafana/dashboards/</a></p>
+<p>Enlaces de interés<br />
+<a href="https://medium.com/@aravind33b/mastering-prometheus-on-macos-seamless-integration-with-grafana-5da2a1c95092">https://medium.com/@aravind33b/mastering-prometheus-on-macos-seamless-integration-with-grafana-5da2a1c95092</a></p>
+<p><a href="https://prometheus.io/docs/visualization/grafana/">https://prometheus.io/docs/visualization/grafana/</a></p>
+<h3 id="ejemplo-6-netdata">Ejemplo 6. netdata</h3>
 <p><a href="https://github.com/netdata/netdata">https://github.com/netdata/netdata</a></p>
+<p>Netdata is distributed, real-time performance and health monitoring for these. It is a highly-optimized monitoring agent you install on all your systems and containers.</p>
+<p><a href="http://localhost:19999">http://localhost:19999</a></p>
+<p>Podemos crear una gráfica propia:<br />
+<img alt="" src="../images/Pasted%20image%2020250522162135.png" /></p>
 <h2 id="promql">promQL</h2>
 <h2 id="enlaces">Enlaces</h2>
 <p><a href="https://mxulises.medium.com/simple-prometheus-setup-on-docker-compose-f702d5f98579">https://mxulises.medium.com/simple-prometheus-setup-on-docker-compose-f702d5f98579</a><br />
