@@ -90,6 +90,7 @@ markdown_extensions:
   - pymdownx.superfences
   - admonition
   - pymdownx.details
+  - pymdownx.magiclink
   - nl2br
 
 plugins:
